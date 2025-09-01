@@ -5,22 +5,22 @@
 
 /* CSS Custom Properties (Variables) for Consistency */
 :root {
-    /* Color Palette */
-    --bg-color: #f8f9fa;
-    --card-bg-color: #ffffff;
-    --primary-text-color: #34495e;
-    --secondary-text-color: #5d6d7e;
-    --accent-1: #6a82fb;
-    --accent-2: #fc5c7d;
-    --header-text-color: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.08);
-    --border-color: #dee2e6;
-    --success-color: #28a745;
-    --warning-color: #ffc107;
-    --error-color: #dc3545;
+    /* Color Palette from Color Hunt: #F9F7F7, #DBE2EF, #3F72AF, #112D4E */
+    --bg-color: #F9F7F7;              /* Overall page background (Light Grey) */
+    --card-bg-color: #ffffff;         /* Cards remain white for crisp contrast */
+    --primary-text-color: #112D4E;    /* Very Dark Blue (almost black) for main headings, strong text */
+    --secondary-text-color: #495057;  /* Dark Grey for paragraphs, secondary text (chosen for contrast) */
+    --accent-1: #3F72AF;              /* Medium Blue for primary links, interactive elements */
+    --accent-2: #112D4E;              /* Very Dark Blue for stronger accents, hover states */
+    --header-text-color: var(--primary-text-color); /* Use primary text color for main headers */
+    --shadow-color: rgba(17, 45, 78, 0.08); /* Shadow based on dark blue */
+    --border-color: #DBE2EF;          /* Light Blue-Grey for subtle borders */
+    --success-color: #28a745;         /* (Keep existing) */
+    --warning-color: #ffc107;         /* (Keep existing) */
+    --error-color: #dc3545;           /* (Keep existing) */
     
     /* Typography */
-    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Using Inter */
     --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     
     /* Spacing System */
@@ -46,14 +46,10 @@
     --shadow-md: 0 4px 15px var(--shadow-color);
     --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
 
-    /* --- Timeline Specific Pastel Colors (New Variables for AIML_Research.html) --- */
-    /* Refined pastel palette for better contrast and elegance */
-    --timeline-bg-pastel-light: #F8FCFF; /* Very light background for the timeline page (almost white) */
-    --timeline-accent-pastel-medium: #87CEFA; /* Brighter Sky Blue - for timeline line, marker borders, button bg */
-    --timeline-accent-pastel-dark: #5F9ECF; /* Deeper Sky Blue - for hover states, era heading, tag text */
-    --timeline-shadow-pastel-soft: rgba(135, 206, 250, 0.18); /* Tinted shadow for timeline cards */
-    --timeline-shadow-pastel-hover: rgba(135, 206, 250, 0.3);
-    --timeline-tag-bg-pastel: #E1F0FF; /* Light blue that contrasts better with card bg */
+    /* --- Timeline Specific Derived Variables --- */
+    --timeline-shadow-soft: rgba(63, 114, 175, 0.15); /* Shadow based on --accent-1 */
+    --timeline-shadow-hover: rgba(63, 114, 175, 0.25);
+    --timeline-tag-bg: var(--border-color); /* Light blue-grey for tag backgrounds */
 }
 
 /* ==========================================================================
@@ -73,8 +69,8 @@ html {
 
 body {
     font-family: var(--font-family-primary);
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
+    background-color: var(--bg-color); /* Now uses the new light grey */
+    color: var(--primary-text-color); /* Main body text uses dark blue/almost black */
     line-height: 1.7;
     margin: 0;
     padding: var(--spacing-lg);
@@ -134,7 +130,7 @@ body {
 
 .navbar a {
     font-weight: 600;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Navbar links use dark blue/almost black */
     text-decoration: none;
     padding: var(--spacing-sm) var(--spacing-md);
     margin: 0;
@@ -148,31 +144,31 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #f0f4ff;
-    color: #4a6cf7;
-    border-color: #e1e8ff;
+    background-color: var(--border-color); /* Light blue-grey hover */
+    color: var(--accent-1); /* Medium blue hover text */
+    border-color: var(--border-color); /* Consistent border */
     transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.15);
+    box-shadow: 0 4px 12px rgba(63, 114, 175, 0.15); /* Shadow from accent */
 }
 
 .navbar a.active {
-    background-color: #e8f2ff;
-    color: #2563eb;
-    border-color: #bfdbfe;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    background-color: var(--border-color); /* Light blue-grey active */
+    color: var(--accent-1); /* Medium blue active text */
+    border-color: var(--accent-1); /* Medium blue border */
+    box-shadow: 0 2px 8px rgba(63, 114, 175, 0.1); /* Shadow from accent */
     transform: translateX(4px);
 }
 
-/* Header Section */
+/* Header Section (for index.html main header, etc.) */
 .header {
     text-align: center;
     margin-bottom: var(--spacing-xxl);
     padding: var(--spacing-xxl) var(--spacing-lg);
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f4ff 100%);
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg-color) 50%, var(--border-color) 100%); /* Using new palette */
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-lg); /* Using project's shadow */
     color: var(--primary-text-color);
-    border: 1px solid #e9ecef;
+    border: 1px solid var(--border-color);
 }
 
 /* Add extra spacing after header for better visual separation */
@@ -189,8 +185,8 @@ header {
     border-radius: var(--border-radius-lg);
     margin-bottom: var(--spacing-xl);
     border: none;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg-color) 50%, var(--bg-color) 100%);
+    box-shadow: 0 4px 20px var(--shadow-color);
     padding: var(--spacing-sm);
     display: block;
 }
@@ -199,7 +195,7 @@ header {
     font-size: 2.8rem;
     font-weight: 700;
     margin: 0 0 var(--spacing-md) 0;
-    color: #1e40af;
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     text-shadow: none;
     line-height: 1.2;
 }
@@ -207,7 +203,7 @@ header {
 .header p {
     font-size: 1.2rem;
     font-weight: 400;
-    color: #3730a3;
+    color: var(--secondary-text-color); /* Uses dark grey */
     margin: 0;
     max-width: 600px;
     margin-left: auto;
@@ -226,10 +222,10 @@ header {
 .section-title {
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid #e1e8ff;
+    border-bottom: 2px solid var(--border-color);
     text-align: left;
     position: relative;
 }
@@ -241,7 +237,7 @@ header {
     left: 0;
     width: 60px;
     height: 2px;
-    background-color: #4a6cf7;
+    background-color: var(--accent-1); /* Use medium blue accent */
     border-radius: 1px;
 }
 
@@ -255,23 +251,23 @@ header {
     margin-bottom: var(--spacing-lg);
 }
 
-/* Enhanced card styling for landing page */
+/* Enhanced card styling for landing page sections */
 .about .card {
-    background: linear-gradient(135deg, #fafbff 0%, #f8f9ff 100%);
-    border: 1px solid #e1e8ff;
-    box-shadow: 0 4px 20px rgba(74, 108, 247, 0.08);
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--border-color) 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(63, 114, 175, 0.08); /* Accent-1 tinted shadow */
 }
 
 .projects .card {
-    background: linear-gradient(135deg, #fff8f0 0%, #fff5e6 100%);
-    border: 1px solid #fde68a;
-    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.08);
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--border-color) 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(63, 114, 175, 0.08); /* Accent-1 tinted shadow */
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.08);
-    border-color: #e1e8ff;
+    box-shadow: 0 8px 25px rgba(63, 114, 175, 0.08); /* Accent-1 tinted shadow */
+    border-color: var(--accent-1); /* Hover border */
 }
 
 .card h1,
@@ -280,7 +276,7 @@ header {
 .card h4,
 .card h5,
 .card h6 {
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     margin-bottom: var(--spacing-sm);
 }
 
@@ -288,30 +284,30 @@ header {
     font-size: 1.6rem;
     margin-top: 1.5em;
     padding-bottom: var(--spacing-xs);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .card h3 {
     font-size: 1.3rem;
-    color: var(--accent-1);
+    color: var(--primary-text-color); /* Uses dark blue/almost black for stronger subheadings */
 }
 
 .card p,
 .card li {
     line-height: 1.7;
-    color: var(--secondary-text-color);
+    color: var(--secondary-text-color); /* Uses dark grey */
     margin-bottom: var(--spacing-sm);
 }
 
 .card a {
-    color: var(--accent-1);
+    color: var(--accent-1); /* Uses medium blue for links */
     text-decoration: none;
     transition: color var(--transition-fast);
 }
 
 .card a:hover {
     text-decoration: underline;
-    color: var(--accent-2);
+    color: var(--accent-2); /* Uses dark blue on hover */
 }
 
 /* ==========================================================================
@@ -334,7 +330,7 @@ header {
 }
 
 .topic-header h2 {
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
@@ -342,7 +338,7 @@ header {
 
 .topic-header p {
     font-size: 1.1rem;
-    color: var(--secondary-text-color);
+    color: var(--secondary-text-color); /* Uses dark grey */
 }
 
 .content-grid {
@@ -354,7 +350,7 @@ header {
 .concept-card,
 .resource-card {
     background-color: var(--bg-color);
-    border: 1px solid #e9ecef;
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     display: flex;
@@ -365,15 +361,15 @@ header {
 .concept-card:hover,
 .resource-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 108, 247, 0.06);
-    border-color: #e1e8ff;
-    background-color: #fafbff;
+    box-shadow: 0 6px 20px rgba(63, 114, 175, 0.06); /* Accent-1 tinted shadow */
+    border-color: var(--accent-1);
+    background-color: var(--timeline-light-blue-grey); /* Use a subtle accent background */
 }
 
 .concept-card h3,
 .resource-card h4 {
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     font-size: 1.3rem;
-    color: var(--primary-text-color);
     margin-bottom: var(--spacing-md);
 }
 
@@ -386,11 +382,11 @@ header {
 .concept-list li {
     font-size: 0.95rem;
     margin-bottom: var(--spacing-sm);
-    color: var(--secondary-text-color);
+    color: var(--secondary-text-color); /* Uses dark grey */
 }
 
 .concept-list li strong {
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
 }
 
 .resource-card p {
@@ -402,23 +398,23 @@ header {
 .resource-link {
     display: inline-block;
     text-decoration: none;
-    background-color: #e8f2ff;
-    color: #2563eb;
+    background-color: var(--border-color); /* Light blue-grey for button background */
+    color: var(--accent-1); /* Medium blue for button text */
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--border-radius-sm);
     font-weight: 500;
     transition: all var(--transition-normal);
     text-align: center;
     margin-top: auto;
-    border: 2px solid #bfdbfe;
+    border: 2px solid var(--accent-1); /* Border with medium blue */
 }
 
 .resource-link:hover {
-    background-color: #dbeafe;
-    color: #1d4ed8;
-    border-color: #93c5fd;
+    background-color: var(--accent-1); /* Medium blue on hover */
+    color: var(--card-bg-color); /* White text on hover */
+    border-color: var(--accent-2); /* Dark blue border on hover */
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 4px 12px rgba(63, 114, 175, 0.15); /* Accent-1 tinted shadow */
     text-decoration: none;
 }
 
@@ -443,24 +439,24 @@ header {
 .project-list a {
     display: block;
     padding: var(--spacing-lg) var(--spacing-xl);
-    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    background: linear-gradient(135deg, var(--card-bg-color) 0%, var(--bg-color) 100%); /* Blend white with page bg */
     border-radius: var(--border-radius-md);
     text-decoration: none;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     font-size: 1.1rem;
     font-weight: 600;
     transition: all var(--transition-normal);
-    border: 2px solid #e1e8ff;
+    border: 2px solid var(--border-color);
     position: relative;
     margin-bottom: var(--spacing-sm);
 }
 
 .project-list a:hover {
-    background: linear-gradient(135deg, #f0f4ff 0%, #e8f2ff 100%);
-    color: #4a6cf7;
-    border-color: #c7d2fe;
+    background: linear-gradient(135deg, var(--border-color) 0%, var(--accent-1) 10%); /* Hover effect with accent */
+    color: var(--card-bg-color); /* White text on hover */
+    border-color: var(--accent-2); /* Dark blue border on hover */
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.15);
+    box-shadow: 0 8px 25px rgba(63, 114, 175, 0.15); /* Accent-1 tinted shadow */
 }
 
 .project-list a span {
@@ -472,7 +468,7 @@ header {
    ========================================================================== */
 
 pre {
-    background-color: #f6f8fa;
+    background-color: var(--bg-color); /* Use light grey bg */
     border-radius: var(--border-radius-sm);
     padding: var(--spacing-md);
     overflow-x: auto;
@@ -485,10 +481,10 @@ pre {
 code {
     font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    background-color: #f6f8fa;
+    background-color: var(--bg-color); /* Use light grey bg */
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
 }
 
 pre code {
@@ -518,17 +514,17 @@ td {
 }
 
 th {
-    background-color: #f7f9fc;
+    background-color: var(--border-color); /* Use light blue-grey */
     font-weight: 600;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
 }
 
 tr:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: var(--bg-color); /* Use page bg color for even rows */
 }
 
 tr:hover {
-    background-color: #e9ecef;
+    background-color: var(--border-color); /* Light blue-grey on hover */
 }
 
 /* ==========================================================================
@@ -549,19 +545,19 @@ hr {
 footer {
     text-align: center;
     padding: var(--spacing-xxl) var(--spacing-lg);
-    color: #909da7;
+    color: var(--secondary-text-color); /* Uses dark grey */
     width: 100%;
     margin-top: auto;
 }
 
 footer a {
-    color: var(--accent-1);
+    color: var(--accent-1); /* Uses medium blue */
     text-decoration: none;
     transition: color var(--transition-normal);
 }
 
 footer a:hover {
-    color: var(--accent-2);
+    color: var(--accent-2); /* Uses dark blue */
 }
 
 /* ==========================================================================
@@ -802,13 +798,13 @@ select:focus {
 
 /* ==========================================================================
    Timeline Specific Styles (for AIML_Research.html)
-   These styles ensure the timeline blends with the existing theme while
-   maintaining its unique pastel and single-sided design.
+   These styles now fully integrate with the new global palette,
+   maintaining the single-sided layout and elegant feel.
    ========================================================================== */
 
-/* Specific body styling for the timeline page to override default body padding/background */
+/* Specific body styling for the timeline page */
 body.timeline-page {
-    background-color: var(--timeline-bg-pastel-light); /* Use a distinct pastel background for this page */
+    background-color: var(--bg-color); /* Uses the new global light grey */
     padding: 0; /* Remove default body padding to control layout better within main-container */
     display: flex; /* Ensure flex behavior for centering main-container */
     flex-direction: column;
@@ -816,12 +812,12 @@ body.timeline-page {
     min-height: 100vh;
 }
 
-/* The timeline page header section, adapting existing .header styles but with pastel accents */
+/* The timeline page header section, adapting existing .header styles with new palette */
 .timeline-page-header {
     text-align: center;
     margin-bottom: var(--spacing-xxl); /* Use project's spacing */
     padding: var(--spacing-xxl) var(--spacing-lg); /* Use project's spacing */
-    background: linear-gradient(135deg, var(--timeline-bg-pastel-light) 0%, var(--card-bg-color) 50%, var(--timeline-tag-bg-pastel) 100%);
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg-color) 50%, var(--border-color) 100%); /* Consistent gradients */
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md); /* Using project's shadow */
     color: var(--primary-text-color);
@@ -835,14 +831,14 @@ body.timeline-page {
 .timeline-page-header h1 {
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--primary-text-color); /* Using project's primary text color */
+    color: var(--primary-text-color); /* Uses dark blue/almost black for strong heading contrast */
     margin: 0 0 var(--spacing-md) 0;
     line-height: 1.2;
 }
 
 .timeline-page-header p {
     font-size: 1.1rem;
-    color: var(--secondary-text-color); /* Using project's secondary text color */
+    color: var(--secondary-text-color); /* Uses dark grey for body text */
     max-width: 700px;
     margin: 0 auto;
 }
@@ -851,7 +847,7 @@ body.timeline-page {
 .era-heading {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--timeline-accent-pastel-dark); /* Pastel accent */
+    color: var(--primary-text-color); /* Uses dark blue/almost black for era heading */
     text-transform: uppercase;
     letter-spacing: 1.2px;
     margin: var(--spacing-xxl) 0 var(--spacing-lg) 0; /* Adjust vertical spacing */
@@ -870,7 +866,7 @@ body.timeline-page {
     transform: translateY(-50%);
     width: 25px; /* Short line before heading */
     height: 2px;
-    background-color: var(--timeline-accent-pastel-medium);
+    background-color: var(--accent-1); /* Uses medium blue for accent line */
 }
 
 /* Main timeline content area - the vertical bar and items */
@@ -889,7 +885,7 @@ body.timeline-page {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: var(--timeline-accent-pastel-medium); /* Use pastel accent for visibility */
+    background: var(--accent-1); /* Timeline bar with medium blue */
     z-index: 0;
 }
 
@@ -911,15 +907,15 @@ body.timeline-page {
     height: 18px;
     width: 18px;
     background: var(--card-bg-color); /* Using project's card background for marker fill */
-    border: 3px solid var(--timeline-accent-pastel-medium);
+    border: 3px solid var(--accent-1); /* Border with medium blue */
     border-radius: 50%;
     z-index: 1; /* Above the timeline bar */
     transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .timeline-item:hover .timeline-marker {
-    background: var(--timeline-accent-pastel-medium);
-    border-color: var(--timeline-accent-pastel-dark);
+    background: var(--accent-1); /* Medium blue on hover */
+    border-color: var(--accent-2); /* Dark blue border on hover */
 }
 
 /* The content card for each timeline item */
@@ -928,7 +924,7 @@ body.timeline-page {
     border: 1px solid var(--border-color); /* Using project's border color */
     border-radius: var(--border-radius-lg); /* Using project's border-radius */
     padding: var(--spacing-lg) var(--spacing-xl); /* Using project's spacing */
-    box-shadow: 0 8px 25px var(--timeline-shadow-pastel-soft); /* Soft, tinted shadow */
+    box-shadow: 0 8px 25px var(--timeline-shadow-soft); /* Soft, tinted shadow */
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     position: relative;
     margin-left: var(--spacing-md); /* Space between marker/line and card */
@@ -936,13 +932,13 @@ body.timeline-page {
 
 .timeline-card:hover {
     transform: translateY(-7px); /* More noticeable lift */
-    box-shadow: 0 12px 30px var(--timeline-shadow-pastel-hover);
+    box-shadow: 0 12px 30px var(--timeline-shadow-hover);
 }
 
 .timeline-card .year {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--timeline-accent-pastel-dark);
+    color: var(--primary-text-color); /* Year text with dark blue/almost black for prominence */
     margin-bottom: 0.6rem;
     display: block;
     letter-spacing: 0.5px;
@@ -952,13 +948,13 @@ body.timeline-page {
     margin: 0 0 var(--spacing-sm) 0; /* Using project's spacing */
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--primary-text-color); /* Using project's primary text color */
+    color: var(--primary-text-color); /* Uses dark blue/almost black */
     line-height: 1.3;
 }
 
 .timeline-card p {
     margin: 0 0 var(--spacing-md) 0; /* Using project's spacing */
-    color: var(--secondary-text-color); /* Using project's secondary text color */
+    color: var(--secondary-text-color); /* Uses dark grey */
     font-size: 1rem;
 }
 
@@ -972,20 +968,20 @@ body.timeline-page {
 
 .tag {
     display: inline-block;
-    background: var(--timeline-tag-bg-pastel);
-    border: 1px solid var(--timeline-accent-pastel-medium);
-    color: var(--timeline-accent-pastel-dark);
+    background: var(--timeline-tag-bg); /* Light blue-grey for tag background */
+    border: 1px solid var(--accent-1); /* Border with medium blue */
+    color: var(--primary-text-color); /* Tag text with dark blue/almost black */
     padding: 6px 14px;
     border-radius: 20px; /* More pill-shaped */
     font-size: 0.85rem;
     font-weight: 600;
 }
 
-/* Link Button styling, adapted from .resource-link or project's button styles */
+/* Link Button styling */
 .timeline-card .link-button {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-md); /* Using project's spacing */
-    background-color: var(--timeline-accent-pastel-medium); /* Pastel blue for button */
+    background-color: var(--accent-1); /* Button background with medium blue */
     color: var(--card-bg-color); /* White text from project's palette */
     text-decoration: none;
     border-radius: var(--border-radius-md); /* Using project's border-radius */
@@ -996,7 +992,7 @@ body.timeline-page {
 }
 
 .timeline-card .link-button:hover {
-    background-color: var(--timeline-accent-pastel-dark);
+    background-color: var(--accent-2); /* Dark blue on hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
