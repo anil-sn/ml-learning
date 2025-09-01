@@ -50,6 +50,11 @@
     --timeline-shadow-soft: rgba(63, 114, 175, 0.15); /* Shadow based on --accent-1 */
     --timeline-shadow-hover: rgba(63, 114, 175, 0.25);
     --timeline-tag-bg: var(--border-color); /* Light blue-grey for tag backgrounds */
+
+    /* --- Top Navigation Specific Variables (for project.html, etc.) --- */
+    --top-nav-bg: var(--card-bg-color); /* White background for top nav */
+    --top-nav-item-hover-bg: var(--border-color); /* Light blue-grey hover for top nav items */
+    --top-nav-item-active-bg: var(--border-color); /* Light blue-grey active for top nav items */
 }
 
 /* ==========================================================================
@@ -92,7 +97,7 @@ body {
     gap: var(--spacing-lg);
 }
 
-/* Sidebar Navigation */
+/* Sidebar Navigation - Default for main pages (index, html/*.html) */
 .sidebar {
     width: 200px;
     min-width: 200px;
@@ -112,10 +117,10 @@ body {
     min-width: 0; /* Prevents flex item from overflowing */
 }
 
-/* Navigation Bar - Updated for sidebar */
+/* Navbar styles shared by both sidebar and top nav (default is sidebar orientation) */
 .navbar {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Default: vertical for sidebar */
     gap: var(--spacing-xs);
     padding: 0;
     margin-bottom: 0;
@@ -143,21 +148,95 @@ body {
     font-size: 0.95rem;
 }
 
+/* Hover and Active Styles for Navbar - consistent across all uses */
 .navbar a:hover {
-    background-color: var(--border-color); /* Light blue-grey hover */
+    background-color: var(--border-color); /* Light blue-grey hover background */
     color: var(--accent-1); /* Medium blue hover text */
-    border-color: var(--border-color); /* Consistent border */
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(63, 114, 175, 0.15); /* Shadow from accent */
+    border-color: var(--border-color); /* Consistent border color */
+    transform: translateX(4px); /* Sidebar specific effect */
+    box-shadow: 0 4px 12px rgba(63, 114, 175, 0.15); /* Tinted shadow from accent-1 */
 }
 
 .navbar a.active {
-    background-color: var(--border-color); /* Light blue-grey active */
+    background-color: var(--border-color); /* Light blue-grey active background */
     color: var(--accent-1); /* Medium blue active text */
-    border-color: var(--accent-1); /* Medium blue border */
-    box-shadow: 0 2px 8px rgba(63, 114, 175, 0.1); /* Shadow from accent */
-    transform: translateX(4px);
+    border-color: var(--accent-1); /* Medium blue active border */
+    box-shadow: 0 2px 8px rgba(63, 114, 175, 0.1); /* Tinted shadow from accent-1 */
+    transform: translateX(4px); /* Sidebar specific effect */
 }
+
+
+/* --- TOP NAVIGATION SPECIFIC STYLES (FOR PROJECT PAGES) --- */
+/* Override default body padding and flex behavior for pages with top navigation */
+body.top-nav-page {
+    padding: 0; /* Remove global body padding */
+    display: block; /* Override flex display for direct content flow */
+    min-height: auto; /* Allow height to adjust naturally */
+}
+
+/* Top navigation bar wrapper */
+.top-navbar-wrapper {
+    width: 100%;
+    background-color: var(--top-nav-bg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Keep top nav visible when scrolling */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Styles for the top navigation bar itself */
+.top-navbar {
+    max-width: 1200px; /* Match main container width */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; /* Horizontal layout for top nav */
+    justify-content: center; /* Center items */
+    gap: var(--spacing-md);
+    padding: 0;
+    list-style: none; /* Remove bullet points */
+}
+
+.top-navbar a {
+    font-weight: 600;
+    color: var(--primary-text-color);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    display: flex; /* Use flex for vertical centering in item */
+    align-items: center;
+    border: 2px solid transparent; /* Consistent border */
+    font-size: 0.95rem;
+}
+
+/* Top Navbar Hover/Active styles - adjusted for horizontal layout */
+.top-navbar a:hover {
+    background-color: var(--top-nav-item-hover-bg);
+    color: var(--accent-1);
+    border-color: var(--border-color);
+    transform: translateY(-2px); /* Subtle lift instead of slide */
+    box-shadow: 0 4px 12px rgba(63, 114, 175, 0.1);
+}
+
+.top-navbar a.active {
+    background-color: var(--top-nav-item-active-bg);
+    color: var(--accent-1);
+    border-color: var(--accent-1);
+    box-shadow: 0 2px 8px rgba(63, 114, 175, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Main content wrapper for top nav pages */
+.top-nav-content-wrapper {
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto; /* Top margin to give space after nav */
+    padding: 0 var(--spacing-lg);
+    flex-grow: 1; /* Allow content to grow */
+}
+
 
 /* Header Section (for index.html main header, etc.) */
 .header {
@@ -363,7 +442,7 @@ header {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(63, 114, 175, 0.06); /* Accent-1 tinted shadow */
     border-color: var(--accent-1);
-    background-color: var(--timeline-light-blue-grey); /* Use a subtle accent background */
+    background-color: var(--border-color); /* Use a subtle accent background */
 }
 
 .concept-card h3,
@@ -587,6 +666,26 @@ footer a:hover {
         order: 1;
     }
     
+    /* Top navigation also needs to become vertical/stacked on small screens */
+    .top-navbar-wrapper {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+    .top-navbar {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    .top-navbar a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        text-align: center;
+        width: auto; /* Allow items to size naturally */
+        align-self: stretch; /* Stretch to fill available space */
+    }
+    .top-navbar a:hover,
+    .top-navbar a.active {
+        transform: translateY(-2px); /* Keep subtle lift */
+    }
+
+
     .header {
         padding: var(--spacing-xl) var(--spacing-md);
     }
@@ -670,6 +769,17 @@ footer a:hover {
         order: 1;
     }
     
+    /* Top navigation also needs responsive adjustments */
+    .top-navbar {
+        gap: var(--spacing-sm);
+        flex-wrap: wrap; /* Allow items to wrap */
+    }
+    .top-navbar a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+
+
     .header h1 {
         font-size: 2.4rem;
     }
@@ -775,7 +885,7 @@ select:focus {
 
 /* Print styles */
 @media print {
-    .navbar {
+    .navbar, .top-navbar-wrapper { /* Hide both navs for print */
         display: none;
     }
     

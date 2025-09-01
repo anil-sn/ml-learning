@@ -4,39 +4,30 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Troubleshooting Chatbot (RAG) - ML Projects</title>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-      <style>
-         :root { --bg-color: #f8f9fa; --card-bg-color: #ffffff; --primary-text-color: #34495e; --secondary-text-color: #5d6d7e; --accent-1: #6a82fb; --accent-2: #fc5c7d; --header-text-color: #ffffff; --shadow-color: rgba(0, 0, 0, 0.08); }
-         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-         .main-container { width: 100%; max-width: 800px; flex-grow: 1; }
-         .navbar { width: 100%; padding: 15px 0; margin-bottom: 20px; text-align: center; background: var(--card-bg-color); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color); }
-         .navbar a { font-weight: 600; color: var(--primary-text-color); text-decoration: none; padding: 10px 20px; margin: 0 10px; border-radius: 8px; transition: all 0.3s ease; }
-         .navbar a:hover { background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); color: var(--header-text-color); }
-         .section { margin-bottom: 30px; }
-         .section-title { font-size: 1.8em; font-weight: 600; color: var(--primary-text-color); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid; border-image: linear-gradient(to right, var(--accent-1), var(--accent-2)) 1; }
-         .card { background-color: var(--card-bg-color); border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px var(--shadow-color); }
-         .card h1, .card h2, .card h3 { color: var(--primary-text-color); }
-         .card p { line-height: 1.7; color: var(--secondary-text-color); }
-         footer { text-align: center; padding: 40px 20px; color: #909da7; width: 100%; }
-         footer a { color: #6a82fb; text-decoration: none; transition: color 0.3s; } footer a:hover { color: #fc5c7d; }
-      </style>
+    <link rel="stylesheet" href="../../css/styles.css"> <!-- Correct path for project subdirectories -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
    </head>
-   <body>
-      <div class="main-container">
-         <nav class="navbar">
+<body class="top-nav-page">
+
+    <!-- Top Navigation for Project Pages -->
+    <div class="top-navbar-wrapper">
+        <nav class="top-navbar">
             <a href="../../index.html">Home</a>
+            <a href="../../html/prerequisites.html">Prerequisites</a>            
+            <a href="../../html/Environments.html">Environments</a>
             <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
             <a href="../../html/Projects.html" class="active">Projects</a>
-            <a href="../../html/Environments.html">Environments</a>
-            <a href="../../html/prerequisites.html">Prerequisites</a>  
          </nav>
-         <section class="content section">
-            <h2 class="section-title">Troubleshooting Chatbot (RAG)</h2>
+    </div>
+
+    <!-- Main content for project details -->
+    <div class="top-nav-content-wrapper">
+      <h1 class="section-title" style="margin-top: var(--spacing-xl);">Troubleshooting Chatbot (RAG)</h1>
             <div class="card">
-               <h3>Project Overview</h3>
+               <h2>Project Overview</h2>
                <p>This project explores Retrieval-Augmented Generation (RAG) to create an intelligent troubleshooting chatbot. We'll learn how to combine LLMs with custom knowledge bases to provide accurate, context-aware responses.</p>
                
-               <h3>Key Learning Objectives</h3>
+               <h2>Key Learning Objectives</h2>
                <ul>
                   <li>Understanding RAG architecture</li>
                   <li>Vector databases and embeddings</li>
@@ -45,7 +36,7 @@
                   <li>Response generation and validation</li>
                </ul>
 
-               <h3>Technologies Used</h3>
+               <h2>Technologies Used</h2>
                <ul>
                   <li>Python</li>
                   <li>LangChain</li>
@@ -54,12 +45,13 @@
                   <li>FAISS for vector search</li>
                </ul>
 
-               <h3>Additional Resources</h3>
+               <h2>Additional Resources</h2>
                <p>For detailed implementation guide, code examples, and step-by-step instructions, please visit the 
                <a href="https://github.com/anil-sn/ml-learning/blob/main/projects/009_Troubleshooting_Chatbot_RAG/readme.md" target="_blank">GitHub Project Repository</a>.</p>
-            </div>
-         </section>
-      </div>
+          </div>
+      </div> <!-- End top-nav-content-wrapper -->
+  
+      <!-- Footer from your index.html -->
       <footer>
          <p>© 2025 Anil Kumar SN. All rights reserved.</p>
          <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>

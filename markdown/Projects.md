@@ -1,6 +1,6 @@
 # From Packets to Predictions: A Practical Machine Learning Curriculum for Network Engineers
 
-This repository contains a comprehensive, hands-on curriculum designed to bridge the gap between deep expertise in fixed access networking and the transformative power of modern AI. This is a strategic blueprint for software engineers at Calix (and beyond) to develop practical, production-grade skills in Machine Learning (ML) and Large Language Models (LLMs) by solving problems directly relevant to our domain.
+This repository contains a comprehensive, hands-on curriculum designed to bridge the gap between deep expertise in fixed access networking and the transformative power of modern AI. This is a strategic blueprint for software engineers to develop practical, production-grade skills in Machine Learning (ML) and Large Language Models (LLMs) by solving problems directly relevant to our domain.
 
 ## The Opportunity: The Next Generation of Network Intelligence
 
