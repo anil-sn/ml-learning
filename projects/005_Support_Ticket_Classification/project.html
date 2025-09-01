@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Support Ticket Classification - ML Projects</title>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+      <style>
+         :root { --bg-color: #f8f9fa; --card-bg-color: #ffffff; --primary-text-color: #34495e; --secondary-text-color: #5d6d7e; --accent-1: #6a82fb; --accent-2: #fc5c7d; --header-text-color: #ffffff; --shadow-color: rgba(0, 0, 0, 0.08); }
+         body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+         .main-container { width: 100%; max-width: 800px; flex-grow: 1; }
+         .navbar { width: 100%; padding: 15px 0; margin-bottom: 20px; text-align: center; background: var(--card-bg-color); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color); }
+         .navbar a { font-weight: 600; color: var(--primary-text-color); text-decoration: none; padding: 10px 20px; margin: 0 10px; border-radius: 8px; transition: all 0.3s ease; }
+         .navbar a:hover { background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); color: var(--header-text-color); }
+         .section { margin-bottom: 30px; }
+         .section-title { font-size: 1.8em; font-weight: 600; color: var(--primary-text-color); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid; border-image: linear-gradient(to right, var(--accent-1), var(--accent-2)) 1; }
+         .card { background-color: var(--card-bg-color); border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px var(--shadow-color); }
+         .card h1, .card h2, .card h3 { color: var(--primary-text-color); }
+         .card p { line-height: 1.7; color: var(--secondary-text-color); }
+         footer { text-align: center; padding: 40px 20px; color: #909da7; width: 100%; }
+         footer a { color: #6a82fb; text-decoration: none; transition: color 0.3s; } footer a:hover { color: #fc5c7d; }
+      </style>
+   </head>
+   <body>
+      <div class="main-container">
+         <nav class="navbar">
+            <a href="../../index.html">Home</a>
+            <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+            <a href="../../html/Projects.html" class="active">Projects</a>
+            <a href="../../html/Environments.html">Environments</a>
+            <a href="../../html/prerequisites.html">Prerequisites</a>  
+         </nav>
+         <section class="content section">
+            <h2 class="section-title">Support Ticket Classification</h2>
+            <div class="card">
+               <h3>Project Overview</h3>
+               <p>This project introduces Natural Language Processing (NLP) and Large Language Models (LLMs) through the practical application of automatically classifying support tickets. We'll use zero-shot classification to categorize tickets without traditional training data.</p>
+               
+               <h3>Key Learning Objectives</h3>
+               <ul>
+                  <li>Understanding zero-shot classification</li>
+                  <li>Working with Hugging Face Transformers</li>
+                  <li>Text preprocessing for NLP</li>
+                  <li>Implementing multilabel classification</li>
+                  <li>Evaluating NLP model performance</li>
+               </ul>
+
+               <h3>Technologies Used</h3>
+               <ul>
+                  <li>Python</li>
+                  <li>Hugging Face Transformers</li>
+                  <li>PyTorch</li>
+                  <li>NLTK for text preprocessing</li>
+                  <li>pandas for data management</li>
+               </ul>
+
+               <h3>Additional Resources</h3>
+               <p>For detailed implementation guide, code examples, and step-by-step instructions, please visit the 
+               <a href="https://github.com/anil-sn/ml-learning/blob/main/projects/005_Support_Ticket_Classification/readme.md" target="_blank">GitHub Project Repository</a>.</p>
+            </div>
+         </section>
+      </div>
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+   </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Anil Kumar SN - Portfolio</title>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/styles.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="index.html" class="active">Home</a>
+               <a href="html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="html/Projects.html">Projects</a>
+               <a href="html/Environments.html">Environments</a>
+               <a href="html/prerequisites.html">Prerequisites</a>
+            </nav>
+         </aside>
+         
+         <main class="main-content">
+            <header>
+               <img src="image/index.jpg" alt="Cartoons Discussing about Machine Learning" class="header-image">
+               <h1>AnilKumar Srirangapatna Nagesh</h1>
+               <p> Network Engineer | Learning to transform Broadband/Core Networks with AI, Machine Learning, and Agentic Solutions.</p>
+            </header>
+            <section class="about section">
+            <div class="card">
+               <p> With nearly two decades of experience in the communications industry, I've focused my career on architecting and deploying the robust network solutions that underpin our digital world. My expertise lies in core routing protocols like BGP, OSPF, and MPLS, and I currently lead the development of Broadband Network Gateway (BNG) protocols at Calix Inc.</p>
+               <p> Recently, my curiosity has led me to the transformative potential of AI and machine learning in our field. This has marked a new chapter in my career, where I am embracing the role of a learner once again. I'm now exploring how to bridge my extensive networking background with the power of AI and am focused on the practical applications of machine learning within the networking domain. My goal is to leverage my experience to build innovative, AI-driven solutions for predictive analytics, anomaly detection, and intelligent automation.</p>
+            </div>
+         </section>
+         <section class="overview section" id="project-overview">
+            <div class="card">
+               <h2 class="section-title">Welcome to the ML Learning </h2>
+               <p>
+                  This project serves as a comprehensive and practical guide for anyone looking to dive deep into Machine Learning (ML) and Artificial Intelligence (AI), with a special focus on making these complex fields accessible and relevant to network engineers. Here, you'll find a structured roadmap, essential prerequisites, hands-on projects, and a historical timeline of pivotal research, all designed to bridge the gap between networking fundamentals and advanced AI/ML concepts.
+               </p>
+               <p>
+                  Our goal is to provide a clear pathway for understanding how AI and ML are revolutionizing network management, optimization, security, and automation, equipping you with the skills to innovate in a rapidly evolving technological landscape.
+               </p>
+
+               <h2 class="section-title">What is Machine Learning?</h2>
+               <p>
+                  Machine Learning is a subset of Artificial Intelligence that enables systems to learn from data, identify patterns, and make decisions or predictions with minimal human intervention. Instead of being explicitly programmed, ML algorithms "learn" from vast amounts of data, adapt their behavior, and improve their performance over time. This transformative capability is at the heart of modern AI advancements.
+               </p>
+
+               <h2 class="section-title">Key Machine Learning Algorithms for Study</h2>
+               <p>
+                  To effectively navigate the ML landscape, understanding foundational algorithms is crucial. Here's a curated list of important algorithms across different learning paradigms, with high-quality references to deepen your knowledge:
+               </p>
+
+               <div class="content-grid"> <!-- Using your content-grid for layout -->
+                   <div class="concept-card"> <!-- Reusing concept-card for algorithm details -->
+                       <h3>Supervised Learning</h3>
+                       <p>Algorithms that learn from labeled data to make predictions or classify outcomes.</p>
+                       <ul class="concept-list">
+                           <li>
+                               <strong>Linear/Logistic Regression:</strong> Simple yet powerful algorithms for predicting continuous values (linear) or binary outcomes (logistic).
+                               <a href="https://towardsdatascience.com/linear-and-logistic-regression-in-machine-learning-d6d7667d79b2" target="_blank" class="resource-link">Ref: Towards Data Science</a>
+                           </li>
+                           <li>
+                               <strong>Decision Trees & Random Forests:</strong> Tree-based models used for classification and regression. Random Forests combine multiple decision trees to improve accuracy and reduce overfitting.
+                               <a href="https://scikit-learn.org/stable/modules/tree.html" target="_blank" class="resource-link">Ref: Scikit-learn Docs (Decision Trees)</a>
+                           </li>
+                           <li>
+                               <strong>Support Vector Machines (SVM):</strong> Effective for classification, finding the optimal hyperplane that separates different classes in high-dimensional spaces.
+                               <a href="https://datahacker.rs/006-svm-tutorial-what-is-the-svm-algorithm-in-machine-learning/" target="_blank" class="resource-link">Ref: Datahacker.rs</a>
+                           </li>
+                       </ul>
+                   </div>
+
+                   <div class="concept-card">
+                       <h3>Unsupervised Learning</h3>
+                       <p>Algorithms that discover hidden patterns or structures in unlabeled data.</p>
+                       <ul class="concept-list">
+                           <li>
+                               <strong>K-Means Clustering:</strong> Groups data points into K distinct clusters based on similarity.
+                               <a href="https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e6733656d" target="_blank" class="resource-link">Ref: Towards Data Science</a>
+                           </li>
+                           <li>
+                               <strong>Principal Component Analysis (PCA):</strong> A dimensionality reduction technique that transforms data to a new set of orthogonal variables called principal components.
+                               <a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.09-principal-component-analysis.html" target="_blank" class="resource-link">Ref: Python Data Science Handbook</a>
+                           </li>
+                       </ul>
+                   </div>
+
+                   <div class="concept-card">
+                       <h3>Deep Learning</h3>
+                       <p>A subfield of ML using neural networks with many layers to learn complex representations.</p>
+                       <ul class="concept-list">
+                           <li>
+                               <strong>Convolutional Neural Networks (CNNs):</strong> Primarily used for image recognition and processing, excelling at learning spatial hierarchies of features.
+                               <a href="https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a5c" target="_blank" class="resource-link">Ref: Towards Data Science</a>
+                           </li>
+                           <li>
+                               <strong>Recurrent Neural Networks (RNNs) & LSTMs:</strong> Designed for sequential data (like text or time series), capable of processing input sequences element by element, with LSTMs addressing vanishing gradients.
+                               <a href="https://towardsdatascience.com/understanding-lstm-and-its-diagrams-b14a223e6716" target="_blank" class="resource-link">Ref: Towards Data Science (LSTMs)</a>
+                           </li>
+                           <li>
+                               <strong>Transformers:</strong> State-of-the-art for natural language processing, utilizing attention mechanisms to weigh the importance of different parts of the input sequence.
+                               <a href="https://towardsdatascience.com/transformers-in-nlp-explained-and-coded-f4722827181c" target="_blank" class="resource-link">Ref: Towards Data Science</a>
+                           </li>
+                       </ul>
+                   </div>
+
+                   <div class="concept-card">
+                       <h3>Reinforcement Learning (RL)</h3>
+                       <p>Algorithms that learn to make optimal decisions by interacting with an environment and receiving rewards or penalties.</p>
+                       <ul class="concept-list">
+                           <li>
+                               <strong>Q-Learning:</strong> A model-free RL algorithm that finds an optimal action-selection policy by learning action-value functions.
+                               <a href="https://towardsdatascience.com/reinforcement-learning-with-q-learning-and-sarsa-50b32997198d" target="_blank" class="resource-link">Ref: Towards Data Science</a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+
+               <h2 class="section-title">Why This Project for Network Engineers?</h2>
+               <p>
+                  Network engineering is evolving rapidly. Traditional manual configurations and reactive troubleshooting are giving way to automated, intelligent, and proactive systems. Machine Learning and AI are not just buzzwords; they are becoming essential tools for modern network professionals.
+               </p>
+               <p>
+                  This project specifically tailors your transition to AI/ML by:
+               </p>
+               <ul class="concept-list">
+                   <li>
+                       <strong>Solving Real-World Network Problems:</strong> Explore projects on network traffic anomaly detection, predictive maintenance for infrastructure, bandwidth demand forecasting, and QoS optimization (see <a href="html/Projects.html">Projects</a> section for examples).
+                   </li>
+                   <li>
+                       <strong>Leveraging Existing Skills:</strong> Your understanding of network protocols, topologies, and data flows provides an invaluable foundation for building effective ML models in networking. This project helps you map that knowledge to ML concepts.
+                   </li>
+                   <li>
+                       <strong>Structured Learning Path:</strong> From prerequisites to environment setup, and a historical timeline, this resource offers a clear, guided journey into the field.
+                   </li>
+                   <li>
+                       <strong>Staying Ahead of the Curve:</strong> Equip yourself with the skills demanded by the future of networking, moving towards intent-based networking, autonomous operations, and AI-driven security.
+                   </li>
+                   <li>
+                       <strong>Hands-On Application:</strong> The included projects are designed to give you practical experience, transforming theoretical knowledge into deployable solutions relevant to network operations.
+                   </li>
+               </ul>
+               <p>
+                  Embrace the convergence of networking and AI/ML. This portfolio is your practical guide to becoming a leader in the next generation of intelligent network management!
+               </p>
+               <p style="text-align: center; margin-top: var(--spacing-xl);">
+                   <a href="html/Projects.html" class="resource-link" style="padding: var(--spacing-md) var(--spacing-xl); font-size: 1.1rem; border-width: 2px;">Explore ML Projects &rarr;</a>
+               </p>
+            </div>
+         </section>
+         </main>
+      </div>
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <script src="js/navigation.js"></script>
+   </body>
+</html>

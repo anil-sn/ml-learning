@@ -1,0 +1,1099 @@
+/* ==========================================================================
+   ML Learning Portfolio - Shared Styles
+   Industry-standard CSS following best practices
+   ========================================================================== */
+
+/* CSS Custom Properties (Variables) for Consistency */
+:root {
+    /* Color Palette */
+    --bg-color: #f8f9fa;
+    --card-bg-color: #ffffff;
+    --primary-text-color: #34495e;
+    --secondary-text-color: #5d6d7e;
+    --accent-1: #6a82fb;
+    --accent-2: #fc5c7d;
+    --header-text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --border-color: #dee2e6;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    
+    /* Typography */
+    --font-family-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    
+    /* Spacing System */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Border Radius */
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px var(--shadow-color);
+    --shadow-md: 0 4px 15px var(--shadow-color);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+
+    /* --- Timeline Specific Pastel Colors (New Variables for AIML_Research.html) --- */
+    /* These provide the distinct pastel touch for timeline-specific elements */
+    --timeline-bg-pastel-light: #F0F8FF; /* Alice Blue - very light background for the timeline page */
+    --timeline-accent-pastel-medium: #A0D2EB; /* Soft Sky Blue - for timeline line, marker borders, button bg */
+    --timeline-accent-pastel-dark: #7AAFD1; /* Darker Sky Blue - for hover states, era heading, tag text */
+    --timeline-shadow-pastel-soft: rgba(160, 210, 235, 0.15); /* Soft blue shadow for timeline cards */
+    --timeline-shadow-pastel-hover: rgba(160, 210, 235, 0.25);
+    --timeline-tag-bg-pastel: #EBF8FF; /* Even lighter blue for tag backgrounds */
+}
+
+/* ==========================================================================
+   Base Styles - Reset and Foundation
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    flex-grow: 1;
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 200px;
+    min-width: 200px;
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+    height: fit-content;
+    position: sticky;
+    top: var(--spacing-lg);
+    z-index: 100;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+/* Navigation Bar - Updated for sidebar */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: 0;
+    margin-bottom: 0;
+    text-align: left;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    position: static;
+    top: auto;
+    z-index: auto;
+}
+
+.navbar a {
+    font-weight: 600;
+    color: var(--primary-text-color);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    display: block;
+    border: 2px solid transparent;
+    text-align: left;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.navbar a:hover {
+    background-color: #f0f4ff;
+    color: #4a6cf7;
+    border-color: #e1e8ff;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.15);
+}
+
+.navbar a.active {
+    background-color: #e8f2ff;
+    color: #2563eb;
+    border-color: #bfdbfe;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    transform: translateX(4px);
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f4ff 100%);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    color: var(--primary-text-color);
+    border: 1px solid #e9ecef;
+}
+
+/* Add extra spacing after header for better visual separation */
+header {
+    margin-bottom: calc(var(--spacing-xxl) + var(--spacing-lg));
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-xl);
+    border: none;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: var(--spacing-sm);
+    display: block;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-md) 0;
+    color: #1e40af;
+    text-shadow: none;
+    line-height: 1.2;
+}
+
+.header p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #3730a3;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Content Components
+   ========================================================================== */
+
+.section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid #e1e8ff;
+    text-align: left;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #4a6cf7;
+    border-radius: 1px;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Enhanced card styling for landing page */
+.about .card {
+    background: linear-gradient(135deg, #fafbff 0%, #f8f9ff 100%);
+    border: 1px solid #e1e8ff;
+    box-shadow: 0 4px 20px rgba(74, 108, 247, 0.08);
+}
+
+.projects .card {
+    background: linear-gradient(135deg, #fff8f0 0%, #fff5e6 100%);
+    border: 1px solid #fde68a;
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.08);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.08);
+    border-color: #e1e8ff;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+    color: var(--primary-text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    margin-top: 1.5em;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid #eee;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    color: var(--accent-1);
+}
+
+.card p,
+.card li {
+    line-height: 1.7;
+    color: var(--secondary-text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card a {
+    color: var(--accent-1);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.card a:hover {
+    text-decoration: underline;
+    color: var(--accent-2);
+}
+
+/* ==========================================================================
+   Prerequisites Page Specific Styles
+   ========================================================================== */
+
+.topic-section {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.topic-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.topic-header h2 {
+    color: var(--primary-text-color);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.topic-header p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.concept-card,
+.resource-card {
+    background-color: var(--bg-color);
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.concept-card:hover,
+.resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 108, 247, 0.06);
+    border-color: #e1e8ff;
+    background-color: #fafbff;
+}
+
+.concept-card h3,
+.resource-card h4 {
+    font-size: 1.3rem;
+    color: var(--primary-text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.concept-list {
+    list-style: disc;
+    padding-left: var(--spacing-lg);
+    flex-grow: 1;
+}
+
+.concept-list li {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary-text-color);
+}
+
+.concept-list li strong {
+    color: var(--primary-text-color);
+}
+
+.resource-card p {
+    font-size: 0.9rem;
+    flex-grow: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.resource-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #e8f2ff;
+    color: #2563eb;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    text-align: center;
+    margin-top: auto;
+    border: 2px solid #bfdbfe;
+}
+
+.resource-link:hover {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    border-color: #93c5fd;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Project List Styles
+   ========================================================================== */
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-list li {
+    margin-bottom: var(--spacing-md);
+}
+
+.project-list li:last-child {
+    margin-bottom: 0;
+}
+
+.project-list a {
+    display: block;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    color: var(--primary-text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    border: 2px solid #e1e8ff;
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-list a:hover {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f2ff 100%);
+    color: #4a6cf7;
+    border-color: #c7d2fe;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.15);
+}
+
+.project-list a span {
+    transition: color var(--transition-normal);
+}
+
+/* ==========================================================================
+   Code and Technical Elements
+   ========================================================================== */
+
+pre {
+    background-color: #f6f8fa;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid var(--border-color);
+    margin: var(--spacing-md) 0;
+}
+
+code {
+    font-family: var(--font-family-mono);
+    font-size: 0.9rem;
+    background-color: #f6f8fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    color: var(--primary-text-color);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-md) 0;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+th,
+td {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm);
+    text-align: left;
+}
+
+th {
+    background-color: #f7f9fc;
+    font-weight: 600;
+    color: var(--primary-text-color);
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+/* ==========================================================================
+   Dividers and Separators
+   ========================================================================== */
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--spacing-lg) 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    color: #909da7;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer a {
+    color: var(--accent-1);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+footer a:hover {
+    color: var(--accent-2);
+}
+
+/* ==========================================================================
+   Responsive Design - Mobile First Approach
+   ========================================================================== */
+
+/* Small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+    
+    .main-container {
+        padding: 0;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-width: auto;
+        position: static;
+        order: 2;
+    }
+    
+    .main-content {
+        order: 1;
+    }
+    
+    .header {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .header-image {
+        max-height: 300px;
+        padding: var(--spacing-xs);
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .card {
+        padding: var(--spacing-lg);
+    }
+    
+    .project-list a {
+        font-size: 1.1rem;
+    }
+    
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+    
+    .navbar a {
+        margin: 0;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
+        display: inline-block;
+        width: auto;
+        text-align: center;
+    }
+    
+    .navbar a:hover,
+    .navbar a.active {
+        transform: translateY(-2px);
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .topic-header h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+    
+    .main-container {
+        padding: 0;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-width: auto;
+        position: static;
+        order: 2;
+    }
+    
+    .main-content {
+        order: 1;
+    }
+    
+    .header h1 {
+        font-size: 2.4rem;
+    }
+    
+    .header p {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .card {
+        padding: var(--spacing-lg);
+    }
+    
+    .navbar {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+    
+    .navbar a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        margin: 0;
+        font-size: 0.9rem;
+        display: inline-block;
+        width: auto;
+        text-align: center;
+    }
+    
+    .navbar a:hover,
+    .navbar a.active {
+        transform: translateY(-2px);
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+    .content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+    
+    .header-image {
+        max-height: 600px;
+        padding: var(--spacing-md);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .main-container {
+        max-width: 1400px;
+    }
+    
+    .content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--accent-1);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --bg-color: #ffffff;
+        --card-bg-color: #ffffff;
+        --primary-text-color: #000000;
+        --secondary-text-color: #333333;
+        --border-color: #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar {
+        display: none;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+    
+    .header {
+        background: none !important;
+        color: #000 !important;
+    }
+}
+
+
+/* ==========================================================================
+   Timeline Specific Styles (for AIML_Research.html)
+   These styles ensure the timeline blends with the existing theme while
+   maintaining its unique pastel and single-sided design.
+   ========================================================================== */
+
+/* Specific body styling for the timeline page to override default body padding/background */
+body.timeline-page {
+    background-color: var(--timeline-bg-pastel-light); /* Use a distinct pastel background for this page */
+    padding: 0; /* Remove default body padding to control layout better within main-container */
+    display: flex; /* Ensure flex behavior for centering main-container */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* The timeline page header section, adapting existing .header styles but with pastel accents */
+.timeline-page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl); /* Use project's spacing */
+    padding: var(--spacing-xxl) var(--spacing-lg); /* Use project's spacing */
+    background: linear-gradient(135deg, var(--timeline-bg-pastel-light) 0%, var(--card-bg-color) 50%, var(--timeline-tag-bg-pastel) 100%);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md); /* Using project's shadow */
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color); /* Using project's border color */
+    width: 100%; /* Ensure it spans available width */
+    max-width: 960px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-page-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-text-color); /* Using project's primary text color */
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.2;
+}
+
+.timeline-page-header p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color); /* Using project's secondary text color */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Era Heading for grouping timeline items */
+.era-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--timeline-accent-pastel-dark); /* Pastel accent */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: var(--spacing-xxl) 0 var(--spacing-lg) 0; /* Adjust vertical spacing */
+    padding-left: 65px; /* Offset to align with timeline bar */
+    position: relative;
+    max-width: 960px; /* Constrain width to align with cards */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.era-heading::before {
+    content: '';
+    position: absolute;
+    left: 15px; /* Matches timeline bar position */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px; /* Short line before heading */
+    height: 2px;
+    background-color: var(--timeline-accent-pastel-medium);
+}
+
+/* Main timeline content area - the vertical bar and items */
+.timeline-content-area {
+    position: relative;
+    padding-left: 65px; /* Offset for timeline bar and markers */
+    max-width: 960px; /* Constrain width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-content-area::before {
+    content: '';
+    position: absolute;
+    left: 28px; /* Centered with marker */
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--timeline-accent-pastel-medium); /* Use pastel accent for visibility */
+    z-index: 0;
+}
+
+/* Individual timeline item */
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl); /* Spacing between cards, using project spacing */
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* The circular marker on the timeline bar */
+.timeline-marker {
+    position: absolute;
+    left: -15px; /* Positioned relative to timeline-content-area's left padding */
+    top: 0.8rem; /* Vertical alignment with card */
+    height: 18px;
+    width: 18px;
+    background: var(--card-bg-color); /* Using project's card background for marker fill */
+    border: 3px solid var(--timeline-accent-pastel-medium);
+    border-radius: 50%;
+    z-index: 1; /* Above the timeline bar */
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.timeline-item:hover .timeline-marker {
+    background: var(--timeline-accent-pastel-medium);
+    border-color: var(--timeline-accent-pastel-dark);
+}
+
+/* The content card for each timeline item */
+.timeline-card {
+    background: var(--card-bg-color); /* Using project's card background */
+    border: 1px solid var(--border-color); /* Using project's border color */
+    border-radius: var(--border-radius-lg); /* Using project's border-radius */
+    padding: var(--spacing-lg) var(--spacing-xl); /* Using project's spacing */
+    box-shadow: 0 8px 25px var(--timeline-shadow-pastel-soft); /* Soft, tinted shadow */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+    margin-left: var(--spacing-md); /* Space between marker/line and card */
+}
+
+.timeline-card:hover {
+    transform: translateY(-7px); /* More noticeable lift */
+    box-shadow: 0 12px 30px var(--timeline-shadow-pastel-hover);
+}
+
+.timeline-card .year {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--timeline-accent-pastel-dark);
+    margin-bottom: 0.6rem;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.timeline-card h3 {
+    margin: 0 0 var(--spacing-sm) 0; /* Using project's spacing */
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-text-color); /* Using project's primary text color */
+    line-height: 1.3;
+}
+
+.timeline-card p {
+    margin: 0 0 var(--spacing-md) 0; /* Using project's spacing */
+    color: var(--secondary-text-color); /* Using project's secondary text color */
+    font-size: 1rem;
+}
+
+/* Tags styling */
+.tags {
+    margin-bottom: var(--spacing-md); /* Using project's spacing */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Consistent spacing between tags */
+}
+
+.tag {
+    display: inline-block;
+    background: var(--timeline-tag-bg-pastel);
+    border: 1px solid var(--timeline-accent-pastel-medium);
+    color: var(--timeline-accent-pastel-dark);
+    padding: 6px 14px;
+    border-radius: 20px; /* More pill-shaped */
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Link Button styling, adapted from .resource-link or project's button styles */
+.timeline-card .link-button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md); /* Using project's spacing */
+    background-color: var(--timeline-accent-pastel-medium); /* Pastel blue for button */
+    color: var(--card-bg-color); /* White text from project's palette */
+    text-decoration: none;
+    border-radius: var(--border-radius-md); /* Using project's border-radius */
+    font-weight: 600;
+    transition: background-color var(--transition-normal), transform var(--transition-fast);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle button shadow */
+    border: none; /* No extra border */
+}
+
+.timeline-card .link-button:hover {
+    background-color: var(--timeline-accent-pastel-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Responsive Adjustments for Timeline */
+@media (max-width: 768px) {
+    .timeline-page-header h1 {
+        font-size: 2.2rem;
+    }
+    .timeline-page-header p {
+        font-size: 1rem;
+    }
+    .era-heading {
+        font-size: 1.1rem;
+        padding-left: 50px;
+    }
+    .era-heading::before {
+        left: 10px;
+        width: 20px;
+    }
+    .timeline-content-area {
+        padding-left: 50px;
+    }
+    .timeline-content-area::before {
+        left: 20px;
+    }
+    .timeline-marker {
+        left: -20px;
+        top: 0.6rem;
+    }
+    .timeline-card {
+        padding: 1.2rem 1.5rem;
+        margin-left: 10px;
+    }
+    .timeline-card h3 {
+        font-size: 1.3rem;
+    }
+    .timeline-card p {
+        font-size: 0.95rem;
+    }
+    .timeline-card .link-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-page-header {
+        margin-bottom: var(--spacing-xl); /* Adjusted for smaller screens */
+    }
+    .timeline-page-header h1 {
+        font-size: 1.8rem;
+    }
+    .era-heading {
+        font-size: 1rem;
+        padding-left: 40px;
+        margin: var(--spacing-xl) 0 var(--spacing-md) 0; /* Adjust spacing */
+    }
+    .era-heading::before {
+        left: 5px;
+        width: 15px;
+    }
+    .timeline-content-area {
+        padding-left: 40px;
+    }
+    .timeline-content-area::before {
+        left: 15px;
+    }
+    .timeline-marker {
+        left: -20px;
+        top: 0.5rem;
+        height: 14px;
+        width: 14px;
+        border-width: 2px;
+    }
+    .timeline-item {
+        margin-bottom: var(--spacing-lg); /* Adjusted for smaller screens */
+    }
+    .timeline-card {
+        padding: 1rem 1.2rem;
+        margin-left: 5px;
+    }
+    .timeline-card h3 {
+        font-size: 1.15rem;
+    }
+    .timeline-card p {
+        font-size: 0.9rem;
+    }
+    .tags {
+        gap: 5px;
+    }
+    .tag {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+    .timeline-card .link-button {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+}

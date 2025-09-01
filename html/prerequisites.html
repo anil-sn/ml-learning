@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prerequisites - ML Learning Portfolio</title>
+    <meta name="description" content="Comprehensive roadmap of prerequisites for machine learning projects - Python, mathematics, and core ML concepts.">
+    <meta name="keywords" content="machine learning, prerequisites, Python, data science, ML roadmap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="navbar">
+                <a href="../index.html">Home</a>
+                <a href="AIML_Research.html">AI/ML Timeline</a>
+                <a href="Projects.html">Projects</a>
+                <a href="Environments.html">Environments</a>
+                <a href="prerequisites.html" class="active">Prerequisites</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header">
+                <h1>Prerequisites Roadmap</h1>
+                <p>This is a structured guide to the exact skills you'll need for the projects. Each section lists the core concepts and the best resources to learn them.</p>
+            </header>
+            <!-- SECTION 1: Python & Data Science Foundations -->
+            <section class="topic-section">
+                <div class="topic-header">
+                    <h2>Python & Data Science Foundations</h2>
+                    <p>The non-negotiable bedrock for all subsequent topics. Master these first.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="card concept-card">
+                        <h3>Core Concepts</h3>
+                        <ul class="concept-list">
+                            <li><strong>Python Fundamentals:</strong> Data structures (lists, dicts), control flow, and functions.</li>
+                            <li><strong>Environment Management:</strong> Using `pip` and `venv` to handle project dependencies.</li>
+                            <li><strong>NumPy Arrays:</strong> Creating, indexing, and performing vectorized operations.</li>
+                            <li><strong>Pandas DataFrames:</strong> Selecting data with `.loc`/`.iloc`, cleaning missing values, and using `.groupby()`.</li>
+                             <li><strong>Data Visualization:</strong> Creating basic plots (histograms, scatter plots) for EDA.</li>
+                        </ul>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Python - Full University Course</h4>
+                        <p>Harvard CS50's Introduction to Programming with Python.</p>
+                        <a href="https://www.youtube.com/watch?v=nLRL_NcnK-4" target="_blank" class="resource-link">Watch on YouTube</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Python Data Science Handbook</h4>
+                        <p>The definitive open-source book by Jake VanderPlas for learning NumPy, Pandas, and Matplotlib. Essential for data manipulation.</p>
+                        <a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank" class="resource-link">Read Online</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Matplotlib & Seaborn Tutorials</h4>
+                        <p>Official Matplotlib documentation and Seaborn gallery with comprehensive examples for data visualization. Perfect for creating publication-quality plots.</p>
+                        <a href="https://matplotlib.org/stable/tutorials/index.html" target="_blank" class="resource-link">Explore Tutorials</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: Mathematics for Machine Learning -->
+            <section class="topic-section">
+                <div class="topic-header">
+                    <h2>Mathematics for Machine Learning</h2>
+                    <p>The core intuitions that power the algorithms. A conceptual understanding is key.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="card concept-card">
+                        <h3>Core Concepts</h3>
+                        <ul class="concept-list">
+                            <li><strong>Linear Algebra:</strong> Intuition behind vectors, matrices, and dot products.</li>
+                            <li><strong>Statistics:</strong> Measures of central tendency (mean/median) and dispersion (std deviation).</li>
+                            <li><strong>Probability:</strong> Understanding of conditional probability and distributions.</li>
+                            <li><strong>Calculus:</strong> The concept of a derivative/gradient as it relates to model optimization.</li>
+                        </ul>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Essence of Linear Algebra</h4>
+                        <p>3Blue1Brown's iconic series. It provides the core intuitions behind vectors and matrices—don't start ML without it.</p>
+                        <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank" class="resource-link">Watch on YouTube</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>StatQuest with Josh Starmer</h4>
+                        <p>The best channel for understanding statistics and ML concepts. Complex ideas are made "Bam!" easy with clear, visual explanations.</p>
+                        <a href="https://www.youtube.com/watch?v=FgakZw6K1QQ&list=PLblh5JKOoLUIcdlgu78MnlATeyx4cEVeR" target="_blank" class="resource-link">Explore Channel</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Essence of Calculus</h4>
+                        <p>3Blue1Brown's calculus series that builds intuition for derivatives and gradients. Essential for understanding optimization in ML algorithms.</p>
+                        <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" target="_blank" class="resource-link">Watch Series</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: Core Machine Learning -->
+            <section class="topic-section">
+                <div class="topic-header">
+                    <h2>Core Machine Learning Competencies</h2>
+                    <p>The practical workflow and foundational algorithms used in most traditional ML projects.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="card concept-card">
+                        <h3>Core Concepts</h3>
+                        <ul class="concept-list">
+                           <li><strong>The ML Lifecycle:</strong> Data splitting, feature scaling, training, and evaluation.</li>
+                           <li><strong>Bias-Variance Tradeoff:</strong> The central challenge in building a good model.</li>
+                           <li><strong>Model Evaluation:</strong> Knowing metrics for regression (MSE) and classification (Accuracy, F1-Score).</li>
+                           <li><strong>Key Algorithms:</strong> Linear/Logistic Regression, Random Forest, and XGBoost.</li>
+                           <li><strong>Unsupervised Learning:</strong> Concepts of clustering and anomaly detection.</li>
+                           <li><strong>Interpretability:</strong> Understanding feature importance with tools like SHAP.</li>
+                        </ul>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Hands-On Machine Learning</h4>
+                        <p>Aurélien Géron's book is the bible for practical ML. It perfectly balances theory with hands-on Scikit-Learn examples.</p>
+                        <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/" target="_blank" class="resource-link">Find the Book</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Machine Learning Specialization</h4>
+                        <p>Andrew Ng's famous Coursera specialization. It's the best place to build a solid theoretical foundation from the ground up.</p>
+                        <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="resource-link">View on Coursera</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Scikit-Learn Documentation</h4>
+                        <p>The official Scikit-Learn documentation with comprehensive tutorials, examples, and API references. Essential for hands-on implementation.</p>
+                        <a href="https://scikit-learn.org/stable/user_guide.html" target="_blank" class="resource-link">Explore Documentation</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION 4: Advanced & Specialized Skills -->
+            <section class="topic-section">
+                <div class="topic-header">
+                    <h2>Advanced & Specialized Skills</h2>
+                    <p>Domain-specific knowledge for the cutting-edge projects in this repository.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="card concept-card">
+                        <h3>Core Concepts</h3>
+                        <ul class="concept-list">
+                            <li><strong>Time Series:</strong> Understanding trend, seasonality, and time-based features.</li>
+                            <li><strong>Modern NLP:</strong> The role of embeddings and the Transformer architecture.</li>
+                            <li><strong>LLM Applications (RAG):</strong> The pattern of retrieval, prompt engineering, and generation.</li>
+                            <li><strong>LLM Tooling:</strong> Using libraries like LangChain to build pipelines.</li>
+                            <li><strong>Reinforcement Learning:</strong> The core concepts of Agent, Environment, and Reward.</li>
+                        </ul>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>The Hugging Face NLP Course</h4>
+                        <p>The official, free course on modern NLP. It's the definitive resource for learning about the Transformer architecture and its ecosystem.</p>
+                        <a href="https://huggingface.co/learn/nlp-course/chapter1/1" target="_blank" class="resource-link">Start the Course</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>LangChain for LLM Development</h4>
+                        <p>DeepLearning.AI's practical course on building LLM applications with LangChain, covering chains, agents, and RAG systems.</p>
+                        <a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/" target="_blank" class="resource-link">View Short Course</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Fast.ai Practical Deep Learning</h4>
+                        <p>Jeremy Howard's revolutionary approach to deep learning. Covers modern techniques including transformers, time series, and practical deployment strategies.</p>
+                        <a href="https://course.fast.ai/" target="_blank" class="resource-link">Start Course</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+    </footer>
+    
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

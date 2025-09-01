@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Historical Timeline of AI/ML Research</title>
+    <!-- Link to your project's main stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Ensure Montserrat font is loaded, as used in your styles.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="timeline-page"> <!-- Added timeline-page class for specific background/padding -->
+
+    <!-- The main-container wrapper from your index.html -->
+    <div class="main-container">
+        <!-- Sidebar Navigation from your index.html -->
+        <aside class="sidebar">
+            <div class="navbar">
+                <a href="../index.html">Home</a>
+                <a href="AIML_Research.html" class="active">AI/ML Timeline</a> <!-- Set as active for this page -->
+                <a href="Projects.html">Projects</a>
+                <a href="Environments.html">Environments</a>
+                <a href="prerequisites.html">Prerequisites</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area where the timeline will reside -->
+        <main class="main-content">
+            <!-- Timeline Page-Specific Header -->
+            <div class="timeline-page-header">
+                <h1>A Historical Timeline of AI/ML Research</h1>
+                <p>An interactive timeline of seminal research papers that tracks the evolution of ideas and breakthroughs, from the field's conceptual beginnings to today's state-of-the-art technology.</p>
+            </div>
+            
+            <!-- Timeline Content Section -->
+            <div class="timeline-container-wrapper"> 
+                
+                <div class="era-heading">Era 1: The Foundations (1950s - 1990s)</div>
+                <div class="timeline-content-area">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">1950</span>
+                            <h3>Computing Machinery and Intelligence</h3>
+                            <p>The philosophical starting point for the field. It introduced the "Turing Test" as a benchmark for machine intelligence and framed the core question: "Can machines think?"</p>
+                            <div class="tags"><span class="tag">Philosophy</span><span class="tag">Foundation</span></div>
+                            <a href="https://academic.oup.com/mind/article/LIX/236/433/986238" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">1958</span>
+                            <h3>The Perceptron: A Probabilistic Model...</h3>
+                            <p>Introduced the Perceptron, the first artificial neural network. It was a simple, single-layer model that could learn from data, laying the conceptual groundwork for modern deep learning.</p>
+                            <div class="tags"><span class="tag">Neural Networks</span><span class="tag">Foundation</span></div>
+                            <a href="https://psycnet.apa.org/record/1959-05963-001" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">1986</span>
+                            <h3>Learning Representations by Back-Propagating Errors</h3>
+                            <p>Popularized the <strong>backpropagation</strong> algorithm, an efficient method for training multi-layered neural networks. This breakthrough solved a major hurdle and enabled the development of much deeper networks.</p>
+                            <div class="tags"><span class="tag">Neural Networks</span><span class="tag">Algorithm</span></div>
+                            <a href="https://www.nature.com/articles/323533a0" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">1997</span>
+                            <h3>Long Short-Term Memory</h3>
+                            <p>Introduced the Long Short-Term Memory (LSTM) architecture, an RNN variant that uses special gates to manage memory, allowing it to learn long-range dependencies in sequential data.</p>
+                            <div class="tags"><span class="tag">NLP</span><span class="tag">RNN</span><span class="tag">Architecture</span></div>
+                            <a href="https://www.bioinf.jku.at/publications/older/2604.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">1998</span>
+                            <h3>Gradient-Based Learning Applied to Document Recognition</h3>
+                            <p>Introduced LeNet-5, a pioneering Convolutional Neural Network (CNN) that set the standard for image recognition tasks and proved the effectiveness of the CNN architecture.</p>
+                            <div class="tags"><span class="tag">Computer Vision</span><span class="tag">CNN</span><span class="tag">Architecture</span></div>
+                            <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="era-heading">Era 2: The Deep Learning Revolution (2003 - 2015)</div>
+                <div class="timeline-content-area">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2003</span>
+                            <h3>A Neural Probabilistic Language Model</h3>
+                            <p>A foundational NLP paper that proposed learning a distributed representation for words (<strong>word embeddings</strong>) simultaneously with a language model, a concept that now underlies all of modern NLP.</p>
+                            <div class="tags"><span class="tag">NLP</span><span class="tag">Embeddings</span></div>
+                            <a href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2012</span>
+                            <h3>ImageNet Classification with Deep CNNs</h3>
+                            <p>Introduced "<strong>AlexNet</strong>," a deep CNN that won the 2012 ImageNet competition by a landslide. Its success, powered by GPUs, marked the "big bang" moment that brought deep learning into the mainstream.</p>
+                            <div class="tags"><span class="tag">Computer Vision</span><span class="tag">CNN</span><span class="tag">Breakthrough</span></div>
+                            <a href="https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2013</span>
+                            <h3>Distributed Representations of Words and Phrases...</h3>
+                            <p>Introduced <strong>Word2Vec</strong>, a highly efficient toolkit for learning word embeddings from raw text. It democratized the use of embeddings and became a standard for many NLP tasks.</p>
+                            <div class="tags"><span class="tag">NLP</span><span class="tag">Embeddings</span><span class="tag">Algorithm</span></div>
+                            <a href="https://proceedings.neurips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2014</span>
+                            <h3>Generative Adversarial Networks</h3>
+                            <p>Introduced a novel framework where two neural networks, a generator and a discriminator, compete against each other. <strong>GANs</strong> revolutionized generative modeling and image synthesis.</p>
+                            <div class="tags"><span class="tag">Generative AI</span><span class="tag">GAN</span><span class="tag">Architecture</span></div>
+                            <a href="https://arxiv.org/abs/1406.2661" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2015</span>
+                            <h3>Deep Residual Learning for Image Recognition</h3>
+                            <p>Introduced the Residual Network (<strong>ResNet</strong>), an architecture that uses "skip connections" to solve the problem of training very deep networks. It enabled networks of hundreds of layers, setting new accuracy records.</p>
+                            <div class="tags"><span class="tag">Computer Vision</span><span class="tag">CNN</span><span class="tag">Architecture</span></div>
+                            <a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="era-heading">Era 3: The Age of Transformers (2017 - 2021)</div>
+                <div class="timeline-content-area">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2017</span>
+                            <h3>Attention Is All You Need</h3>
+                            <p>A landmark paper that introduced the <strong>Transformer</strong>, an architecture based solely on a "self-attention" mechanism. It enabled massive parallelization, becoming the foundation for nearly all modern LLMs.</p>
+                            <div class="tags"><span class="tag">NLP</span><span class="tag">Transformer</span><span class="tag">Breakthrough</span></div>
+                            <a href="https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2018</span>
+                            <h3>BERT: Pre-training of Deep Bidirectional Transformers...</h3>
+                            <p>Introduced <strong>BERT</strong>, which revolutionized NLP by using a Transformer to pre-train a model on vast unlabeled text. This model could then be quickly fine-tuned, achieving state-of-the-art results.</p>
+                            <div class="tags"><span class="tag">NLP</span><span class="tag">Transformer</span><span class="tag">Pre-training</span></div>
+                            <a href="https://aclanthology.org/N19-1423.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2020</span>
+                            <h3>Language Models are Few-Shot Learners</h3>
+                            <p>Introduced <strong>GPT-3</strong>, a 175B parameter model that demonstrated "few-shot" learning. It showed that by massively scaling up Transformers, new capabilities emerge without explicit training.</p>
+                            <div class="tags"><span class="tag">NLP</span><span class="tag">LLM</span><span class="tag">Scaling</span><span class="tag">GPT</span></div>
+                            <a href="https://proceedings.neurips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2021</span>
+                            <h3>Highly accurate protein structure prediction with AlphaFold</h3>
+                            <p>A monumental scientific achievement. The <strong>AlphaFold 2</strong> system used deep learning to predict the 3D structure of proteins, solving a 50-year-old grand challenge in biology.</p>
+                            <div class="tags"><span class="tag">Science</span><span class="tag">Biology</span><span class="tag">Breakthrough</span></div>
+                            <a href="https://www.nature.com/articles/s41586-021-03819-2" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="era-heading">Era 4: Emergent Abilities & Multimodality (2022 - Present)</div>
+                <div class="timeline-content-area">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2022</span>
+                            <h3>High-Resolution Image Synthesis with Latent Diffusion Models</h3>
+                            <p>Introduced <strong>Latent Diffusion</strong>, the core technology behind Stable Diffusion. It made high-resolution text-to-image generation efficient and accessible, sparking a creative explosion.</p>
+                            <div class="tags"><span class="tag">Generative AI</span><span class="tag">Diffusion</span></div>
+                            <a href="https://www.cv-foundation.org/openaccess/content/CVPR2022/papers/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2022</span>
+                            <h3>Chain-of-Thought Prompting Elicits Reasoning in LLMs</h3>
+                            <p>A pivotal discovery showing that LLM reasoning could be improved by prompting them to "think step-by-step." This <strong>CoT</strong> technique launched a new subfield of prompt engineering.</p>
+                            <div class="tags"><span class="tag">LLM</span><span class="tag">Reasoning</span><span class="tag">Prompting</span></div>
+                            <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9d5609613524ecf4f15af0f7b31a522d-Paper-Conference.pdf" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2023</span>
+                            <h3>LLaMA: Open and Efficient Foundation Language Models</h3>
+                            <p>Meta released <strong>LLaMA</strong>, a family of highly performant models with open weights. This move democratized access to powerful LLMs, sparking a massive wave of open-source innovation.</p>
+                            <div class="tags"><span class="tag">LLM</span><span class="tag">Open Source</span></div>
+                            <a href="https://arxiv.org/abs/2302.13971" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2023</span>
+                            <h3>Sparks of Artificial General Intelligence: Early experiments with GPT-4</h3>
+                            <p>This paper argued that GPT-4 demonstrated sparks of AGI, showing surprising capabilities in reasoning, planning, and creativity that were not explicitly trained for.</p>
+                            <div class="tags"><span class="tag">AGI</span><span class="tag">LLM</span><span class="tag">GPT</span></div>
+                            <a href="https://arxiv.org/abs/2303.12712" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2024</span>
+                            <h3>Gemini: A Family of Highly Capable Multimodal Models</h3>
+                            <p>Introduced Google's <strong>Gemini</strong>, a family of models built from the ground up to be natively multimodal, seamlessly understanding and reasoning across text, images, audio, and video.</p>
+                            <div class="tags"><span class="tag">Multimodality</span><span class="tag">LLM</span></div>
+                            <a href="https://arxiv.org/abs/2312.11805" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2024</span>
+                            <h3>Mixture-of-Experts Meets Instruction Tuning</h3>
+                            <p>This work (and others like Mixtral 8x7B) popularized the <strong>Mixture-of-Experts (MoE)</strong> architecture, achieving the performance of much larger models with a fraction of the computational cost.</p>
+                            <div class="tags"><span class="tag">Architecture</span><span class="tag">MoE</span><span class="tag">Efficiency</span></div>
+                            <a href="https://arxiv.org/abs/2403.07813" target="_blank" class="link-button">Read Paper</a>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <span class="year">2025</span>
+                            <h3>Trend: Rise of Autonomous Agentic Architectures</h3>
+                            <p>Represents a cluster of research focused on <strong>agentic frameworks</strong> that give LLMs capabilities like long-term planning, memory, and tool use to accomplish complex goals autonomously.</p>
+                            <div class="tags"><span class="tag">AI Agents</span><span class="tag">Reasoning</span><span class="tag">Tool Use</span></div>
+                            <a href="#" target="_blank" class="link-button">Read More</a> <!-- Link can be updated to a relevant overview if one emerges -->
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End timeline-container-wrapper -->
+
+        </main> <!-- End main-content -->
+
+    </div> <!-- End main-container -->
+
+    <!-- Footer from your index.html -->
+    <footer>
+        <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+    </footer>
+
+</body>
+</html>
