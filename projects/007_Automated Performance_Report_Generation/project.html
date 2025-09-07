@@ -7,49 +7,55 @@
     <link rel="stylesheet" href="../../css/styles.css"> <!-- Correct path for project subdirectories -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
    </head>
-<body class="top-nav-page">
-
-    <!-- Top Navigation for Project Pages -->
-    <div class="top-navbar-wrapper">
-        <nav class="top-navbar">
-            <a href="../../index.html">Home</a>
-            <a href="../../html/prerequisites.html">Prerequisites</a>            
-            <a href="../../html/Environments.html">Environments</a>
-            <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
-            <a href="../../html/Projects.html" class="active">Projects</a>
-         </nav>
-    </div>
-
-    <!-- Main content for project details -->
-    <div class="top-nav-content-wrapper">
-         <h1 class="section-title" style="margin-top: var(--spacing-xl);">Automated Performance Report Generation</h1>
+<body class="">
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="navbar">
+                <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/prerequisites.html">Prerequisites</a>
+                <a href="../../html/Environments.html">Environments</a>
+                <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+                <a href="../../html/Projects.html" class="active">Projects</a>
+                <a href="../../html/blogs.html">Blogs</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+        </aside>
+        <main class="main-content">
+            <h1 class="section-title" style="margin-top: var(--spacing-xl);">Automated Performance Report Generation</h1>
             <div class="card">
-               <h2>Project Overview</h2>
-               <p>This project explores the use of Large Language Models (LLMs) through LangChain to automatically generate detailed performance reports from network data. We'll learn prompt engineering and how to create coherent, context-aware text generation systems.</p>
-               
-               <h2>Key Learning Objectives</h2>
-               <ul>
-                  <li>Understanding LangChain framework</li>
-                  <li>Prompt engineering techniques</li>
-                  <li>Structured output generation</li>
-                  <li>Data-to-text generation</li>
-                  <li>Report template creation and customization</li>
-               </ul>
+                <h2>Project Overview</h2>
+                <p>This project explores the use of Large Language Models (LLMs) through LangChain to automatically generate detailed performance reports from network data. We'll learn prompt engineering and how to create coherent, context-aware text generation systems.</p>
+                
+                <h2>Key Learning Objectives</h2>
+                <ul>
+                    <li>Understanding LangChain framework</li>
+                    <li>Prompt engineering techniques</li>
+                    <li>Structured output generation</li>
+                    <li>Data-to-text generation</li>
+                    <li>Report template creation and customization</li>
+                </ul>
 
-               <h2>Technologies Used</h2>
-               <ul>
-                  <li>Python</li>
-                  <li>LangChain</li>
-                  <li>OpenAI API</li>
-                  <li>pandas for data processing</li>
-                  <li>Jinja2 for templating</li>
-               </ul>
+                <h2>Technologies Used</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>LangChain</li>
+                    <li>OpenAI API</li>
+                    <li>pandas for data processing</li>
+                    <li>Jinja2 for templating</li>
+                </ul>
 
-               <h2>Additional Resources</h2>
-               <p>For detailed implementation guide, code examples, and step-by-step instructions, please visit the 
-               <a href="https://github.com/anil-sn/ml-learning/blob/main/projects/007_Automated Performance_Report_Generation/readme.md" target="_blank">GitHub Project Repository</a>.</p>
-          </div>
-      </div> <!-- End top-nav-content-wrapper -->
+                <h2>Additional Resources</h2>
+                <p>For detailed implementation guide, code examples, and step-by-step instructions, please visit the 
+                <a href="https://github.com/anil-sn/ml-learning/blob/main/projects/007_Automated Performance_Report_Generation/readme.md" target="_blank">GitHub Project Repository</a>.</p>
+            </div>
+        </main>
+    </div>
   
       <!-- Footer from your index.html -->
       <footer>
