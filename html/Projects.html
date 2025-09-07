@@ -4,6 +4,14 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Projects - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="../css/styles.css">
    </head>
@@ -31,48 +39,31 @@
             <header class="header">
                 <h1>From Packets to Predictions</h1>
                 <p>A comprehensive, hands-on curriculum designed to bridge the gap between deep expertise in fixed access networking and the transformative power of modern AI</p>
-            </header>            
+            </header>
             <section class="content section">
             <div class="card">
                <p>This is a strategic blueprint for network engineers to develop practical, production-grade skills in Machine Learning (ML) and Large Language Models (LLMs) by solving problems directly relevant to our domain.</p>
                <h3>The Opportunity: The Next Generation of Network Intelligence</h3>
                <p>The future of network management is intelligent, automated, and predictive. The vast streams of telemetry data, traffic patterns, customer support tickets, and configuration files we manage are no longer just operational artifacts—they are the raw material for building intelligent systems.</p>
                <p>This curriculum moves beyond theory and focuses on a simple, powerful idea: learning by building. Instead of abstract tutorials, we will tackle 10 realistic, high-impact projects. We will learn to transform our data into actionable insights, moving from a reactive to a proactive approach in how we manage, optimize, and secure our networks.</p>
-               <h3>A Structured Learning Path</h3>
-               <p>This is not a random collection of scripts but a structured learning path designed to build skills progressively. The curriculum is organized into three tiers, each building upon the last:</p>
-               <ul>
-                  <li><strong>Tier 1: Foundational Skills (Projects 1-3)</strong><br>Master the fundamentals of data wrangling, feature engineering, and classic ML models (regression, classification, clustering). We'll build our core toolkit with <code>pandas</code>, <code>scikit-learn</code>, and <code>xgboost</code>, and learn the critical skill of model interpretation with <code>SHAP</code>.</li>
-                  <li><strong>Tier 2: Intermediate Applications &amp; LLMs (Projects 4-7)</strong><br>Dive into more complex domains, including time-series forecasting with <code>Prophet</code>, and make our first foray into Natural Language Processing (NLP). We will use the <code>Hugging Face Transformers</code> and <code>LangChain</code> libraries to build our first LLM-powered applications for classification and automated report generation.</li>
-                  <li><strong>Tier 3: Advanced Systems (Projects 8-10)</strong><br>Tackle the most advanced and impactful use cases. We will explore network topology with <code>NetworkX</code>, build a powerful, custom-knowledge chatbot using <strong>Retrieval-Augmented Generation (RAG)</strong>, and create a self-learning agent for QoS optimization using <strong>Reinforcement Learning (RL)</strong> with <code>Gymnasium</code>.</li>
-               </ul>
-               <h3>Key Skills You Will Master</h3>
-               <ul>
-                  <li><strong>Core Machine Learning:</strong> Data Preprocessing, Feature Engineering, Model Training, and Evaluation.</li>
-                  <li><strong>Supervised Learning:</strong> Regression (XGBoost) and Classification (Random Forest).</li>
-                  <li><strong>Unsupervised Learning:</strong> Anomaly Detection (Isolation Forest).</li>
-                  <li><strong>Time-Series Forecasting:</strong> Prophet.</li>
-                  <li>
-                     <strong>NLP &amp; Large Language Models:</strong>
-                     <ul>
-                        <li>Zero-Shot Classification and Text Generation with <strong>Hugging Face Transformers</strong>.</li>
-                        <li>Building LLM-powered workflows with <strong>LangChain</strong>.</li>
-                        <li>Grounding LLMs in custom data with <strong>Retrieval-Augmented Generation (RAG)</strong>.</li>
-                        <li><strong>Prompt Engineering</strong>.</li>
-                     </ul>
-                  </li>
-                  <li><strong>Model Explainability:</strong> Unlocking the "why" behind predictions with <strong>SHAP</strong>.</li>
-                  <li>
-                     <strong>Advanced Topics:</strong>
-                     <ul>
-                        <li>Graph Analytics with <strong>NetworkX</strong>.</li>
-                        <li>Reinforcement Learning with <strong>Gymnasium &amp; Stable-Baselines3</strong>.</li>
-                     </ul>
-                  </li>
-                  <li><strong>MLOps Foundations:</strong> Creating reproducible projects, managing dependencies, and building simple UIs with <code>Gradio</code>.</li>
-               </ul>
+               <h3>Filter Projects by Category</h3>
+               <div class="filter-buttons">
+                  <button class="filter-btn active" data-tag="all">All</button>
+                  <button class="filter-btn" data-tag="Unsupervised Learning">Unsupervised Learning</button>
+                  <button class="filter-btn" data-tag="Classification">Classification</button>
+                  <button class="filter-btn" data-tag="Explainability">Explainability</button>
+                  <button class="filter-btn" data-tag="Time-Series">Time-Series</button>
+                  <button class="filter-btn" data-tag="NLP">NLP</button>
+                  <button class="filter-btn" data-tag="LLM">LLM</button>
+                  <button class="filter-btn" data-tag="Regression">Regression</button>
+                  <button class="filter-btn" data-tag="LangChain">LangChain</button>
+                  <button class="filter-btn" data-tag="Graph Analytics">Graph Analytics</button>
+                  <button class="filter-btn" data-tag="RAG">RAG</button>
+                  <button class="filter-btn" data-tag="Reinforcement Learning">Reinforcement Learning</button>
+               </div>
                <hr>
                <h3>The 10 Projects: A Quick Overview</h3>
-               <table>
+               <table class="project-table">
                   <thead>
                      <tr>
                         <th>#</th>
@@ -81,52 +72,52 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning">
                         <td>1</td>
                         <td><a href="../projects/001_Network_Traffic_Anomaly_Detection/project.html">Network Traffic Anomaly Detection</a></td>
-                        <td>Unsupervised Learning &amp; Outlier Detection</td>
+                        <td>Unsupervised Learning & Outlier Detection</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="Classification">
                         <td>2</td>
                         <td><a href="../projects/002_Predictive_Maintenance/project.html">Predictive Maintenance</a></td>
-                        <td>Classification &amp; Handling Imbalanced Data</td>
+                        <td>Classification & Handling Imbalanced Data</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="Explainability">
                         <td>3</td>
                         <td><a href="../projects/003_Customer_Churn_Prediction/project.html">Customer Churn Prediction</a></td>
                         <td>Model Explainability with SHAP</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="Time-Series">
                         <td>4</td>
                         <td><a href="../projects/004_Bandwidth_Demand_Forecasting /project.html">Bandwidth Demand Forecasting</a></td>
                         <td>Time-Series Analysis with Prophet</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="NLP LLM">
                         <td>5</td>
                         <td><a href="../projects/005_Support_Ticket_Classification/project.html">Support Ticket Classification</a></td>
-                        <td>NLP &amp; Introduction to LLMs (Zero-Shot)</td>
+                        <td>NLP & Introduction to LLMs (Zero-Shot)</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="Regression">
                         <td>6</td>
                         <td><a href="../projects/006_Network_Latency_Prediction/project.html">Network Latency Prediction</a></td>
-                        <td>Advanced Regression &amp; Synthetic Data Generation</td>
+                        <td>Advanced Regression & Synthetic Data Generation</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="LLM LangChain">
                         <td>7</td>
                         <td><a href="../projects/007_Automated Performance_Report_Generation/project.html">Automated Performance Report Generation</a></td>
-                        <td>LLM Prompt Engineering &amp; Text Generation (LangChain)</td>
+                        <td>LLM Prompt Engineering & Text Generation (LangChain)</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="Graph Analytics">
                         <td>8</td>
                         <td><a href="../projects/008_Network_Topology_Optimization/project.html">Network Topology Optimization</a></td>
                         <td>Graph Analytics with NetworkX</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="RAG LLM">
                         <td>9</td>
                         <td><a href="../projects/009_Troubleshooting_Chatbot_RAG/project.html">Troubleshooting Chatbot (RAG)</a></td>
                         <td>Retrieval-Augmented Generation</td>
                      </tr>
-                     <tr>
+                     <tr class="project-item" data-tags="Reinforcement Learning">
                         <td>10</td>
                         <td><a href="../projects/010_QoS Optimization_with_RL/project.html">QoS Optimization with RL</a></td>
                         <td>Reinforcement Learning (RL)</td>
@@ -143,7 +134,7 @@
       </footer>
       
       <script src="../js/navigation.js"></script>
-      <script src="../js/navigation.js"></script>
+      <script src="../js/filtering.js"></script>
       <button id="backToTopBtn" title="Go to top">↑</button>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>

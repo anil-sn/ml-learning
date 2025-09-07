@@ -12,6 +12,14 @@
     <meta property="og:description" content="Learn more about my professional journey and skills in networking and AI.">
     
     <!-- CORRECTED FONT LINK -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
@@ -103,10 +111,6 @@
                         <div class="concept-card">
                             <p>"Before software can be reusable it first has to be usable."</p>
                             <p><strong>- Ralph Johnson</strong></p>
-                        </div>
-                        <div class="concept-card">
-                            <p>"An organization that treats its programmers as morons will soon have programmers that are willing and able to act like morons only."</p>
-                            <p><strong>- Bjarne Stroustrup</strong></p>
                         </div>
                     </div>
                 </div>

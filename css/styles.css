@@ -1274,23 +1274,64 @@ body.timeline-page {
     transform: translateX(20px);
 }
 
+html,
+body {
+    transition: background-color 0.3s ease;
+}
+
 /* --- Dark Mode Variables --- */
-body.dark-mode {
-    --bg-color: #112D4E;
-    --card-bg-color: #1a3a5e;
-    --primary-text-color: #F9F7F7;
-    --secondary-text-color: #a0b0c0;
-    --border-color: #3F72AF;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --top-nav-bg: #1a3a5e;
-    --top-nav-item-hover-bg: #3F72AF;
-    --top-nav-item-active-bg: #3F72AF;
-    --timeline-tag-bg: #3F72AF;
+html.dark-mode {
+    --bg-color: #1a1a1a;
+    --card-bg-color: #2a2a2a;
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --border-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --top-nav-bg: #2a2a2a;
+    --top-nav-item-hover-bg: #444;
+    --top-nav-item-active-bg: #444;
+    --timeline-tag-bg: #444;
 }
 
 /* Smooth transitions for all elements */
-body, .card, .sidebar, .header, pre {
+body, .card, .sidebar, .header, pre, .filter-btn {
     transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.filter-btn {
+    background-color: var(--card-bg-color);
+    color: var(--accent-1);
+    border: 2px solid var(--accent-1);
+}
+
+.filter-btn:hover {
+    background-color: var(--accent-1);
+    color: var(--card-bg-color);
+    border-color: var(--accent-2);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-2);
+    color: var(--card-bg-color);
+    border-color: var(--accent-2);
+}
+
+body.dark-mode .filter-btn {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    border: 2px solid var(--accent-1);
+}
+
+body.dark-mode .filter-btn:hover {
+    background-color: var(--accent-1);
+    color: var(--card-bg-color);
+    border-color: var(--accent-2);
+}
+
+body.dark-mode .filter-btn.active {
+    background-color: var(--accent-2);
+    color: var(--card-bg-color);
+    border-color: var(--accent-2);
 }
 
 /* ==========================================================================
@@ -1349,3 +1390,40 @@ body:not(.dark-mode) code[class*="language-"], body:not(.dark-mode) pre[class*="
 .token.italic { font-style: italic; }
 .token.entity { cursor: help; }
 .token.inserted { color: green; }
+
+/* ==========================================================================
+   Filter Buttons
+   ========================================================================== */
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-btn {
+    background-color: var(--card-bg-color);
+    color: var(--accent-1);
+    border: 2px solid var(--accent-1);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.filter-btn:hover {
+    background-color: var(--accent-1);
+    color: var(--card-bg-color);
+    border-color: var(--accent-2);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-2);
+    color: var(--card-bg-color);
+    border-color: var(--accent-2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 45, 78, 0.25);
+}
