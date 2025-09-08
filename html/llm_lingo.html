@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Lingo - ML Learning Portfolio</title>
+    <meta name="description" content="A glossary of key terms and concepts in the world of Large Language Models (LLMs).">
+    <meta name="keywords" content="LLM, Large Language Models, AI, Machine Learning, Lingo, Glossary, Terms">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="navbar">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="llm_lingo.html" class="active">LLM Lingo</a>
+                <a href="prerequisites.html">Prerequisites</a>
+                <a href="Environments.html">Environments</a>
+                <a href="AIML_Research.html">AI/ML Timeline</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="Projects.html">Projects</a>
+                <a href="llm_survey_papers.html">LLM Survey Papers</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header">
+                <h1>LLM Lingo</h1>
+                <p>A visual glossary of key terms and concepts in the world of Large Language Models.</p>
+            </header>
+            
+            <section class="topic-section">
+                <div class="content-grid llm-lingo-grid">
+                    <div class="card">
+                        <img src="../image/llm_lingo_p1_page-0001.jpg" alt="LLM Lingo Page 1" class="llm-lingo-image">
+                    </div>
+                    <div class="card">
+                        <img src="../image/llm_lingo_p2_page-0001.jpg" alt="LLM Lingo Page 2" class="llm-lingo-image">
+                    </div>
+                    <div class="card">
+                        <img src="../image/llm_lingo_p3_page-0001.jpg" alt="LLM Lingo Page 3" class="llm-lingo-image">
+                    </div>
+                    <div class="card">
+                        <img src="../image/llm_lingo_p4_page-0001.jpg" alt="LLM Lingo Page 4" class="llm-lingo-image">
+                    </div>
+                    <div class="card">
+                        <img src="../image/llm_lingo_p5_page-0001.jpg" alt="LLM Lingo Page 5" class="llm-lingo-image">
+                    </div>
+                    <div class="card">
+                        <img src="../image/llm_lingo_p6_page-0001.jpg" alt="LLM Lingo Page 6" class="llm-lingo-image">
+                    </div>
+                </div>
+            </section>
+            <p style="text-align: center; margin-top: var(--spacing-lg);">Source credit: <a href="https://www.linkedin.com/in/areganti/" target="_blank">Areganti</a></p>
+        </main>
+    </div>
+
+    <div class="fullscreen-container" id="fullscreen-container">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <img class="fullscreen-image" id="fullscreen-image">
+    </div>
+    
+    <footer>
+        <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+    </footer>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.llm-lingo-image');
+            const fullscreenContainer = document.getElementById('fullscreen-container');
+            const fullscreenImage = document.getElementById('fullscreen-image');
+            const closeBtn = document.getElementById('close-btn');
+
+            images.forEach(image => {
+                image.addEventListener('click', function() {
+                    fullscreenImage.src = this.src;
+                    fullscreenContainer.style.display = 'flex';
+                });
+            });
+
+            closeBtn.addEventListener('click', function() {
+                fullscreenContainer.style.display = 'none';
+            });
+
+            fullscreenContainer.addEventListener('click', function(e) {
+                if (e.target === fullscreenContainer) {
+                    fullscreenContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

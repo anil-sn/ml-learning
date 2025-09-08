@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Feature: Dark Mode Toggle ---
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    const htmlElement = document.documentElement;
 
     // Function to apply the saved theme on page load
     const applySavedTheme = () => {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
+            htmlElement.classList.add('dark-mode');
             if (themeToggle) themeToggle.checked = true;
         } else {
-            body.classList.remove('dark-mode');
+            htmlElement.classList.remove('dark-mode');
             if (themeToggle) themeToggle.checked = false;
         }
     };
@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('change', () => {
             if (themeToggle.checked) {
-                body.classList.add('dark-mode');
+                htmlElement.classList.add('dark-mode');
                 localStorage.setItem('theme', 'dark');
             } else {
-                body.classList.remove('dark-mode');
+                htmlElement.classList.remove('dark-mode');
                 localStorage.setItem('theme', 'light');
             }
         });

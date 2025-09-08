@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Survey Papers - ML Learning Portfolio</title>
+    <meta name="description" content="A curated list of influential survey papers on Large Language Models (LLMs) covering various topics.">
+    <meta name="keywords" content="LLM, Large Language Models, AI, Machine Learning, Survey Papers, Research, Foundation Models, Prompt Engineering, RAG, Hallucinations, PEFT, LLM Agents, Multimodal, Evaluation, Adversarial Attacks, Alignment, Reasoning, Efficient LLMs, Explainability, Trustworthy LLMs, LLMs for Code, LLMs in Medicine, Multilingual LLMs">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="navbar">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="llm_lingo.html">LLM Lingo</a>
+                <a href="prerequisites.html">Prerequisites</a>
+                <a href="Environments.html">Environments</a>
+                <a href="AIML_Research.html">AI/ML Timeline</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="Projects.html">Projects</a>
+                <a href="llm_survey_papers.html" class="active">LLM Survey Papers</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header">
+                <h1>LLM Survey Papers</h1>
+                <p>A curated collection of influential survey papers on Large Language Models, covering foundational concepts, advanced techniques, and diverse applications.</p>
+            </header>
+            
+            <section class="topic-section">
+                <div class="content-grid">
+                    <div class="card resource-card">
+                        <h4>Foundation Models: A Survey of Large Language Models</h4>
+                        <p>This paper provides a comprehensive overview of large language models, discussing their architectures, training methodologies, and emergent capabilities.</p>
+                        <a href="https://arxiv.org/pdf/2303.18223" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>The Prompt Report: A Systematic Survey of Prompting Techniques</h4>
+                        <p>Explores various techniques used to design effective prompts for large language models, categorizing them and analyzing their impact on model performance.</p>
+                        <a href="https://arxiv.org/pdf/2406.06608v1" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey on Retrieval-Augmented Text Generation for Large Language Models</h4>
+                        <p>Delves into Retrieval-Augmented Generation (RAG) methods, which combine LLMs with external knowledge bases to improve factual accuracy and reduce hallucinations.</p>
+                        <a href="https://arxiv.org/pdf/2404.10981" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions</h4>
+                        <p>Addresses the phenomenon of hallucinations in LLMs, providing a taxonomy of types, underlying causes, and current mitigation strategies.</p>
+                        <a href="https://arxiv.org/pdf/2311.05232" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey</h4>
+                        <p>Reviews various Parameter-Efficient Fine-Tuning (PEFT) techniques that enable adaptation of large pre-trained models to downstream tasks with minimal computational cost.</p>
+                        <a href="https://arxiv.org/pdf/2403.14608" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey on Large Language Model based Autonomous Agents</h4>
+                        <p>Examines the emerging field of LLM-based autonomous agents, discussing their architectures, capabilities, and potential applications in complex environments.</p>
+                        <a href="https://arxiv.org/pdf/2308.11432" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey on Multimodal Large Language Models</h4>
+                        <p>Provides an overview of multimodal LLMs, which integrate and process information from multiple modalities such as text, images, and audio.</p>
+                        <a href="https://arxiv.org/pdf/2306.13549" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey on Evaluation of Large Language Models</h4>
+                        <p>Discusses various methodologies and metrics used to evaluate the performance, capabilities, and limitations of large language models across different tasks.</p>
+                        <a href="https://arxiv.org/pdf/2307.03109" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Survey of Vulnerabilities in Large Language Models Revealed by Adversarial Attacks</h4>
+                        <p>Investigates the security vulnerabilities of LLMs, focusing on adversarial attacks and their implications for model robustness and trustworthiness.</p>
+                        <a href="https://arxiv.org/pdf/2310.10844" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Large Language Model Alignment: A Survey</h4>
+                        <p>Explores the critical area of LLM alignment, covering techniques and challenges in ensuring models behave in accordance with human values and intentions.</p>
+                        <a href="https://arxiv.org/pdf/2309.15025" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Reasoning with Large Language Models: A Survey</h4>
+                        <p>Focuses on the reasoning capabilities of LLMs, reviewing different approaches to enhance their logical and problem-solving skills.</p>
+                        <a href="https://arxiv.org/pdf/2407.11511" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Efficient Large Language Models: A Survey</h4>
+                        <p>Examines techniques for improving the efficiency of LLMs in terms of computational cost, memory usage, and inference speed.</p>
+                        <a href="https://arxiv.org/pdf/2312.03863" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Explainability for Large Language Models: A Survey</h4>
+                        <p>Covers methods and challenges in making the decisions and internal workings of large language models more transparent and understandable to humans.</p>
+                        <a href="https://arxiv.org/pdf/2309.01029" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Trustworthy LLMs: a Survey and Guideline for Evaluating Large Language Models' Alignment</h4>
+                        <p>Provides a comprehensive overview of trustworthiness in LLMs, including aspects like safety, fairness, robustness, and interpretability.</p>
+                        <a href="https://arxiv.org/pdf/2308.05374" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Large Language Models for Code Generation: A Comprehensive Survey of Challenges, Techniques, Evaluation, and Applications</h4>
+                        <p>Surveys the application of LLMs in code generation, discussing challenges, techniques, evaluation metrics, and real-world use cases.</p>
+                        <a href="https://arxiv.org/pdf/2503.01245" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey of Large Language Models in Medicine: Progress, Application, and Challenge</h4>
+                        <p>Explores the growing role of LLMs in the medical domain, highlighting their applications, current progress, and the unique challenges faced.</p>
+                        <a href="https://arxiv.org/pdf/2311.05112" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>A Survey on Multilingual Large Language Models: Corpora, Alignment, and Bias</h4>
+                        <p>Examines the development and challenges of multilingual LLMs, focusing on data corpora, cross-lingual alignment, and potential biases.</p>
+                        <a href="https://arxiv.org/pdf/2404.00929" target="_blank" class="resource-link">Read Paper</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
