@@ -24,7 +24,7 @@
                 <a href="../index.html">Home</a>
                 <a href="about.html">About Me</a>
                 <a href="llm_lingo.html">LLM Lingo</a>
-                <a href="prerequisites.html">Prerequisites</a>
+                <a href="ml_youtube_courses.html">ML YouTube Courses</a>
                 <a href="Environments.html">Environments</a>
                 <a href="AIML_Research.html">AI/ML Timeline</a>
                 <a href="blogs.html">Blogs</a>
@@ -51,26 +51,22 @@
             <section class="topic-section">
                 <div class="card">
                     <h2 class="section-title">Learning Path</h2>
-                    <div class="learning-path">
-                        <div class="learning-step">
-                            <span class="step-number">1</span>
-                            <span class="step-title">Fundamentals</span>
-                            <span class="step-desc">Why AI needs special networking</span>
+                    <div class="simple-list">
+                        <div class="list-item">
+                            <h3>1. Fundamentals</h3>
+                            <p>Why AI needs special networking</p>
                         </div>
-                        <div class="learning-step">
-                            <span class="step-number">2</span>
-                            <span class="step-title">Technologies</span>
-                            <span class="step-desc">InfiniBand, Ethernet, RoCE</span>
+                        <div class="list-item">
+                            <h3>2. Technologies</h3>
+                            <p>InfiniBand, Ethernet, RoCE</p>
                         </div>
-                        <div class="learning-step">
-                            <span class="step-number">3</span>
-                            <span class="step-title">Architectures</span>
-                            <span class="step-desc">Topologies and design patterns</span>
+                        <div class="list-item">
+                            <h3>3. Architectures</h3>
+                            <p>Topologies and design patterns</p>
                         </div>
-                        <div class="learning-step">
-                            <span class="step-number">4</span>
-                            <span class="step-title">Real World</span>
-                            <span class="step-desc">Case studies and implementations</span>
+                        <div class="list-item">
+                            <h3>4. Real World</h3>
+                            <p>Case studies and implementations</p>
                         </div>
                     </div>
                 </div>
@@ -79,60 +75,32 @@
             <!-- Technical Requirements Analysis -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">AI Workload Network Requirements Analysis</h2>
+                    <h2 class="section-title">AI Network Requirements</h2>
                     
-                    <h3>Collective Communication Primitives</h3>
-                    <p>AI training relies on specific communication patterns that drive network design:</p>
+                    <h3>Key Communication Patterns</h3>
+                    <p>AI training relies on specific communication patterns:</p>
                     
-                    <div class="tech-detail">
+                    <div class="simple-content">
                         <h4>All-Reduce Operations</h4>
-                        <pre><code>Ring Algorithm: 2(n-1) steps, bandwidth = S/p
-Tree Algorithm: 2*log(p) steps, bandwidth = S
-Hierarchical: hybrid approach for NUMA-aware systems</code></pre>
-                        <p><strong>Network Impact:</strong> Requires full bisection bandwidth during gradient synchronization. Traffic volume = model_parameters × precision_bytes × 2 (forward + backward pass)</p>
-                        <p><strong>Example:</strong> GPT-3 175B parameters × 4 bytes (FP32) × 2 = 1.4TB per all-reduce operation</p>
-                    </div>
-
-                    <div class="tech-detail">
-                        <h4>All-Gather / Reduce-Scatter</h4>
-                        <pre><code>Data Distribution Pattern:
-- All-Gather: Collect distributed data to all ranks
-- Reduce-Scatter: Distribute reduction results
-- Bandwidth requirement: S*(p-1)/p per node</code></pre>
-                        <p><strong>Use Cases:</strong> Parameter server synchronization, embedding table updates, activation checkpointing</p>
-                    </div>
-
-                    <h3>Traffic Characterization</h3>
-                    <div class="performance-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">99.9%</span>
-                            <span class="metric-desc">East-West Traffic</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">64KB - 1MB</span>
-                            <span class="metric-desc">Message Size Range</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">Elephant Flows</span>
-                            <span class="metric-desc">Traffic Pattern</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">Synchronized</span>
-                            <span class="metric-desc">Communication Type</span>
-                        </div>
-                    </div>
-
-                    <h3>Network Stack Requirements</h3>
-                    <div class="tech-detail">
-                        <h4>Latency Budget Breakdown</h4>
-                        <pre><code>Component                 Latency (μs)
-NIC Processing           0.3 - 0.5
-Switch Fabric           0.1 - 0.2  
-Cable Propagation       0.005/m
-Protocol Overhead       0.1 - 0.3
-Host Processing         0.2 - 0.5
-------------------------
-Total Target: &lt;1.5μs end-to-end</code></pre>
+                        <p><strong>Purpose:</strong> Synchronize model gradients across all GPUs</p>
+                        <p><strong>Network Impact:</strong> Requires full bisection bandwidth during gradient synchronization</p>
+                        <p><strong>Example:</strong> GPT-3 175B parameters = 1.4TB per all-reduce operation</p>
+                        
+                        <h4>Traffic Characteristics</h4>
+                        <ul>
+                            <li><strong>99.9%</strong> East-West Traffic</li>
+                            <li><strong>64KB - 1MB</strong> Message Size Range</li>
+                            <li><strong>Elephant Flows</strong> - Large, sustained transfers</li>
+                            <li><strong>Synchronized</strong> Communication Pattern</li>
+                        </ul>
+                        
+                        <h4>Latency Requirements</h4>
+                        <p><strong>Target:</strong> Less than 1.5μs end-to-end latency</p>
+                        <ul>
+                            <li>NIC Processing: 0.3-0.5μs</li>
+                            <li>Switch Fabric: 0.1-0.2μs</li>
+                            <li>Protocol Overhead: 0.1-0.3μs</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -140,148 +108,80 @@ Total Target: &lt;1.5μs end-to-end</code></pre>
             <!-- Core Technologies -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Core Technologies Deep Dive</h2>
+                    <h2 class="section-title">Core Technologies</h2>
                     
-                    <h3>InfiniBand Protocol Stack Analysis</h3>
-                    <div class="tech-detail">
-                        <h4>InfiniBand Architecture</h4>
-                        <pre><code>Layer 5: Application / RDMA Verbs API
-Layer 4: Transport Protocol (RC/UD/RD)
-Layer 3: Network Layer (LID/GID routing)
-Layer 2: Link Layer (VL, SL, Flow Control)
-Layer 1: Physical (SerDes, FEC, Link Training)</code></pre>
+                    <h3>InfiniBand</h3>
+                    <div class="simple-content">
+                        <p><strong>What it is:</strong> High-performance interconnect designed for HPC and AI workloads</p>
                         
-                        <h4>Transport Services</h4>
+                        <h4>Key Features:</h4>
                         <ul>
-                            <li><strong>Reliable Connected (RC):</strong> Connection-oriented, reliable, ordered delivery. Used for RDMA operations</li>
-                            <li><strong>Unreliable Datagram (UD):</strong> Connectionless, best-effort. Used for management traffic</li>
-                            <li><strong>Reliable Datagram (RD):</strong> Connectionless but reliable (EE Context required)</li>
+                            <li><strong>Ultra-low latency:</strong> 600ns end-to-end</li>
+                            <li><strong>High bandwidth:</strong> Up to 400 Gbps per link</li>
+                            <li><strong>RDMA support:</strong> Direct memory access without CPU involvement</li>
+                            <li><strong>Minimal CPU overhead:</strong> Less than 1% CPU usage</li>
                         </ul>
-
-                        <h4>RDMA Operations</h4>
-                        <pre><code>RDMA WRITE: Direct remote memory write (one-sided)
-RDMA READ:  Direct remote memory read (one-sided)  
-SEND/RECV:  Two-sided operations with completion notification
-ATOMIC:     Compare-and-swap, fetch-and-add operations</code></pre>
-
-                        <h4>Performance Characteristics</h4>
-                        <div class="performance-metrics">
-                            <div class="metric-item">
-                                <span class="metric-value">600ns</span>
-                                <span class="metric-desc">End-to-end latency</span>
-                            </div>
-                            <div class="metric-item">
-                                <span class="metric-value">400 Gbps</span>
-                                <span class="metric-desc">Link bandwidth (NDR)</span>
-                            </div>
-                            <div class="metric-item">
-                                <span class="metric-value">&lt;1%</span>
-                                <span class="metric-desc">CPU overhead</span>
-                            </div>
-                            <div class="metric-item">
-                                <span class="metric-value">Zero-copy</span>
-                                <span class="metric-desc">Memory semantics</span>
-                            </div>
-                        </div>
+                        
+                        <h4>Transport Types:</h4>
+                        <ul>
+                            <li><strong>RC (Reliable Connected):</strong> Best for RDMA operations</li>
+                            <li><strong>UD (Unreliable Datagram):</strong> Used for management traffic</li>
+                        </ul>
                     </div>
 
-                    <h3>RoCE (RDMA over Converged Ethernet) Deep Dive</h3>
-                    <div class="tech-detail">
-                        <h4>RoCEv2 Protocol Stack</h4>
-                        <pre><code>Application Layer: RDMA Verbs API
-Transport Layer:   InfiniBand Transport (RC/UD)
-Network Layer:     UDP/IPv4 or IPv6 
-Data Link Layer:   Ethernet + DCB (PFC, ETS, DCQCN)
-Physical Layer:    Ethernet PHY</code></pre>
-
-                        <h4>Congestion Control: DCQCN Algorithm</h4>
-                        <pre><code>ECN Marking:     Switch marks packets when buffer > threshold
-Rate Reduction:  α = (1-g)*α + g, where g = ECN_rate
-Rate Recovery:   α = α - time_to_decrease/timer_period  
-Target Rate:     Current_rate * (1-α)
-
-Parameters:
-- g (ECN weight): 1/256
-- Timer period: 55μs  
-- Min decrease: 5%</code></pre>
-
-                        <h4>Priority Flow Control (PFC) Configuration</h4>
-                        <pre><code># Enable PFC on RoCE priority (typically priority 3)
-lldptool set-lldp -i eth0 adminStatus=rxtx
-lldptool -i eth0 -V PFC enableTx=yes
-dcbtool sc eth0 pfc e:1 a:3 w:1
-
-# Configure buffer thresholds
-echo 'RoCE' > /sys/class/infiniband/mlx5_0/tc/1/traffic_class
-echo 106496 > /sys/class/infiniband/mlx5_0/tc/1/buffer_size</code></pre>
+                    <h3>RoCE (RDMA over Converged Ethernet)</h3>
+                    <div class="simple-content">
+                        <p><strong>What it is:</strong> Brings InfiniBand performance to standard Ethernet infrastructure</p>
+                        
+                        <h4>Versions:</h4>
+                        <ul>
+                            <li><strong>RoCEv1:</strong> Layer 2 only, same broadcast domain</li>
+                            <li><strong>RoCEv2:</strong> Layer 3 routable, production standard</li>
+                        </ul>
+                        
+                        <h4>Key Technologies:</h4>
+                        <ul>
+                            <li><strong>DCQCN:</strong> Congestion control algorithm</li>
+                            <li><strong>PFC:</strong> Priority Flow Control for lossless operation</li>
+                            <li><strong>ECN:</strong> Explicit Congestion Notification</li>
+                        </ul>
                     </div>
 
-                    <h3>RDMA over Converged Ethernet (RoCE): The Game Changer</h3>
-                    <p>RoCE brings InfiniBand-like performance to standard Ethernet infrastructure:</p>
-                    
-                    <div class="technology-breakdown">
-                        <div class="tech-detail">
-                            <h4>RoCEv1 vs RoCEv2</h4>
-                            <ul>
-                                <li><strong>RoCEv1:</strong> Layer 2 only, same broadcast domain</li>
-                                <li><strong>RoCEv2:</strong> Layer 3 routable, UDP-based, production standard</li>
-                            </ul>
-                        </div>
+                    <h3>How RDMA Works</h3>
+                    <div class="simple-content">
+                        <ol>
+                            <li><strong>Memory Registration:</strong> Applications register memory regions</li>
+                            <li><strong>Direct Access:</strong> Remote applications can read/write directly</li>
+                            <li><strong>Kernel Bypass:</strong> No CPU involvement in data path</li>
+                            <li><strong>Zero Copy:</strong> Data moves directly between application memory</li>
+                        </ol>
                         
-                        <div class="tech-detail">
-                            <h4>How RDMA Works</h4>
-                            <ol>
-                                <li><strong>Memory Registration:</strong> Applications register memory regions</li>
-                                <li><strong>Direct Access:</strong> Remote applications can read/write directly</li>
-                                <li><strong>Kernel Bypass:</strong> No CPU involvement in data path</li>
-                                <li><strong>Zero Copy:</strong> Data moves directly between application memory</li>
-                            </ol>
-                        </div>
-                        
-                        <div class="tech-detail">
-                            <h4>Performance Impact</h4>
-                            <div class="performance-metrics">
-                                <div class="metric-item">
-                                    <span class="metric-value">95%</span>
-                                    <span class="metric-desc">CPU utilization reduction</span>
-                                </div>
-                                <div class="metric-item">
-                                    <span class="metric-value">10x</span>
-                                    <span class="metric-desc">Bandwidth improvement</span>
-                                </div>
-                                <div class="metric-item">
-                                    <span class="metric-value">5x</span>
-                                    <span class="metric-desc">Latency reduction</span>
-                                </div>
-                            </div>
-                        </div>
+                        <h4>Performance Benefits:</h4>
+                        <ul>
+                            <li><strong>95% CPU reduction</strong> - Frees CPU for computation</li>
+                            <li><strong>10x bandwidth improvement</strong> - Higher throughput</li>
+                            <li><strong>5x latency reduction</strong> - Faster communication</li>
+                        </ul>
                     </div>
 
                     <h3>Emerging Technologies</h3>
-                    <div class="emerging-tech">
-                        <div class="tech-card">
-                            <h4>Ultra Ethernet Consortium</h4>
-                            <p>Industry initiative led by AMD, Arista, Broadcom, Cisco, Eviden, HPE, Intel, Meta, Microsoft, and NVIDIA to enhance Ethernet for AI/HPC workloads with features like:</p>
-                            <ul>
-                                <li>Enhanced congestion control algorithms</li>
-                                <li>Improved multicast and telemetry support</li>
-                                <li>Better job scheduling integration</li>
-                                <li>In-network computing capabilities</li>
-                            </ul>
-                            <a href="https://ultraethernet.org/" target="_blank" class="tech-link">Learn More →</a>
-                        </div>
+                    <div class="simple-content">
+                        <h4>Ultra Ethernet Consortium</h4>
+                        <p>Industry initiative to enhance Ethernet for AI workloads:</p>
+                        <ul>
+                            <li>Enhanced congestion control algorithms</li>
+                            <li>Improved multicast and telemetry support</li>
+                            <li>Better job scheduling integration</li>
+                        </ul>
+                        <p><a href="https://ultraethernet.org/" target="_blank">Learn More →</a></p>
                         
-                        <div class="tech-card">
-                            <h4>SHARP (Scalable Hierarchical Aggregation and Reduction Protocol)</h4>
-                            <p>NVIDIA's in-network computing technology for AI collective operations, implemented in InfiniBand switches:</p>
-                            <ul>
-                                <li>All-reduce operations performed directly in network switches</li>
-                                <li>Reduces network traffic by orders of magnitude for gradient aggregation</li>
-                                <li>Accelerates distributed training by up to 2x for large models</li>
-                                <li>Supports various data types including FP32, FP16, and INT8</li>
-                            </ul>
-                            <p><em>Reference: NVIDIA InfiniBand Switch Architecture White Paper</em></p>
-                        </div>
+                        <h4>NVIDIA SHARP</h4>
+                        <p>In-network computing for AI collective operations:</p>
+                        <ul>
+                            <li>All-reduce operations in network switches</li>
+                            <li>Reduces network traffic significantly</li>
+                            <li>Up to 2x acceleration for large models</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -289,114 +189,80 @@ echo 106496 > /sys/class/infiniband/mlx5_0/tc/1/buffer_size</code></pre>
             <!-- Network Architectures -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">AI Datacenter Network Architectures</h2>
+                    <h2 class="section-title">Network Architectures</h2>
                     
-                    <h3>Leaf-Spine (Clos Fabric) Technical Implementation</h3>
-                    <div class="tech-detail">
-                        <h4>Fabric Dimensioning Calculations</h4>
-                        <pre><code>Bisection Bandwidth = (Leaf_Count × Leaf_Uplinks × Link_Speed) / 2
-Oversubscription = (Server_Bandwidth × Server_Count) / Bisection_Bandwidth
-
-Example: 32-leaf, 48×25G server + 8×100G uplink
-Bisection BW = (32 × 8 × 100G) / 2 = 12.8 Tbps
-Server BW = 32 × 48 × 25G = 38.4 Tbps  
-Oversubscription = 38.4 / 12.8 = 3:1</code></pre>
-
-                        <h4>ECMP Load Balancing Configuration</h4>
-                        <pre><code># Configure ECMP hash fields for symmetric flows
-ip route 192.168.0.0/16 
-  nexthop via 10.1.1.1 weight 1
-  nexthop via 10.1.1.2 weight 1
-  nexthop via 10.1.1.3 weight 1
-  nexthop via 10.1.1.4 weight 1
-
-# Optimize hash algorithm for large flows
-sysctl -w net.ipv4.fib_multipath_hash_policy=1
-echo 'symmetric_hash' > /sys/class/net/eth0/device/hash_function</code></pre>
-
-                        <h4>Multi-Rail Configuration for AI Workloads</h4>
-                        <pre><code>Rail Design:
-- Rail 0: Compute traffic (RoCE/IB)
-- Rail 1: Storage traffic (NVMe-oF)  
-- Rail 2: Management traffic (SSH, monitoring)
-
-NCCL Multi-Rail:
-export NCCL_IB_HCA=mlx5_0,mlx5_1,mlx5_2,mlx5_3
-export NCCL_IB_GID_INDEX=3
-export NCCL_NET_GDR_LEVEL=5</code></pre>
+                    <h3>Leaf-Spine (Clos Fabric)</h3>
+                    <div class="simple-content">
+                        <p><strong>What it is:</strong> The most common architecture for AI data centers</p>
+                        
+                        <h4>Key Characteristics:</h4>
+                        <ul>
+                            <li><strong>Non-blocking:</strong> Every server can communicate at full speed</li>
+                            <li><strong>Scalable:</strong> Add more leaf switches to grow capacity</li>
+                            <li><strong>Low oversubscription:</strong> 1:1 to 3:1 ratios typical</li>
+                            <li><strong>ECMP load balancing:</strong> Multiple paths between endpoints</li>
+                        </ul>
+                        
+                        <h4>Multi-Rail Design:</h4>
+                        <ul>
+                            <li><strong>Rail 0:</strong> Compute traffic (RoCE/InfiniBand)</li>
+                            <li><strong>Rail 1:</strong> Storage traffic (NVMe-oF)</li>
+                            <li><strong>Rail 2:</strong> Management traffic</li>
+                        </ul>
                     </div>
 
-                    <h3>DragonFly+ Topology for Large-Scale AI</h3>
-                    <div class="tech-detail">
-                        <h4>DragonFly+ Parameters</h4>
-                        <pre><code>Group Size (g): Number of routers per group
-Router Radix (k): Ports per router  
-Global Ports (h): Inter-group connections per router
-Local Ports (a): Intra-group connections per router
-
-Relationship: k = a + h + p (where p = compute ports)
-
-Example Configuration:
-- 64 routers per group (g=64)
-- 48-port routers (k=48) 
-- 16 global ports (h=16)
-- 16 local ports (a=16)  
-- 16 compute ports (p=16)</code></pre>
-
-                        <h4>Adaptive Routing Implementation</h4>
-                        <pre><code># Enable adaptive routing on Mellanox switches
-opensm --routing_engine ftree --root_guid_file roots.txt \
-       --ucast_default_mode min_hops_guided \
-       --do_mesh_analysis
-
-# Configure port utilization thresholds  
-echo 80 > /sys/class/infiniband/mlx5_0/ports/1/rate_limit_threshold
-echo 1 > /sys/class/infiniband/mlx5_0/ports/1/adaptive_routing_enable</code></pre>
+                    <h3>DragonFly+ Topology</h3>
+                    <div class="simple-content">
+                        <p><strong>What it is:</strong> Advanced topology for extremely large-scale AI clusters</p>
+                        
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li><strong>Hierarchical design:</strong> Groups of routers connected globally</li>
+                            <li><strong>Adaptive routing:</strong> Routes adapt based on congestion</li>
+                            <li><strong>High scalability:</strong> Supports 100,000+ endpoints</li>
+                            <li><strong>Fault tolerance:</strong> Multiple paths between any two points</li>
+                        </ul>
                     </div>
                     
-                    <h3>Multi-Tier Designs for Massive Scale</h3>
-                    <div class="scaling-examples">
-                        <div class="scale-example">
-                            <h4>Pod-Based Architecture (Facebook/Meta)</h4>
-                            <ul>
-                                <li><strong>Cluster:</strong> 2,000-4,000 GPUs per pod</li>
-                                <li><strong>Interconnect:</strong> 400G InfiniBand within pod</li>
-                                <li><strong>Pod-to-Pod:</strong> Ethernet spine for cross-pod traffic</li>
-                            </ul>
-                        </div>
+                    <h3>Scaling Examples</h3>
+                    <div class="simple-content">
+                        <h4>Pod-Based Architecture (Meta)</h4>
+                        <ul>
+                            <li><strong>Scale:</strong> 2,000-4,000 GPUs per pod</li>
+                            <li><strong>Within pod:</strong> 400G InfiniBand</li>
+                            <li><strong>Between pods:</strong> Ethernet spine</li>
+                        </ul>
                         
-                        <div class="scale-example">
-                            <h4>Folded Clos (Google TPU)</h4>
-                            <ul>
-                                <li><strong>Scale:</strong> 100,000+ accelerators</li>
-                                <li><strong>Topology:</strong> 3D torus with custom interconnects</li>
-                                <li><strong>Bandwidth:</strong> 2.4Tbps per chip</li>
-                            </ul>
-                        </div>
+                        <h4>3D Torus (Google TPU)</h4>
+                        <ul>
+                            <li><strong>Scale:</strong> 100,000+ accelerators</li>
+                            <li><strong>Topology:</strong> Custom 3D mesh</li>
+                            <li><strong>Bandwidth:</strong> 2.4Tbps per chip</li>
+                        </ul>
                     </div>
 
-                    <h3>Traffic Patterns: Understanding AI Workloads</h3>
-                    <div class="traffic-analysis">
-                        <div class="traffic-type">
-                            <h4>All-Reduce (Model Synchronization)</h4>
-                            <p><strong>Pattern:</strong> Every GPU sends gradients to every other GPU</p>
-                            <p><strong>Bandwidth:</strong> Requires full bisection bandwidth</p>
-                            <p><strong>Optimization:</strong> Tree-based algorithms, ring algorithms</p>
-                        </div>
+                    <h3>AI Traffic Patterns</h3>
+                    <div class="simple-content">
+                        <h4>All-Reduce (Model Synchronization)</h4>
+                        <ul>
+                            <li><strong>Pattern:</strong> Every GPU communicates with every other GPU</li>
+                            <li><strong>Requirement:</strong> Full bisection bandwidth</li>
+                            <li><strong>Algorithms:</strong> Ring, tree, or hierarchical approaches</li>
+                        </ul>
                         
-                        <div class="traffic-type">
-                            <h4>All-Gather (Data Distribution)</h4>
-                            <p><strong>Pattern:</strong> Collect data from all nodes to all nodes</p>
-                            <p><strong>Use Case:</strong> Embedding layer updates in recommender systems</p>
-                            <p><strong>Challenge:</strong> Memory bandwidth becomes bottleneck</p>
-                        </div>
+                        <h4>All-Gather (Data Distribution)</h4>
+                        <ul>
+                            <li><strong>Pattern:</strong> Collect data from all nodes</li>
+                            <li><strong>Use case:</strong> Embedding updates, parameter sharing</li>
+                            <li><strong>Bottleneck:</strong> Memory bandwidth</li>
+                        </ul>
                         
-                        <div class="traffic-type">
-                            <h4>Point-to-Point (Data Loading)</h4>
-                            <p><strong>Pattern:</strong> Storage to compute, typically north-south</p>
-                            <p><strong>Characteristics:</strong> Large sequential transfers</p>
-                            <p><strong>Optimization:</strong> Separate storage network or QoS</p>
-                        </div>
+                        <h4>Point-to-Point (Data Loading)</h4>
+                        <ul>
+                            <li><strong>Pattern:</strong> Storage to compute (north-south)</li>
+                            <li><strong>Characteristics:</strong> Large sequential transfers</li>
+                            <li><strong>Solution:</strong> Separate storage network or QoS</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -404,136 +270,44 @@ echo 1 > /sys/class/infiniband/mlx5_0/ports/1/adaptive_routing_enable</code></pr
             <!-- Real-World Implementations -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Real-World AI Networking Case Studies</h2>
+                    <h2 class="section-title">Real-World Case Studies</h2>
                     
-                    <div class="case-studies">
-                        <div class="case-study">
-                            <h3>OpenAI's GPT Infrastructure</h3>
-                            <div class="case-details">
-                                <div class="case-specs">
-                                    <h4>Architecture</h4>
-                                    <ul>
-                                        <li>25,000+ NVIDIA V100/A100 GPUs across Microsoft Azure</li>
-                                        <li>InfiniBand HDR (200Gbps) interconnect</li>
-                                        <li>Custom networking optimization for transformer architectures</li>
-                                        <li>Distributed across multiple Azure regions for redundancy</li>
-                                    </ul>
-                                </div>
-                                <div class="case-challenges">
-                                    <h4>Technical Innovations</h4>
-                                    <ul>
-                                        <li>Gradient compression and quantization for network efficiency</li>
-                                        <li>Optimized all-reduce algorithms for transformer models</li>
-                                        <li>Custom CUDA kernels for collective communications</li>
-                                        <li>Dynamic batching and sequence parallelism</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="resource-links">
-                                <h4>Technical References</h4>
-                                <ul>
-                                    <li><a href="https://arxiv.org/abs/2005.14165" target="_blank">Language Models are Few-Shot Learners (GPT-3 Paper)</a></li>
-                                    <li><a href="https://azure.microsoft.com/en-us/blog/how-microsoft-azure-is-powering-openai/" target="_blank">Microsoft Azure AI Infrastructure Blog</a></li>
-                                    <li><a href="https://openai.com/research/scaling-laws-for-neural-language-models" target="_blank">OpenAI Scaling Laws Research</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="simple-content">
+                        <h3>OpenAI GPT Infrastructure</h3>
+                        <ul>
+                            <li><strong>Scale:</strong> 25,000+ NVIDIA V100/A100 GPUs</li>
+                            <li><strong>Network:</strong> InfiniBand HDR (200Gbps)</li>
+                            <li><strong>Platform:</strong> Microsoft Azure</li>
+                            <li><strong>Innovation:</strong> Custom optimization for transformer models</li>
+                        </ul>
+                        <p><a href="https://arxiv.org/abs/2005.14165" target="_blank">GPT-3 Paper</a> | <a href="https://azure.microsoft.com/en-us/blog/how-microsoft-azure-is-powering-openai/" target="_blank">Azure Blog</a></p>
                         
-                        <div class="case-study">
-                            <h3>Meta's AI Research SuperCluster (RSC)</h3>
-                            <div class="case-details">
-                                <div class="case-specs">
-                                    <h4>Technical Specifications</h4>
-                                    <ul>
-                                        <li>16,000 NVIDIA A100 GPUs (Phase 1)</li>
-                                        <li>NVIDIA Quantum InfiniBand switches (400Gbps)</li>
-                                        <li>Pure Storage FlashArray for 175PB capacity</li>
-                                        <li>Custom cooling and power delivery systems</li>
-                                    </ul>
-                                </div>
-                                <div class="case-innovations">
-                                    <h4>Network Design Features</h4>
-                                    <ul>
-                                        <li>Non-blocking fat-tree topology with 1:1 oversubscription</li>
-                                        <li>Dedicated storage network separate from compute</li>
-                                        <li>Advanced telemetry and monitoring for proactive maintenance</li>
-                                        <li>Custom job scheduling aware of network topology</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="resource-links">
-                                <h4>Technical References</h4>
-                                <ul>
-                                    <li><a href="https://ai.facebook.com/blog/announcing-ai-research-supercluster/" target="_blank">Meta AI Research SuperCluster Announcement</a></li>
-                                    <li><a href="https://engineering.fb.com/2022/01/24/data-center-engineering/ai-rsc/" target="_blank">RSC Technical Deep Dive - Meta Engineering</a></li>
-                                    <li><a href="https://research.facebook.com/publications/the-fbnet-data-center-network-architecture/" target="_blank">FBNet Datacenter Network Architecture</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h3>Meta AI Research SuperCluster (RSC)</h3>
+                        <ul>
+                            <li><strong>Scale:</strong> 16,000 NVIDIA A100 GPUs</li>
+                            <li><strong>Network:</strong> NVIDIA Quantum InfiniBand (400Gbps)</li>
+                            <li><strong>Storage:</strong> 175PB Pure Storage FlashArray</li>
+                            <li><strong>Design:</strong> Non-blocking fat-tree, 1:1 oversubscription</li>
+                        </ul>
+                        <p><a href="https://ai.facebook.com/blog/announcing-ai-research-supercluster/" target="_blank">Meta Announcement</a> | <a href="https://engineering.fb.com/2022/01/24/data-center-engineering/ai-rsc/" target="_blank">Technical Deep Dive</a></p>
                         
-                        <div class="case-study">
-                            <h3>NVIDIA DGX SuperPOD Reference Architecture</h3>
-                            <div class="case-details">
-                                <div class="case-specs">
-                                    <h4>Validated Design Components</h4>
-                                    <ul>
-                                        <li>20 DGX H100 systems (160 H100 GPUs per pod)</li>
-                                        <li>NVIDIA Quantum-2 InfiniBand switches (400Gbps)</li>
-                                        <li>Non-blocking fat-tree with rail optimization</li>
-                                        <li>NetQ for network telemetry and validation</li>
-                                    </ul>
-                                </div>
-                                <div class="case-performance">
-                                    <h4>Performance Metrics</h4>
-                                    <ul>
-                                        <li>8 exaflops FP8 AI training performance</li>
-                                        <li>Sub-microsecond network latency</li>
-                                        <li>Linear scaling efficiency >90% up to 32,000 GPUs</li>
-                                        <li>Certified with MLPerf benchmarks</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="resource-links">
-                                <h4>Technical References</h4>
-                                <ul>
-                                    <li><a href="https://docs.nvidia.com/dgx/dgx-superpod-reference-architecture/index.html" target="_blank">NVIDIA DGX SuperPOD Reference Architecture Guide</a></li>
-                                    <li><a href="https://www.nvidia.com/en-us/data-center/dgx-superpod/" target="_blank">DGX SuperPOD Technical Overview</a></li>
-                                    <li><a href="https://developer.nvidia.com/networking/infiniband" target="_blank">NVIDIA InfiniBand Developer Documentation</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="case-study">
-                            <h3>Google's TPU Pod Architecture</h3>
-                            <div class="case-details">
-                                <div class="case-specs">
-                                    <h4>Network Architecture</h4>
-                                    <ul>
-                                        <li>Custom 3D torus topology for TPU interconnect</li>
-                                        <li>2.4 Tbps bidirectional bandwidth per TPU chip</li>
-                                        <li>Dedicated inter-pod connectivity via data center network</li>
-                                        <li>Low-latency collective communication primitives</li>
-                                    </ul>
-                                </div>
-                                <div class="case-innovations">
-                                    <h4>Technical Innovations</h4>
-                                    <ul>
-                                        <li>All-reduce implementation in hardware</li>
-                                        <li>Topology-aware placement and routing</li>
-                                        <li>Dynamic reconfiguration for fault tolerance</li>
-                                        <li>Integrated with Google's Jupiter network fabric</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="resource-links">
-                                <h4>Technical References</h4>
-                                <ul>
-                                    <li><a href="https://cloud.google.com/blog/products/ai-machine-learning/google-breaks-ai-performance-records-in-mlperf-with-worlds-fastest-training-supercomputer" target="_blank">Google TPU Performance Records</a></li>
-                                    <li><a href="https://arxiv.org/abs/1704.04760" target="_blank">In-Datacenter Performance Analysis of a Tensor Processing Unit</a></li>
-                                    <li><a href="https://cloud.google.com/tpu/docs/system-architecture-tpu-vm" target="_blank">TPU System Architecture Documentation</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h3>NVIDIA DGX SuperPOD</h3>
+                        <ul>
+                            <li><strong>Scale:</strong> 160 H100 GPUs per pod</li>
+                            <li><strong>Network:</strong> Quantum-2 InfiniBand (400Gbps)</li>
+                            <li><strong>Performance:</strong> 8 exaflops FP8, sub-μs latency</li>
+                            <li><strong>Efficiency:</strong> >90% scaling up to 32,000 GPUs</li>
+                        </ul>
+                        <p><a href="https://docs.nvidia.com/dgx/dgx-superpod-reference-architecture/index.html" target="_blank">Architecture Guide</a> | <a href="https://www.nvidia.com/en-us/data-center/dgx-superpod/" target="_blank">Technical Overview</a></p>
+                        
+                        <h3>Google TPU Pod</h3>
+                        <ul>
+                            <li><strong>Scale:</strong> 100,000+ accelerators</li>
+                            <li><strong>Topology:</strong> Custom 3D torus</li>
+                            <li><strong>Bandwidth:</strong> 2.4 Tbps per chip</li>
+                            <li><strong>Innovation:</strong> Hardware all-reduce implementation</li>
+                        </ul>
+                        <p><a href="https://arxiv.org/abs/1704.04760" target="_blank">TPU Paper</a> | <a href="https://cloud.google.com/tpu/docs/system-architecture-tpu-vm" target="_blank">Architecture Docs</a></p>
                     </div>
                 </div>
             </section>
@@ -541,106 +315,61 @@ echo 1 > /sys/class/infiniband/mlx5_0/ports/1/adaptive_routing_enable</code></pr
             <!-- Practical Implementation Guide -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Practical Implementation Guide</h2>
+                    <h2 class="section-title">Implementation Guide</h2>
                     
-                    <h3>Building Your First AI Cluster Network</h3>
-                    <div class="implementation-steps">
-                        <div class="step">
-                            <div class="step-header">
-                                <span class="step-num">1</span>
-                                <h4>Requirements Analysis</h4>
-                            </div>
-                            <div class="step-content">
-                                <h5>Key Questions:</h5>
-                                <ul>
-                                    <li>What's your target model size? (determines memory bandwidth needs)</li>
-                                    <li>Training vs. inference workload? (affects traffic patterns)</li>
-                                    <li>Budget constraints? (InfiniBand vs. RoCE decision)</li>
-                                    <li>Growth plans? (oversubscription ratios)</li>
-                                </ul>
-                                <div class="pro-tip">
-                                    <strong>Pro Tip:</strong> Start with RoCE for cost-effectiveness, upgrade to InfiniBand for ultimate performance.
-                                </div>
-                            </div>
-                        </div>
+                    <div class="simple-content">
+                        <h3>Planning Your AI Network</h3>
                         
-                        <div class="step">
-                            <div class="step-header">
-                                <span class="step-num">2</span>
-                                <h4>Technology Selection</h4>
-                            </div>
-                            <div class="step-content">
-                                <div class="decision-matrix">
-                                    <div class="decision-option">
-                                        <h5>Choose InfiniBand if:</h5>
-                                        <ul>
-                                            <li>Latency &lt; 1μs required</li>
-                                            <li>Budget allows premium</li>
-                                            <li>HPC-style workloads</li>
-                                            <li>NVIDIA GPU ecosystem</li>
-                                        </ul>
-                                    </div>
-                                    <div class="decision-option">
-                                        <h5>Choose RoCE if:</h5>
-                                        <ul>
-                                            <li>Cost optimization priority</li>
-                                            <li>Multi-vendor preference</li>
-                                            <li>Existing Ethernet expertise</li>
-                                            <li>Mixed workload datacenter</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h4>Key Questions:</h4>
+                        <ul>
+                            <li>What's your target model size?</li>
+                            <li>Training vs. inference workload?</li>
+                            <li>Budget constraints?</li>
+                            <li>Growth plans?</li>
+                        </ul>
                         
-                        <div class="step">
-                            <div class="step-header">
-                                <span class="step-num">3</span>
-                                <h4>Network Design</h4>
-                            </div>
-                            <div class="step-content">
-                                <h5>Design Principles:</h5>
-                                <div class="design-principles">
-                                    <div class="principle">
-                                        <h6>Oversubscription</h6>
-                                        <p>AI clusters typically run 1:1 or 2:1 oversubscription (vs. 20:1 in enterprise)</p>
-                                    </div>
-                                    <div class="principle">
-                                        <h6>Failure Domains</h6>
-                                        <p>Design for single switch failure without job interruption</p>
-                                    </div>
-                                    <div class="principle">
-                                        <h6>Cabling</h6>
-                                        <p>Plan cable management early - AI clusters are cable-dense</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>Configuration Checklist</h3>
-                    <div class="config-checklist">
-                        <div class="checklist-section">
-                            <h4>RoCE Configuration</h4>
-                            <ul class="checklist">
-                                <li>Enable PFC (Priority Flow Control) on appropriate classes</li>
-                                <li>Configure DCQCN for congestion control</li>
-                                <li>Set appropriate buffer sizes (recommend 20MB+)</li>
-                                <li>Enable ECN marking</li>
-                                <li>Tune RDMA transport timeouts</li>
-                            </ul>
-                        </div>
+                        <h4>Technology Selection:</h4>
                         
-                        <div class="checklist-section">
-                            <h4>System Optimization</h4>
-                            <ul class="checklist">
-                                <li>NUMA topology awareness</li>
-                                <li>CPU affinity for RDMA interrupts</li>
-                                <li>Memory registration optimization</li>
-                                <li>MTU size optimization (9000+ bytes)</li>
-                                <li>Network buffer tuning</li>
-                            </ul>
-                        </div>
+                        <p><strong>Choose InfiniBand if:</strong></p>
+                        <ul>
+                            <li>Ultra-low latency required (&lt;1μs)</li>
+                            <li>Budget allows premium cost</li>
+                            <li>Pure HPC/AI workloads</li>
+                            <li>NVIDIA GPU ecosystem</li>
+                        </ul>
+                        
+                        <p><strong>Choose RoCE if:</strong></p>
+                        <ul>
+                            <li>Cost optimization priority</li>
+                            <li>Multi-vendor preference</li>
+                            <li>Existing Ethernet expertise</li>
+                            <li>Mixed datacenter workloads</li>
+                        </ul>
+                        
+                        <h4>Design Principles:</h4>
+                        <ul>
+                            <li><strong>Low oversubscription:</strong> 1:1 or 2:1 ratios (vs. 20:1 enterprise)</li>
+                            <li><strong>Fault tolerance:</strong> Single switch failure shouldn't stop jobs</li>
+                            <li><strong>Cable management:</strong> Plan early - AI clusters are cable-dense</li>
+                        </ul>
+                        
+                        <h4>Configuration Checklist:</h4>
+                        
+                        <p><strong>RoCE Setup:</strong></p>
+                        <ul>
+                            <li>Enable PFC on appropriate traffic classes</li>
+                            <li>Configure DCQCN congestion control</li>
+                            <li>Set buffer sizes (20MB+ recommended)</li>
+                            <li>Enable ECN marking</li>
+                        </ul>
+                        
+                        <p><strong>System Optimization:</strong></p>
+                        <ul>
+                            <li>NUMA topology awareness</li>
+                            <li>CPU affinity for RDMA interrupts</li>
+                            <li>Jumbo frames (9000+ bytes MTU)</li>
+                            <li>Network buffer tuning</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -648,187 +377,69 @@ echo 1 > /sys/class/infiniband/mlx5_0/ports/1/adaptive_routing_enable</code></pr
             <!-- Monitoring and Troubleshooting -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Monitoring & Troubleshooting AI Networks</h2>
+                    <h2 class="section-title">Monitoring & Troubleshooting</h2>
                     
-                    <h3>Network Performance Monitoring and Telemetry</h3>
-                    <div class="tech-detail">
-                        <h4>RDMA Statistics Collection</h4>
-                        <pre><code># InfiniBand performance counters
-ibstat
-ibnetdiscover  
-perfquery -a    # All port counters
-perfquery -r    # Reset counters after reading
-
-# Key IB counters to monitor:
-# - PortXmitData/PortRcvData: Data throughput
-# - PortXmitPkts/PortRcvPkts: Packet rate
-# - SymbolErrorCounter: Physical layer errors
-# - LinkDownedCounter: Link flapping
-# - PortRcvErrors: Packet corruption</code></pre>
-
-                        <h4>RoCE Specific Monitoring</h4>
-                        <pre><code># RoCE counters via ethtool
-ethtool -S eth0 | grep -E 'roce|rdma|rq|sq'
-
-# PFC statistics
-ethtool -S eth0 | grep pfc
-dcbtool gc eth0 pfc
-
-# DCQCN congestion statistics  
-cat /sys/class/infiniband/mlx5_0/ports/1/hw_counters/np_cnp_sent
-cat /sys/class/infiniband/mlx5_0/ports/1/hw_counters/rp_cnp_handled</code></pre>
-
-                        <h4>Application-Level Metrics</h4>
-                        <pre><code># NCCL performance analysis
-export NCCL_DEBUG=INFO
-export NCCL_DEBUG_SUBSYS=COLL
-
-# Monitor collective operation bandwidth
-nccl-tests/build/all_reduce_perf -b 1M -e 1G -g &lt;num_gpus&gt;
-
-# Key metrics:
-# - algbw: Algorithm bandwidth (effective)
-# - busbw: Bus bandwidth (total network)  
-# - Latency: End-to-end collective latency</code></pre>
-
-                        <h4>Automated Performance Validation</h4>
-                        <pre><code>#!/bin/bash
-# AI cluster network validation script
-
-# Test 1: Bandwidth verification
-ib_write_bw -d mlx5_0 -s 1048576 --duration 10
-
-# Test 2: Latency verification  
-ib_write_lat -d mlx5_0 -s 2
-
-# Test 3: All-reduce scaling test
-mpirun -np $NUM_GPUS nccl-tests/build/all_reduce_perf -b 8 -e 2G
-
-# Test 4: Congestion behavior
-ib_send_bw -d mlx5_0 --multicast -s 65536 --duration 30</code></pre>
-                    </div>
-
-                    <h3>Performance Tuning Parameters</h3>
-                    <div class="tech-detail">
-                        <h4>System-Level Optimizations</h4>
-                        <pre><code># CPU affinity and NUMA optimization
-echo 0 > /proc/sys/kernel/numa_balancing
-echo performance > /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-
-# IRQ affinity for RDMA adapters
-echo 2 > /proc/irq/24/smp_affinity  # CPU 1 for HCA 0
-echo 4 > /proc/irq/25/smp_affinity  # CPU 2 for HCA 1
-
-# Memory registration optimizations  
-echo 1 > /sys/module/ib_uverbs/parameters/disable_raw_qp_enforcement
-ulimit -l unlimited</code></pre>
-
-                        <h4>NCCL Algorithm Tuning</h4>
-                        <pre><code># Ring algorithm for large messages (>1MB)
-export NCCL_ALGO=Ring
-export NCCL_MIN_NCHANNELS=16
-export NCCL_MAX_NCHANNELS=16
-
-# Tree algorithm for small messages (&lt;1MB)  
-export NCCL_TREE_THRESHOLD=0
-export NCCL_ALGO=Tree
-
-# Topology-aware tuning
-export NCCL_TOPO_FILE=topology.xml
-export NCCL_GRAPH_DUMP_FILE=graph.dot</code></pre>
-                    </div>
-
-                    <h3>Advanced Troubleshooting Guide</h3>
-                    <div class="troubleshooting">
-                        <div class="issue-solution">
-                            <h4>Problem: RDMA Transport Timeouts</h4>
-                            <div class="solution">
-                                <h5>Diagnosis Commands:</h5>
-                                <pre><code># Check QP state and error counters
-ibv_rc_pingpong -d mlx5_0 -g 0
-cat /sys/class/infiniband/mlx5_0/ports/1/counters/*
-
-# Analyze timeout parameters
-cat /sys/class/infiniband/mlx5_0/ports/1/rate
-ibportstate -D 0 1 query
-
-# Check fabric connectivity
-ibnetdiscover -p | grep "problems\|errors"</code></pre>
-                                <h5>Resolution:</h5>
-                                <ul>
-                                    <li>Increase timeout values: <code>echo 18 > /sys/class/infiniband/mlx5_0/ports/1/timeout</code></li>
-                                    <li>Verify cable integrity with BER testing</li>
-                                    <li>Check switch buffer configuration</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="simple-content">
+                        <h3>Key Monitoring Tools</h3>
                         
-                        <div class="issue-solution">
-                            <h4>Problem: PFC Deadlock Detection</h4>
-                            <div class="solution">
-                                <h5>Detection Script:</h5>
-                                <pre><code>#!/bin/bash
-# PFC deadlock detection
-for i in {0..7}; do
-  pfc_rx=$(ethtool -S eth0 | grep "pfc_pri${i}_rx_pause")
-  pfc_tx=$(ethtool -S eth0 | grep "pfc_pri${i}_tx_pause") 
-  echo "Priority $i: RX=$pfc_rx TX=$pfc_tx"
-done
-
-# Check for sustained pause storms (>1s)
-watch -n 1 'ethtool -S eth0 | grep pfc'</code></pre>
-                                <h5>Mitigation:</h5>
-                                <ul>
-                                    <li>Enable PFC watchdog: <code>echo 100000 > /sys/class/net/eth0/pfc_storm_prevention_msec</code></li>
-                                    <li>Implement ECN marking instead of PFC where possible</li>
-                                    <li>Tune buffer thresholds to prevent unnecessary pausing</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="issue-solution">
-                            <h4>Problem: NCCL All-Reduce Performance Degradation</h4>
-                            <div class="solution">
-                                <h5>Performance Analysis:</h5>
-                                <pre><code># Enable detailed NCCL logging
-export NCCL_DEBUG=INFO
-export NCCL_DEBUG_SUBSYS=ALL
-
-# Bandwidth test across message sizes
-mpirun -np $NGPU nccl-tests/build/all_reduce_perf -b 1K -e 1G -f 2
-
-# Check algorithm selection
-export NCCL_ALGO=Tree,Ring
-export NCCL_PROTO=Simple,LL,LL128</code></pre>
-                                <h5>Optimization Steps:</h5>
-                                <ul>
-                                    <li>Verify GPU-NIC affinity with <code>nvidia-smi topo -m</code></li>
-                                    <li>Check for network imbalance using <code>ib_write_bw</code> tests</li>
-                                    <li>Tune NCCL tree threshold: <code>export NCCL_TREE_THRESHOLD=0</code></li>
-                                    <li>Enable SHARP in-network computing if available</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="issue-solution">
-                            <h4>Problem: Packet Corruption and CRC Errors</h4>
-                            <div class="solution">
-                                <h5>Error Analysis:</h5>
-                                <pre><code># Check physical layer statistics
-ibstat | grep -A10 "State\|Rate\|Width" 
-perfquery | grep -E "RcvErrors|XmtDiscards|SymbolErrors"
-
-# Cable diagnostics (if supported)
-mlxcables --port-type ib --device mlx5_0 --port-number 1</code></pre>
-                                <h5>Resolution:</h5>
-                                <ul>
-                                    <li>Replace suspect cables/transceivers</li>
-                                    <li>Verify FEC configuration: <code>ethtool --show-fec eth0</code></li>
-                                    <li>Check environmental conditions (temperature, power)</li>
-                                    <li>Update firmware on NICs and switches</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h4>InfiniBand:</h4>
+                        <ul>
+                            <li><code>ibstat</code> - Check adapter status</li>
+                            <li><code>perfquery -a</code> - Performance counters</li>
+                            <li><code>ibnetdiscover</code> - Fabric discovery</li>
+                        </ul>
+                        
+                        <h4>RoCE/Ethernet:</h4>
+                        <ul>
+                            <li><code>ethtool -S eth0</code> - Interface statistics</li>
+                            <li><code>dcbtool gc eth0 pfc</code> - PFC status</li>
+                            <li>Monitor PFC pause frames and ECN marks</li>
+                        </ul>
+                        
+                        <h4>NCCL Performance:</h4>
+                        <ul>
+                            <li><code>nccl-tests/build/all_reduce_perf</code> - Benchmark collectives</li>
+                            <li>Set <code>NCCL_DEBUG=INFO</code> for detailed logging</li>
+                            <li>Monitor algorithm bandwidth (algbw) and bus bandwidth (busbw)</li>
+                        </ul>
+                        
+                        <h3>Common Issues & Solutions</h3>
+                        
+                        <h4>RDMA Transport Timeouts:</h4>
+                        <ul>
+                            <li><strong>Symptoms:</strong> Connection failures, QP errors</li>
+                            <li><strong>Check:</strong> Cable integrity, switch buffer config</li>
+                            <li><strong>Fix:</strong> Increase timeout values, replace cables</li>
+                        </ul>
+                        
+                        <h4>PFC Deadlocks:</h4>
+                        <ul>
+                            <li><strong>Symptoms:</strong> Sustained pause storms, traffic stoppage</li>
+                            <li><strong>Check:</strong> PFC counters with <code>ethtool -S</code></li>
+                            <li><strong>Fix:</strong> Enable PFC watchdog, tune buffer thresholds</li>
+                        </ul>
+                        
+                        <h4>Poor All-Reduce Performance:</h4>
+                        <ul>
+                            <li><strong>Symptoms:</strong> Low bandwidth utilization</li>
+                            <li><strong>Check:</strong> GPU-NIC affinity with <code>nvidia-smi topo -m</code></li>
+                            <li><strong>Fix:</strong> Tune NCCL algorithms, check network balance</li>
+                        </ul>
+                        
+                        <h4>Packet Corruption:</h4>
+                        <ul>
+                            <li><strong>Symptoms:</strong> CRC errors, symbol errors</li>
+                            <li><strong>Check:</strong> Physical layer stats with <code>ibstat</code></li>
+                            <li><strong>Fix:</strong> Replace cables, check FEC settings, update firmware</li>
+                        </ul>
+                        
+                        <h3>Performance Targets</h3>
+                        <ul>
+                            <li><strong>Latency:</strong> InfiniBand &lt;1μs, RoCE &lt;2μs</li>
+                            <li><strong>Bandwidth utilization:</strong> &gt;90% for AI workloads</li>
+                            <li><strong>Packet loss:</strong> 0% (lossless with PFC)</li>
+                            <li><strong>All-reduce efficiency:</strong> &gt;80% of theoretical</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -977,81 +588,30 @@ mlxcables --port-type ib --device mlx5_0 --port-number 1</code></pre>
             <!-- Additional Resources -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Additional Learning Resources</h2>
+                    <h2 class="section-title">Additional Resources</h2>
                     
-                    <div class="resources-grid">
-                        <div class="resource-category">
-                            <h3>Essential Reading</h3>
-                            <div class="resource-list">
-                                <div class="resource-item">
-                                    <h4>NVIDIA Networking Documentation</h4>
-                                    <p>Comprehensive technical documentation covering InfiniBand, Ethernet, and software stack</p>
-                                    <a href="https://docs.nvidia.com/networking/" target="_blank">docs.nvidia.com/networking</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>Ultra Ethernet Consortium Technical Papers</h4>
-                                    <p>Industry specifications, white papers, and technical requirements for AI networking</p>
-                                    <a href="https://ultraethernet.org/resources/" target="_blank">ultraethernet.org/resources</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>OpenCompute Project (OCP) Networking</h4>
-                                    <p>Open source hardware designs and specifications for datacenter networking at scale</p>
-                                    <a href="https://www.opencompute.org/projects/networking" target="_blank">opencompute.org/networking</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>IEEE Standards for Datacenter Networks</h4>
-                                    <p>IEEE 802.1 DCB, 802.3 Ethernet, and related standards for lossless datacenter networking</p>
-                                    <a href="https://standards.ieee.org/products-programs/dcn/" target="_blank">IEEE DCN Standards</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="simple-content">
+                        <h3>Essential Documentation</h3>
+                        <ul>
+                            <li><a href="https://docs.nvidia.com/networking/" target="_blank">NVIDIA Networking Documentation</a> - InfiniBand, Ethernet, and software stack</li>
+                            <li><a href="https://ultraethernet.org/resources/" target="_blank">Ultra Ethernet Consortium</a> - Industry specifications for AI networking</li>
+                            <li><a href="https://www.opencompute.org/projects/networking" target="_blank">OpenCompute Project</a> - Open source hardware designs for datacenter networking</li>
+                        </ul>
                         
-                        <div class="resource-category">
-                            <h3>Hands-On Tools</h3>
-                            <div class="resource-list">
-                                <div class="resource-item">
-                                    <h4>NCCL (NVIDIA Collective Communications Library)</h4>
-                                    <p>Production-grade GPU-aware communication primitives optimized for AI training workloads</p>
-                                    <a href="https://github.com/NVIDIA/nccl" target="_blank">github.com/NVIDIA/nccl</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>OpenMPI with RDMA Support</h4>
-                                    <p>High-performance message passing interface with optimizations for modern interconnects</p>
-                                    <a href="https://www.open-mpi.org/" target="_blank">open-mpi.org</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>RDMA Performance Testing Suite</h4>
-                                    <p>Comprehensive RDMA benchmarking tools including perftest, qperf, and bandwidth analyzers</p>
-                                    <a href="https://github.com/linux-rdma/perftest" target="_blank">github.com/linux-rdma/perftest</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>NVIDIA NetQ Network Operations</h4>
-                                    <p>Network visibility, troubleshooting, and lifecycle management for modern datacenters</p>
-                                    <a href="https://www.nvidia.com/en-us/networking/ethernet-switching/netq/" target="_blank">nvidia.com/netq</a>
-                                </div>
-                            </div>
-                        </div>
+                        <h3>Tools and Software</h3>
+                        <ul>
+                            <li><a href="https://github.com/NVIDIA/nccl" target="_blank">NCCL</a> - GPU-aware collective communications library</li>
+                            <li><a href="https://www.open-mpi.org/" target="_blank">OpenMPI</a> - High-performance message passing with RDMA support</li>
+                            <li><a href="https://github.com/linux-rdma/perftest" target="_blank">RDMA Performance Testing Suite</a> - Benchmarking tools</li>
+                            <li><a href="https://www.nvidia.com/en-us/networking/ethernet-switching/netq/" target="_blank">NVIDIA NetQ</a> - Network operations and monitoring</li>
+                        </ul>
                         
-                        <div class="resource-category">
-                            <h3>Advanced Courses</h3>
-                            <div class="resource-list">
-                                <div class="resource-item">
-                                    <h4>NVIDIA Deep Learning Institute (DLI)</h4>
-                                    <p>Professional training courses on GPU-accelerated computing, AI infrastructure, and networking</p>
-                                    <a href="https://www.nvidia.com/en-us/training/" target="_blank">nvidia.com/training</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>Broadcom University Network Training</h4>
-                                    <p>Enterprise-grade training on datacenter switching, routing, and network fabric technologies</p>
-                                    <a href="https://www.broadcom.com/support/education" target="_blank">broadcom.com/education</a>
-                                </div>
-                                <div class="resource-item">
-                                    <h4>Linux Foundation Cloud Native Network Functions</h4>
-                                    <p>Training on modern networking technologies including DPDK, eBPF, and cloud-native architectures</p>
-                                    <a href="https://training.linuxfoundation.org/" target="_blank">training.linuxfoundation.org</a>
-                                </div>
-                            </div>
-                        </div>
+                        <h3>Training and Courses</h3>
+                        <ul>
+                            <li><a href="https://www.nvidia.com/en-us/training/" target="_blank">NVIDIA Deep Learning Institute</a> - Professional AI infrastructure training</li>
+                            <li><a href="https://www.broadcom.com/support/education" target="_blank">Broadcom University</a> - Enterprise datacenter networking training</li>
+                            <li><a href="https://training.linuxfoundation.org/" target="_blank">Linux Foundation Training</a> - Modern networking technologies</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -1059,56 +619,25 @@ mlxcables --port-type ib --device mlx5_0 --port-number 1</code></pre>
             <!-- Quick Reference -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Quick Reference Guide</h2>
+                    <h2 class="section-title">Quick Reference</h2>
                     
-                    <div class="quick-reference">
-                        <div class="reference-section">
-                            <h3>Common Commands</h3>
-                            <div class="command-list">
-                                <div class="command-item">
-                                    <code>ibstat</code>
-                                    <span>Check InfiniBand adapter status</span>
-                                </div>
-                                <div class="command-item">
-                                    <code>ibv_devinfo</code>
-                                    <span>Display RDMA device information</span>
-                                </div>
-                                <div class="command-item">
-                                    <code>ib_write_bw</code>
-                                    <span>Measure RDMA write bandwidth</span>
-                                </div>
-                                <div class="command-item">
-                                    <code>rdma link show</code>
-                                    <span>Show RDMA link status</span>
-                                </div>
-                                <div class="command-item">
-                                    <code>mlnx_qos -i eth0</code>
-                                    <span>Check PFC and QoS status</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="simple-content">
+                        <h3>Essential Commands</h3>
+                        <ul>
+                            <li><code>ibstat</code> - Check InfiniBand adapter status</li>
+                            <li><code>ibv_devinfo</code> - Display RDMA device information</li>
+                            <li><code>ib_write_bw</code> - Measure RDMA write bandwidth</li>
+                            <li><code>ethtool -S eth0</code> - Ethernet interface statistics</li>
+                            <li><code>mlnx_qos -i eth0</code> - Check PFC and QoS status</li>
+                        </ul>
                         
-                        <div class="reference-section">
-                            <h3>Performance Targets</h3>
-                            <div class="targets-grid">
-                                <div class="target-item">
-                                    <span class="target-metric">Latency</span>
-                                    <span class="target-value">InfiniBand: &lt;1μs<br>RoCE: &lt;2μs</span>
-                                </div>
-                                <div class="target-item">
-                                    <span class="target-metric">Bandwidth Utilization</span>
-                                    <span class="target-value">&gt;90% for AI workloads</span>
-                                </div>
-                                <div class="target-item">
-                                    <span class="target-metric">Packet Loss</span>
-                                    <span class="target-value">0% (lossless with PFC)</span>
-                                </div>
-                                <div class="target-item">
-                                    <span class="target-metric">All-Reduce Efficiency</span>
-                                    <span class="target-value">&gt;80% of theoretical</span>
-                                </div>
-                            </div>
-                        </div>
+                        <h3>Performance Targets</h3>
+                        <ul>
+                            <li><strong>Latency:</strong> InfiniBand &lt;1μs, RoCE &lt;2μs</li>
+                            <li><strong>Bandwidth Utilization:</strong> &gt;90% for AI workloads</li>
+                            <li><strong>Packet Loss:</strong> 0% (lossless with PFC)</li>
+                            <li><strong>All-Reduce Efficiency:</strong> &gt;80% of theoretical</li>
+                        </ul>
                     </div>
                 </div>
             </section>

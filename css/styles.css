@@ -1378,6 +1378,80 @@ body.dark-mode .navbar a.active {
 }
 
 /* ==========================================================================
+   Simplified Content Styles for AI Datacenter Networking
+   ========================================================================== */
+.simple-content {
+    line-height: 1.6;
+}
+
+.simple-content h3 {
+    color: var(--accent-1);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.simple-content h4 {
+    color: var(--primary-text-color);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.simple-content ul {
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.simple-content li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.simple-content p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.simple-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.list-item {
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-color);
+}
+
+.list-item h3 {
+    color: var(--accent-1);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.list-item p {
+    color: var(--secondary-text-color);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .simple-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .simple-content h4 {
+        font-size: 1rem;
+    }
+    
+    .list-item {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ==========================================================================
    New Feature: Syntax Highlighting (Prism.js "Tomorrow Night" Theme)
    ========================================================================== */
 pre[class*="language-"] {
