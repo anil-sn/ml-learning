@@ -14,8 +14,8 @@
             }
         })();
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css?v=2">
 </head>
 <body>
     <div class="main-container">
@@ -25,12 +25,10 @@
                 <a href="about.html">About Me</a>
                 <a href="llm_lingo.html">LLM Lingo</a>
                 <a href="ml_youtube_courses.html" class="active">ML YouTube Courses</a>
-                <a href="Environments.html">Environments</a>
                 <a href="AIML_Research.html">AI/ML Timeline</a>
                 <a href="blogs.html">Blogs</a>
                 <a href="Projects.html">Projects</a>
                 <a href="llm_survey_papers.html">LLM Survey Papers</a>
-                <a href="networking_truths.html">Networking Truths</a>
                 <a href="ai_datacenter_networking.html">AI Datacenter Networking</a>
             </nav>
             <div class="theme-switcher">
@@ -44,38 +42,16 @@
         <main class="main-content">
             <header class="header">
                 <h1>📺 ML YouTube Courses</h1>
-                <p>The best and most comprehensive machine learning courses available on YouTube, curated for network engineers transitioning into ML/AI</p>
+                <p>The best and most comprehensive machine learning courses available on YouTube, organized by quality and reputation for network engineers transitioning into ML/AI</p>
             </header>
-            
-            <!-- Machine Learning Section -->
+
+            <!-- Tier 1: Premium University Courses -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Machine Learning Fundamentals</h2>
-                    <p>Start your ML journey with these foundational courses that cover core concepts and algorithms:</p>
+                    <h2 class="section-title">🏆 Tier 1: Premium University Courses</h2>
+                    <p>World-class courses from top universities (Stanford, MIT, Caltech, CMU) - the gold standard for ML education with rigorous theoretical foundations and practical applications.</p>
                     
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLD63A284B7615313A">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/mGK0p6hsLs8/maxresdefault.jpg" alt="Caltech CS156 Learning from Data">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">18 lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Caltech CS156: Learning from Data</h3>
-                                <p class="video-description">An introductory course covering basic theory, algorithms, and applications. Topics include the learning problem, linear models, bias-variance tradeoff, neural networks, and SVMs.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Fundamentals</span>
-                                    <span class="video-tag">Theory</span>
-                                    <span class="video-tag">Beginner</span>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="video-grid-single">
                         <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU">
                             <div class="video-thumbnail">
                                 <img src="https://img.youtube.com/vi/jGwO_UgTS7I/maxresdefault.jpg" alt="Stanford CS229 Machine Learning">
@@ -88,151 +64,20 @@
                                 <div class="video-duration">20 lectures</div>
                             </div>
                             <div class="video-info">
-                                <h3 class="video-title">Stanford CS229: Machine Learning</h3>
-                                <p class="video-description">Andrew Ng's famous Stanford course covering linear regression, logistic regression, SVMs, neural networks, clustering, and more. Essential for understanding ML fundamentals.</p>
+                                <h3 class="video-title">Stanford CS229: Machine Learning (Andrew Ng)</h3>
+                                <p class="video-description">The legendary Stanford course taught by Andrew Ng, covering essential topics like linear regression, logistic regression, neural networks, SVMs, clustering, and dimensionality reduction. This comprehensive course provides both theoretical understanding and practical implementation skills, making it the perfect foundation for ML practitioners. Essential for anyone serious about understanding machine learning fundamentals.</p>
                                 <div class="video-tags">
                                     <span class="video-tag">Stanford</span>
                                     <span class="video-tag">Andrew Ng</span>
                                     <span class="video-tag">Comprehensive</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLRKtJ4IpxJpDxl0NTvNYQWKCYzHNuy2xG">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Making Friends with Machine Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Mini lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Making Friends with Machine Learning</h3>
-                                <p class="video-description">A series of mini lectures covering introductory topics including explainability, classification vs regression, statistical significance, and clustering.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Beginner-Friendly</span>
-                                    <span class="video-tag">Mini Lectures</span>
-                                    <span class="video-tag">Practical</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL2UML_KCiC0UlY7iCQDSiGDMovaupqc83">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/VAmLimHNpm0/maxresdefault.jpg" alt="Applied Machine Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Multiple lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Applied Machine Learning</h3>
-                                <p class="video-description">Learn widely used ML techniques including optimization, overfitting/underfitting, regularization, Monte Carlo estimation, and nearest neighbors.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Applied</span>
-                                    <span class="video-tag">Practical</span>
-                                    <span class="video-tag">Techniques</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij35ShKLDqccJSDntugY4FQT">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Introduction to Machine Learning Tübingen">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Lecture series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Introduction to Machine Learning (Tübingen)</h3>
-                                <p class="video-description">Basic introduction covering key concepts in regression, classification, optimization, regularization, clustering, and dimensionality reduction.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Tübingen</span>
-                                    <span class="video-tag">Introduction</span>
-                                    <span class="video-tag">Comprehensive</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLzrCXlf6ypbxS5OYOY3EN_0u2fDuIT6Gt">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Machine Learning Lecture Stefan Harmeling">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Lecture series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Machine Learning Lecture (Stefan Harmeling)</h3>
-                                <p class="video-description">Covers fundamental ML concepts including Bayes rule, probabilities, distributions, matrix differential calculus, PCA, K-means, causality, and Gaussian processes.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Fundamentals</span>
-                                    <span class="video-tag">Mathematics</span>
-                                    <span class="video-tag">Comprehensive</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij2XCvrRzLokX6EoHWaGA2cC">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Statistical Machine Learning Tübingen">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Course series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Statistical Machine Learning (Tübingen)</h3>
-                                <p class="video-description">Standard paradigms and algorithms in statistical ML including KNN, Bayesian decision theory, convex optimization, linear/ridge/logistic regression, SVM, random forests, and clustering.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Statistical</span>
-                                    <span class="video-tag">Algorithms</span>
-                                    <span class="video-tag">Tübingen</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij2YE8rRJSb-olDNbntAQ_Bx">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Probabilistic Machine Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Course series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Probabilistic Machine Learning</h3>
-                                <p class="video-description">Probabilistic paradigm of ML covering reasoning about uncertainty, continuous variables, sampling, MCMC, Gaussian distributions, graphical models, and tuning inference algorithms.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Probabilistic</span>
-                                    <span class="video-tag">Uncertainty</span>
-                                    <span class="video-tag">Advanced</span>
+                                    <span class="video-tag">Theory + Practice</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="MIT Machine Learning for Healthcare">
+                                <img src="https://img.youtube.com/vi/isSKKK8zCcY/maxresdefault.jpg" alt="MIT Machine Learning for Healthcare">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
@@ -243,334 +88,42 @@
                             </div>
                             <div class="video-info">
                                 <h3 class="video-title">MIT 6.S897: Machine Learning for Healthcare (2019)</h3>
-                                <p class="video-description">Introduction to ML in healthcare including clinical data analysis, risk stratification, disease progression modeling, precision medicine, diagnosis, and improving clinical workflows.</p>
+                                <p class="video-description">Advanced MIT course focusing on applying machine learning to healthcare challenges including clinical data analysis, risk stratification, disease progression modeling, and precision medicine. Taught by leading researchers, this course demonstrates how ML can improve diagnosis, treatment planning, and clinical workflows. Perfect for understanding real-world applications of ML in critical domains.</p>
                                 <div class="video-tags">
                                     <span class="video-tag">MIT</span>
                                     <span class="video-tag">Healthcare</span>
-                                    <span class="video-tag">Applied</span>
+                                    <span class="video-tag">Applied ML</span>
+                                    <span class="video-tag">Advanced</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Deep Learning Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Deep Learning</h2>
-                    <p>Dive deep into neural networks and modern AI architectures:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLD63A284B7615313A">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/VMj-3S1tku0/maxresdefault.jpg" alt="Neural Networks Zero to Hero">
+                                <img src="https://img.youtube.com/vi/mGK0p6hsLs8/maxresdefault.jpg" alt="Caltech CS156 Learning from Data">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                                         <path d="M45,24 27,14 27,34" fill="#fff"></path>
                                     </svg>
                                 </div>
-                                <div class="video-duration">8+ hours</div>
+                                <div class="video-duration">18 lectures</div>
                             </div>
                             <div class="video-info">
-                                <h3 class="video-title">Neural Networks: Zero to Hero by Andrej Karpathy</h3>
-                                <p class="video-description">In-depth overview of neural networks from scratch, covering backpropagation, language modeling, and becoming a "Backprop Ninja". Perfect hands-on approach.</p>
+                                <h3 class="video-title">Caltech CS156: Learning from Data (Yaser Abu-Mostafa)</h3>
+                                <p class="video-description">Exceptional introductory course taught by renowned Caltech professor Yaser Abu-Mostafa, covering fundamental theory, algorithms, and applications. Focuses on the learning problem, linear models, bias-variance tradeoff, neural networks, and SVMs with mathematical rigor. Known for clear explanations and deep insights into why machine learning works, making complex concepts accessible to beginners.</p>
                                 <div class="video-tags">
-                                    <span class="video-tag">Andrej Karpathy</span>
-                                    <span class="video-tag">From Scratch</span>
-                                    <span class="video-tag">Hands-on</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/PySo_6S4ZAg/maxresdefault.jpg" alt="Stanford CS230 Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">8 lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Stanford CS230: Deep Learning (2018)</h3>
-                                <p class="video-description">Covers foundations of deep learning, how to build CNNs, RNNs, LSTMs, lead ML projects, and career advice. Includes GANs, healthcare applications, and strategy.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">Comprehensive</span>
-                                    <span class="video-tag">Project-focused</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/njKP3FqW3Sk/maxresdefault.jpg" alt="MIT Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Multiple lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Introduction to Deep Learning (MIT)</h3>
-                                <p class="video-description">MIT's comprehensive introduction to deep learning fundamentals, covering the core concepts and practical applications of modern neural networks.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">MIT</span>
+                                    <span class="video-tag">Caltech</span>
+                                    <span class="video-tag">Theory</span>
                                     <span class="video-tag">Fundamentals</span>
-                                    <span class="video-tag">Academic</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLp-0K3kfddPxRmjgjm0P1WT6H-gTqE8j9">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/VO5vKowfaiU/maxresdefault.jpg" alt="CMU Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Semester course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">CMU Introduction to Deep Learning (11-785)</h3>
-                                <p class="video-description">Starts with MLPs and progresses to advanced concepts like attention and sequence-to-sequence models. Comprehensive university-level course.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">CMU</span>
-                                    <span class="video-tag">Progressive</span>
-                                    <span class="video-tag">Advanced</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLCpMvp7ftsnIbNwRnQJbDNRqO6qiN3EyH">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="MIT Deep Learning for Art">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">MIT Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">MIT: Deep Learning for Art, Aesthetics, and Creativity</h3>
-                                <p class="video-description">Application of deep learning for art and creativity covering efficient GANs, explorations in AI creativity, neural abstractions, and 3D content creation.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">MIT</span>
-                                    <span class="video-tag">Creative AI</span>
-                                    <span class="video-tag">GANs</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Deep Learning CS182">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">UC Berkeley</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Deep Learning: CS 182</h3>
-                                <p class="video-description">Widely used techniques in deep learning including ML basics, error analysis, optimization, backpropagation, initialization, batch normalization, style transfer, and imitation learning.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">UC Berkeley</span>
-                                    <span class="video-tag">Techniques</span>
-                                    <span class="video-tag">Practical</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLwRJQ4m4UJjPiJP3691u-qWwPGVKzSlNP">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Deep Unsupervised Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Advanced course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Deep Unsupervised Learning</h3>
-                                <p class="video-description">Latest techniques in deep unsupervised learning including autoregressive models, flow models, latent variable models, self-supervised learning, implicit models, and compression.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Unsupervised</span>
-                                    <span class="video-tag">Advanced</span>
-                                    <span class="video-tag">Self-supervised</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="NYU Deep Learning SP21">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">NYU Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">NYU Deep Learning SP21</h3>
-                                <p class="video-description">Advanced deep learning techniques covering neural nets rotation and squashing, latent variable energy based models, unsupervised learning, GANs, and autoencoders.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">NYU</span>
-                                    <span class="video-tag">Advanced</span>
-                                    <span class="video-tag">Energy Models</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL9t0xVFP90GD8hox0KipBkJcLX_C3ja67">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Foundation Models">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Stanford Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Foundation Models</h3>
-                                <p class="video-description">Learn about foundation models like GPT-3, CLIP, Flamingo, Codex, and DINO. Covers the emergence and impact of large-scale pre-trained models.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Foundation Models</span>
-                                    <span class="video-tag">GPT</span>
-                                    <span class="video-tag">Modern</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij3NTWIdtMbfvX7Z-4WEXRqD">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Deep Learning Tübingen">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">University course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Deep Learning (Tübingen)</h3>
-                                <p class="video-description">Practical and theoretical principles of deep neural networks including computation graphs, architectures, CNNs, graph neural networks, and generative models like VAEs and GANs.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Tübingen</span>
-                                    <span class="video-tag">Theory + Practice</span>
-                                    <span class="video-tag">Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Scientific Machine Learning Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Scientific Machine Learning</h2>
-                    <p>Apply ML to scientific computing and simulation:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLCAl7tjCwWyGjdzOOnlbGnVNZk0kB8VSa">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Scientific Machine Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Comprehensive</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Parallel Computing and Scientific Machine Learning</h3>
-                                <p class="video-description">Scientific simulators, parallel computing, continuous dynamics, inverse problems, differentiable programming, physics-informed neural networks, and probabilistic programming.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Scientific ML</span>
-                                    <span class="video-tag">Physics-Informed</span>
-                                    <span class="video-tag">Parallel Computing</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- NLP Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Natural Language Processing</h2>
-                    <p>Master modern NLP techniques, from transformers to large language models:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/P127jhj-8-Y/maxresdefault.jpg" alt="Natural Language Understanding">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">2023 Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">XCS224U: Natural Language Understanding (2023)</h3>
-                                <p class="video-description">Latest NLP concepts including contextual word representations, information retrieval, in-context learning, and behavioral evaluation of NLU models.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Latest</span>
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">2023</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/P127jhj-8-Y/maxresdefault.jpg" alt="Transformers United">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Lecture series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Stanford CS25 - Transformers United</h3>
-                                <p class="video-description">Deep dive into Transformers covering GPT-3, Codex, applications in vision, RL, scaling transformers, and interpretability. Essential for modern NLP.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Transformers</span>
-                                    <span class="video-tag">GPT</span>
-                                    <span class="video-tag">Advanced</span>
+                                    <span class="video-tag">Mathematical</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/00GKzGyWFEs/maxresdefault.jpg" alt="HuggingFace NLP Course">
+                                <img src="https://img.youtube.com/vi/8CfKT-wHL9A/maxresdefault.jpg" alt="Stanford CS224N NLP">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
@@ -580,161 +133,20 @@
                                 <div class="video-duration">Course series</div>
                             </div>
                             <div class="video-info">
-                                <h3 class="video-title">NLP Course (Hugging Face)</h3>
-                                <p class="video-description">Learn NLP concepts and how to apply language models and Transformers including transfer learning, tokenization, fine-tuning, and model evaluation.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Hugging Face</span>
-                                    <span class="video-tag">Practical</span>
-                                    <span class="video-tag">Hands-on</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/8rXD5-xhemo/maxresdefault.jpg" alt="CS224N NLP with Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">20+ lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">CS224N: Natural Language Processing with Deep Learning</h3>
-                                <p class="video-description">Latest approaches for deep learning based NLP including dependency parsing, language models, RNNs, question answering, transformers, and large language models.</p>
+                                <h3 class="video-title">Stanford CS224N: Natural Language Processing with Deep Learning</h3>
+                                <p class="video-description">Advanced Stanford course covering cutting-edge NLP techniques using deep learning, including word embeddings, RNNs, transformers, attention mechanisms, and language models. Taught by leading NLP researchers, this course covers both theoretical foundations and practical applications. Essential for understanding modern NLP including the technology behind ChatGPT and large language models.</p>
                                 <div class="video-tags">
                                     <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">Comprehensive</span>
+                                    <span class="video-tag">NLP</span>
                                     <span class="video-tag">Deep Learning</span>
+                                    <span class="video-tag">Transformers</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL8PYTP1V4I8AkaHEJ7lOOrlex-pcxS-XV">
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="CMU Neural Networks for NLP">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">CMU Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">CMU Neural Networks for NLP</h3>
-                                <p class="video-description">Latest neural network based techniques for NLP including language modeling, efficiency tricks, conditioned generation, structured prediction, model interpretation, and advanced search algorithms.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">CMU</span>
-                                    <span class="video-tag">Neural Networks</span>
-                                    <span class="video-tag">Advanced</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rPt5D0zs3YhbWSZA8Q_DyiJ">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="CS224U Natural Language Understanding">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Stanford Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">CS224U: Natural Language Understanding</h3>
-                                <p class="video-description">Latest concepts in natural language understanding covering grounded language understanding, relation extraction, natural language inference (NLI), NLU and neural information extraction, adversarial testing.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">NLU</span>
-                                    <span class="video-tag">Understanding</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL8PYTP1V4I8D0UkqW2fEhgLrnlDW9QK7z">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="CMU Advanced NLP">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">2022 Edition</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">CMU Advanced NLP</h3>
-                                <p class="video-description">Basics of modern NLP techniques, multi-task/multi-domain/multi-lingual learning, prompting + sequence-to-sequence pre-training, interpreting and debugging NLP models, learning from knowledge-bases.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">CMU</span>
-                                    <span class="video-tag">Advanced</span>
-                                    <span class="video-tag">Multi-task</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLWnsVgP6CzadmQX6qevbar3_vDBioWHJL">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Advanced NLP">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Course series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Advanced NLP</h3>
-                                <p class="video-description">Advanced concepts in NLP including attention mechanisms, transformers, BERT, question answering, model distillation, vision + language, ethics in NLP, and commonsense reasoning.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Advanced</span>
-                                    <span class="video-tag">BERT</span>
-                                    <span class="video-tag">Ethics</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Computer Vision Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Computer Vision</h2>
-                    <p>Learn to process and understand visual information with neural networks:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/vT1JzLTH4G4/maxresdefault.jpg" alt="CS231N Computer Vision">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">16 lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">CS231N: Convolutional Neural Networks for Visual Recognition</h3>
-                                <p class="video-description">Stanford's famous computer vision course covering image classification, CNNs, training neural networks, CNN architectures, RNNs, detection and segmentation.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">CNNs</span>
-                                    <span class="video-tag">Classic</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/dJYGatp4SvA/maxresdefault.jpg" alt="Deep Learning for Computer Vision">
+                                <img src="https://img.youtube.com/vi/yCxbGclQFzE/maxresdefault.jpg" alt="Stanford CS231n Computer Vision">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
@@ -744,56 +156,36 @@
                                 <div class="video-duration">Lecture series</div>
                             </div>
                             <div class="video-info">
-                                <h3 class="video-title">Deep Learning for Computer Vision</h3>
-                                <p class="video-description">Fundamental concepts in computer vision including image classification, convolutional networks, attention networks, detection and segmentation, and generative models.</p>
+                                <h3 class="video-title">Stanford CS231n: Convolutional Neural Networks for Visual Recognition</h3>
+                                <p class="video-description">Premier computer vision course covering CNNs, image classification, object detection, and visual recognition systems. Taught by renowned Stanford faculty including Fei-Fei Li and Andrej Karpathy, this course combines theoretical depth with practical implementation. Covers everything from basic convolutions to advanced architectures like ResNet, and modern applications in autonomous driving and medical imaging.</p>
                                 <div class="video-tags">
-                                    <span class="video-tag">Fundamentals</span>
-                                    <span class="video-tag">Modern</span>
-                                    <span class="video-tag">Complete</span>
+                                    <span class="video-tag">Stanford</span>
+                                    <span class="video-tag">Computer Vision</span>
+                                    <span class="video-tag">CNNs</span>
+                                    <span class="video-tag">Fei-Fei Li</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv">
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Deep Learning for Computer Vision DL4CV">
+                                <img src="https://img.youtube.com/vi/BfDQNrVphLQ/maxresdefault.jpg" alt="CMU Neural Networks">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                                         <path d="M45,24 27,14 27,34" fill="#fff"></path>
                                     </svg>
                                 </div>
-                                <div class="video-duration">DL4CV</div>
+                                <div class="video-duration">Course series</div>
                             </div>
                             <div class="video-info">
-                                <h3 class="video-title">Deep Learning for Computer Vision (DL4CV)</h3>
-                                <p class="video-description">Modern methods for computer vision including CNNs, advanced PyTorch, understanding neural networks, RNN, attention and ViTs, generative models, GPU fundamentals, self-supervision, and neural rendering.</p>
+                                <h3 class="video-title">CMU Neural Networks for NLP (11-747)</h3>
+                                <p class="video-description">Advanced Carnegie Mellon course focusing on neural network architectures for natural language processing applications. Covers sequence modeling, attention mechanisms, transformer architectures, and modern language models. Taught by leading NLP researchers at CMU's Language Technologies Institute, this course provides cutting-edge insights into neural approaches to language understanding and generation.</p>
                                 <div class="video-tags">
+                                    <span class="video-tag">CMU</span>
+                                    <span class="video-tag">Neural Networks</span>
+                                    <span class="video-tag">NLP</span>
                                     <span class="video-tag">Advanced</span>
-                                    <span class="video-tag">Modern Methods</span>
-                                    <span class="video-tag">ViTs</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/watch?v=IA3WxTTPXqQ">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/IA3WxTTPXqQ/maxresdefault.jpg" alt="Deep Learning for Computer Vision neuralearn.ai">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">neuralearn.ai</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Deep Learning for Computer Vision (neuralearn.ai)</h3>
-                                <p class="video-description">Modern computer vision methods including self-supervised learning, neural rendering, efficient architectures, MLOps, modern CNNs, transformers in vision, and model deployment.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Self-supervised</span>
-                                    <span class="video-tag">MLOps</span>
-                                    <span class="video-tag">Deployment</span>
                                 </div>
                             </div>
                         </div>
@@ -801,215 +193,295 @@
                 </div>
             </section>
 
-            <!-- Reinforcement Learning Section -->
+            <!-- Tier 2: High-Quality Educational -->
             <section class="topic-section">
                 <div class="card">
-                    <h2 class="section-title">Reinforcement Learning</h2>
-                    <p>Master decision-making algorithms that learn through interaction:</p>
+                    <h2 class="section-title">🌟 Tier 2: High-Quality Educational</h2>
+                    <p>Excellent courses from reputable institutions and expert educators, including Tübingen University, freeCodeCamp, StatQuest, and sentdex - known for clear explanations and practical approaches.</p>
                     
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL_iWQOsE6TfURIIhCrlt-wj9ByIVpbfGc">
+                    <div class="video-grid-single">
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLWKjhJtqVAblStefaz_YOVpDWqcRScc2s">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/JgvyzIkgxF0/maxresdefault.jpg" alt="Deep Reinforcement Learning">
+                                <img src="https://img.youtube.com/vi/i_LwzRVP7bg/maxresdefault.jpg" alt="freeCodeCamp Machine Learning Course">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                                         <path d="M45,24 27,14 27,34" fill="#fff"></path>
                                     </svg>
                                 </div>
-                                <div class="video-duration">UC Berkeley</div>
+                                <div class="video-duration">Full Course</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Machine Learning Course - CS229 (freeCodeCamp)</h3>
+                                <p class="video-description">Comprehensive machine learning course covering all fundamental concepts from supervised and unsupervised learning to neural networks and deep learning. Based on Stanford's CS229 curriculum but presented in an accessible format with practical Python implementations. Perfect for beginners who want a structured, complete introduction to machine learning with hands-on coding examples and real-world applications.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">freeCodeCamp</span>
+                                    <span class="video-tag">Complete Course</span>
+                                    <span class="video-tag">Python</span>
+                                    <span class="video-tag">Beginner-Friendly</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/Gv9_4yMHFhI/maxresdefault.jpg" alt="StatQuest Machine Learning">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">50+ videos</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">StatQuest: Machine Learning (Josh Starmer)</h3>
+                                <p class="video-description">Exceptionally clear and intuitive explanations of machine learning concepts by Josh Starmer, featuring engaging animations and step-by-step breakdowns. Covers regression, classification, cross-validation, bias-variance tradeoff, neural networks, and advanced topics with memorable examples. Known for making complex statistical concepts accessible and fun, this series is perfect for building intuitive understanding alongside technical knowledge.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">StatQuest</span>
+                                    <span class="video-tag">Intuitive</span>
+                                    <span class="video-tag">Animations</span>
+                                    <span class="video-tag">Conceptual</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLQVvvaa0QuDfKTOs3Keq_kaG2P55YRn5v">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/OGxgnH8y2NM/maxresdefault.jpg" alt="Machine Learning with Python">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48=34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">72+ videos</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Machine Learning with Python (sentdex)</h3>
+                                <p class="video-description">Hands-on practical machine learning tutorials with Python by Harrison Kinsley (sentdex), covering scikit-learn, regression, classification, clustering, and neural networks with real-world applications. Emphasizes coding implementation and practical problem-solving with detailed code walkthroughs. Excellent for developers who prefer learning through building projects and want to see ML concepts applied to actual datasets.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">sentdex</span>
+                                    <span class="video-tag">Python</span>
+                                    <span class="video-tag">Practical</span>
+                                    <span class="video-tag">Hands-on</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij35ShKLDqccJSDntugY4FQT">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/w2OtwL5T1ow/maxresdefault.jpg" alt="Introduction to Machine Learning Tübingen">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Lecture series</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Introduction to Machine Learning (University of Tübingen)</h3>
+                                <p class="video-description">Comprehensive introduction from the University of Tübingen covering fundamental concepts in regression, classification, optimization, regularization, clustering, and dimensionality reduction. Taught by leading German researchers with a strong focus on mathematical foundations and practical applications. Excellent balance of theory and implementation, providing solid grounding for advanced ML topics.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Tübingen</span>
+                                    <span class="video-tag">Introduction</span>
+                                    <span class="video-tag">Mathematical</span>
+                                    <span class="video-tag">Comprehensive</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij2XCvrRzLokX6EoHWaGA2cC">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/XHjYLW7Ohlo/maxresdefault.jpg" alt="Statistical Machine Learning Tübingen">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Course series</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Statistical Machine Learning (University of Tübingen)</h3>
+                                <p class="video-description">Advanced statistical approaches to machine learning from Tübingen covering KNN, Bayesian decision theory, convex optimization, linear/ridge/logistic regression, SVM, random forests, and clustering algorithms. Emphasizes the probabilistic foundations and statistical principles underlying ML methods. Ideal for those who want to understand the mathematical rigor behind machine learning algorithms and their theoretical guarantees.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Tübingen</span>
+                                    <span class="video-tag">Statistical</span>
+                                    <span class="video-tag">Advanced</span>
+                                    <span class="video-tag">Mathematical</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/aircAruvnKk/maxresdefault.jpg" alt="3Blue1Brown Neural Networks">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">4 videos</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Neural Networks (3Blue1Brown)</h3>
+                                <p class="video-description">Visually stunning explanation of neural networks by Grant Sanderson, featuring beautiful animations that make complex mathematical concepts intuitive. Covers neurons, layers, backpropagation, and gradient descent with unparalleled visual clarity. These videos are perfect for building deep intuitive understanding of how neural networks actually work, making abstract mathematical concepts concrete and memorable through exceptional visualization.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">3Blue1Brown</span>
+                                    <span class="video-tag">Visual</span>
+                                    <span class="video-tag">Neural Networks</span>
+                                    <span class="video-tag">Intuitive</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tier 3: Specialized and Advanced -->
+            <section class="topic-section">
+                <div class="card">
+                    <h2 class="section-title">🔬 Tier 3: Specialized & Advanced</h2>
+                    <p>Advanced and specialized courses covering cutting-edge research topics, specific applications, and advanced mathematical foundations in machine learning and AI.</p>
+                    
+                    <div class="video-grid-single">
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij2YE8rRJSb-olDNbntAQ_Bx">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/PIdFza4BfSI/maxresdefault.jpg" alt="Probabilistic Machine Learning">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Course series</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Probabilistic Machine Learning (University of Tübingen)</h3>
+                                <p class="video-description">Advanced course covering the probabilistic paradigm of machine learning including reasoning about uncertainty, continuous variables, sampling methods, MCMC, Gaussian distributions, and graphical models. Focuses on Bayesian approaches and probabilistic inference algorithms. Essential for understanding uncertainty quantification and probabilistic reasoning in ML applications, particularly valuable for safety-critical domains.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Probabilistic</span>
+                                    <span class="video-tag">Bayesian</span>
+                                    <span class="video-tag">Uncertainty</span>
+                                    <span class="video-tag">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLRKtJ4IpxJpDxl0NTvNYQWKCYzHNuy2xG">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/qFm94nrHPsQ/maxresdefault.jpg" alt="Making Friends with Machine Learning">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48=34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Mini lectures</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Making Friends with Machine Learning</h3>
+                                <p class="video-description">Accessible series of mini lectures by Cassie Kozyrkov (former Chief Decision Scientist at Google) covering introductory topics including explainability, classification vs regression, statistical significance, and clustering. Focuses on practical decision-making and business applications of ML. Perfect for understanding how to apply ML thinking to real-world problems and make data-driven decisions with confidence.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Google</span>
+                                    <span class="video-tag">Business</span>
+                                    <span class="video-tag">Decision Science</span>
+                                    <span class="video-tag">Practical</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL2UML_KCiC0UlY7iCQDSiGDMovaupqc83">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/VAmLimHNpm0/maxresdefault.jpg" alt="Applied Machine Learning">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48=34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Multiple lectures</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Applied Machine Learning</h3>
+                                <p class="video-description">Practical course focusing on widely used ML techniques including optimization methods, overfitting/underfitting analysis, regularization techniques, Monte Carlo estimation, and nearest neighbor algorithms. Emphasizes real-world implementation and practical considerations for deploying ML systems. Great for practitioners who want to understand the engineering and application aspects of machine learning in production environments.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Applied</span>
+                                    <span class="video-tag">Practical</span>
+                                    <span class="video-tag">Engineering</span>
+                                    <span class="video-tag">Production</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLzrCXlf6ypbxS5OYOY3EN_0u2fDuIT6Gt">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/ukzFI9rgwfU/maxresdefault.jpg" alt="Machine Learning Lecture Stefan Harmeling">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48=34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Lecture series</div>
+                            </div>
+                            <div class="video-info">
+                                <h3 class="video-title">Machine Learning Lecture (Stefan Harmeling)</h3>
+                                <p class="video-description">Comprehensive course covering fundamental ML concepts with strong mathematical foundations including Bayes rule, probability distributions, matrix differential calculus, PCA, K-means clustering, causality, and Gaussian processes. Taught by Stefan Harmeling with emphasis on mathematical rigor and theoretical understanding. Excellent for those who want deep mathematical insights into why machine learning algorithms work.</p>
+                                <div class="video-tags">
+                                    <span class="video-tag">Mathematical</span>
+                                    <span class="video-tag">Theory</span>
+                                    <span class="video-tag">Comprehensive</span>
+                                    <span class="video-tag">Fundamentals</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL8PYTP1V4I8AkaHEJ7lOOrlex-pcxS-XV">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/rSqGFTwUS-o/maxresdefault.jpg" alt="Deep Reinforcement Learning">
+                                <div class="video-play-overlay">
+                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48=34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">Advanced course</div>
                             </div>
                             <div class="video-info">
                                 <h3 class="video-title">Deep Reinforcement Learning</h3>
-                                <p class="video-description">Latest concepts in deep RL including RL algorithms, real-world sequential decision making, supervised learning of behaviors, and deep imitation learning.</p>
+                                <p class="video-description">Advanced course covering cutting-edge reinforcement learning techniques including deep Q-networks, policy gradient methods, actor-critic algorithms, and modern RL applications. Focuses on the intersection of deep learning and reinforcement learning for solving complex sequential decision-making problems. Perfect for understanding how AI systems learn to play games, control robots, and optimize complex systems through trial and error.</p>
                                 <div class="video-tags">
-                                    <span class="video-tag">UC Berkeley</span>
+                                    <span class="video-tag">Reinforcement Learning</span>
+                                    <span class="video-tag">Deep Learning</span>
                                     <span class="video-tag">Advanced</span>
-                                    <span class="video-tag">Deep RL</span>
+                                    <span class="video-tag">Sequential Decisions</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm">
                             <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/TCCjZe0y4Qc/maxresdefault.jpg" alt="DeepMind RL Series">
+                                <img src="https://img.youtube.com/vi/njKP3FqW3Sk/maxresdefault.jpg" alt="Deep Learning Research">
                                 <div class="video-play-overlay">
                                     <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48=34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68=24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                                         <path d="M45,24 27,14 27,34" fill="#fff"></path>
                                     </svg>
                                 </div>
-                                <div class="video-duration">13 lectures</div>
+                                <div class="video-duration">Research talks</div>
                             </div>
                             <div class="video-info">
-                                <h3 class="video-title">Reinforcement Learning Lecture Series (DeepMind)</h3>
-                                <p class="video-description">Collaboration between DeepMind and UCL covering introduction to RL, dynamic programming, model-free algorithms, and deep reinforcement learning.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">DeepMind</span>
-                                    <span class="video-tag">Industry</span>
-                                    <span class="video-tag">Expert</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/FgzM3zpZ55o/maxresdefault.jpg" alt="Stanford CS234 RL">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">15 lectures</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Stanford CS234: Reinforcement Learning</h3>
-                                <p class="video-description">Covers basic to advanced RL concepts including Markov decision processes, model-free policy evaluation, function approximation, policy search, and exploration.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">Complete</span>
-                                    <span class="video-tag">Theory + Practice</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Graph Machine Learning Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Graph Machine Learning</h2>
-                    <p>Learn to work with graph-structured data:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Machine Learning with Graphs Stanford">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Stanford Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Machine Learning with Graphs (Stanford)</h3>
-                                <p class="video-description">Latest graph techniques in machine learning including PageRank, matrix factorizing, node embeddings, graph neural networks, knowledge graphs, and deep generative models for graphs.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">GNNs</span>
-                                    <span class="video-tag">Knowledge Graphs</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="AMMI Geometric Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">AMMI Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">AMMI Geometric Deep Learning Course</h3>
-                                <p class="video-description">Concepts in geometric deep learning including learning in high dimensions, geometric priors, grids, manifolds and meshes, and sequences and time warping.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Geometric</span>
-                                    <span class="video-tag">AMMI</span>
-                                    <span class="video-tag">Manifolds</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Multi-Task Learning Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Multi-Task Learning</h2>
-                    <p>Learn techniques for training models on multiple related tasks:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLoROMvodv4rMC6zfYmnD7UG3LVvwaITY5">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Stanford CS330 Multi-Task Meta Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Graduate Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Stanford CS330: Deep Multi-Task and Meta Learning</h3>
-                                <p class="video-description">Graduate-level course covering multi-task learning, transfer learning basics, meta-learning algorithms, advanced meta-learning topics, multi-task RL, goal-conditioned RL, meta-reinforcement learning, hierarchical RL, and lifelong learning.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">Meta-Learning</span>
-                                    <span class="video-tag">Graduate</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Specialized Applications Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Specialized Applications</h2>
-                    <p>Machine learning applied to specific domains:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLypiXJdtIca5ElZMWHl4HMeyle2AzUgVB">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="MIT Deep Learning in Life Sciences">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">MIT Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">MIT Deep Learning in Life Sciences</h3>
-                                <p class="video-description">ML foundations for genomics and life sciences including interpreting ML models, DNA accessibility, chromatin and gene regulation, single cell RNA-sequencing, drug discovery, protein structure prediction, imaging and cancer, neuroscience.</p>
+                                <h3 class="video-title">Deep Learning State of the Art (MIT)</h3>
+                                <p class="video-description">Cutting-edge lecture series from MIT covering the latest advances in deep learning research including state-of-the-art architectures, training techniques, and applications. Features guest lectures from leading researchers and covers breakthrough papers and methodologies. Essential for staying current with the rapidly evolving field of deep learning and understanding the direction of current research.</p>
                                 <div class="video-tags">
                                     <span class="video-tag">MIT</span>
-                                    <span class="video-tag">Life Sciences</span>
-                                    <span class="video-tag">Genomics</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL05umP7R6ij321zzKXK6XCQXAaaYjQbzr">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Self-Driving Cars Tübingen">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0=24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Tübingen Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Self-Driving Cars (Tübingen)</h3>
-                                <p class="video-description">Covers modular pipeline-based approaches and deep-learning based end-to-end driving techniques including camera, lidar and radar-based perception, localization, navigation, path planning, vehicle modeling/control, and reinforcement learning.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Autonomous Driving</span>
-                                    <span class="video-tag">Perception</span>
-                                    <span class="video-tag">Tübingen</span>
+                                    <span class="video-tag">Research</span>
+                                    <span class="video-tag">State-of-the-Art</span>
+                                    <span class="video-tag">Cutting-edge</span>
                                 </div>
                             </div>
                         </div>
@@ -1017,298 +489,37 @@
                 </div>
             </section>
 
-            <!-- Practical ML Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">Practical Machine Learning & MLOps</h2>
-                    <p>Build, deploy, and maintain ML systems in production:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/5L0n7_oeIfQ/maxresdefault.jpg" alt="Fast.ai Practical Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">22+ hours</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Practical Deep Learning for Coders</h3>
-                                <p class="video-description">Jeremy Howard's hands-on approach to building and training models for computer vision, NLP, tabular analysis, collaborative filtering, and model deployment.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Fast.ai</span>
-                                    <span class="video-tag">Practical</span>
-                                    <span class="video-tag">Deployment</span>
-                                </div>
-                            </div>
-                        </div>
+            <!-- JavaScript for Video Card Interactions -->
+            <script>
+                // Add click handlers for video cards
+                document.querySelectorAll('.video-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const url = this.dataset.videoUrl;
+                        if (url) {
+                            window.open(url, '_blank');
+                        }
+                    });
+                });
 
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PL1T8fO7ArWlcWg04OgNiJy91PywMKT2lv">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/pxisK6RMn1s/maxresdefault.jpg" alt="Full Stack Deep Learning">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Full course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Full Stack Deep Learning</h3>
-                                <p class="video-description">Learn production deep learning including ML projects, infrastructure and tooling, experiment management, troubleshooting, data management, and web deployment.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Production</span>
-                                    <span class="video-tag">MLOps</span>
-                                    <span class="video-tag">End-to-End</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/NgWujOrCZFo/maxresdefault.jpg" alt="MLOPs Specialization">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Specialization</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Machine Learning Engineering for Production (MLOps)</h3>
-                                <p class="video-description">Andrew Ng's comprehensive specialization on MLOps covering the full ML production lifecycle from concept to deployment and monitoring.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Andrew Ng</span>
-                                    <span class="video-tag">MLOps</span>
-                                    <span class="video-tag">Production</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/playlist?list=PLSrTvUm384I9PV10koj_cqit9OfbJXEkq">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Stanford MLSys Seminars">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Seminar Series</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Stanford MLSys Seminars</h3>
-                                <p class="video-description">Seminar series on all sorts of topics related to building machine learning systems, covering practical aspects of ML infrastructure, deployment, and production challenges.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Stanford</span>
-                                    <span class="video-tag">MLSys</span>
-                                    <span class="video-tag">Infrastructure</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.youtube.com/watch?v=ayzOzZGHZy4&list=PLnSYPjg2dHQKdig0vVbN-ZnEU0yNJ1mo5">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/ayzOzZGHZy4/maxresdefault.jpg" alt="MIT Data-Centric AI">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">MIT Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">MIT Introduction to Data-Centric AI</h3>
-                                <p class="video-description">Emerging science of Data-Centric AI (DCAI) studying techniques to improve datasets, covering data-centric vs model-centric AI, label errors, dataset creation, data-centric evaluation, class imbalance, outliers, and distribution shift.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">MIT</span>
-                                    <span class="video-tag">Data-Centric</span>
-                                    <span class="video-tag">Modern</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- LLM Applications Section -->
-            <section class="topic-section">
-                <div class="card">
-                    <h2 class="section-title">LLM Applications & Development</h2>
-                    <p>Build real-world applications with large language models:</p>
-                    
-                    <div class="video-grid">
-                        <div class="video-card" data-video-url="https://fullstackdeeplearning.com/llm-bootcamp/spring-2023/">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/twHBbi_2x0Q/maxresdefault.jpg" alt="Full Stack LLM Bootcamp">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Bootcamp</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Full Stack LLM Bootcamp</h3>
-                                <p class="video-description">Learn to build and deploy LLM-powered applications covering prompt engineering, LLMOps, UX for language interfaces, and augmented language models.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">LLM</span>
-                                    <span class="video-tag">Applications</span>
-                                    <span class="video-tag">Bootcamp</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/SdtwEaD2fJg/maxresdefault.jpg" alt="ChatGPT Prompt Engineering">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Short course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">ChatGPT Prompt Engineering for Developers</h3>
-                                <p class="video-description">Learn how to use large language models to quickly build new and powerful applications through effective prompt engineering techniques.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Prompt Engineering</span>
-                                    <span class="video-tag">ChatGPT</span>
-                                    <span class="video-tag">DeepLearning.AI</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/muXbPpG_ys4/maxresdefault.jpg" alt="LangChain Course">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Short course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">LangChain for LLM Application Development</h3>
-                                <p class="video-description">Learn about models, prompts, parsers, memories for LLMs, chains, question answering over documents, and building agents with LangChain framework.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">LangChain</span>
-                                    <span class="video-tag">Framework</span>
-                                    <span class="video-tag">Applications</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.comet.com/site/llm-course/">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="LLMOps Course">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Comprehensive</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">LLMOps: Building Real-World Applications With Large Language Models</h3>
-                                <p class="video-description">Learn to build modern software with LLMs using the newest tools and techniques in the field including deployment, monitoring, and production best practices.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">LLMOps</span>
-                                    <span class="video-tag">Production</span>
-                                    <span class="video-tag">Real-world</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.deeplearning.ai/short-courses/evaluating-debugging-generative-ai/">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Evaluating and Debugging Generative AI">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0=24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Short course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Evaluating and Debugging Generative AI</h3>
-                                <p class="video-description">Learn to instrument Jupyter notebooks, manage hyperparameters, log metrics, collect artifacts for dataset and model versioning, trace prompts and responses for LLMs, and debugging techniques.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">Debugging</span>
-                                    <span class="video-tag">Evaluation</span>
-                                    <span class="video-tag">DeepLearning.AI</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Building Systems with ChatGPT API">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">Short course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Building Systems with the ChatGPT API</h3>
-                                <p class="video-description">Learn how to automate complex workflows using chain calls to a large language model, building sophisticated applications with the ChatGPT API.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">ChatGPT API</span>
-                                    <span class="video-tag">Systems</span>
-                                    <span class="video-tag">Automation</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="video-card" data-video-url="https://www.wandb.courses/courses/building-llm-powered-apps">
-                            <div class="video-thumbnail">
-                                <img src="https://img.youtube.com/vi/1FZ0A1QCMWc/maxresdefault.jpg" alt="Building LLM-Powered Apps">
-                                <div class="video-play-overlay">
-                                    <svg width="68" height="48" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0=24,0=24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42-6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68=24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-                                        <path d="M45,24 27,14 27,34" fill="#fff"></path>
-                                    </svg>
-                                </div>
-                                <div class="video-duration">W&B Course</div>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Building LLM-Powered Apps</h3>
-                                <p class="video-description">Learn how to build LLM-powered applications using LLM APIs covering unpacking LLM APIs, building baseline applications, and enhancing and optimizing LLM applications.</p>
-                                <div class="video-tags">
-                                    <span class="video-tag">LLM Apps</span>
-                                    <span class="video-tag">APIs</span>
-                                    <span class="video-tag">W&B</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                // Theme toggle functionality
+                const themeToggle = document.getElementById('theme-toggle');
+                
+                // Check if dark mode is already enabled
+                if (localStorage.getItem('theme') === 'dark') {
+                    themeToggle.checked = true;
+                }
+                
+                themeToggle.addEventListener('change', function() {
+                    if (this.checked) {
+                        document.documentElement.classList.add('dark-mode');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark-mode');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+            </script>
         </main>
     </div>
-    
-    <footer>
-        <p>© 2025 Anil Kumar SN. All rights reserved.</p>
-        <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
-    </footer>
-    
-    <button id="backToTopBtn" title="Go to top">↑</button>
-    <script src="../js/main.js"></script>
 </body>
 </html>

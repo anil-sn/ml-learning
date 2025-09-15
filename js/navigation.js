@@ -394,10 +394,10 @@
         // Preload next likely page
         const currentPage = getCurrentPage();
         const preloadLinks = {
-            'index.html': ['html/Projects.html', 'html/Environments.html'],
-            'Projects.html': ['../index.html', 'Environments.html'],
-            'Environments.html': ['../index.html', 'Projects.html'],
-            'prerequisites.html': ['../index.html', 'Projects.html', 'Environments.html']
+            'index.html': ['html/Projects.html', 'html/AIML_Research.html'],
+            'Projects.html': ['../index.html', 'AIML_Research.html'],
+            'AIML_Research.html': ['../index.html', 'Projects.html'],
+            'prerequisites.html': ['../index.html', 'Projects.html', 'AIML_Research.html']
         };
 
         const linksToPreload = preloadLinks[currentPage] || [];

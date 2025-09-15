@@ -40,9 +40,9 @@
                 }
             })();
         </script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/styles.css?v=2">
    </head>
    <body>
       <div class="main-container">
@@ -52,12 +52,10 @@
                 <a href="html/about.html">About Me</a>
                 <a href="html/llm_lingo.html">LLM Lingo</a>
                 <a href="html/ml_youtube_courses.html">ML YouTube Courses</a>
-                <a href="html/Environments.html">Environments</a>
                 <a href="html/AIML_Research.html">AI/ML Timeline</a>
                 <a href="html/blogs.html">Blogs</a>
                 <a href="html/Projects.html">Projects</a>
                 <a href="html/llm_survey_papers.html">LLM Survey Papers</a>
-                <a href="html/networking_truths.html">Networking Truths</a>
                 <a href="html/ai_datacenter_networking.html">AI Datacenter Networking</a>
             </nav>      
             <div class="theme-switcher">
@@ -114,6 +112,667 @@
                </p>
             </div>
          </section>
+
+         <!-- AI/ML/DS Explanation Section -->
+         <section class="overview section" id="ai-ml-ds-explained">
+            <div class="card">
+               <h2 class="section-title">Understanding AI, ML, and Data Science</h2>
+               <p>
+                  Artificial Intelligence (AI), Machine Learning (ML), and Data Science (DS) are interconnected but distinct fields, with ML being a subset of AI and DS drawing from both. The core difference lies in their scope and primary objective: <strong>AI</strong> is the overarching goal of creating intelligent machines, <strong>ML</strong> is a specific technique for achieving that goal through learning from data, and <strong>DS</strong> is the broader practice of extracting insights and knowledge from data.
+               </p>
+
+               <h3 class="section-subtitle">Core Concepts and Analogies</h3>
+               <div class="responsive-table-container">
+                  <table class="concept-table">
+                     <thead>
+                        <tr>
+                           <th class="field-column">Field</th>
+                           <th class="concept-column">Concept</th>
+                           <th class="analogy-column">Analogy</th>
+                           <th class="objective-column">Objective</th>
+                           <th class="focus-column">Focus</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="ai-row">
+                           <td class="field-header" data-label="Field">
+                              <span class="field-badge ai-badge">AI</span>
+                              <strong>Artificial Intelligence</strong>
+                           </td>
+                           <td data-label="Concept">The broad field of creating systems that can mimic human-like intelligence to complete complex tasks, such as reasoning, learning, and problem-solving.</td>
+                           <td data-label="Analogy"><strong>The Smart Robot:</strong> The ultimate goal is to build a robot that can think and act intelligently.</td>
+                           <td data-label="Objective">To create an "intelligent" computer system that can operate autonomously and maximize its chances of success.</td>
+                           <td data-label="Focus">Reasoning and decision-making for cognitive tasks, including natural language processing, computer vision, and robotics.</td>
+                        </tr>
+                        <tr class="ml-row">
+                           <td class="field-header" data-label="Field">
+                              <span class="field-badge ml-badge">ML</span>
+                              <strong>Machine Learning</strong>
+                           </td>
+                           <td data-label="Concept">A subset of AI focused on building algorithms that allow machines to learn and improve from experience without being explicitly programmed.</td>
+                           <td data-label="Analogy"><strong>The Learning Method:</strong> The method you use to teach the robot, showing it many examples so it learns on its own.</td>
+                           <td data-label="Objective">To build models that can make accurate predictions or classify outcomes by learning patterns from existing data.</td>
+                           <td data-label="Focus">Algorithmic techniques for identifying patterns in data to enable systems to evolve and adapt.</td>
+                        </tr>
+                        <tr class="ds-row">
+                           <td class="field-header" data-label="Field">
+                              <span class="field-badge ds-badge">DS</span>
+                              <strong>Data Science</strong>
+                           </td>
+                           <td data-label="Concept">A multidisciplinary field that uses statistics, computer science, and other methods to extract insights and knowledge from data.</td>
+                           <td data-label="Analogy"><strong>The Detective:</strong> The comprehensive process of collecting, cleaning, analyzing, and interpreting data to solve a mystery.</td>
+                           <td data-label="Objective">To extract meaningful insights and knowledge from data to inform better decision-making.</td>
+                           <td data-label="Focus">The entire data lifecycle, from collection and cleaning to analysis, visualization, and interpretation.</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+
+               <h3 class="section-subtitle">How AI, ML, and DS Work Together</h3>
+               <div class="example-box">
+                  <div class="example-title">
+                     <strong>Example: Self-Driving Car</strong>
+                  </div>
+                  <div class="example-content">
+                     <div class="example-item">
+                        <p><strong>AI</strong> is the complete system that allows the car to mimic human driving behavior by making intelligent decisions, such as braking for a stop sign. <strong>ML</strong> is the technology that enables the car to "learn" what a stop sign looks like by training on a large dataset of images. <strong>Data Science</strong> is the process that analyzes test data to figure out why the car might be failing to detect stop signs at night, leading to a decision to collect more nighttime training data.</p>
+                     </div>
+                  </div>
+               </div>
+
+               <h3 class="section-subtitle">The Big Picture: Skills and Applications</h3>
+               <div class="responsive-table-container">
+                  <table class="skills-table">
+                     <thead>
+                        <tr>
+                           <th class="field-column">Field</th>
+                           <th class="skills-column">Key Skills</th>
+                           <th class="applications-column">Applications</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="ai-row">
+                           <td class="field-header" data-label="Field">
+                              <strong>Artificial Intelligence</strong>
+                           </td>
+                           <td data-label="Key Skills">
+                              <ul class="skills-list">
+                                 <li>Deep learning</li>
+                                 <li>Neural networks</li>
+                                 <li>Natural language processing (NLP)</li>
+                                 <li>Computer vision</li>
+                                 <li>Robotics</li>
+                              </ul>
+                           </td>
+                           <td data-label="Applications">
+                              <ul class="applications-list">
+                                 <li>Virtual assistants (Siri, Alexa)</li>
+                                 <li>Autonomous vehicles</li>
+                                 <li>Automated decision-making systems</li>
+                              </ul>
+                           </td>
+                        </tr>
+                        <tr class="ml-row">
+                           <td class="field-header" data-label="Field">
+                              <strong>Machine Learning</strong>
+                           </td>
+                           <td data-label="Key Skills">
+                              <ul class="skills-list">
+                                 <li>Programming (Python, R)</li>
+                                 <li>Statistics</li>
+                                 <li>Probability</li>
+                                 <li>Advanced mathematics</li>
+                                 <li>Algorithm design</li>
+                              </ul>
+                           </td>
+                           <td data-label="Applications">
+                              <ul class="applications-list">
+                                 <li>Recommendation engines (Netflix, Spotify)</li>
+                                 <li>Spam filters</li>
+                                 <li>Facial recognition</li>
+                              </ul>
+                           </td>
+                        </tr>
+                        <tr class="ds-row">
+                           <td class="field-header" data-label="Field">
+                              <strong>Data Science</strong>
+                           </td>
+                           <td data-label="Key Skills">
+                              <ul class="skills-list">
+                                 <li>Programming (Python, R, SQL)</li>
+                                 <li>Statistics</li>
+                                 <li>Data visualization</li>
+                                 <li>Data wrangling</li>
+                                 <li>Database management</li>
+                              </ul>
+                           </td>
+                           <td data-label="Applications">
+                              <ul class="applications-list">
+                                 <li>Fraud detection</li>
+                                 <li>Market forecasting</li>
+                                 <li>Healthcare analytics</li>
+                              </ul>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </section>
+
+         <!-- AI/ML for Network Engineers Section -->
+         <section class="overview section" id="ai-ml-for-network-engineers">
+            <div class="card">
+               <h2 class="section-title">AI/ML Applications in Modern Networks</h2>
+               <p>
+                  The landscape of networking is undergoing a paradigm shift. The exponential growth in network complexity, driven by factors like the proliferation of IoT devices, cloud computing, and the demand for high-bandwidth applications, is making traditional, manual approaches to network management increasingly untenable. For seasoned networking engineers with deep expertise in sophisticated routing protocols and access network technologies, Artificial Intelligence (AI) and Machine Learning (ML) are not just buzzwords but powerful new tools.
+               </p>
+               <p>
+                  These technologies offer a transition from reactive to proactive and even predictive network operations, enabling enhanced efficiency, reliability, and security across routing protocols, software-defined networking, and access network infrastructure.
+               </p>
+
+               <h3 class="section-subtitle">Key AI/ML Applications in Networking</h3>
+               
+               <!-- Network Use Cases -->
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge supervised-badge">Intelligent Routing</span>
+                     Core Network Intelligence
+                  </h4>
+                  
+                  <div class="content-grid">
+                     <div class="concept-card">
+                        <h3>Predictive Path Optimization</h3>
+                        <p><strong>Smart Traffic Engineering</strong></p>
+                        <p>Machine learning models continuously analyze network traffic patterns, historical performance data, and real-time metrics to predict optimal routing paths. This proactive approach identifies potential congestion points and automatically adjusts traffic flows before performance degradation occurs.</p>
+                        <p><strong>Impact:</strong> Delivers up to 30% improvement in application performance and significantly reduces network convergence times during topology changes</p>
+                     </div>
+
+                     <div class="concept-card">
+                        <h3>Network Anomaly Detection</h3>
+                        <p><strong>Intelligent Security & Operations</strong></p>
+                        <p>Advanced AI algorithms establish baseline network behavior patterns and continuously monitor for deviations that could indicate security threats, equipment malfunctions, or configuration errors. This creates an early warning system for network operations teams.</p>
+                        <p><strong>Impact:</strong> Prevents security breaches, reduces unplanned downtime, and enables faster incident response with automated root cause analysis</p>
+                     </div>
+
+                     <div class="concept-card">
+                        <h3>Dynamic Resource Allocation</h3>
+                        <p><strong>Predictive Capacity Management</strong></p>
+                        <p>AI systems analyze usage patterns, application demands, and seasonal trends to predict resource requirements and automatically provision network capacity where and when it's needed most. This includes intelligent bandwidth allocation and service prioritization.</p>
+                        <p><strong>Impact:</strong> Optimizes infrastructure utilization, reduces over-provisioning costs, and ensures consistent service quality during peak demand periods</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge unsupervised-badge">Software-Defined Networks</span>
+                     Application-Aware Intelligence
+                  </h4>
+                  
+                  <div class="content-grid">
+                     <div class="concept-card">
+                        <h3>Intelligent Traffic Engineering</h3>
+                        <p><strong>Real-Time Application Optimization</strong></p>
+                        <p>AI-powered systems make millisecond decisions about optimal network paths by analyzing application requirements, network conditions, and user experience metrics. This goes far beyond traditional static routing policies to deliver truly adaptive networking.</p>
+                        <p><strong>Impact:</strong> Ensures critical applications always receive optimal network resources, dramatically improving user experience and application performance</p>
+                     </div>
+
+                     <div class="concept-card">
+                        <h3>Predictive Network Health</h3>
+                        <p><strong>Proactive Infrastructure Management</strong></p>
+                        <p>Machine learning algorithms analyze vast amounts of network telemetry data to identify subtle patterns that precede equipment failures or performance degradation. This enables maintenance teams to address issues before they impact operations.</p>
+                        <p><strong>Impact:</strong> Transforms network operations from reactive firefighting to proactive service assurance, reducing downtime by up to 80%</p>
+                     </div>
+
+                     <div class="concept-card">
+                        <h3>Autonomous Policy Orchestration</h3>
+                        <p><strong>Self-Adapting Network Policies</strong></p>
+                        <p>AI systems automatically discover new applications, assess security risks, and implement appropriate network policies without human intervention. This includes dynamic QoS adjustment, security rule creation, and bandwidth allocation based on business priorities.</p>
+                        <p><strong>Impact:</strong> Reduces configuration errors, accelerates new service deployment, and ensures consistent policy enforcement across complex network environments</p>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge deep-learning-badge">Edge & Access Intelligence</span>
+                     Last-Mile Optimization
+                  </h4>
+                  
+                  <div class="content-grid">
+                     <div class="concept-card">
+                        <h3>Predictive Infrastructure Health</h3>
+                        <p><strong>Proactive Service Assurance</strong></p>
+                        <p>AI continuously monitors the health of access network infrastructure, analyzing performance metrics, environmental factors, and usage patterns to predict equipment failures and service degradation 24-72 hours before they occur. This enables proactive maintenance scheduling and prevents customer-impacting outages.</p>
+                        <p><strong>Impact:</strong> Increases service reliability by up to 95%, reduces emergency maintenance costs, and transforms customer experience from reactive problem-solving to seamless service delivery</p>
+                     </div>
+
+                     <div class="concept-card">
+                        <h3>Intelligent Edge Security</h3>
+                        <p><strong>Distributed Threat Defense</strong></p>
+                        <p>Machine learning models deployed at network edges provide real-time analysis of traffic patterns, device behaviors, and communication flows to identify and neutralize security threats before they can propagate through the network. This creates a distributed defense system that adapts to new attack vectors.</p>
+                        <p><strong>Impact:</strong> Blocks 99% of threats at the network edge, prevents DDoS attacks from reaching core infrastructure, and provides automatic incident response with detailed forensic analysis</p>
+                     </div>
+
+                     <div class="concept-card">
+                        <h3>Smart Connectivity Optimization</h3>
+                        <p><strong>Automated Experience Enhancement</strong></p>
+                        <p>AI-powered systems continuously optimize wireless connectivity, IoT device performance, and application delivery by analyzing usage patterns, interference sources, and device capabilities. This includes automatic channel selection, power optimization, and quality of service adjustments tailored to each customer environment.</p>
+                        <p><strong>Impact:</strong> Reduces technical support calls by 60%, improves customer satisfaction scores, and enables self-healing network environments that adapt to changing conditions</p>
+                     </div>
+                  </div>
+               </div>
+
+               <h3 class="section-subtitle">From Reactive to Predictive Operations</h3>
+               <div class="example-box">
+                  <div class="example-title">
+                     <strong>The Transformation Impact</strong>
+                  </div>
+                  <div class="example-content">
+                     <div class="example-item">
+                        <p><strong>Traditional Approach:</strong> Network issues are detected after they impact customers, leading to reactive troubleshooting and service restoration.</p>
+                        <p><strong>AI/ML Approach:</strong> Predictive models identify potential issues 24-72 hours before they occur, enabling proactive maintenance and seamless service continuity. This transforms network operations from a cost center into a competitive advantage.</p>
+                     </div>
+                  </div>
+               </div>
+               
+               <p style="text-align: center; margin-top: var(--spacing-xl);">
+                  <a href="html/Projects.html" class="resource-link" style="padding: var(--spacing-md) var(--spacing-xl); font-size: 1.1rem; border-width: 2px;">Explore Network-Focused ML Projects &rarr;</a>
+               </p>
+            </div>
+         </section>
+
+         <!-- Types of Machine Learning Section -->
+         <section class="overview section" id="types-of-ml">
+            <div class="card">
+               <h2 class="section-title">The Machine Learning Journey: From Data to Decision</h2>
+               <p>
+                  Machine learning is like teaching a computer to be a detective, scientist, and decision-maker all at once. Just as different problems require different approaches, machine learning offers four distinct learning styles, each with its own army of specialized algorithms. Let's explore this journey from raw data to intelligent decisions.
+               </p>
+
+               <h3 class="section-subtitle">The Four Learning Approaches: Your ML Toolkit</h3>
+               
+               <!-- ML Types Table -->
+               <div class="responsive-table-container">
+                  <table class="concept-table">
+                     <thead>
+                        <tr>
+                           <th class="type-column">Learning Type</th>
+                           <th class="concept-column">Concept</th>
+                           <th class="analogy-column">Analogy</th>
+                           <th class="objective-column">Objective</th>
+                           <th class="focus-column">Best Used When</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="supervised-row">
+                           <td class="type-header" data-label="Learning Type">
+                              <span class="ml-type-badge supervised-badge">Supervised Learning</span>
+                              <strong>The Teacher-Student Model</strong>
+                           </td>
+                           <td data-label="Concept">Learning from labeled examples where every input has a known correct answer, like studying for an exam with answer sheets.</td>
+                           <td data-label="Analogy"><strong>The Traditional Classroom:</strong> A teacher shows students math problems with solutions. Students learn patterns and can solve new, similar problems.</td>
+                           <td data-label="Objective">Predict outcomes for new data based on learned patterns from historical examples.</td>
+                           <td data-label="Best Used When">You have historical data with known outcomes (email spam detection, medical diagnosis)</td>
+                        </tr>
+                        <tr class="unsupervised-row">
+                           <td class="type-header" data-label="Learning Type">
+                              <span class="ml-type-badge unsupervised-badge">Unsupervised Learning</span>
+                              <strong>The Explorer Model</strong>
+                           </td>
+                           <td data-label="Concept">Discovering hidden patterns in data without any labels or guidance, finding structure in chaos.</td>
+                           <td data-label="Analogy"><strong>The Archaeological Dig:</strong> An archaeologist examines artifacts without knowing what civilization they're from, grouping similar items and discovering cultural patterns.</td>
+                           <td data-label="Objective">Uncover hidden structures, relationships, and groupings within data.</td>
+                           <td data-label="Best Used When">You want to understand data structure (customer segmentation, anomaly detection)</td>
+                        </tr>
+                        <tr class="semi-supervised-row">
+                           <td class="type-header" data-label="Learning Type">
+                              <span class="ml-type-badge semi-supervised-badge">Semi-Supervised Learning</span>
+                              <strong>The Mentor Model</strong>
+                           </td>
+                           <td data-label="Concept">Using a small amount of labeled data to guide learning from a large amount of unlabeled data.</td>
+                           <td data-label="Analogy"><strong>The Apprenticeship:</strong> A master craftsman shows a few examples, then the apprentice practices on many unmarked materials, gradually improving their skills.</td>
+                           <td data-label="Objective">Maximize learning efficiency when labels are expensive or rare.</td>
+                           <td data-label="Best Used When">Labeling data is expensive (medical imaging, speech recognition)</td>
+                        </tr>
+                        <tr class="reinforcement-row">
+                           <td class="type-header" data-label="Learning Type">
+                              <span class="ml-type-badge reinforcement-badge">Reinforcement Learning</span>
+                              <strong>The Trial-and-Error Model</strong>
+                           </td>
+                           <td data-label="Concept">Learning through interaction with an environment, receiving rewards for good actions and penalties for bad ones.</td>
+                           <td data-label="Analogy"><strong>Learning to Drive:</strong> A new driver tries different actions (steering, braking), gets feedback (smooth ride vs. bumpy), and gradually becomes skilled through practice.</td>
+                           <td data-label="Objective">Optimize decision-making to maximize long-term rewards.</td>
+                           <td data-label="Best Used When">You need to make sequential decisions (game playing, robotics, autonomous systems)</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+
+               <h3 class="section-subtitle">The ML Journey: From Problem to Solution</h3>
+               <div class="ml-journey">
+                  <div class="journey-step">
+                     <div class="step-content">
+                        <h4>Define the Problem</h4>
+                        <p>What are you trying to achieve? Predict values? Classify items? Find patterns? Optimize decisions?</p>
+                     </div>
+                  </div>
+                  <div class="journey-step">
+                     <div class="step-content">
+                        <h4>Choose Your Learning Type</h4>
+                        <p>Do you have labeled data (Supervised)? Looking for patterns (Unsupervised)? Need to optimize through trial and error (Reinforcement)?</p>
+                     </div>
+                  </div>
+                  <div class="journey-step">
+                     <div class="step-content">
+                        <h4>Select Your Algorithm</h4>
+                        <p>Based on your problem type, data size, interpretability needs, and accuracy requirements, choose from the appropriate algorithm family.</p>
+                     </div>
+                  </div>
+                  <div class="journey-step">
+                     <div class="step-content">
+                        <h4>Train and Refine</h4>
+                        <p>Train your model, evaluate performance, and iterate. Often, ensemble methods combining multiple algorithms yield the best results.</p>
+                     </div>
+                  </div>
+                  <div class="journey-step">
+                     <div class="step-content">
+                        <h4>Deploy and Monitor</h4>
+                        <p>Put your model into production and continuously monitor its performance. Machine learning is an iterative process of improvement.</p>
+                     </div>
+                  </div>
+               </div>
+               
+               <p style="text-align: center; margin-top: var(--spacing-xl);">
+                  <a href="html/Projects.html" class="resource-link" style="padding: var(--spacing-md) var(--spacing-xl); font-size: 1.1rem; border-width: 2px;">Explore Hands-on ML Projects &rarr;</a>
+               </p>
+            </div>
+         </section>
+
+         <!-- Algorithm Arsenal Section -->
+         <section class="algorithm-arsenal section" id="algorithm-arsenal">
+            <div class="card">
+               <h2 class="section-title">The Algorithm Arsenal: Your ML Toolbox</h2>
+               <p>Think of algorithms as specialized tools in a master craftsman's workshop. Each algorithm is engineered for specific problems, with unique strengths, limitations, and ideal use cases. Understanding when and why to use each tool separates novice practitioners from ML experts.</p>
+
+               <!-- Supervised Learning Algorithms -->
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge supervised-badge">Supervised Learning</span>
+                     The Prediction Specialists
+                  </h4>
+                  
+                  <div class="algorithm-subcategory">
+                     <h5>Regression Algorithms: Numerical Prediction Masters</h5>
+                     <p><strong>Primary Mission:</strong> Predict continuous numerical values with mathematical precision</p>
+                     
+                     <div class="content-grid">
+                        <div class="concept-card">
+                           <h3>Linear Regression</h3>
+                           <p><strong>The Straight-Line Detective</strong></p>
+                           <p>Finds the optimal straight line through data points. Perfect for simple relationships like house size → price.</p>
+                           <p><strong>Best for:</strong> Linear relationships, baseline models, interpretable results</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Polynomial Regression</h3>
+                           <p><strong>The Curve Specialist</strong></p>
+                           <p>Captures non-linear relationships by fitting curved lines. Great for complex patterns while staying interpretable.</p>
+                           <p><strong>Best for:</strong> Curved relationships, seasonal patterns, growth modeling</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Ridge & Lasso Regression</h3>
+                           <p><strong>The Complexity Controllers</strong></p>
+                           <p>Enhanced linear regression with built-in overfitting prevention. Lasso also performs automatic feature selection.</p>
+                           <p><strong>Best for:</strong> Many features, preventing overfitting, feature selection</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Support Vector Regression</h3>
+                           <p><strong>The Precision Tube Builder</strong></p>
+                           <p>Creates optimal boundaries around data points. Handles complex non-linear relationships through kernel tricks.</p>
+                           <p><strong>Best for:</strong> Non-linear relationships, high-dimensional data, robust predictions</p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="algorithm-subcategory">
+                     <h5>Classification Algorithms: Category Decision Makers</h5>
+                     <p><strong>Primary Mission:</strong> Assign data points to discrete categories with confidence</p>
+                     
+                     <div class="content-grid">
+                        <div class="concept-card">
+                           <h3>Logistic Regression</h3>
+                           <p><strong>The Probability Calculator</strong></p>
+                           <p>Uses statistical probability to predict binary outcomes. Provides probability estimates for decisions.</p>
+                           <p><strong>Best for:</strong> Binary classification, probability estimates, interpretable results</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Decision Trees</h3>
+                           <p><strong>The Question-Answer Flowchart</strong></p>
+                           <p>Creates a series of yes/no questions to reach decisions. Easy to understand and explain to others.</p>
+                           <p><strong>Best for:</strong> Explainable decisions, mixed data types, rule-based systems</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Random Forest</h3>
+                           <p><strong>The Wise Council</strong></p>
+                           <p>Combines many decision trees voting together. More accurate and stable than single trees.</p>
+                           <p><strong>Best for:</strong> High accuracy, handling missing values, feature importance</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Gradient Boosting</h3>
+                           <p><strong>The Iterative Perfectionist</strong></p>
+                           <p>Builds models sequentially, each correcting previous mistakes. Often wins ML competitions.</p>
+                           <p><strong>Best for:</strong> Maximum accuracy, complex patterns, competition-level performance</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Support Vector Machines</h3>
+                           <p><strong>The Optimal Boundary Finder</strong></p>
+                           <p>Finds the best boundary between classes with maximum safety margin. Great for high-dimensional data.</p>
+                           <p><strong>Best for:</strong> High-dimensional data, text classification, small datasets</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>K-Nearest Neighbors</h3>
+                           <p><strong>The Social Influencer</strong></p>
+                           <p>"You are who you hang out with." Classifies based on what the nearest data points are labeled as.</p>
+                           <p><strong>Best for:</strong> Irregular patterns, recommendation systems, simple implementation</p>
+                        </div>
+
+                        <div class="concept-card">
+                           <h3>Naive Bayes</h3>
+                           <p><strong>The Assumption-Based Predictor</strong></p>
+                           <p>Fast probabilistic classifier assuming feature independence. Excellent for text and real-time classification.</p>
+                           <p><strong>Best for:</strong> Text classification, spam filtering, fast training</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Unsupervised Learning Algorithms -->
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge unsupervised-badge">Unsupervised Learning</span>
+                     The Pattern Discoverers
+                  </h4>
+
+                  <div class="algorithm-subcategory">
+                     <h5>Clustering Algorithms: The Group Organizers</h5>
+                     <p><strong>Mission:</strong> Group similar data points together without knowing the groups beforehand</p>
+                     <div class="content-grid">
+                        <div class="concept-card">
+                           <h3>K-Means</h3>
+                           <p><strong>The Center Finder</strong></p>
+                           <p>Divides data into 'k' groups by finding cluster centers. Like organizing people into groups based on their interests.</p>
+                           <p><strong>Best for:</strong> Spherical clusters, known number of groups, fast processing</p>
+                        </div>
+                        <div class="concept-card">
+                           <h3>Hierarchical Clustering</h3>
+                           <p><strong>The Family Tree Builder</strong></p>
+                           <p>Creates a tree-like structure of clusters, showing how groups relate to each other at different levels.</p>
+                           <p><strong>Best for:</strong> Understanding cluster relationships, unknown number of groups</p>
+                        </div>
+                        <div class="concept-card">
+                           <h3>DBSCAN</h3>
+                           <p><strong>The Density Detective</strong></p>
+                           <p>Finds clusters based on how closely packed data points are. Great at finding oddly-shaped clusters.</p>
+                           <p><strong>Best for:</strong> Irregular cluster shapes, handling noise, automatic outlier detection</p>
+                        </div>
+                        <div class="concept-card">
+                           <h3>Gaussian Mixture Models</h3>
+                           <p><strong>The Probability Blender</strong></p>
+                           <p>Assumes data comes from a mixture of different probability distributions. More flexible than K-Means.</p>
+                           <p><strong>Best for:</strong> Overlapping clusters, probabilistic assignments, soft clustering</p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="algorithm-subcategory">
+                     <h5>Dimensionality Reduction: The Simplifiers</h5>
+                     <p><strong>Mission:</strong> Reduce complexity while preserving important information</p>
+                     <div class="content-grid">
+                        <div class="concept-card">
+                           <h3>Principal Component Analysis</h3>
+                           <p><strong>The Essence Extractor</strong></p>
+                           <p>Finds the most important directions in data. Like summarizing a book by keeping only the key chapters.</p>
+                           <p><strong>Best for:</strong> Data compression, noise reduction, feature visualization</p>
+                        </div>
+                        <div class="concept-card">
+                           <h3>t-SNE</h3>
+                           <p><strong>The Visualizer</strong></p>
+                           <p>Excellent for creating 2D visualizations of high-dimensional data while preserving local structure.</p>
+                           <p><strong>Best for:</strong> Data visualization, exploring high-dimensional patterns</p>
+                        </div>
+                        <div class="concept-card">
+                           <h3>Independent Component Analysis</h3>
+                           <p><strong>The Signal Separator</strong></p>
+                           <p>Separates mixed signals into independent components. Like isolating individual instruments in a symphony.</p>
+                           <p><strong>Best for:</strong> Signal processing, blind source separation, feature extraction</p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="algorithm-subcategory">
+                     <h5>Association Rules: The Relationship Finders</h5>
+                     <div class="content-grid">
+                        <div class="concept-card">
+                           <h3>Apriori Algorithm</h3>
+                           <p><strong>The Shopping Cart Analyst</strong></p>
+                           <p>Finds relationships like "people who buy bread also buy butter." Powers recommendation systems.</p>
+                           <p><strong>Best for:</strong> Market basket analysis, recommendation systems, rule discovery</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Deep Learning Algorithms -->
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge deep-learning-badge">Deep Learning</span>
+                     The Brain Simulators
+                  </h4>
+                  <p><strong>Mission:</strong> Use artificial neural networks to solve complex problems by mimicking the human brain</p>
+                  <div class="content-grid">
+                     <div class="concept-card">
+                        <h3>Convolutional Neural Networks</h3>
+                        <p><strong>The Vision Expert</strong></p>
+                        <p>Specialized for image processing. Like having a visual cortex that can recognize objects, faces, and patterns in images.</p>
+                        <p><strong>Best for:</strong> Image recognition, computer vision, medical imaging, autonomous vehicles</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>Recurrent Neural Networks</h3>
+                        <p><strong>The Memory Keeper</strong></p>
+                        <p>Processes sequential data with memory. Perfect for time series, language, and any data where order matters.</p>
+                        <p><strong>Best for:</strong> Time series forecasting, natural language processing, speech recognition</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>Generative Adversarial Networks</h3>
+                        <p><strong>The Creative Rivals</strong></p>
+                        <p>Two networks competing - one creates fake data, the other tries to detect fakes. Results in incredibly realistic generated content.</p>
+                        <p><strong>Best for:</strong> Image generation, data augmentation, creative AI, synthetic data creation</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>Transformers</h3>
+                        <p><strong>The Attention Master</strong></p>
+                        <p>Uses self-attention mechanisms to understand context. Powers ChatGPT and modern language models.</p>
+                        <p><strong>Best for:</strong> Language models, machine translation, text generation, large-scale NLP</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Reinforcement Learning Algorithms -->
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge reinforcement-badge">Reinforcement Learning</span>
+                     The Decision Optimizers
+                  </h4>
+                  <p><strong>Mission:</strong> Learn optimal strategies through trial and error with environmental feedback</p>
+                  <div class="content-grid">
+                     <div class="concept-card">
+                        <h3>Q-Learning</h3>
+                        <p><strong>The Strategy Learner</strong></p>
+                        <p>Learns the value of actions in different situations. Like learning which chess moves lead to victory.</p>
+                        <p><strong>Best for:</strong> Discrete actions, tabular environments, simple game strategies</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>SARSA</h3>
+                        <p><strong>The Conservative Learner</strong></p>
+                        <p>Similar to Q-Learning but more cautious, considering the policy being followed.</p>
+                        <p><strong>Best for:</strong> Risk-sensitive environments, safer exploration, on-policy learning</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>Deep Q-Networks</h3>
+                        <p><strong>The Strategic Brain</strong></p>
+                        <p>Combines Q-Learning with neural networks for complex environments like video games.</p>
+                        <p><strong>Best for:</strong> Complex state spaces, video games, high-dimensional environments</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>Policy Gradient Methods</h3>
+                        <p><strong>The Direct Optimizer</strong></p>
+                        <p>Directly optimizes the strategy/policy rather than learning values. Great for continuous action spaces.</p>
+                        <p><strong>Best for:</strong> Continuous actions, robotics, complex policy spaces</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Ensemble Methods -->
+               <div class="algorithm-category">
+                  <h4 class="algorithm-category-title">
+                     <span class="ml-type-badge ensemble-badge">Ensemble Methods</span>
+                     The Team Players
+                  </h4>
+                  <p><strong>Mission:</strong> Combine multiple models for superior performance - "wisdom of crowds" principle</p>
+                  <div class="content-grid">
+                     <div class="concept-card">
+                        <h3>Random Forest (Bagging)</h3>
+                        <p><strong>The Democratic Committee</strong></p>
+                        <p>Multiple models vote on the final decision. Reduces overfitting and increases accuracy.</p>
+                        <p><strong>Best for:</strong> Reducing overfitting, parallel training, feature importance, stable predictions</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>AdaBoost & Gradient Boosting</h3>
+                        <p><strong>The Sequential Learners</strong></p>
+                        <p>Models built one after another, each correcting previous mistakes. Powerful but can overfit.</p>
+                        <p><strong>Best for:</strong> Maximum accuracy, correcting weak learners, competition performance</p>
+                     </div>
+                     <div class="concept-card">
+                        <h3>Stacking</h3>
+                        <p><strong>The Meta-Strategist</strong></p>
+                        <p>Uses a meta-model to intelligently combine predictions from different base models.</p>
+                        <p><strong>Best for:</strong> Combining diverse models, leveraging different strengths, advanced ensembling</p>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </section>
+
          </main>
       </div>
       <footer>
