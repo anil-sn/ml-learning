@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 035: Anomaly Detection in Cloud Load Balancer Logs - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 035: Anomaly Detection in Cloud Load Balancer Logs</h1>
+                <p>Load Balancer Analytics & Anomaly Detection</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Develop an unsupervised machine learning system to detect anomalies in cloud load balancer access logs, identifying potential security threats, performance issues, and operational problems through pattern analysis.</p>
+<h2>Business Value</h2>
+<strong>For Cloud Operations Teams:</strong>
+<p>- <strong>Proactive Issue Detection</strong>: Identify performance degradation before user impact</p>
+<p>- <strong>Security Threat Identification</strong>: Detect DDoS attacks, bot traffic, and exploitation attempts</p>
+<p>- <strong>Capacity Planning</strong>: Understand traffic patterns for auto-scaling optimization</p>
+<p>- <strong>Cost Optimization</strong>: Identify inefficient traffic routing and resource usage</p>
+<strong>For DevOps and SRE:</strong>
+<p>- <strong>Service Reliability</strong>: Monitor application health through traffic pattern analysis</p>
+<p>- <strong>Automated Incident Response</strong>: Trigger alerts and remediation for detected anomalies</p>
+<p>- <strong>Performance Optimization</strong>: Identify bottlenecks and optimization opportunities</p>
+<p>- <strong>Compliance Monitoring</strong>: Ensure traffic patterns meet security and regulatory requirements</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Log data processing and time series analysis</p>
+<p>- <strong>scikit-learn</strong>: Isolation Forest and clustering algorithms for anomaly detection</p>
+<p>- <strong>matplotlib & seaborn</strong>: Traffic pattern visualization and anomaly analysis</p>
+<p>- <strong>boto3</strong>: AWS integration for CloudFront and ALB log processing</p>
+<p>- <strong>pytz</strong>: Timezone handling for global load balancer deployments</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: Cloud Load Balancer Access Logs (AWS ALB/CloudFront, Azure Load Balancer, GCP Load Balancer)
+<p>- <strong>Request Patterns</strong>: HTTP methods, status codes, response times, byte counts</p>
+<p>- <strong>Client Analysis</strong>: IP addresses, user agents, geographic distributions</p>
+<p>- <strong>Backend Health</strong>: Origin response times, error rates, failover patterns</p>
+<p>- <strong>Time Series</strong>: Traffic volume trends, seasonal patterns, burst detection</p>
+<strong>Key Log Fields:</strong>
+<p>- <strong>Temporal</strong>: Timestamp, request duration, backend response time</p>
+<p>- <strong>Request Attributes</strong>: HTTP method, URI path, query parameters, status code</p>
+<p>- <strong>Client Information</strong>: Source IP, user agent, referrer, geographic location</p>
+<p>- <strong>Backend Metrics</strong>: Target IP, response size, SSL handshake time</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Log Data Collection and Preprocessing</h3>
+<pre><code class="language-python"># Load and parse load balancer logs
+<p>import pandas as pd</p>
+<p>import re</p>
+<p>from urllib.parse import urlparse</p>
+<p>def parse_alb_logs(log_file):</p>
+<p># Parse AWS ALB log format</p>
+<p>columns = ['type', 'time', 'elb', 'client_ip', 'client_port',</p>
+<p>'target_ip', 'target_port', 'request_processing_time',</p>
+<p>'target_processing_time', 'response_processing_time',</p>
+<p>'elb_status_code', 'target_status_code', 'received_bytes',</p>
+<p>'sent_bytes', 'request', 'user_agent', 'ssl_cipher', 'ssl_protocol']</p>
+<p>df = pd.read_csv(log_file, sep=' ', names=columns, parse_dates=['time'])</p>
+<p>return df</code></pre></p>
+<h3>2. Feature Engineering for Anomaly Detection</h3>
+<pre><code class="language-python"># Create features from log entries
+<p>def extract_features(df):</p>
+<p># Parse request information</p>
+<p>df[['method', 'uri', 'protocol']] = df['request'].str.extract(r'(\w+) (.<em>) (HTTP/.</em>)')</p>
+<p># Time-based features</p>
+<p>df['hour'] = df['time'].dt.hour</p>
+<p>df['day_of_week'] = df['time'].dt.dayofweek</p>
+<p># Response time metrics</p>
+<p>df['total_response_time'] = (df['request_processing_time'] +</p>
+<p>df['target_processing_time'] +</p>
+<p>df['response_processing_time'])</p>
+<p># Error rate indicators</p>
+<p>df['is_error'] = (df['elb_status_code'] >= 400).astype(int)</p>
+<p>df['is_5xx'] = (df['elb_status_code'] >= 500).astype(int)</p>
+<p>return df</code></pre></p>
+<h3>3. Temporal Pattern Analysis</h3>
+<pre><code class="language-python"># Aggregate metrics by time windows
+<p>def create_time_series_features(df, window='5min'):</p>
+<p>time_series = df.set_index('time').resample(window).agg({</p>
+<p>'client_ip': 'nunique',           # Unique clients</p>
+<p>'request': 'count',               # Request volume</p>
+<p>'total_response_time': 'mean',    # Average response time</p>
+<p>'is_error': 'mean',              # Error rate</p>
+<p>'sent_bytes': 'sum',             # Total bytes sent</p>
+<p>'target_ip': 'nunique'           # Backend diversity</p>
+<p>})</p>
+<p>return time_series</code></pre></p>
+<h3>4. Anomaly Detection Model Training</h3>
+<pre><code class="language-python"># Train Isolation Forest on normal traffic patterns
+<p>from sklearn.ensemble import IsolationForest</p>
+<p>from sklearn.preprocessing import StandardScaler</p>
+<p># Prepare features for anomaly detection</p>
+<p>feature_columns = ['unique_clients', 'request_count', 'avg_response_time',</p>
+<p>'error_rate', 'bytes_sent', 'backend_count']</p>
+<p># Scale features</p>
+<p>scaler = StandardScaler()</p>
+<p>X_scaled = scaler.fit_transform(time_series[feature_columns])</p>
+<p># Train anomaly detection model</p>
+<p>anomaly_detector = IsolationForest(</p>
+<p>contamination=0.1,  # Expect 10% anomalies</p>
+<p>random_state=42,</p>
+<p>n_estimators=100</p>
+<p>)</p>
+<p>anomaly_scores = anomaly_detector.fit_predict(X_scaled)</code></pre></p>
+<h3>5. Multi-dimensional Anomaly Analysis</h3>
+<pre><code class="language-python"># Detect different types of anomalies
+<p>def classify_anomaly_type(row):</p>
+<p>if row['error_rate'] > 0.1:</p>
+<p>return 'Error_Spike'</p>
+<p>elif row['avg_response_time'] > threshold_response:</p>
+<p>return 'Performance_Degradation'</p>
+<p>elif row['request_count'] > threshold_volume:</p>
+<p>return 'Traffic_Spike'</p>
+<p>elif row['unique_clients'] < threshold_clients:</p>
+<p>return 'Bot_Traffic'</p>
+<p>else:</p>
+<p>return 'Unknown_Anomaly'</p>
+<p># Apply anomaly classification</p>
+<p>anomalies = time_series[anomaly_scores == -1].copy()</p>
+<p>anomalies['anomaly_type'] = anomalies.apply(classify_anomaly_type, axis=1)</code></pre></p>
+<h3>6. Security Threat Detection</h3>
+<pre><code class="language-python"># Identify potential security threats
+<p>def detect_security_patterns(df):</p>
+<p># SQL injection attempts</p>
+<p>sql_patterns = df['uri'].str.contains(r'(union|select|insert|delete)',</p>
+<p>case=False, na=False)</p>
+<p># XSS attempts</p>
+<p>xss_patterns = df['uri'].str.contains(r'(<script|javascript:|onerror=)',</p>
+<p>case=False, na=False)</p>
+<p># Suspicious user agents</p>
+<p>suspicious_ua = df['user_agent'].str.contains(r'(bot|crawler|scanner)',</p>
+<p>case=False, na=False)</p>
+<p>return df[sql_patterns | xss_patterns | suspicious_ua]</code></pre></p>
+<h2>Success Criteria</h2>
+<strong>Primary Metrics:</strong>
+<p>- <strong>Anomaly Detection Precision</strong>: >80% to minimize false alarms</p>
+<p>- <strong>Coverage</strong>: Detect >90% of known performance and security incidents</p>
+<p>- <strong>Processing Latency</strong>: <5 minutes from log ingestion to anomaly detection</p>
+<strong>Secondary Metrics:</strong>
+<p>- <strong>Scalability</strong>: Process 1M+ log entries per hour</p>
+<p>- <strong>False Positive Rate</strong>: <5% for operational efficiency</p>
+<p>- <strong>Mean Time to Detection</strong>: <10 minutes for critical anomalies</p>
+<strong>Business Impact:</strong>
+<p>- Reduce incident response time by 70%</p>
+<p>- Prevent 95% of performance degradation from reaching users</p>
+<p>- Identify security threats 5x faster than manual analysis</p>
+<p>- Optimize infrastructure costs through traffic pattern insights</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Advanced Analytics</h3>
+<p>- <strong>Deep Learning</strong>: LSTM networks for complex temporal pattern recognition</p>
+<p>- <strong>Graph Analysis</strong>: Model client-server interaction patterns</p>
+<p>- <strong>Clustering</strong>: Identify different normal behavior patterns for better baselines</p>
+<p>- <strong>Ensemble Methods</strong>: Combine multiple anomaly detection approaches</p>
+<h3>Real-time Processing</h3>
+<p>- <strong>Stream Processing</strong>: Apache Kafka/Kinesis integration for real-time analysis</p>
+<p>- <strong>Edge Computing</strong>: Deploy lightweight models closer to load balancers</p>
+<p>- <strong>Adaptive Thresholds</strong>: Dynamic anomaly thresholds based on traffic patterns</p>
+<p>- <strong>Automated Response</strong>: Trigger auto-scaling, failover, or blocking actions</p>
+<h3>Integration Capabilities</h3>
+<p>- <strong>SIEM Integration</strong>: Feed anomalies into security information systems</p>
+<p>- <strong>Monitoring Dashboards</strong>: Real-time visualization of traffic health</p>
+<p>- <strong>Incident Management</strong>: Automatic ticket creation for detected issues</p>
+<p>- <strong>Cloud Provider APIs</strong>: Integration with AWS CloudWatch, Azure Monitor, GCP Operations</p>
+<h3>Specialized Detection</h3>
+<p>- <strong>DDoS Protection</strong>: Advanced distributed denial of service detection</p>
+<p>- <strong>Bot Management</strong>: Distinguish between good bots and malicious automation</p>
+<p>- <strong>Geographic Anomalies</strong>: Detect unusual traffic source patterns</p>
+<p>- <strong>Application-level Attacks</strong>: Identify OWASP Top 10 attack patterns</p>
+<h3>Machine Learning Enhancements</h3>
+<p>- <strong>Online Learning</strong>: Continuously update models with new traffic patterns</p>
+<p>- <strong>Transfer Learning</strong>: Apply learnings across different load balancer deployments</p>
+<p>- <strong>Explainable AI</strong>: Provide clear reasoning for anomaly classifications</p>
+<p>- <strong>A/B Testing</strong>: Compare different anomaly detection approaches</p>
+<p>This project provides comprehensive visibility into cloud load balancer health and security, enabling proactive operations and enhanced user experience through intelligent traffic analysis.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 032: Container Network Traffic Pattern Analysis - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 032: Container Network Traffic Pattern Analysis</h1>
+                <p>Containerization & Traffic Classification</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build a machine learning model that can classify the type of application running inside a container (WebApp, Database, Cache, MessageQueue, APIGateway) by analyzing the statistical features of its network traffic patterns.</p>
+<h2>Business Value</h2>
+<p>- <strong>Container Visibility</strong>: Automatically identify application types without deep packet inspection or container introspection</p>
+<p>- <strong>Resource Optimization</strong>: Right-size containers based on application-specific network behavior patterns</p>
+<p>- <strong>Security Monitoring</strong>: Detect anomalous applications or configuration drift by monitoring network patterns</p>
+<p>- <strong>Network Planning</strong>: Optimize network policies and resource allocation based on application traffic characteristics</p>
+<p>- <strong>Compliance</strong>: Ensure containers match expected application profiles for regulatory requirements</p>
+<h2>Core Libraries</h2>
+<p>- <strong>scikit-learn</strong>: RandomForestClassifier for pattern recognition and model evaluation metrics</p>
+<p>- <strong>pandas</strong>: Network traffic data manipulation and statistical analysis</p>
+<p>- <strong>numpy</strong>: Numerical computations and data generation</p>
+<p>- <strong>matplotlib/seaborn</strong>: Network pattern visualization and classification results analysis</p>
+<p>- <strong>time</strong>: Performance measurement and training time analysis</p>
+<h2>Dataset</h2>
+<p>- <strong>Source</strong>: Synthetically Generated (realistic network flow data from containerized applications)</p>
+<p>- <strong>Size</strong>: 5,000 network flow samples across 5 application types</p>
+<p>- <strong>Features</strong>: Average packet size, server port, flow duration, client/server packets, total bytes, throughput</p>
+<p>- <strong>Applications</strong>: WebApp, Database, Cache, MessageQueue, APIGateway</p>
+<p>- <strong>Type</strong>: Multi-class classification with engineered network features</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<pre><code class="language-bash"># Create virtual environment
+<p>python -m venv container_traffic_env</p>
+<p>source container_traffic_env/bin/activate  # On Windows: container_traffic_env\Scripts\activate</p>
+<p># Install required packages</p>
+<p>pip install pandas numpy scikit-learn matplotlib seaborn</code></pre></p>
+<h3>2. Data Generation and Network Profiles</h3>
+<pre><code class="language-python"># Generate realistic container network traffic data
+<p>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import random</p>
+<p># Define application-specific network "personalities"</p>
+<p>app_profiles = {</p>
+<p>'WebApp':       {'avg_pkt_size': 500,  'server_port': 443,  'flow_duration_ms': 500, 'client_server_ratio': 0.8},</p>
+<p>'Database':     {'avg_pkt_size': 1000, 'server_port': 5432, 'flow_duration_ms': 100, 'client_server_ratio': 0.5},</p>
+<p>'Cache':        {'avg_pkt_size': 150,  'server_port': 6379, 'flow_duration_ms': 20,  'client_server_ratio': 0.5},</p>
+<p>'MessageQueue': {'avg_pkt_size': 300,  'server_port': 5672, 'flow_duration_ms': 10000,'client_server_ratio': 0.5},</p>
+<p>'APIGateway':   {'avg_pkt_size': 800,  'server_port': 8080, 'flow_duration_ms': 200, 'client_server_ratio': 0.7}</p>
+<p>}</p>
+<p># Generate network flows based on application profiles</p>
+<p>data = []</p>
+<p>for _ in range(5000):</p>
+<p>app_type = random.choice(['WebApp', 'Database', 'Cache', 'MessageQueue', 'APIGateway'])</p>
+<p>profile = app_profiles[app_type]</p>
+<p># Generate features with realistic variations</p>
+<p>avg_pkt_size = max(50, np.random.normal(profile['avg_pkt_size'], 50))</p>
+<p>server_port = profile['server_port']</p>
+<p>flow_duration_ms = max(1, np.random.normal(profile['flow_duration_ms'], 100))</p>
+<p>client_server_ratio = np.clip(np.random.normal(profile['client_server_ratio'], 0.1), 0.1, 0.9)</p>
+<p># Calculate derived features</p>
+<p>total_packets = np.random.randint(5, 100)</p>
+<p>client_packets = int(total_packets * client_server_ratio)</p>
+<p>server_packets = total_packets - client_packets</p>
+<p>total_bytes = avg_pkt_size * total_packets</p>
+<p>throughput_kbps = (total_bytes * 8) / (flow_duration_ms / 1000) / 1000</p>
+<p>data.append([avg_pkt_size, server_port, flow_duration_ms, client_packets,</p>
+<p>server_packets, total_bytes, throughput_kbps, app_type])</p>
+<p>df = pd.DataFrame(data, columns=['avg_pkt_size', 'server_port', 'flow_duration_ms',</p>
+<p>'client_packets', 'server_packets', 'total_bytes',</p>
+<p>'throughput_kbps', 'app_type'])</code></pre></p>
+<h3>3. Data Exploration and Pattern Analysis</h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+<p>import seaborn as sns</p>
+<p># Visualize application network patterns</p>
+<p>fig, axes = plt.subplots(2, 3, figsize=(18, 12))</p>
+<p># Analyze packet size patterns by application</p>
+<p>sns.boxplot(data=df, x='app_type', y='avg_pkt_size', ax=axes[0,0])</p>
+<p>axes[0,0].set_title('Average Packet Size by Application')</p>
+<p># Flow duration patterns</p>
+<p>sns.boxplot(data=df, x='app_type', y='flow_duration_ms', ax=axes[0,1])</p>
+<p>axes[0,1].set_yscale('log')</p>
+<p>axes[0,1].set_title('Flow Duration by Application')</p>
+<p># Throughput characteristics</p>
+<p>sns.boxplot(data=df, x='app_type', y='throughput_kbps', ax=axes[0,2])</p>
+<p>axes[0,2].set_yscale('log')</p>
+<p>axes[0,2].set_title('Throughput by Application')</p>
+<p># Client vs Server packet relationships</p>
+<p>for app in df['app_type'].unique():</p>
+<p>app_data = df[df['app_type'] == app]</p>
+<p>axes[1,0].scatter(app_data['client_packets'], app_data['server_packets'],</p>
+<p>alpha=0.6, label=app)</p>
+<p>axes[1,0].set_title('Client vs Server Packet Distribution')</p>
+<p>axes[1,0].legend()</p>
+<p>plt.tight_layout()</p>
+<p>plt.show()</p>
+<p># Statistical analysis by application type</p>
+<p>profile_stats = df.groupby('app_type').agg({</p>
+<p>'avg_pkt_size': ['mean', 'std'],</p>
+<p>'flow_duration_ms': ['mean', 'std'],</p>
+<p>'throughput_kbps': ['mean', 'std']</p>
+<p>}).round(2)</p>
+<p>print("Application Network Profiles:")</p>
+<p>print(profile_stats)</code></pre></p>
+<h3>4. Feature Engineering and Data Preprocessing</h3>
+<pre><code class="language-python">from sklearn.model_selection import train_test_split
+<p>from sklearn.preprocessing import LabelEncoder</p>
+<p># Separate features and target</p>
+<p>X = df.drop(columns=['app_type'])</p>
+<p>y = df['app_type']</p>
+<p># Encode application labels</p>
+<p>le = LabelEncoder()</p>
+<p>y_encoded = le.fit_transform(y)</p>
+<p># Stratified split to ensure balanced representation</p>
+<p>X_train, X_test, y_train, y_test = train_test_split(</p>
+<p>X, y_encoded, test_size=0.3, random_state=42, stratify=y_encoded</p>
+<p>)</p>
+<p>print(f"Features: {list(X.columns)}")</p>
+<p>print(f"Training set: {X_train.shape}")</p>
+<p>print(f"Test set: {X_test.shape}")</code></pre></p>
+<h3>5. Model Training with RandomForest</h3>
+<pre><code class="language-python">from sklearn.ensemble import RandomForestClassifier
+<p>import time</p>
+<p># Train RandomForest optimized for network pattern classification</p>
+<p>model = RandomForestClassifier(</p>
+<p>n_estimators=100,</p>
+<p>random_state=42,</p>
+<p>n_jobs=-1,</p>
+<p>max_depth=10,</p>
+<p>min_samples_split=5,</p>
+<p>min_samples_leaf=2</p>
+<p>)</p>
+<p>start_time = time.time()</p>
+<p>model.fit(X_train, y_train)</p>
+<p>training_time = time.time() - start_time</p>
+<p>print(f"Model trained in {training_time:.2f} seconds")</code></pre></p>
+<h3>6. Model Evaluation and Performance Analysis</h3>
+<pre><code class="language-python">from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+<p># Predict and evaluate</p>
+<p>y_pred = model.predict(X_test)</p>
+<p>accuracy = accuracy_score(y_test, y_pred)</p>
+<p>print(f"Model Accuracy: {accuracy:.4f} ({accuracy*100:.2f}%)")</p>
+<p>print("\nDetailed Classification Report:")</p>
+<p>print(classification_report(y_test, y_pred, target_names=le.classes_))</p>
+<p># Confusion matrix analysis</p>
+<p>cm = confusion_matrix(y_test, y_pred)</p>
+<p>plt.figure(figsize=(10, 8))</p>
+<p>sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',</p>
+<p>xticklabels=le.classes_, yticklabels=le.classes_)</p>
+<p>plt.title('Container Application Classification Confusion Matrix')</p>
+<p>plt.ylabel('Actual Application')</p>
+<p>plt.xlabel('Predicted Application')</p>
+<p>plt.show()</code></pre></p>
+<h3>7. Feature Importance Analysis</h3>
+<pre><code class="language-python"># Analyze which network features are most predictive
+<p>importances = model.feature_importances_</p>
+<p>feature_importance_df = pd.DataFrame({</p>
+<p>'Feature': X.columns,</p>
+<p>'Importance': importances</p>
+<p>}).sort_values('Importance', ascending=False)</p>
+<p>plt.figure(figsize=(10, 6))</p>
+<p>plt.barh(feature_importance_df['Feature'], feature_importance_df['Importance'])</p>
+<p>plt.title('Feature Importance in Container Traffic Classification')</p>
+<p>plt.xlabel('Importance')</p>
+<p>plt.show()</p>
+<p>print("Most Important Network Characteristics:")</p>
+<p>print(feature_importance_df.round(4))</code></pre></p>
+<h3>8. Application Prediction Examples</h3>
+<pre><code class="language-python"># Test model with example network flows
+<p>example_flows = [</p>
+<p># WebApp: Small packets, HTTPS, moderate duration</p>
+<p>{'avg_pkt_size': 480, 'server_port': 443, 'flow_duration_ms': 450,</p>
+<p>'client_packets': 15, 'server_packets': 8, 'total_bytes': 11040, 'throughput_kbps': 196},</p>
+<p># Database: Large packets, PostgreSQL, short duration</p>
+<p>{'avg_pkt_size': 980, 'server_port': 5432, 'flow_duration_ms': 95,</p>
+<p>'client_packets': 8, 'server_packets': 12, 'total_bytes': 19600, 'throughput_kbps': 1651},</p>
+<p># Cache: Small packets, Redis, very short duration</p>
+<p>{'avg_pkt_size': 140, 'server_port': 6379, 'flow_duration_ms': 18,</p>
+<p>'client_packets': 5, 'server_packets': 5, 'total_bytes': 1400, 'throughput_kbps': 622}</p>
+<p>]</p>
+<p>examples_df = pd.DataFrame(example_flows)</p>
+<p>predictions = model.predict(examples_df)</p>
+<p>probabilities = model.predict_proba(examples_df)</p>
+<p>for i, flow in enumerate(example_flows):</p>
+<p>predicted_app = le.classes_[predictions[i]]</p>
+<p>confidence = np.max(probabilities[i])</p>
+<p>print(f"Flow {i+1}: Predicted as {predicted_app} (confidence: {confidence:.3f})")</code></pre></p>
+<h2>Success Criteria</h2>
+<p>- <strong>High Accuracy (>90%)</strong>: Model correctly classifies application types from network patterns</p>
+<p>- <strong>Balanced Performance</strong>: Good precision and recall across all application types</p>
+<p>- <strong>Feature Interpretability</strong>: Network characteristics align with domain knowledge</p>
+<p>- <strong>Fast Training</strong>: Model trains quickly for real-time deployment scenarios</p>
+<h2>Next Steps & Extensions</h2>
+<p>1. <strong>Real-time Integration</strong>: Deploy with container orchestration platforms (Kubernetes, Docker Swarm)</p>
+<p>2. <strong>Deep Packet Inspection</strong>: Enhance with application layer protocol analysis</p>
+<p>3. <strong>Anomaly Detection</strong>: Flag containers with unexpected network behavior patterns</p>
+<p>4. <strong>Multi-cluster Analysis</strong>: Extend classification across different container environments</p>
+<p>5. <strong>Performance Monitoring</strong>: Baseline normal behavior for automated alerting</p>
+<p>6. <strong>Security Enhancement</strong>: Detect potential malicious containers based on traffic anomalies</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">032_Container_Network_Traffic_Analysis/
+<p>├── readme.md</p>
+<p>├── container_network_traffic_analysis.ipynb</p>
+<p>├── requirements.txt</p>
+<p>└── data/</p>
+<p>└── (Generated container network flow data)</code></pre></p>
+<h2>Running the Project</h2>
+<p>1. Install required dependencies from requirements.txt</p>
+<p>2. Execute the Jupyter notebook step by step</p>
+<p>3. Analyze application network profiles and classification patterns</p>
+<p>4. Test model predictions with custom network flow examples</p>
+<p>5. Deploy model for container visibility and management</p>
+<p>This project demonstrates how machine learning can provide automatic container application discovery through network traffic analysis, enabling better visibility, security, and resource management in containerized environments without requiring application instrumentation or deep packet inspection.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

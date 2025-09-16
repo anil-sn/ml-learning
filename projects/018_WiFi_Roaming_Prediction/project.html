@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 018: Predicting Wi-Fi Roaming Events for Mobile Devices - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 018: Predicting Wi-Fi Roaming Events for Mobile Devices</h1>
+                <p>Mobile Network Prediction & Classification</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build a machine learning model that predicts if a wireless client will roam to a new Access Point within the next few seconds, based on the changing signal strength (RSSI) from surrounding APs. This predictive capability enables proactive network optimization and seamless handover experiences.</p>
+<h2>Business Value</h2>
+<strong>For Network Engineers transitioning to ML/AI:</strong>
+<p>- <strong>Proactive Network Management</strong>: Predict and prepare for client roaming before it happens</p>
+<p>- <strong>Quality of Experience</strong>: Improve voice and video call quality by reducing handover latency</p>
+<p>- <strong>Network Optimization</strong>: Optimize AP placement and power settings based on roaming patterns</p>
+<p>- <strong>Resource Planning</strong>: Anticipate capacity needs across different access points</p>
+<p>- <strong>Troubleshooting</strong>: Identify problematic areas where clients frequently struggle to roam</p>
+<strong>Real-World Applications:</strong>
+<p>- Enterprise Wi-Fi network optimization</p>
+<p>- Fast roaming (802.11r) implementation</p>
+<p>- Hospital and industrial IoT device connectivity</p>
+<p>- Campus and large facility Wi-Fi management</p>
+<p>- Venue-based customer experience enhancement</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Data manipulation and time-series analysis of RSSI values</p>
+<p>- <strong>scikit-learn</strong>: Random Forest classifier for roaming prediction</p>
+<p>- <strong>matplotlib & seaborn</strong>: Visualization of signal patterns and prediction results</p>
+<h2>Dataset</h2>
+<strong>Synthetically Generated Wi-Fi Roaming Data</strong>
+<p>- <strong>Source</strong>: Simulated mobile device movement through multi-AP environment</p>
+<p>- <strong>Size</strong>: 300 time steps representing device mobility patterns</p>
+<p>- <strong>Features</strong>: RSSI values from multiple APs, rate of change (delta) features</p>
+<p>- <strong>Target</strong>: Binary prediction of roaming events within prediction window</p>
+<strong>Key Features:</strong>
+<p>- <code>rssi_AP_1</code>, <code>rssi_AP_2</code>, <code>rssi_AP_3</code>: Signal strength from each access point</p>
+<p>- <code>rssi_AP_X_delta</code>: Rate of change in signal strength for each AP</p>
+<p>- <code>will_roam_soon</code>: Target variable indicating if roaming will occur soon</p>
+<h2>Project Structure</h2>
+<pre><code class="language-bash">018_WiFi_Roaming_Prediction/
+<p>├── README.md</p>
+<p>├── wifi_roaming_prediction.ipynb</p>
+<p>└── requirements.txt</code></pre></p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<p>Create and activate a virtual environment:</p>
+<pre><code class="language-bash">python -m venv wifi_roaming_env
+<p>source wifi_roaming_env/bin/activate  # On Windows: wifi_roaming_env\Scripts\activate</p>
+<p>pip install -r requirements.txt</code></pre></p>
+<h3>2. Synthetic Data Generation</h3>
+<pre><code class="language-python">import pandas as pd
+<p>import numpy as np</p>
+<p>from sklearn.ensemble import RandomForestClassifier</p>
+<p># Simulation parameters</p>
+<p>time_steps = 300  # 300 seconds of data</p>
+<p>num_aps = 3</p>
+<p>aps = [f'AP_{i+1}' for i in range(num_aps)]</p>
+<p># Simulate mobile device walking through building</p>
+<p>for t in range(time_steps):</p>
+<p># Simulate RSSI values (in dBm, higher is better)</p>
+<p>rssi_ap1 = -30 - (t * 0.2) + np.random.normal(0, 2)</p>
+<p>rssi_ap2 = -90 + (abs(t - 150) * -0.4) + 50 + np.random.normal(0, 2)</p>
+<p>rssi_ap3 = -90 + (abs(t - 250) * -0.4) + 40 + np.random.normal(0, 2)</code></pre></p>
+<h3>3. Feature Engineering</h3>
+<pre><code class="language-python"># Create predictive target variable
+<p>prediction_window = 5  # seconds</p>
+<p>df['will_roam_soon'] = 0</p>
+<p># Shift connected_ap to see future connections</p>
+<p>df['next_ap'] = df['connected_ap'].shift(-prediction_window)</p>
+<p># Identify roaming events</p>
+<p>roam_indices = df[df['connected_ap'] != df['next_ap']].index</p>
+<p># Set flag for time steps leading up to roam</p>
+<p>for idx in roam_indices:</p>
+<p>df.loc[max(0, idx - prediction_window):idx, 'will_roam_soon'] = 1</p>
+<p># Engineer rate-of-change features</p>
+<p>for ap in aps:</p>
+<p>df[f'rssi_{ap}_delta'] = df[f'rssi_{ap}'].diff().fillna(0)</code></pre></p>
+<h3>4. Model Training</h3>
+<pre><code class="language-python"># Prepare features and target
+<p>feature_cols = [col for col in df.columns if 'rssi' in col]</p>
+<p>X = df[feature_cols]</p>
+<p>y = df['will_roam_soon']</p>
+<p># Time-series split for realistic evaluation</p>
+<p>split_point = int(len(df) * 0.7)</p>
+<p>X_train, X_test = X.iloc[:split_point], X.iloc[split_point:]</p>
+<p>y_train, y_test = y.iloc[:split_point], y.iloc[split_point:]</p>
+<p># Train Random Forest with balanced classes</p>
+<p>model = RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced')</p>
+<p>model.fit(X_train, y_train)</code></pre></p>
+<h3>5. Model Evaluation</h3>
+<pre><code class="language-python">from sklearn.metrics import classification_report, confusion_matrix
+<p># Predict on test set</p>
+<p>y_pred = model.predict(X_test)</p>
+<p># Focus on recall for roaming events</p>
+<p>print(classification_report(y_test, y_pred, target_names=['Will Not Roam', 'Will Roam']))</p>
+<p># Confusion matrix visualization</p>
+<p>cm = confusion_matrix(y_test, y_pred)</p>
+<p>sns.heatmap(cm, annot=True, fmt='d', cmap='Greens')</code></pre></p>
+<h3>6. Visualization and Analysis</h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+<p># Plot RSSI patterns and predictions</p>
+<p>plt.figure(figsize=(16, 8))</p>
+<p># Plot RSSI values from all APs</p>
+<p>for ap in aps:</p>
+<p>plt.plot(df_test_results['time'], df_test_results[f'rssi_{ap}'], label=f'RSSI {ap}')</p>
+<p># Highlight prediction windows</p>
+<p>plt.fill_between(df_test_results['time'], -90, -20,</p>
+<p>where=df_test_results['will_roam_soon']==1,</p>
+<p>facecolor='orange', alpha=0.5, label='Actual Pre-Roam Window')</p>
+<p># Show model predictions</p>
+<p>plt.scatter(df_test_results['time'][df_test_results['prediction']==1],</p>
+<p>df_test_results['rssi_AP_3'][df_test_results['prediction']==1] + 2,</p>
+<p>color='red', marker='v', s=50, label='Predicted Roam')</code></pre></p>
+<h2>Success Criteria</h2>
+<p>1. <strong>High Recall</strong>: Achieve >80% recall for roaming events (minimize missed roaming predictions)</p>
+<p>2. <strong>Acceptable Precision</strong>: Maintain >60% precision to avoid excessive false alarms</p>
+<p>3. <strong>Timing Accuracy</strong>: Predict roaming events 3-7 seconds in advance</p>
+<p>4. <strong>Feature Importance</strong>: Signal strength delta should be among top features</p>
+<p>5. <strong>Real-time Capability</strong>: Model prediction time <100ms for production deployment</p>
+<h2>Key Insights</h2>
+<strong>Technical Learnings:</strong>
+<p>- <strong>Time-Series Prediction</strong>: Handle temporal patterns in wireless signal data</p>
+<p>- <strong>Feature Engineering</strong>: Rate of change features often more predictive than absolute values</p>
+<p>- <strong>Class Imbalance</strong>: Roaming events are rare, requiring balanced training approaches</p>
+<p>- <strong>Temporal Validation</strong>: Use time-aware splitting for realistic performance assessment</p>
+<strong>Network Engineering Applications:</strong>
+<p>- <strong>Fast Roaming</strong>: Pre-authenticate clients with likely destination APs</p>
+<p>- <strong>Load Balancing</strong>: Proactively manage client distribution across APs</p>
+<p>- <strong>Coverage Optimization</strong>: Identify areas where roaming is problematic</p>
+<p>- <strong>Capacity Planning</strong>: Predict load patterns for different access points</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Immediate Improvements</h3>
+<p>1. <strong>Multi-Device Tracking</strong>: Extend to predict roaming for multiple concurrent clients</p>
+<p>2. <strong>Environmental Factors</strong>: Include additional features like device type, application usage</p>
+<p>3. <strong>Real-time Integration</strong>: Connect to live Wi-Fi controller APIs for real data</p>
+<p>4. <strong>Adaptive Windows</strong>: Dynamic prediction windows based on device mobility patterns</p>
+<h3>Advanced Features</h3>
+<p>1. <strong>Deep Learning Models</strong>: Implement LSTM/GRU networks for complex temporal patterns</p>
+<p>2. <strong>Location-Aware Predictions</strong>: Incorporate floor plans and physical layout information</p>
+<p>3. <strong>Quality Metrics</strong>: Predict not just roaming, but roaming success probability</p>
+<p>4. <strong>Multi-Band Prediction</strong>: Handle 2.4GHz/5GHz/6GHz band steering decisions</p>
+<h3>Production Deployment</h3>
+<p>1. <strong>Controller Integration</strong>: Deploy models on wireless LAN controllers</p>
+<p>2. <strong>Edge Computing</strong>: Implement lightweight models on access points themselves</p>
+<p>3. <strong>API Development</strong>: Create REST APIs for network management system integration</p>
+<p>4. <strong>Monitoring Dashboard</strong>: Real-time visualization of roaming predictions and patterns</p>
+<h3>Research Extensions</h3>
+<p>1. <strong>Federated Learning</strong>: Train models across multiple sites while preserving privacy</p>
+<p>2. <strong>Reinforcement Learning</strong>: Optimize AP power and channel assignments based on roaming patterns</p>
+<p>3. <strong>Cross-Protocol Analysis</strong>: Combine Wi-Fi with cellular handover prediction models</p>
+<p>4. <strong>Anomaly Detection</strong>: Identify unusual roaming patterns that may indicate security issues</p>
+<h3>Industry-Specific Applications</h3>
+<p>1. <strong>Healthcare</strong>: Ensure critical medical device connectivity during roaming</p>
+<p>2. <strong>Manufacturing</strong>: Maintain industrial IoT device connections on factory floors</p>
+<p>3. <strong>Education</strong>: Optimize campus-wide Wi-Fi for student and faculty mobility</p>
+<p>4. <strong>Retail</strong>: Enhance customer Wi-Fi experience in large shopping centers</p>
+<h2>Implementation Considerations</h2>
+<h3>Performance Optimization</h3>
+<p>- <strong>Feature Selection</strong>: Use only the most predictive RSSI and delta features</p>
+<p>- <strong>Model Complexity</strong>: Balance accuracy with inference speed for real-time deployment</p>
+<p>- <strong>Memory Usage</strong>: Optimize for deployment on resource-constrained network equipment</p>
+<p>- <strong>Batch Processing</strong>: Handle multiple client predictions efficiently</p>
+<h3>Network Integration</h3>
+<p>- <strong>SNMP Integration</strong>: Pull RSSI data from existing network monitoring systems</p>
+<p>- <strong>Controller APIs</strong>: Integrate with vendor-specific wireless controller platforms</p>
+<p>- <strong>Standards Compliance</strong>: Ensure compatibility with 802.11 standards and amendments</p>
+<p>- <strong>Vendor Agnostic</strong>: Design for compatibility across different Wi-Fi equipment vendors</p>
+<p>This project demonstrates how predictive analytics can transform reactive network management into proactive optimization, providing network engineers with powerful tools to enhance wireless network performance and user experience.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

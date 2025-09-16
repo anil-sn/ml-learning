@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 034: Detecting Noisy Neighbors in a Multi-tenant Cloud Environment - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 034: Detecting Noisy Neighbors in a Multi-tenant Cloud Environment</h1>
+                <p>Multi-tenant Analytics & Anomaly Detection</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build an unsupervised anomaly detection model using Isolation Forest to identify "noisy neighbors" (high-resource-consuming tenants) in a shared cloud environment by analyzing network traffic patterns and flagging outliers that degrade performance for other tenants.</p>
+<h2>Business Value</h2>
+<p>- <strong>Performance Isolation</strong>: Proactively identify tenants causing performance degradation before they impact other customers</p>
+<p>- <strong>SLA Protection</strong>: Prevent noisy neighbors from violating service level agreements of co-located tenants</p>
+<p>- <strong>Resource Management</strong>: Enable targeted resource throttling, migration, or workload balancing</p>
+<p>- <strong>Cost Optimization</strong>: Optimize resource allocation and prevent over-provisioning due to performance issues</p>
+<p>- <strong>Customer Experience</strong>: Maintain consistent performance and reliability across multi-tenant environments</p>
+<h2>Core Libraries</h2>
+<p>- <strong>scikit-learn</strong>: Isolation Forest for unsupervised anomaly detection and data preprocessing</p>
+<p>- <strong>pandas</strong>: Multi-tenant traffic data manipulation and time-series analysis</p>
+<p>- <strong>numpy</strong>: Numerical computations and statistical operations</p>
+<p>- <strong>matplotlib/seaborn</strong>: Traffic pattern visualization and anomaly detection results</p>
+<p>- <strong>time</strong>: Performance measurement and monitoring</p>
+<h2>Dataset</h2>
+<p>- <strong>Source</strong>: Synthetically Generated (realistic multi-tenant network traffic patterns)</p>
+<p>- <strong>Size</strong>: 20,000 samples (20 tenants × 1,000 time steps)</p>
+<p>- <strong>Features</strong>: Packets per second, bytes per second, average packet size, network utilization</p>
+<p>- <strong>Anomalies</strong>: Primary and secondary noisy neighbor events with varying intensity and duration</p>
+<p>- <strong>Type</strong>: Unsupervised anomaly detection with ground truth for evaluation</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<pre><code class="language-bash"># Create virtual environment
+<p>python -m venv noisy_neighbors_env</p>
+<p>source noisy_neighbors_env/bin/activate  # On Windows: noisy_neighbors_env\Scripts\activate</p>
+<p># Install required packages</p>
+<p>pip install pandas numpy scikit-learn matplotlib seaborn</code></pre></p>
+<h3>2. Multi-tenant Traffic Data Generation</h3>
+<pre><code class="language-python"># Generate realistic multi-tenant network traffic patterns
+<p>import pandas as pd</p>
+<p>import numpy as np</p>
+<p>import random</p>
+<p># Simulation parameters</p>
+<p>num_tenants = 20</p>
+<p>time_steps = 1000</p>
+<p>tenants = [f'tenant_{i+1}' for i in range(num_tenants)]</p>
+<p>noisy_neighbor_tenant = 'tenant_5'</p>
+<p>secondary_noisy_tenant = 'tenant_15'</p>
+<p>data = []</p>
+<p>for t in range(time_steps):</p>
+<p>for tenant in tenants:</p>
+<p>is_noisy = False</p>
+<p># Define normal behavior patterns with tenant-specific baselines</p>
+<p>if 'tenant_1' in tenant or 'tenant_2' in tenant:</p>
+<p>base_pps = max(0, np.random.normal(2000, 500))  # Low activity</p>
+<p>base_bps = base_pps * np.random.normal(250, 30)</p>
+<p>elif 'tenant_19' in tenant or 'tenant_20' in tenant:</p>
+<p>base_pps = max(0, np.random.normal(8000, 1200))  # High activity</p>
+<p>base_bps = base_pps * np.random.normal(400, 60)</p>
+<p>else:</p>
+<p>base_pps = max(0, np.random.normal(5000, 1000))  # Normal activity</p>
+<p>base_bps = base_pps * np.random.normal(300, 50)</p>
+<p># Add time-based patterns (daily cycles)</p>
+<p>time_factor = 1 + 0.3 <em> np.sin(2 </em> np.pi * t / 100)</p>
+<p>base_pps *= time_factor</p>
+<p>base_bps *= time_factor</p>
+<p># Simulate noisy neighbor events</p>
+<p>if tenant == noisy_neighbor_tenant and 400 <= t < 600:</p>
+<p>base_pps *= np.random.uniform(5, 10)  # 5-10x spike</p>
+<p>base_bps *= np.random.uniform(5, 10)</p>
+<p>is_noisy = True</p>
+<p>if tenant == secondary_noisy_tenant and 750 <= t < 800:</p>
+<p>base_pps *= np.random.uniform(8, 15)  # Intense spike</p>
+<p>base_bps *= np.random.uniform(8, 15)</p>
+<p>is_noisy = True</p>
+<p># Calculate derived metrics</p>
+<p>avg_packet_size = base_bps / max(base_pps, 1)</p>
+<p>network_utilization = min(base_bps / 1000000, 100)</p>
+<p>data.append([t, tenant, base_pps, base_bps, avg_packet_size,</p>
+<p>network_utilization, is_noisy])</p>
+<p>df = pd.DataFrame(data, columns=['timestamp', 'tenant_id', 'packets_per_second',</p>
+<p>'bytes_per_second', 'avg_packet_size',</p>
+<p>'network_utilization', 'is_truly_noisy'])</code></pre></p>
+<h3>3. Data Exploration and Pattern Analysis</h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+<p>import seaborn as sns</p>
+<p># Visualize traffic patterns</p>
+<p>fig, axes = plt.subplots(2, 2, figsize=(16, 12))</p>
+<p># Time series visualization</p>
+<p>pivot_data = df.pivot(index='timestamp', columns='tenant_id', values='packets_per_second')</p>
+<p>axes[0,0].plot(pivot_data.index, pivot_data[noisy_neighbor_tenant],</p>
+<p>color='red', linewidth=2, label='Primary Noisy Neighbor')</p>
+<p>axes[0,0].plot(pivot_data.index, pivot_data[secondary_noisy_tenant],</p>
+<p>color='orange', linewidth=2, label='Secondary Noisy Neighbor')</p>
+<p>axes[0,0].set_title('Packets per Second Over Time')</p>
+<p>axes[0,0].legend()</p>
+<p># Distribution comparison</p>
+<p>normal_data = df[df['is_truly_noisy'] == False]</p>
+<p>noisy_data = df[df['is_truly_noisy'] == True]</p>
+<p>axes[0,1].hist(normal_data['packets_per_second'], bins=50, alpha=0.7,</p>
+<p>label='Normal', density=True)</p>
+<p>axes[0,1].hist(noisy_data['packets_per_second'], bins=30, alpha=0.7,</p>
+<p>label='Noisy Neighbor', density=True)</p>
+<p>axes[0,1].set_title('Traffic Distribution Comparison')</p>
+<p>axes[0,1].legend()</p>
+<p># Traffic correlation analysis</p>
+<p>axes[1,0].scatter(normal_data['packets_per_second'], normal_data['bytes_per_second'],</p>
+<p>alpha=0.6, label='Normal', s=20)</p>
+<p>axes[1,0].scatter(noisy_data['packets_per_second'], noisy_data['bytes_per_second'],</p>
+<p>alpha=0.8, label='Noisy Neighbor', s=30, color='red')</p>
+<p>axes[1,0].set_title('Packets vs Bytes Correlation')</p>
+<p>axes[1,0].legend()</p>
+<p>plt.tight_layout()</p>
+<p>plt.show()</p>
+<p># Tenant behavior summary</p>
+<p>tenant_summary = df.groupby('tenant_id').agg({</p>
+<p>'packets_per_second': ['mean', 'max', 'std'],</p>
+<p>'is_truly_noisy': 'sum'</p>
+<p>}).round(2)</p>
+<p>print("Tenant Behavior Summary:")</p>
+<p>print(tenant_summary.head(10))</code></pre></p>
+<h3>4. Feature Engineering and Data Preprocessing</h3>
+<pre><code class="language-python">from sklearn.preprocessing import StandardScaler
+<p># Prepare features for anomaly detection</p>
+<p>feature_cols = ['packets_per_second', 'bytes_per_second', 'avg_packet_size', 'network_utilization']</p>
+<p>X = df[feature_cols].copy()</p>
+<p># Handle any NaN or infinite values</p>
+<p>X = X.replace([np.inf, -np.inf], np.nan)</p>
+<p>X = X.fillna(X.median())</p>
+<p># Scale features for better model performance</p>
+<p>scaler = StandardScaler()</p>
+<p>X_scaled = scaler.fit_transform(X)</p>
+<p># Store ground truth labels for evaluation</p>
+<p>y_true = df['is_truly_noisy'].values</p>
+<p>print(f"Feature matrix shape: {X_scaled.shape}")</p>
+<p>print(f"Ground truth anomalies: {np.sum(y_true)} ({np.mean(y_true)*100:.2f}%)")</code></pre></p>
+<h3>5. Isolation Forest Model Training</h3>
+<pre><code class="language-python">from sklearn.ensemble import IsolationForest
+<p># Calculate expected contamination rate</p>
+<p>expected_contamination = np.mean(y_true)</p>
+<p>contamination_rate = 0.015  # Slightly conservative estimate</p>
+<p># Configure and train Isolation Forest</p>
+<p>model = IsolationForest(</p>
+<p>n_estimators=200,</p>
+<p>contamination=contamination_rate,</p>
+<p>random_state=42,</p>
+<p>n_jobs=-1</p>
+<p>)</p>
+<p>print(f"Training Isolation Forest with {contamination_rate*100:.1f}% expected contamination...")</p>
+<p>model.fit(X_scaled)</p>
+<p># Make predictions and calculate anomaly scores</p>
+<p>y_pred_raw = model.predict(X_scaled)</p>
+<p>y_pred = (y_pred_raw == -1).astype(int)  # Convert to binary</p>
+<p>anomaly_scores = model.decision_function(X_scaled)</p>
+<p>print(f"Predicted anomalies: {np.sum(y_pred)} ({np.mean(y_pred)*100:.2f}%)")</p>
+<p>print(f"Actual anomalies: {np.sum(y_true)} ({np.mean(y_true)*100:.2f}%)")</code></pre></p>
+<h3>6. Model Evaluation and Performance Analysis</h3>
+<pre><code class="language-python">from sklearn.metrics import classification_report, confusion_matrix, precision_recall_fscore_support
+<p># Calculate performance metrics</p>
+<p>precision, recall, f1, support = precision_recall_fscore_support(</p>
+<p>y_true, y_pred, average='binary', pos_label=1</p>
+<p>)</p>
+<p>print(f"Performance Metrics:")</p>
+<p>print(f"• Precision: {precision:.3f}")</p>
+<p>print(f"• Recall: {recall:.3f}")</p>
+<p>print(f"• F1-Score: {f1:.3f}")</p>
+<p># Detailed classification report</p>
+<p>print("\nDetailed Classification Report:")</p>
+<p>print(classification_report(y_true, y_pred, target_names=['Normal', 'Noisy Neighbor']))</p>
+<p># Confusion matrix analysis</p>
+<p>cm = confusion_matrix(y_true, y_pred)</p>
+<p>tn, fp, fn, tp = cm.ravel()</p>
+<p>accuracy = (tp + tn) / (tp + tn + fp + fn)</p>
+<p>specificity = tn / (tn + fp)</p>
+<p>false_positive_rate = fp / (fp + tn)</p>
+<p>print(f"\nAdditional Metrics:")</p>
+<p>print(f"• Accuracy: {accuracy:.3f}")</p>
+<p>print(f"• Specificity: {specificity:.3f}")</p>
+<p>print(f"• False Positive Rate: {false_positive_rate:.3f}")</p>
+<p># Visualize confusion matrix</p>
+<p>plt.figure(figsize=(8, 6))</p>
+<p>sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',</p>
+<p>xticklabels=['Normal', 'Noisy Neighbor'],</p>
+<p>yticklabels=['Normal', 'Noisy Neighbor'])</p>
+<p>plt.title('Confusion Matrix for Noisy Neighbor Detection')</p>
+<p>plt.ylabel('Actual')</p>
+<p>plt.xlabel('Predicted')</p>
+<p>plt.show()</code></pre></p>
+<h3>7. Tenant-wise Analysis and Investigation</h3>
+<pre><code class="language-python"># Analyze detection performance by tenant
+<p>df_analysis = df.copy()</p>
+<p>df_analysis['predicted_anomaly'] = y_pred</p>
+<p>df_analysis['anomaly_score'] = anomaly_scores</p>
+<p>tenant_analysis = []</p>
+<p>for tenant in tenants:</p>
+<p>tenant_data = df_analysis[df_analysis['tenant_id'] == tenant]</p>
+<p>true_anomalies = tenant_data['is_truly_noisy'].sum()</p>
+<p>detected_anomalies = tenant_data['predicted_anomaly'].sum()</p>
+<p>if true_anomalies > 0:</p>
+<p>true_positives = ((tenant_data['is_truly_noisy'] == 1) &</p>
+<p>(tenant_data['predicted_anomaly'] == 1)).sum()</p>
+<p>tenant_recall = true_positives / true_anomalies</p>
+<p>tenant_precision = true_positives / detected_anomalies if detected_anomalies > 0 else 0</p>
+<p>else:</p>
+<p>tenant_recall = 0</p>
+<p>tenant_precision = 0 if detected_anomalies == 0 else np.nan</p>
+<p>tenant_analysis.append({</p>
+<p>'tenant_id': tenant,</p>
+<p>'true_anomalies': true_anomalies,</p>
+<p>'detected_anomalies': detected_anomalies,</p>
+<p>'recall': tenant_recall,</p>
+<p>'precision': tenant_precision</p>
+<p>})</p>
+<p>tenant_df = pd.DataFrame(tenant_analysis)</p>
+<p>print("Tenant Detection Performance:")</p>
+<p>print(tenant_df[tenant_df['true_anomalies'] > 0])  # Focus on noisy tenants</p>
+<p># Visualize anomaly timeline for noisy neighbors</p>
+<p>noisy_tenant_data = df_analysis[df_analysis['tenant_id'] == noisy_neighbor_tenant]</p>
+<p>plt.figure(figsize=(14, 6))</p>
+<p>plt.plot(noisy_tenant_data['timestamp'], noisy_tenant_data['packets_per_second'],</p>
+<p>color='blue', alpha=0.7, label='Traffic')</p>
+<p># Highlight detections</p>
+<p>true_anomalies = noisy_tenant_data[noisy_tenant_data['is_truly_noisy'] == 1]</p>
+<p>plt.scatter(true_anomalies['timestamp'], true_anomalies['packets_per_second'],</p>
+<p>color='red', s=50, label='True Anomalies', zorder=5)</p>
+<p>detected_anomalies = noisy_tenant_data[noisy_tenant_data['predicted_anomaly'] == 1]</p>
+<p>plt.scatter(detected_anomalies['timestamp'], detected_anomalies['packets_per_second'],</p>
+<p>color='orange', s=30, marker='x', label='Detected Anomalies', zorder=5)</p>
+<p>plt.title(f'Anomaly Detection Timeline for {noisy_neighbor_tenant}')</p>
+<p>plt.xlabel('Time Step')</p>
+<p>plt.ylabel('Packets per Second')</p>
+<p>plt.legend()</p>
+<p>plt.grid(True, alpha=0.3)</p>
+<p>plt.show()</code></pre></p>
+<h2>Success Criteria</h2>
+<p>- <strong>High Recall (>80%)</strong>: Detect most noisy neighbor events to prevent performance degradation</p>
+<p>- <strong>Balanced Precision (>70%)</strong>: Minimize false alarms to avoid alert fatigue</p>
+<p>- <strong>Low False Positive Rate (<10%)</strong>: Maintain operational efficiency with reliable alerts</p>
+<p>- <strong>Tenant Isolation</strong>: Successfully identify specific problematic tenants</p>
+<h2>Next Steps & Extensions</h2>
+<p>1. <strong>Real-time Deployment</strong>: Integrate with cloud monitoring platforms for live anomaly detection</p>
+<p>2. <strong>Multi-dimensional Analysis</strong>: Include CPU, memory, disk I/O, and network bandwidth metrics</p>
+<p>3. <strong>Automated Response</strong>: Implement automatic resource throttling or tenant migration</p>
+<p>4. <strong>Adaptive Thresholds</strong>: Use dynamic contamination rates based on historical patterns</p>
+<p>5. <strong>Root Cause Analysis</strong>: Identify specific applications or processes causing noisy behavior</p>
+<p>6. <strong>Predictive Alerts</strong>: Forecast potential noisy neighbor events before they impact performance</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">034_Noisy_Neighbors_Detection_Cloud/
+<p>├── readme.md</p>
+<p>├── noisy_neighbors_detection_cloud.ipynb</p>
+<p>├── requirements.txt</p>
+<p>└── data/</p>
+<p>└── (Generated multi-tenant traffic data)</code></pre></p>
+<h2>Running the Project</h2>
+<p>1. Install required dependencies from requirements.txt</p>
+<p>2. Execute the Jupyter notebook step by step</p>
+<p>3. Analyze multi-tenant traffic patterns and baseline behavior</p>
+<p>4. Train Isolation Forest model for unsupervised anomaly detection</p>
+<p>5. Evaluate detection performance and investigate tenant-specific results</p>
+<p>6. Deploy model for real-time noisy neighbor monitoring</p>
+<p>This project demonstrates how unsupervised machine learning can solve critical multi-tenancy challenges in cloud environments, providing automatic detection of performance-impacting tenants while maintaining high operational efficiency and minimal false alarms.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

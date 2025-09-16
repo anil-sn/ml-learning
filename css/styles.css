@@ -3870,8 +3870,9 @@ html.dark-mode .tab-button.active {
     }
     
     .notebook-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-sm);
+        display: flex;
+        flex-direction: column;
+        gap: 0;
     }
     
     .resource-grid {
@@ -3880,9 +3881,14 @@ html.dark-mode .tab-button.active {
     }
     
     .subsection {
-        padding: var(--spacing-lg);
-        margin: var(--spacing-lg) -var(--spacing-md);
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) -var(--spacing-md);
         border-radius: 0;
+        border-left: 4px solid var(--accent-1);
+        border-right: none;
+        border-top: none;
+        border-bottom: none;
+        background: transparent;
     }
     
     .chapter-section {
@@ -3890,21 +3896,64 @@ html.dark-mode .tab-button.active {
         margin: var(--spacing-md) -var(--spacing-md);
         border-radius: 0;
         border-left: 3px solid var(--accent-1);
+        background: transparent;
     }
     
+    /* Mobile-optimized notebook cards - list style */
     .notebook-card {
         padding: var(--spacing-md);
-        flex-direction: column;
-        text-align: center;
-        gap: var(--spacing-sm);
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        background: transparent;
+        text-align: left;
+        min-height: auto;
     }
     
+    .notebook-card:hover {
+        transform: none;
+        box-shadow: none;
+        background: var(--bg-color);
+        border-bottom-color: var(--accent-1);
+        border-left: 3px solid var(--accent-1);
+        padding-left: calc(var(--spacing-md) - 3px);
+    }
+    
+    .notebook-card:last-child {
+        border-bottom: none;
+    }
+    
+    .notebook-card h4,
+    .notebook-card h5 {
+        font-size: 0.95rem;
+        font-weight: 500;
+        line-height: 1.4;
+        margin: 0;
+    }
+    
+    /* Keep featured cards special */
     .notebook-card.featured {
-        min-height: 120px;
+        background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 100%);
+        border-radius: var(--border-radius-md);
+        border-bottom: none;
+        padding: var(--spacing-lg);
+        margin: var(--spacing-md) 0;
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .notebook-card.featured:hover {
+        border-left: none;
+        padding-left: var(--spacing-lg);
     }
     
     .resource-card {
-        min-height: 100px;
+        min-height: auto;
         padding: var(--spacing-lg);
     }
 }
@@ -3918,18 +3967,30 @@ html.dark-mode .tab-button.active {
         font-size: 1.1rem;
     }
     
+    /* Simplified mobile typography */
+    .notebook-card {
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+    
     .notebook-card h4,
     .notebook-card h5 {
         font-size: 0.9rem;
+        line-height: 1.3;
     }
     
-    .notebook-icon {
-        font-size: 1.2rem;
+    .notebook-card:hover {
+        padding-left: calc(var(--spacing-md) - 3px);
     }
     
-    .resource-icon {
-        font-size: 1.5rem;
-        margin-bottom: var(--spacing-sm);
+    .subsection {
+        padding: var(--spacing-sm) var(--spacing-md);
+        margin: var(--spacing-sm) -var(--spacing-md);
+    }
+    
+    .chapter-section {
+        padding: var(--spacing-sm) var(--spacing-md);
+        margin: var(--spacing-sm) -var(--spacing-md);
     }
     
     .resource-card h4 {

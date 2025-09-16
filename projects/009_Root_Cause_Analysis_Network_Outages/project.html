@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 009: Root Cause Analysis for Network Outages (NLP & Graph ML) - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 009: Root Cause Analysis for Network Outages (NLP & Graph ML)</h1>
+                <p>NLP & Graph ML for Troubleshooting</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>To automatically analyze network outage incidents using Natural Language Processing (NLP) and Graph Machine Learning to identify root causes, predict failure propagation patterns, and recommend remediation strategies. This project combines textual incident reports with network topology analysis.</p>
+<h2>Business Value</h2>
+<p>- <strong>Faster Resolution</strong>: Accelerate incident resolution through automated root cause identification</p>
+<p>- <strong>Knowledge Management</strong>: Learn from historical incidents to prevent similar outages</p>
+<p>- <strong>Pattern Recognition</strong>: Identify recurring issues and systemic problems</p>
+<p>- <strong>Resource Optimization</strong>: Direct technical resources to highest-impact remediation actions</p>
+<p>- <strong>Continuous Improvement</strong>: Build organizational learning from incident data</p>
+<h2>Core Libraries</h2>
+<p>- <strong>spacy</strong>: Advanced NLP for incident report processing</p>
+<p>- <strong>transformers</strong>: BERT/RoBERTa for semantic understanding of technical descriptions</p>
+<p>- <strong>networkx</strong>: Network topology analysis and graph algorithms</p>
+<p>- <strong>scikit-learn</strong>: Text classification and clustering</p>
+<p>- <strong>pandas</strong>: Incident data manipulation and analysis</p>
+<h2>Technical Approach</h2>
+<strong>NLP Component</strong>:
+<p>- Text preprocessing and entity extraction from incident reports</p>
+<p>- Classification of incident types and severity levels</p>
+<p>- Semantic similarity analysis for pattern matching</p>
+<strong>Graph ML Component</strong>:
+<p>- Network topology representation and analysis</p>
+<p>- Failure propagation modeling</p>
+<p>- Centrality analysis for critical component identification</p>
+<h2>Key Features</h2>
+<p>- Automated incident categorization</p>
+<p>- Root cause hypothesis generation</p>
+<p>- Failure impact prediction</p>
+<p>- Historical pattern matching</p>
+<p>- Interactive incident exploration</p>
+<h2>Dataset</h2>
+<p>Network incident reports, trouble tickets, and network topology data combined to create comprehensive outage analysis.</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">009_Root_Cause_Analysis_Network_Outages/
+<p>├── README.md              # This guide</p>
+<p>├── notebook.ipynb         # NLP and Graph ML implementation</p>
+<p>├── requirements.txt       # Dependencies</p>
+<p>├── nlp_utils.py          # Text processing utilities</p>
+<p>└── graph_analysis.py     # Network topology analysis</code></pre></p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

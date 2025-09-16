@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 031: Predicting Cloud Network Egress Costs - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 031: Predicting Cloud Network Egress Costs</h1>
+                <p>Cost Forecasting & Time-Series Analysis</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build a time-series forecasting model that can predict daily network egress costs for a cloud environment based on historical usage patterns, enabling accurate budget planning and cost optimization.</p>
+<h2>Business Value</h2>
+<p>- <strong>Financial Planning</strong>: Accurate forecasting for quarterly and annual cloud budget allocation</p>
+<p>- <strong>Cost Optimization</strong>: Identify patterns to implement data transfer optimization strategies</p>
+<p>- <strong>Anomaly Detection</strong>: Detect unusual cost spikes that may indicate misconfigurations or security issues</p>
+<p>- <strong>Budget Control</strong>: Prevent unexpected overspend on cloud egress charges</p>
+<p>- <strong>Capacity Planning</strong>: Predict when egress patterns require infrastructure changes</p>
+<h2>Core Libraries</h2>
+<p>- <strong>prophet</strong>: Time-series forecasting with automatic seasonality detection and trend analysis</p>
+<p>- <strong>pandas</strong>: Time-series data manipulation and date handling</p>
+<p>- <strong>numpy</strong>: Numerical computations and statistical operations</p>
+<p>- <strong>scikit-learn</strong>: Model evaluation metrics</p>
+<p>- <strong>matplotlib</strong>: Time-series visualization and forecast plotting</p>
+<h2>Dataset</h2>
+<p>- <strong>Source</strong>: Synthetically Generated (realistic daily egress cost data)</p>
+<p>- <strong>Size</strong>: 730 days (2 years) of historical cost data</p>
+<p>- <strong>Features</strong>: Date (ds) and daily egress cost (y)</p>
+<p>- <strong>Patterns</strong>: Weekly seasonality, growth trends, random spikes, weekend reductions</p>
+<p>- <strong>Type</strong>: Time-series regression with temporal dependencies</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<pre><code class="language-bash"># Create virtual environment
+<p>python -m venv egress_cost_env</p>
+<p>source egress_cost_env/bin/activate  # On Windows: egress_cost_env\Scripts\activate</p>
+<p># Install required packages</p>
+<p>pip install pandas numpy scikit-learn matplotlib prophet</code></pre></p>
+<h3>2. Data Generation and Preparation</h3>
+<pre><code class="language-python"># Generate realistic time-series egress cost data
+<p>import pandas as pd</p>
+<p>import numpy as np</p>
+<p># Create 2 years of daily data with realistic patterns</p>
+<p>days = 730</p>
+<p>cost_per_gb = 0.05</p>
+<p>start_date = pd.to_datetime('2022-01-01')</p>
+<p>dates = pd.date_range(start_date, periods=days, freq='D')</p>
+<p># Combine multiple patterns: trend + seasonality + noise + spikes</p>
+<p>trend = np.linspace(500, 1500, days)  # Growth from 500GB to 1500GB/day</p>
+<p>weekly_seasonality = np.sin(dates.dayofweek <em> (2 </em> np.pi / 7)) * 100</p>
+<p>weekend_reduction = np.where(dates.dayofweek >= 5, 0.2, 1.0)  # 80% reduction on weekends</p>
+<p>noise = np.random.normal(0, 50, days)</p>
+<p>spikes = np.random.choice([0, 1], size=days, p=[0.97, 0.03]) * np.random.uniform(500, 1000, days)</p>
+<p># Calculate final egress cost</p>
+<p>egress_gb = (trend + weekly_seasonality * weekend_reduction + noise + spikes)</p>
+<p>egress_gb = np.maximum(100, egress_gb)  # Minimum 100GB/day</p>
+<p>cost_usd = egress_gb * cost_per_gb</p>
+<p># Create Prophet-compatible DataFrame</p>
+<p>df = pd.DataFrame({'ds': dates, 'y': cost_usd})</code></pre></p>
+<h3>3. Data Exploration and Visualization</h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+<p># Visualize time-series patterns</p>
+<p>plt.figure(figsize=(15, 10))</p>
+<p># Plot full time series</p>
+<p>plt.subplot(2, 2, 1)</p>
+<p>plt.plot(df['ds'], df['y'], alpha=0.8)</p>
+<p>plt.title('Historical Daily Egress Cost')</p>
+<p>plt.ylabel('Cost (USD)')</p>
+<p># Monthly aggregation to show trend</p>
+<p>df_monthly = df.set_index('ds').resample('M')['y'].mean()</p>
+<p>plt.subplot(2, 2, 2)</p>
+<p>plt.plot(df_monthly.index, df_monthly.values, marker='o')</p>
+<p>plt.title('Monthly Average Egress Cost')</p>
+<p># Weekly pattern analysis</p>
+<p>df['weekday'] = df['ds'].dt.day_name()</p>
+<p>weekday_avg = df.groupby('weekday')['y'].mean()</p>
+<p>plt.subplot(2, 2, 3)</p>
+<p>plt.bar(weekday_avg.index, weekday_avg.values)</p>
+<p>plt.title('Average Cost by Day of Week')</p>
+<p>plt.xticks(rotation=45)</p>
+<p>plt.tight_layout()</p>
+<p>plt.show()</code></pre></p>
+<h3>4. Data Splitting for Time-Series</h3>
+<pre><code class="language-python"># Split data chronologically (train on past, test on future)
+<p>split_point = len(df) - 90  # Hold out last 90 days for testing</p>
+<p>df_train = df.iloc[:split_point]</p>
+<p>df_test = df.iloc[split_point:]</p>
+<p>print(f"Training period: {df_train['ds'].min()} to {df_train['ds'].max()}")</p>
+<p>print(f"Test period: {df_test['ds'].min()} to {df_test['ds'].max()}")</code></pre></p>
+<h3>5. Model Training with Prophet</h3>
+<pre><code class="language-python">from prophet import Prophet
+<p># Configure Prophet for cost forecasting</p>
+<p>model = Prophet(</p>
+<p>yearly_seasonality=True,</p>
+<p>weekly_seasonality=True,</p>
+<p>daily_seasonality=False,</p>
+<p>changepoint_prior_scale=0.05,  # Controls trend flexibility</p>
+<p>seasonality_prior_scale=10.0,  # Controls seasonality flexibility</p>
+<p>interval_width=0.95  # 95% confidence intervals</p>
+<p>)</p>
+<p># Train the model</p>
+<p>model.fit(df_train)</p>
+<p>print("Prophet model trained successfully")</code></pre></p>
+<h3>6. Forecasting and Prediction</h3>
+<pre><code class="language-python"># Create future dataframe and generate forecast
+<p>future = model.make_future_dataframe(periods=90)  # 90 days ahead</p>
+<p>forecast = model.predict(future)</p>
+<p># Extract key forecast components</p>
+<p>forecast_cols = ['ds', 'yhat', 'yhat_lower', 'yhat_upper', 'trend', 'weekly']</p>
+<p>print("Forecast generated with uncertainty intervals")</p>
+<p>print(forecast[forecast_cols].tail())</code></pre></p>
+<h3>7. Model Evaluation</h3>
+<pre><code class="language-python">from sklearn.metrics import mean_absolute_error
+<p># Evaluate on test set</p>
+<p>y_true = df_test['y'].values</p>
+<p>y_pred = forecast.iloc[split_point:]['yhat'].values</p>
+<p># Calculate performance metrics</p>
+<p>mae = mean_absolute_error(y_true, y_pred)</p>
+<p>mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100</p>
+<p>rmse = np.sqrt(np.mean((y_true - y_pred) ** 2))</p>
+<p>print(f"Mean Absolute Error: ${mae:.2f}")</p>
+<p>print(f"Mean Absolute Percentage Error: {mape:.2f}%")</p>
+<p>print(f"Root Mean Square Error: ${rmse:.2f}")</p>
+<p># Check prediction interval coverage</p>
+<p>forecast_test = forecast.iloc[split_point:]</p>
+<p>within_interval = np.sum((y_true >= forecast_test['yhat_lower'].values) &</p>
+<p>(y_true <= forecast_test['yhat_upper'].values))</p>
+<p>coverage = (within_interval / len(y_true)) * 100</p>
+<p>print(f"Prediction interval coverage: {coverage:.1f}%")</code></pre></p>
+<h3>8. Extended Future Predictions</h3>
+<pre><code class="language-python"># Generate 6-month ahead forecast
+<p>extended_future = model.make_future_dataframe(periods=270)  # 90 + 180 days</p>
+<p>extended_forecast = model.predict(extended_future)</p>
+<p># Monthly cost summaries for planning</p>
+<p>future_6_months = extended_forecast.iloc[len(df):]</p>
+<p>future_6_months['month'] = future_6_months['ds'].dt.to_period('M')</p>
+<p>monthly_forecast = future_6_months.groupby('month')['yhat'].agg(['sum', 'mean'])</p>
+<p>print("Monthly cost forecasts for next 6 months:")</p>
+<p>print(monthly_forecast.round(2))</code></pre></p>
+<h2>Success Criteria</h2>
+<p>- <strong>Low MAPE (<15%)</strong>: Accurate percentage-based forecasting for budget planning</p>
+<p>- <strong>High Interval Coverage (>90%)</strong>: Reliable uncertainty bounds for risk assessment</p>
+<p>- <strong>Seasonal Pattern Detection</strong>: Model correctly identifies weekly and yearly patterns</p>
+<p>- <strong>Trend Capture</strong>: Successfully models growth trends in egress usage</p>
+<h2>Next Steps & Extensions</h2>
+<p>1. <strong>Real-time Integration</strong>: Connect with cloud billing APIs for live cost monitoring</p>
+<p>2. <strong>Multi-region Forecasting</strong>: Extend to predict costs across different cloud regions</p>
+<p>3. <strong>Service-level Breakdown</strong>: Forecast costs by individual services or applications</p>
+<p>4. <strong>Automated Alerting</strong>: Set up alerts when actual costs exceed prediction intervals</p>
+<p>5. <strong>Cost Optimization</strong>: Identify peak usage periods for data transfer optimization</p>
+<p>6. <strong>Budget Integration</strong>: Connect forecasts with financial planning and approval workflows</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">031_Cloud_Network_Egress_Cost_Prediction/
+<p>├── readme.md</p>
+<p>├── cloud_network_egress_cost_prediction.ipynb</p>
+<p>├── requirements.txt</p>
+<p>└── data/</p>
+<p>└── (Generated time-series cost data)</code></pre></p>
+<h2>Running the Project</h2>
+<p>1. Install required dependencies from requirements.txt</p>
+<p>2. Execute the Jupyter notebook step by step</p>
+<p>3. Analyze forecast components to understand cost drivers</p>
+<p>4. Use extended forecasts for 6-month budget planning</p>
+<p>5. Implement real-time monitoring based on prediction intervals</p>
+<p>This project demonstrates how time-series forecasting can transform cloud cost management by providing accurate egress cost predictions, enabling proactive budget planning and cost optimization strategies for cloud environments.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

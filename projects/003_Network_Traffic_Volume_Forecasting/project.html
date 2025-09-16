@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 003: Network Traffic Volume Forecasting - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 003: Network Traffic Volume Forecasting</h1>
+                <p>Time-Series Analysis & ARIMA Modeling</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>To predict future network traffic volume based on historical data using time-series analysis and forecasting. This project demonstrates how to build robust time-series models that can accurately forecast future bandwidth demand, enabling proactive network management and capacity planning.</p>
+<h2>Business Value</h2>
+<p>Accurate traffic volume forecasting provides critical advantages for network operations:</p>
+<p>- <strong>Capacity Planning</strong>: Justifies and guides network upgrades by predicting when and where future capacity will be needed</p>
+<p>- <strong>Resource Allocation</strong>: Dynamically allocate resources in virtualized network environments based on predicted demand</p>
+<p>- <strong>Congestion Prevention</strong>: Proactively identify future peak usage periods to prevent service degradation and ensure high quality of experience</p>
+<p>- <strong>Cost Optimization</strong>: Optimize infrastructure investments by accurately predicting future bandwidth requirements</p>
+<p>- <strong>SLA Management</strong>: Ensure service level agreements are met by anticipating demand spikes</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas</strong>: For robust time-series data manipulation and preprocessing</p>
+<p>- <strong>matplotlib & seaborn</strong>: For comprehensive data visualization and forecast result analysis</p>
+<p>- <strong>prophet</strong>: Facebook's powerful and user-friendly forecasting library designed for time-series with strong seasonal patterns</p>
+<p>- <strong>scikit-learn</strong>: For model evaluation metrics and performance assessment</p>
+<p>- <strong>numpy</strong>: For numerical computations and array operations</p>
+<h2>Dataset</h2>
+<strong>Primary Dataset</strong>: Internet Traffic Time Series Dataset from Kaggle (user: shenba)
+<p>- <strong>Description</strong>: Daily traffic data from an ISP with clear temporal structure</p>
+<p>- <strong>Key Features</strong>:</p>
+<p>- Historical network traffic measurements</p>
+<p>- Clear seasonality patterns (daily, weekly, yearly)</p>
+<p>- Real-world noise and anomalies</p>
+<p>- Suitable for demonstrating multiple forecasting horizons</p>
+<strong>Alternative Dataset</strong>: Hourly Energy Consumption (<a href="https://www.kaggle.com/datasets/robikscube/hourly-energy-consumption" target="_blank">Kaggle Link</a>)
+<p>- <strong>Why it's suitable</strong>: Energy consumption patterns mirror network traffic with similar seasonal behaviors</p>
+<p>- <strong>Advantages</strong>: Strong multi-level seasonality, long-term trends, realistic noise patterns</p>
+<h2>Implementation Steps</h2>
+<h3>Step 1: Environment Setup</h3>
+<pre><code class="language-bash"># Create project environment
+<p>mkdir network-traffic-forecasting</p>
+<p>cd network-traffic-forecasting</p>
+<p>python -m venv venv</p>
+<p>source venv/bin/activate</p>
+<p># Install required libraries</p>
+<p>pip install pandas matplotlib seaborn prophet scikit-learn numpy jupyterlab kaggle</p>
+<p># Start Jupyter Lab</p>
+<p>jupyter lab</code></pre></p>
+<h3>Step 2: Data Acquisition and Loading</h3>
+<p>- Set up Kaggle API credentials</p>
+<p>- Download Internet Traffic Time Series dataset</p>
+<p>- Load and inspect data structure</p>
+<p>- Handle missing values and data quality issues</p>
+<h3>Step 3: Exploratory Data Analysis</h3>
+<p>- Visualize historical traffic patterns</p>
+<p>- Identify seasonality components (daily, weekly, yearly)</p>
+<p>- Analyze trend patterns and outliers</p>
+<p>- Understand data distribution and statistical properties</p>
+<h3>Step 4: Data Preprocessing</h3>
+<p>- Convert datetime columns to proper format</p>
+<p>- Set datetime as index for time-series operations</p>
+<p>- Prepare data in Prophet's required format (ds, y columns)</p>
+<p>- Split data into training and testing sets for evaluation</p>
+<h3>Step 5: Model Training</h3>
+<p>- Initialize Prophet model with appropriate seasonality settings</p>
+<p>- Configure yearly, weekly, and daily seasonality parameters</p>
+<p>- Fit the model to historical training data</p>
+<p>- Validate model convergence and parameter estimation</p>
+<h3>Step 6: Forecasting and Prediction</h3>
+<p>- Create future dataframe for prediction horizon</p>
+<p>- Generate forecasts with uncertainty intervals</p>
+<p>- Extract prediction components (trend, seasonalities)</p>
+<p>- Analyze forecast confidence intervals</p>
+<h3>Step 7: Model Evaluation</h3>
+<p>- Compare predictions against held-out test data</p>
+<p>- Calculate performance metrics (MAE, MSE, RMSE)</p>
+<p>- Assess forecast accuracy across different time horizons</p>
+<p>- Validate seasonal pattern detection</p>
+<h3>Step 8: Results Visualization</h3>
+<p>- Plot historical data with forecast overlay</p>
+<p>- Visualize forecast components (trend, seasonalities)</p>
+<p>- Display uncertainty intervals and prediction confidence</p>
+<p>- Create comprehensive forecast interpretation</p>
+<h2>Technical Implementation</h2>
+<p>The project uses Facebook's Prophet library, which automatically handles:</p>
+<p>- <strong>Seasonality Detection</strong>: Identifies daily, weekly, and yearly patterns</p>
+<p>- <strong>Trend Analysis</strong>: Captures long-term growth or decline patterns</p>
+<p>- <strong>Holiday Effects</strong>: Accounts for irregular events affecting traffic</p>
+<p>- <strong>Missing Data</strong>: Robust handling of gaps in time-series data</p>
+<p>- <strong>Uncertainty Quantification</strong>: Provides confidence intervals for predictions</p>
+<h2>Success Criteria</h2>
+<p>- <strong>Data Processing</strong>: Successfully load, parse, and index time-series data using pandas</p>
+<p>- <strong>Model Training</strong>: Prophet model trains without errors and converges properly</p>
+<p>- <strong>Forecasting</strong>: Generate accurate forecasts extending 3-12 months into the future</p>
+<p>- <strong>Visualization</strong>: Produce interpretable forecast plots showing historical data, predictions, and uncertainty intervals</p>
+<p>- <strong>Component Analysis</strong>: Generate and explain forecast components (trend, seasonalities)</p>
+<p>- <strong>Evaluation</strong>: Achieve reasonable performance metrics on held-out test data (RMSE < 15% of mean traffic)</p>
+<h2>Key Insights and Learnings</h2>
+<p>1. <strong>Seasonality Patterns</strong>: Network traffic typically shows strong weekly patterns (lower on weekends) and yearly patterns (seasonal variations)</p>
+<p>2. <strong>Trend Analysis</strong>: Long-term traffic growth reflects business expansion and technology adoption</p>
+<p>3. <strong>Uncertainty Management</strong>: Prophet provides realistic uncertainty intervals that grow with forecast horizon</p>
+<p>4. <strong>Component Interpretation</strong>: Understanding trend and seasonal components enables better business decision-making</p>
+<h2>Next Steps and Extensions</h2>
+<h3>Advanced Modeling</h3>
+<p>- <strong>External Regressors</strong>: Incorporate holiday calendars, promotional events, or economic indicators</p>
+<p>- <strong>Model Comparison</strong>: Compare Prophet against SARIMA, exponential smoothing, or deep learning models</p>
+<p>- <strong>Ensemble Methods</strong>: Combine multiple forecasting approaches for improved accuracy</p>
+<h3>Operational Integration</h3>
+<p>- <strong>Real-time Forecasting</strong>: Implement automated daily/weekly forecast updates</p>
+<p>- <strong>Alert Systems</strong>: Create threshold-based alerts for predicted capacity issues</p>
+<p>- <strong>Dashboard Development</strong>: Build interactive dashboards for network operations teams</p>
+<h3>Advanced Analytics</h3>
+<p>- <strong>Anomaly Detection</strong>: Identify unusual traffic patterns that deviate from seasonal norms</p>
+<p>- <strong>Scenario Planning</strong>: Model different growth scenarios and their impact on infrastructure needs</p>
+<p>- <strong>Multi-variate Forecasting</strong>: Incorporate multiple network segments or services simultaneously</p>
+<h2>Business Impact</h2>
+<p>This forecasting capability enables:</p>
+<p>- <strong>Proactive Infrastructure Planning</strong>: Avoid costly emergency upgrades through predictive capacity management</p>
+<p>- <strong>Budget Optimization</strong>: More accurate capital expenditure planning based on data-driven forecasts</p>
+<p>- <strong>Service Reliability</strong>: Maintain high service quality by preventing congestion before it occurs</p>
+<p>- <strong>Strategic Decision-Making</strong>: Support business growth planning with reliable traffic projections</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">003_Network_Traffic_Volume_Forecasting/
+<p>├── README.md                  # This comprehensive guide</p>
+<p>├── notebook.ipynb            # Complete implementation with Prophet</p>
+<p>├── requirements.txt          # Python dependencies</p>
+<p>└── data/                    # Dataset storage (create locally)</p>
+<p>└── internet_traffic_data.csv</code></pre></p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

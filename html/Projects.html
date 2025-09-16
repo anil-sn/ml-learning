@@ -45,27 +45,44 @@
             </header>
             <section class="content section">
             <div class="card">
-               <p>This is a strategic blueprint for network engineers to develop practical, production-grade skills in Machine Learning (ML) and Large Language Models (LLMs) by solving problems directly relevant to our domain.</p>
-               <h3>The Opportunity: The Next Generation of Network Intelligence</h3>
-               <p>The future of network management is intelligent, automated, and predictive. The vast streams of telemetry data, traffic patterns, customer support tickets, and configuration files we manage are no longer just operational artifacts—they are the raw material for building intelligent systems.</p>
-               <p>This curriculum moves beyond theory and focuses on a simple, powerful idea: learning by building. Instead of abstract tutorials, we will tackle 10 realistic, high-impact projects. We will learn to transform our data into actionable insights, moving from a reactive to a proactive approach in how we manage, optimize, and secure our networks.</p>
-               <h3>Filter Projects by Category</h3>
-               <div class="filter-buttons">
-                  <button class="filter-btn active" data-tag="all">All</button>
-                  <button class="filter-btn" data-tag="Unsupervised Learning">Unsupervised Learning</button>
-                  <button class="filter-btn" data-tag="Classification">Classification</button>
-                  <button class="filter-btn" data-tag="Explainability">Explainability</button>
-                  <button class="filter-btn" data-tag="Time-Series">Time-Series</button>
-                  <button class="filter-btn" data-tag="NLP">NLP</button>
-                  <button class="filter-btn" data-tag="LLM">LLM</button>
-                  <button class="filter-btn" data-tag="Regression">Regression</button>
-                  <button class="filter-btn" data-tag="LangChain">LangChain</button>
-                  <button class="filter-btn" data-tag="Graph Analytics">Graph Analytics</button>
-                  <button class="filter-btn" data-tag="RAG">RAG</button>
-                  <button class="filter-btn" data-tag="Reinforcement Learning">Reinforcement Learning</button>
+               <p>This repository serves as a comprehensive, hands-on engineering manual for applying Machine Learning (ML) to network engineering. It contains a curated collection of <strong>35 practical projects</strong>, each designed to solve real-world networking challenges using data-driven techniques.</p>
+               
+               <p>This portfolio is designed for network professionals, security analysts, and data scientists looking to bridge the gap between traditional networking concepts and modern machine learning. Each project includes:</p>
+               <ul>
+                  <li><strong>Detailed README</strong> with business objectives and technical implementation</li>
+                  <li><strong>Complete Python implementation</strong> ready for Google Colab</li>
+                  <li><strong>Real datasets</strong> from Kaggle and public sources</li>
+                  <li><strong>Step-by-step instructions</strong> with code examples</li>
+                  <li><strong>Success criteria</strong> and performance metrics</li>
+               </ul>
+               
+               <p>The projects progress from foundational concepts like traffic classification and anomaly detection to advanced topics such as Reinforcement Learning for dynamic routing, NLP for intent-based networking, and predictive maintenance for optical systems.</p>
+               
+               <h3>Project Categories</h3>
+               <div class="project-categories">
+                  <div class="category-section">
+                     <h4>I. Network Security & Anomaly Detection (Projects 1-10)</h4>
+                     <p><strong>Projects 1-10:</strong> Network Traffic Classification, Basic Anomaly Detection in Network Logs, Network Traffic Volume Forecasting, DDoS Attack Detection, Predicting Network Device Failure, Network Configuration Anomaly Detection, Intelligent Traffic Routing (RL), Malware/Botnet Detection from Flow Data, Root Cause Analysis for Network Outages, Encrypted Traffic Classification</p>
+                  </div>
+                  
+                  <div class="category-section">
+                     <h4>II. Advanced Security & Threat Detection (Projects 11-20)</h4>
+                     <p><strong>Projects 11-20:</strong> Network-based Ransomware Detection, DNS Tunneling Detection, Identifying Lateral Movement in Networks, Phishing & Malicious URL Detection, Vulnerability Prediction in Network Devices, Network Honeypot Log Analysis, Wi-Fi Anomaly Detection, Predicting Wi-Fi Roaming Events, IoT Device Fingerprinting, RF Jamming Detection</p>
+                  </div>
+                  
+                  <div class="category-section">
+                     <h4>III. Wireless & IoT Networks (Projects 21-26)</h4>
+                     <p><strong>Projects 21-26:</strong> Indoor Localization using Wi-Fi RSSI, Optimizing LoRaWAN Data Rate (RL), Predicting Latency Jitter, Quality of Experience (QoE) Prediction, Automated Network Ticket Classification, BGP Anomaly Detection</p>
+                  </div>
+                  
+                  <div class="category-section">
+                     <h4>IV. Cloud & Modern Networking (Projects 27-35)</h4>
+                     <p><strong>Projects 27-35:</strong> Network Device Configuration Generation (NLP), Predicting Optimal MTU Size, Optical Network Fault Prediction, Virtual Network Function (VNF) Performance Prediction, Predicting Cloud Network Egress Costs, Container Network Traffic Pattern Analysis, Service Chain Placement in NFV, Detecting Noisy Neighbors in Multi-tenant Cloud, Anomaly Detection in Cloud Load Balancer Logs</p>
+                  </div>
                </div>
+               
                <hr>
-               <h3>The 10 Projects: A Quick Overview</h3>
+               <h3>The 35 Projects: A Quick Overview</h3>
                <table class="project-table">
                   <thead>
                      <tr>
@@ -75,55 +92,180 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <tr class="project-item" data-tags="Unsupervised Learning">
+                     <tr class="project-item" data-tags="Classification">
                         <td>1</td>
-                        <td><a href="../projects/001_Network_Traffic_Anomaly_Detection/project.html">Network Traffic Anomaly Detection</a></td>
+                        <td><a href="../projects/001_Network_Traffic_Classification/project.html">Network Traffic Classification</a></td>
+                        <td>Multi-class Classification & Traffic Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning">
+                        <td>2</td>
+                        <td><a href="../projects/002_Anomaly_Detection_Network_Logs/project.html">Anomaly Detection in Network Logs</a></td>
                         <td>Unsupervised Learning & Outlier Detection</td>
                      </tr>
+                     <tr class="project-item" data-tags="Time-Series">
+                        <td>3</td>
+                        <td><a href="../projects/003_Network_Traffic_Volume_Forecasting/project.html">Network Traffic Volume Forecasting</a></td>
+                        <td>Time-Series Analysis & ARIMA Modeling</td>
+                     </tr>
                      <tr class="project-item" data-tags="Classification">
-                        <td>2</td>
-                        <td><a href="../projects/002_Predictive_Maintenance/project.html">Predictive Maintenance</a></td>
+                        <td>4</td>
+                        <td><a href="../projects/004_DDoS_Attack_Detection/project.html">DDoS Attack Detection</a></td>
+                        <td>Binary Classification & Security Analytics</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>5</td>
+                        <td><a href="../projects/005_Predicting_Network_Device_Failure/project.html">Predicting Network Device Failure</a></td>
                         <td>Classification & Handling Imbalanced Data</td>
                      </tr>
-                     <tr class="project-item" data-tags="Explainability">
-                        <td>3</td>
-                        <td><a href="../projects/003_Customer_Churn_Prediction/project.html">Customer Churn Prediction</a></td>
-                        <td>Model Explainability with SHAP</td>
-                     </tr>
-                     <tr class="project-item" data-tags="Time-Series">
-                        <td>4</td>
-                        <td><a href="../projects/004_Bandwidth_Demand_Forecasting /project.html">Bandwidth Demand Forecasting</a></td>
-                        <td>Time-Series Analysis with Prophet</td>
-                     </tr>
-                     <tr class="project-item" data-tags="NLP LLM">
-                        <td>5</td>
-                        <td><a href="../projects/005_Support_Ticket_Classification/project.html">Support Ticket Classification</a></td>
-                        <td>NLP & Introduction to LLMs (Zero-Shot)</td>
-                     </tr>
-                     <tr class="project-item" data-tags="Regression">
+                     <tr class="project-item" data-tags="Classification">
                         <td>6</td>
-                        <td><a href="../projects/006_Network_Latency_Prediction/project.html">Network Latency Prediction</a></td>
-                        <td>Advanced Regression & Synthetic Data Generation</td>
-                     </tr>
-                     <tr class="project-item" data-tags="LLM LangChain">
-                        <td>7</td>
-                        <td><a href="../projects/007_Automated Performance_Report_Generation/project.html">Automated Performance Report Generation</a></td>
-                        <td>LLM Prompt Engineering & Text Generation (LangChain)</td>
-                     </tr>
-                     <tr class="project-item" data-tags="Graph Analytics">
-                        <td>8</td>
-                        <td><a href="../projects/008_Network_Topology_Optimization/project.html">Network Topology Optimization</a></td>
-                        <td>Graph Analytics with NetworkX</td>
-                     </tr>
-                     <tr class="project-item" data-tags="RAG LLM">
-                        <td>9</td>
-                        <td><a href="../projects/009_Troubleshooting_Chatbot_RAG/project.html">Troubleshooting Chatbot (RAG)</a></td>
-                        <td>Retrieval-Augmented Generation</td>
+                        <td><a href="../projects/006_Network_Configuration_Anomaly_Detection/project.html">Network Configuration Anomaly Detection</a></td>
+                        <td>Configuration Compliance & Classification</td>
                      </tr>
                      <tr class="project-item" data-tags="Reinforcement Learning">
+                        <td>7</td>
+                        <td><a href="../projects/007_Intelligent_Traffic_Routing_RL/project.html">Intelligent Traffic Routing with RL</a></td>
+                        <td>Reinforcement Learning & Network Optimization</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>8</td>
+                        <td><a href="../projects/008_Malware_Botnet_Detection_Flow_Data/project.html">Malware & Botnet Detection from Flow Data</a></td>
+                        <td>Security Classification & Flow Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="NLP Graph Analytics">
+                        <td>9</td>
+                        <td><a href="../projects/009_Root_Cause_Analysis_Network_Outages/project.html">Root Cause Analysis for Network Outages</a></td>
+                        <td>NLP & Graph ML for Troubleshooting</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
                         <td>10</td>
-                        <td><a href="../projects/010_QoS Optimization_with_RL/project.html">QoS Optimization with RL</a></td>
-                        <td>Reinforcement Learning (RL)</td>
+                        <td><a href="../projects/010_Encrypted_Traffic_Classification/project.html">Encrypted Traffic Classification</a></td>
+                        <td>Deep Packet Inspection & Classification</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification Security">
+                        <td>11</td>
+                        <td><a href="../projects/011_Network_Ransomware_Detection/project.html">Network-based Ransomware Detection</a></td>
+                        <td>Security Analytics & Behavioral Detection</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>12</td>
+                        <td><a href="../projects/012_DNS_Tunneling_Detection/project.html">DNS Tunneling Detection</a></td>
+                        <td>DNS Analysis & Security Classification</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>13</td>
+                        <td><a href="../projects/013_Lateral_Movement_Detection/project.html">Lateral Movement Detection</a></td>
+                        <td>Network Security & Movement Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification Security">
+                        <td>14</td>
+                        <td><a href="../projects/014_Phishing_URL_Detection/project.html">Phishing & Malicious URL Detection</a></td>
+                        <td>URL Analysis & Security Classification</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification Explainability">
+                        <td>15</td>
+                        <td><a href="../projects/015_Vulnerability_Prediction_Network_Devices/project.html">Vulnerability Prediction in Network Devices</a></td>
+                        <td>Security Assessment & Interpretable Models</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning">
+                        <td>16</td>
+                        <td><a href="../projects/016_Network_Honeypot_Log_Analysis/project.html">Network Honeypot Log Analysis</a></td>
+                        <td>Clustering & Attacker Behavior Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning Wireless">
+                        <td>17</td>
+                        <td><a href="../projects/017_WiFi_Anomaly_Detection/project.html">Wi-Fi Anomaly Detection</a></td>
+                        <td>Wireless Security & Anomaly Detection</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification Wireless">
+                        <td>18</td>
+                        <td><a href="../projects/018_WiFi_Roaming_Prediction/project.html">Wi-Fi Roaming Prediction</a></td>
+                        <td>Mobile Network Prediction & Classification</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>19</td>
+                        <td><a href="../projects/019_IoT_Device_Fingerprinting/project.html">IoT Device Fingerprinting</a></td>
+                        <td>Device Classification & Network Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>20</td>
+                        <td><a href="../projects/020_RF_Jamming_Detection/project.html">RF Jamming Detection</a></td>
+                        <td>Wireless Security & Signal Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>21</td>
+                        <td><a href="../projects/021_Indoor_Localization_WiFi_RSSI/project.html">Indoor Localization using Wi-Fi RSSI</a></td>
+                        <td>Location Prediction & Signal Processing</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Reinforcement Learning">
+                        <td>22</td>
+                        <td><a href="../projects/022_LoRaWAN_Data_Rate_Optimization/project.html">LoRaWAN Data Rate Optimization</a></td>
+                        <td>Reinforcement Learning & IoT Optimization</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Regression">
+                        <td>23</td>
+                        <td><a href="../projects/023_Latency_Jitter_Prediction/project.html">Latency Jitter Prediction</a></td>
+                        <td>Network Performance & Regression Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>24</td>
+                        <td><a href="../projects/024_QoE_Prediction_Video_Streaming/project.html">QoE Prediction for Video Streaming</a></td>
+                        <td>Quality Assessment & Performance Prediction</td>
+                     </tr>
+                     <tr class="project-item" data-tags="NLP Classification">
+                        <td>25</td>
+                        <td><a href="../projects/025_Automated_Network_Ticket_Classification/project.html">Automated Network Ticket Classification</a></td>
+                        <td>NLP & Text Classification for Operations</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning">
+                        <td>26</td>
+                        <td><a href="../projects/026_BGP_Anomaly_Detection/project.html">BGP Anomaly Detection</a></td>
+                        <td>Routing Security & Anomaly Detection</td>
+                     </tr>
+                     <tr class="project-item" data-tags="NLP LLM">
+                        <td>27</td>
+                        <td><a href="../projects/027_Network_Device_Config_Generation/project.html">Network Device Configuration Generation</a></td>
+                        <td>Natural Language Processing & Config Automation</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Regression">
+                        <td>28</td>
+                        <td><a href="../projects/028_Optimal_MTU_Size_Prediction/project.html">Optimal MTU Size Prediction</a></td>
+                        <td>Network Optimization & Regression Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification">
+                        <td>29</td>
+                        <td><a href="../projects/029_Optical_Network_Fault_Prediction/project.html">Optical Network Fault Prediction</a></td>
+                        <td>Infrastructure Monitoring & Fault Detection</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Regression">
+                        <td>30</td>
+                        <td><a href="../projects/030_VNF_Performance_Prediction/project.html">VNF Performance Prediction</a></td>
+                        <td>NFV Analytics & Performance Forecasting</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Time-Series Cloud">
+                        <td>31</td>
+                        <td><a href="../projects/031_Cloud_Network_Egress_Cost_Prediction/project.html">Cloud Network Egress Cost Prediction</a></td>
+                        <td>Cost Forecasting & Time-Series Analysis</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Classification Cloud">
+                        <td>32</td>
+                        <td><a href="../projects/032_Container_Network_Traffic_Analysis/project.html">Container Network Traffic Analysis</a></td>
+                        <td>Containerization & Traffic Classification</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Reinforcement Learning">
+                        <td>33</td>
+                        <td><a href="../projects/033_Service_Chain_Placement_Optimization/project.html">Service Chain Placement Optimization</a></td>
+                        <td>NFV Optimization & Reinforcement Learning</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning Cloud">
+                        <td>34</td>
+                        <td><a href="../projects/034_Noisy_Neighbors_Detection_Cloud/project.html">Noisy Neighbors Detection in Cloud</a></td>
+                        <td>Multi-tenant Analytics & Anomaly Detection</td>
+                     </tr>
+                     <tr class="project-item" data-tags="Unsupervised Learning Cloud">
+                        <td>35</td>
+                        <td><a href="../projects/035_Anomaly_Detection_Cloud_Load_Balancer/project.html">Anomaly Detection in Cloud Load Balancer</a></td>
+                        <td>Load Balancer Analytics & Anomaly Detection</td>
                      </tr>
                   </tbody>
                </table>

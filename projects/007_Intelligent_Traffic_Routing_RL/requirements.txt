@@ -1,0 +1,23 @@
+# Reinforcement Learning
+gym>=0.21.0
+stable-baselines3>=1.6.0
+torch>=1.12.0
+
+# Network simulation
+networkx>=2.8.0
+simpy>=4.0.0
+
+# Core libraries
+pandas>=1.3.0
+numpy>=1.21.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Jupyter ecosystem
+jupyterlab>=3.0.0
+ipython>=7.0.0
+
+# Development
+pytest>=6.0.0

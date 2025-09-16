@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 010: Encrypted Traffic Classification - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 010: Encrypted Traffic Classification</h1>
+                <p>Deep Packet Inspection & Classification</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>To classify encrypted network traffic by application type without decryption, using statistical flow features and machine learning. This project demonstrates how to maintain network visibility and security monitoring capabilities even when dealing with encrypted communications.</p>
+<h2>Business Value</h2>
+<p>- <strong>Network Visibility</strong>: Maintain traffic analysis capabilities in encrypted environments</p>
+<p>- <strong>Security Monitoring</strong>: Detect suspicious activities in encrypted communications</p>
+<p>- <strong>Bandwidth Management</strong>: Apply QoS policies based on application identification</p>
+<p>- <strong>Compliance</strong>: Monitor network usage without compromising encryption privacy</p>
+<p>- <strong>Performance Optimization</strong>: Prioritize business-critical applications in encrypted traffic</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas</strong>: Flow data manipulation and feature engineering</p>
+<p>- <strong>scikit-learn</strong>: Classification algorithms and feature selection</p>
+<p>- <strong>numpy</strong>: Statistical analysis of encrypted traffic patterns</p>
+<p>- <strong>matplotlib & seaborn</strong>: Traffic pattern visualization</p>
+<p>- <strong>kaggle</strong>: Access to encrypted traffic datasets</p>
+<h2>Technical Approach</h2>
+<strong>Model</strong>: Deep Neural Network or Random Forest for multi-class classification
+<p>- <strong>Features</strong>: Packet timing, sizes, flow statistics, TLS handshake patterns</p>
+<p>- <strong>Target</strong>: Application categories (Web, Email, VoIP, P2P, Gaming, etc.)</p>
+<p>- <strong>Challenge</strong>: Classification without payload inspection</p>
+<h2>Key Features</h2>
+<p>- Statistical flow feature engineering</p>
+<p>- TLS fingerprinting techniques</p>
+<p>- Multi-class application identification</p>
+<p>- Privacy-preserving analysis methods</p>
+<p>- Real-time classification capability</p>
+<h2>Dataset</h2>
+<p>Encrypted traffic datasets with application labels, focusing on statistical flow characteristics rather than payload content.</p>
+<h2>Technical Challenges</h2>
+<p>- Feature extraction from encrypted flows</p>
+<p>- Temporal pattern recognition</p>
+<p>- Handling protocol variations</p>
+<p>- Maintaining classification accuracy without payload</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">010_Encrypted_Traffic_Classification/
+<p>├── README.md              # This guide</p>
+<p>├── notebook.ipynb         # Complete implementation</p>
+<p>├── requirements.txt       # Dependencies</p>
+<p>├── flow_analysis.py       # Flow feature extraction</p>
+<p>└── tls_fingerprint.py     # TLS fingerprinting utilities</code></pre></p>
+<h2>Privacy and Ethics</h2>
+<p>This project emphasizes privacy-preserving traffic analysis that:</p>
+<p>- Respects user privacy by not decrypting content</p>
+<p>- Focuses on metadata and statistical patterns</p>
+<p>- Complies with data protection regulations</p>
+<p>- Maintains security monitoring capabilities</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

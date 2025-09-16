@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 024: Quality of Experience (QoE) Prediction for Video Streaming - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 024: Quality of Experience (QoE) Prediction for Video Streaming</h1>
+                <p>Quality Assessment & Performance Prediction</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build a machine learning model that predicts the Quality of Experience (QoE) score for video streaming sessions based on network performance metrics like throughput, packet loss, and jitter to enable proactive quality management.</p>
+<h2>Business Value</h2>
+<p>- <strong>Proactive Quality Management</strong>: Identify and prevent video quality issues before users experience buffering</p>
+<p>- <strong>Network Optimization</strong>: Prioritize traffic and allocate resources based on predicted quality impact</p>
+<p>- <strong>Customer Satisfaction</strong>: Maintain high-quality streaming experiences to reduce churn</p>
+<p>- <strong>Revenue Protection</strong>: Prevent revenue loss from poor streaming experiences</p>
+<p>- <strong>Operational Intelligence</strong>: Provide network teams with actionable insights for infrastructure improvements</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Data manipulation and numerical operations</p>
+<p>- <strong>scikit-learn</strong>: Machine learning algorithms and evaluation metrics</p>
+<p>- <strong>matplotlib & seaborn</strong>: Data visualization and performance analysis</p>
+<p>- <strong>RandomForestClassifier</strong>: Ensemble learning for robust QoE classification</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: Kaggle - "YouTube UGC Video Quality & Network Dataset"
+<p>- <strong>Size</strong>: Real-world measurements from thousands of YouTube streaming sessions</p>
+<p>- <strong>Features</strong>: Network performance metrics (throughput, packet loss, latency, jitter)</p>
+<p>- <strong>Target</strong>: QoE categories derived from buffering events and resolution changes</p>
+<p>- <strong>Scope</strong>: Comprehensive network conditions and video quality indicators</p>
+<p>- <strong>Quality</strong>: Production-grade data from actual video streaming sessions</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<pre><code class="language-python"># Install required packages
+<p>pip install pandas numpy scikit-learn matplotlib seaborn kaggle</p>
+<p># Set up Kaggle API for dataset download</p>
+<p># Upload kaggle.json file when prompted</code></pre></p>
+<h3>2. Data Collection and Preprocessing</h3>
+<pre><code class="language-python">import pandas as pd
+<p>import numpy as np</p>
+<p>from sklearn.preprocessing import LabelEncoder</p>
+<p># Download and merge YouTube UGC dataset</p>
+<p>df_net = pd.read_csv('network_features.csv')</p>
+<p>df_vid = pd.read_csv('video_features.csv')</p>
+<p>df = pd.merge(df_net, df_vid, on='session_id')</p>
+<p># Clean and prepare data</p>
+<p>df = df.drop(columns=['session_id', 'vmaf'])  # Remove identifiers and direct quality metrics</p>
+<p>df = df.loc[:, (df != df.iloc[0]).any()]  # Remove zero-variance columns</p>
+<p>df.dropna(inplace=True)</code></pre></p>
+<h3>3. QoE Target Engineering</h3>
+<pre><code class="language-python"># Create rule-based QoE categories
+<p>def get_qoe_label(row):</p>
+<p>"""</p>
+<p>Classify QoE based on streaming experience indicators</p>
+<p>Poor: Any stalling/buffering events</p>
+<p>Fair: Multiple resolution changes (adaptive streaming active)</p>
+<p>Good: Smooth streaming with minimal adaptations</p>
+<p>"""</p>
+<p>if row['stalls'] > 0:</p>
+<p>return 'Poor'</p>
+<p>elif row['resolution_changes'] > 2:</p>
+<p>return 'Fair'</p>
+<p>else:</p>
+<p>return 'Good'</p>
+<p>df['qoe_label'] = df.apply(get_qoe_label, axis=1)</p>
+<p># Remove columns used for label creation</p>
+<p>df = df.drop(columns=['stalls', 'resolution_changes'])</code></pre></p>
+<h3>4. Data Preparation and Splitting</h3>
+<pre><code class="language-python">from sklearn.model_selection import train_test_split
+<p># Prepare features and target</p>
+<p>X = df.drop(columns=['qoe_label'])</p>
+<p>y = df['qoe_label']</p>
+<p># Encode categorical labels</p>
+<p>le = LabelEncoder()</p>
+<p>y_encoded = le.fit_transform(y)</p>
+<p># Stratified split to maintain class proportions</p>
+<p>X_train, X_test, y_train, y_test = train_test_split(</p>
+<p>X, y_encoded, test_size=0.3, random_state=42, stratify=y_encoded</p>
+<p>)</code></pre></p>
+<h3>5. Model Training with RandomForest</h3>
+<pre><code class="language-python">from sklearn.ensemble import RandomForestClassifier
+<p># Configure RandomForest with balanced class weights</p>
+<p>model = RandomForestClassifier(</p>
+<p>n_estimators=100,</p>
+<p>random_state=42,</p>
+<p>n_jobs=-1,</p>
+<p>class_weight='balanced'  # Handle class imbalance</p>
+<p>)</p>
+<p># Train the model</p>
+<p>model.fit(X_train, y_train)</code></pre></p>
+<h3>6. Model Evaluation</h3>
+<pre><code class="language-python">from sklearn.metrics import classification_report, confusion_matrix
+<p>import seaborn as sns</p>
+<p># Make predictions</p>
+<p>y_pred = model.predict(X_test)</p>
+<p># Detailed performance analysis</p>
+<p>print(classification_report(y_test, y_pred, target_names=le.classes_))</p>
+<p># Confusion matrix visualization</p>
+<p>cm = confusion_matrix(y_test, y_pred)</p>
+<p>sns.heatmap(cm, annot=True, fmt='d', cmap='viridis',</p>
+<p>xticklabels=le.classes_, yticklabels=le.classes_)</p>
+<p>plt.title('QoE Prediction Confusion Matrix')</p>
+<p>plt.show()</code></pre></p>
+<h3>7. Feature Importance Analysis</h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+<p># Identify most important network metrics</p>
+<p>importances = model.feature_importances_</p>
+<p>top_indices = np.argsort(importances)[-15:]</p>
+<p># Visualize key QoE drivers</p>
+<p>plt.figure(figsize=(12, 8))</p>
+<p>plt.barh(range(15), importances[top_indices])</p>
+<p>plt.yticks(range(15), [X.columns[i] for i in top_indices])</p>
+<p>plt.title('Top Network Metrics for QoE Prediction')</p>
+<p>plt.xlabel('Feature Importance')</p>
+<p>plt.show()</code></pre></p>
+<h3>8. Real-Time QoE Prediction</h3>
+<pre><code class="language-python">def predict_qoe_risk(network_metrics):
+<p>"""</p>
+<p>Predict QoE category for real-time streaming session</p>
+<p>Args:</p>
+<p>network_metrics: Dict of network performance indicators</p>
+<p>Returns:</p>
+<p>Predicted QoE category and probability</p>
+<p>"""</p>
+<p># Convert metrics to feature vector</p>
+<p>feature_vector = np.array([list(network_metrics.values())])</p>
+<p># Predict QoE category and probability</p>
+<p>prediction = model.predict(feature_vector)[0]</p>
+<p>probability = model.predict_proba(feature_vector)[0].max()</p>
+<p>qoe_category = le.inverse_transform([prediction])[0]</p>
+<p>return qoe_category, probability</p>
+<p># Example usage for monitoring</p>
+<p>network_status = {</p>
+<p>'throughput_avg': 5.2,      # Mbps</p>
+<p>'throughput_std': 0.8,      # Variability</p>
+<p>'packet_loss': 0.02,        # 2% loss</p>
+<p>'rtt_avg': 45,              # ms latency</p>
+<p>'jitter': 15                # ms jitter</p>
+<p>}</p>
+<p>qoe_prediction, confidence = predict_qoe_risk(network_status)</p>
+<p>print(f"Predicted QoE: {qoe_prediction} (confidence: {confidence:.2%})")</code></pre></p>
+<h2>Success Criteria</h2>
+<p>- <strong>Primary Metric</strong>: High recall for 'Poor' QoE category (minimize missed quality issues)</p>
+<p>- <strong>Precision</strong>: Accurate identification of quality problems to avoid false alarms</p>
+<p>- <strong>Overall Accuracy</strong>: >85% classification accuracy across all QoE categories</p>
+<p>- <strong>Real-Time Performance</strong>: Sub-second prediction time for operational deployment</p>
+<p>- <strong>Interpretability</strong>: Clear feature importance rankings for network optimization</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Technical Enhancements</h3>
+<p>1. <strong>Advanced Models</strong>: Experiment with XGBoost, neural networks, or ensemble methods</p>
+<p>2. <strong>Time Series Analysis</strong>: Include temporal patterns and user behavior trends</p>
+<p>3. <strong>Multi-Modal Features</strong>: Incorporate device capabilities, content metadata, and user preferences</p>
+<p>4. <strong>Online Learning</strong>: Continuous model updates based on real-time feedback</p>
+<h3>Business Applications</h3>
+<p>1. <strong>Adaptive Streaming</strong>: Dynamic quality adjustments based on predicted QoE</p>
+<p>2. <strong>Network Operations</strong>: Automated traffic prioritization and resource allocation</p>
+<p>3. <strong>Customer Support</strong>: Proactive outreach for users experiencing quality issues</p>
+<p>4. <strong>Infrastructure Planning</strong>: Data-driven network capacity and upgrade decisions</p>
+<h3>Advanced Analytics</h3>
+<p>1. <strong>Personalization</strong>: User-specific QoE models based on viewing patterns</p>
+<p>2. <strong>Content-Aware QoE</strong>: Different quality thresholds for different content types</p>
+<p>3. <strong>Geographic Analysis</strong>: Location-based QoE patterns and infrastructure optimization</p>
+<p>4. <strong>A/B Testing</strong>: Quantify impact of network improvements on user experience</p>
+<h2>Files in this Project</h2>
+<p>- <code>README.md</code> - Project documentation and implementation guide</p>
+<p>- <code>qoe_prediction_video_streaming.ipynb</code> - Complete Jupyter notebook implementation</p>
+<p>- <code>requirements.txt</code> - Python package dependencies</p>
+<h2>Key Insights</h2>
+<p>- Throughput consistency (average and variability) is the primary driver of streaming QoE</p>
+<p>- Packet-level metrics like reordering and latency significantly impact user experience</p>
+<p>- RandomForest with balanced class weights effectively handles QoE category imbalance</p>
+<p>- High recall for 'Poor' QoE detection enables proactive quality management</p>
+<p>- Feature importance analysis provides actionable network optimization guidance</p>
+<h2>QoE Classification Framework</h2>
+<p>- <strong>Good QoE</strong>: Smooth streaming with minimal adaptive bitrate changes</p>
+<p>- <strong>Fair QoE</strong>: Noticeable quality adaptations but no interruptions</p>
+<p>- <strong>Poor QoE</strong>: Buffering events that directly impact user experience</p>
+<p>- <strong>Rule-Based Approach</strong>: Transparent, interpretable quality categorization</p>
+<p>- <strong>Network-Centric</strong>: Focus on measurable infrastructure performance indicators</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

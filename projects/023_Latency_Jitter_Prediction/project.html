@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 023: Predicting Latency Jitter for a Network Path - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 023: Predicting Latency Jitter for a Network Path</h1>
+                <p>Network Performance & Regression Analysis</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build a regression model that can predict the latency (in milliseconds) of a network path based on characteristics like distance, time of day, and current traffic load to enable proactive network performance management.</p>
+<h2>Business Value</h2>
+<p>- <strong>Proactive Monitoring</strong>: Predict network performance issues before they impact users</p>
+<p>- <strong>Capacity Planning</strong>: Make data-driven decisions about network infrastructure investments</p>
+<p>- <strong>SLA Management</strong>: Ensure service level agreements are met through predictive analytics</p>
+<p>- <strong>Route Optimization</strong>: Select optimal network paths based on predicted performance</p>
+<p>- <strong>Real-Time Decision Making</strong>: Enable automatic failover and traffic rerouting based on latency predictions</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Data manipulation and numerical operations</p>
+<p>- <strong>xgboost</strong>: Gradient boosting framework for high-performance regression</p>
+<p>- <strong>scikit-learn</strong>: Model evaluation metrics and data splitting utilities</p>
+<p>- <strong>matplotlib & seaborn</strong>: Data visualization and performance analysis</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: Synthetically Generated Network Monitoring Data
+<p>- <strong>Size</strong>: 5,000 network path measurements</p>
+<p>- <strong>Features</strong>: Distance, hour of day, congestion factors, traffic spikes</p>
+<p>- <strong>Target</strong>: Network latency in milliseconds</p>
+<p>- <strong>Scope</strong>: Realistic simulation of WAN performance characteristics</p>
+<p>- <strong>Quality</strong>: Physics-based modeling with appropriate noise and variability</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<pre><code class="language-python"># Install required packages
+<p>pip install pandas numpy xgboost scikit-learn matplotlib seaborn</p>
+<p># All data is synthetically generated - no external APIs needed</code></pre></p>
+<h3>2. Synthetic Data Generation</h3>
+<pre><code class="language-python">import pandas as pd
+<p>import numpy as np</p>
+<p># Generate realistic network latency dataset</p>
+<p>def generate_latency_data(num_samples=5000):</p>
+<p>data = []</p>
+<p>for _ in range(num_samples):</p>
+<p>distance_km = np.random.randint(50, 5000)</p>
+<p>hour_of_day = np.random.randint(0, 24)</p>
+<p># Business hours congestion (9am to 5pm)</p>
+<p>if 9 <= hour_of_day <= 17:</p>
+<p>congestion_factor = np.random.uniform(1.2, 2.5)</p>
+<p>else:</p>
+<p>congestion_factor = np.random.uniform(0.8, 1.2)</p>
+<p># Random traffic spikes</p>
+<p>traffic_spike = np.random.choice([0, 1], p=[0.9, 0.1]) * np.random.uniform(5, 15)</p>
+<p># Physics-based latency calculation</p>
+<p>base_latency = 5  # Local processing time</p>
+<p>distance_latency = distance_km * 0.05  # Speed of light effect</p>
+<p>congestion_latency = hour_of_day * congestion_factor</p>
+<p>random_noise = np.random.normal(0, 5)  # Jitter simulation</p>
+<p>latency = base_latency + distance_latency + congestion_latency + traffic_spike + random_noise</p>
+<p>latency = max(5, latency)  # Ensure realistic minimum</p>
+<p>data.append([distance_km, hour_of_day, congestion_factor, traffic_spike, latency])</p>
+<p>return pd.DataFrame(data, columns=['distance_km', 'hour_of_day', 'congestion_factor', 'traffic_spike', 'latency_ms'])</code></pre></p>
+<h3>3. Exploratory Data Analysis</h3>
+<pre><code class="language-python">import seaborn as sns
+<p>import matplotlib.pyplot as plt</p>
+<p># Visualize feature relationships</p>
+<p>sns.pairplot(df, x_vars=['distance_km', 'hour_of_day', 'congestion_factor'],</p>
+<p>y_vars=['latency_ms'], height=4, aspect=1)</p>
+<p>plt.suptitle('Latency vs. Key Features')</p>
+<p>plt.show()</p>
+<p># Correlation analysis</p>
+<p>correlation_matrix = df.corr()</p>
+<p>sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0)</p>
+<p>plt.title('Feature Correlation Matrix')</p>
+<p>plt.show()</code></pre></p>
+<h3>4. Data Preparation and Splitting</h3>
+<pre><code class="language-python">from sklearn.model_selection import train_test_split
+<p># Prepare features and target</p>
+<p>feature_cols = ['distance_km', 'hour_of_day', 'congestion_factor', 'traffic_spike']</p>
+<p>X = df[feature_cols]</p>
+<p>y = df['latency_ms']</p>
+<p># Train-test split</p>
+<p>X_train, X_test, y_train, y_test = train_test_split(</p>
+<p>X, y, test_size=0.2, random_state=42</p>
+<p>)</code></pre></p>
+<h3>5. Model Training with XGBoost</h3>
+<pre><code class="language-python">import xgboost as xgb
+<p># Configure XGBoost Regressor</p>
+<p>model = xgb.XGBRegressor(</p>
+<p>objective='reg:squarederror',  # Regression objective</p>
+<p>n_estimators=100,              # Number of boosting rounds</p>
+<p>learning_rate=0.1,             # Step size shrinkage</p>
+<p>max_depth=6,                   # Maximum tree depth</p>
+<p>random_state=42,</p>
+<p>n_jobs=-1                      # Use all CPU cores</p>
+<p>)</p>
+<p># Train the model</p>
+<p>model.fit(X_train, y_train)</code></pre></p>
+<h3>6. Model Evaluation</h3>
+<pre><code class="language-python">from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+<p># Make predictions</p>
+<p>y_pred = model.predict(X_test)</p>
+<p># Calculate regression metrics</p>
+<p>mae = mean_absolute_error(y_test, y_pred)</p>
+<p>rmse = np.sqrt(mean_squared_error(y_test, y_pred))</p>
+<p>r2 = r2_score(y_test, y_pred)</p>
+<p>print(f"Mean Absolute Error (MAE): {mae:.2f} ms")</p>
+<p>print(f"Root Mean Squared Error (RMSE): {rmse:.2f} ms")</p>
+<p>print(f"R-squared (R²): {r2:.2%}")</code></pre></p>
+<h3>7. Visualization and Analysis</h3>
+<pre><code class="language-python"># Actual vs. Predicted scatter plot
+<p>plt.figure(figsize=(8, 8))</p>
+<p>plt.scatter(y_test, y_pred, alpha=0.5)</p>
+<p>plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()],</p>
+<p>'--r', linewidth=2, label='Perfect Prediction')</p>
+<p>plt.xlabel('Actual Latency (ms)')</p>
+<p>plt.ylabel('Predicted Latency (ms)')</p>
+<p>plt.title('Model Performance: Actual vs. Predicted')</p>
+<p>plt.legend()</p>
+<p>plt.show()</p>
+<p># Feature importance analysis</p>
+<p>xgb.plot_importance(model, height=0.8)</p>
+<p>plt.title('Feature Importance in Latency Prediction')</p>
+<p>plt.show()</code></pre></p>
+<h3>8. Real-Time Prediction Function</h3>
+<pre><code class="language-python">def predict_network_latency(distance_km, hour_of_day, congestion_factor, traffic_spike):
+<p>"""</p>
+<p>Predict network latency for given conditions</p>
+<p>Args:</p>
+<p>distance_km: Physical distance of network path</p>
+<p>hour_of_day: Current hour (0-23)</p>
+<p>congestion_factor: Network congestion multiplier</p>
+<p>traffic_spike: Presence of traffic spike (0 or spike value)</p>
+<p>Returns:</p>
+<p>Predicted latency in milliseconds</p>
+<p>"""</p>
+<p>features = np.array([[distance_km, hour_of_day, congestion_factor, traffic_spike]])</p>
+<p>prediction = model.predict(features)[0]</p>
+<p>return round(prediction, 2)</p>
+<p># Example usage</p>
+<p>predicted_latency = predict_network_latency(</p>
+<p>distance_km=1500,</p>
+<p>hour_of_day=14,  # 2 PM</p>
+<p>congestion_factor=1.8,</p>
+<p>traffic_spike=0</p>
+<p>)</p>
+<p>print(f"Predicted latency: {predicted_latency} ms")</code></pre></p>
+<h2>Success Criteria</h2>
+<p>- <strong>Primary Metric</strong>: R-squared > 0.85 for variance explanation</p>
+<p>- <strong>Accuracy</strong>: Mean Absolute Error < 10ms for practical network management</p>
+<p>- <strong>Robustness</strong>: Model handles various network conditions and distances</p>
+<p>- <strong>Speed</strong>: Real-time prediction capability for operational use</p>
+<p>- <strong>Interpretability</strong>: Clear feature importance for network engineering insights</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Technical Enhancements</h3>
+<p>1. <strong>Time Series Analysis</strong>: Add temporal patterns and seasonal effects</p>
+<p>2. <strong>Advanced Features</strong>: Include network topology, link utilization, and protocol overhead</p>
+<p>3. <strong>Ensemble Methods</strong>: Combine XGBoost with other algorithms for improved accuracy</p>
+<p>4. <strong>Real-Time Learning</strong>: Implement online learning for continuous model adaptation</p>
+<h3>Business Applications</h3>
+<p>1. <strong>NOC Dashboard</strong>: Real-time latency prediction for network operations centers</p>
+<p>2. <strong>Traffic Engineering</strong>: Optimize routing decisions based on predicted performance</p>
+<p>3. <strong>SLA Monitoring</strong>: Proactive alerts before performance degrades below thresholds</p>
+<p>4. <strong>Capacity Planning</strong>: Predict when network upgrades will be needed</p>
+<h3>Advanced Analytics</h3>
+<p>1. <strong>Confidence Intervals</strong>: Provide prediction uncertainty for better decision making</p>
+<p>2. <strong>Anomaly Detection</strong>: Identify unusual latency patterns that may indicate issues</p>
+<p>3. <strong>What-If Analysis</strong>: Simulate different network scenarios for planning purposes</p>
+<p>4. <strong>Multi-Path Optimization</strong>: Extend to predict performance of alternative routes</p>
+<h2>Files in this Project</h2>
+<p>- <code>README.md</code> - Project documentation and implementation guide</p>
+<p>- <code>latency_jitter_prediction.ipynb</code> - Complete Jupyter notebook implementation</p>
+<p>- <code>requirements.txt</code> - Python package dependencies</p>
+<h2>Key Insights</h2>
+<p>- Distance is the dominant factor in network latency prediction due to speed of light limitations</p>
+<p>- Business hours significantly impact network performance through congestion patterns</p>
+<p>- XGBoost effectively captures non-linear relationships between network variables</p>
+<p>- Feature importance analysis provides actionable insights for network engineering decisions</p>
+<p>- The model enables "what-if" analysis for network planning and optimization scenarios</p>
+<h2>Physics-Based Modeling</h2>
+<p>- <strong>Base Latency</strong>: Local processing and switching delays</p>
+<p>- <strong>Distance Effect</strong>: Speed of light propagation delays (≈5ms per 1000km)</p>
+<p>- <strong>Congestion Modeling</strong>: Business hours traffic patterns with realistic multipliers</p>
+<p>- <strong>Traffic Spikes</strong>: Random events that simulate network anomalies</p>
+<p>- <strong>Jitter Simulation</strong>: Gaussian noise to represent natural network variability</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

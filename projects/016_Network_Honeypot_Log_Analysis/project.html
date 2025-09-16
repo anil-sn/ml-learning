@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 016: Network Honeypot Log Analysis to Classify Attacker Behavior - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 016: Network Honeypot Log Analysis to Classify Attacker Behavior</h1>
+                <p>Clustering & Attacker Behavior Analysis</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Automatically discover and classify different types of attacker behavior (e.g., port scanning, login brute-forcing, web scanning) by applying unsupervised clustering to honeypot logs, providing actionable intelligence for security operations teams.</p>
+<h2>Business Value</h2>
+<strong>For Security Operations Teams:</strong>
+<p>- <strong>Threat Intelligence</strong>: Automatically categorize attacker behaviors without prior knowledge of attack signatures</p>
+<p>- <strong>Pattern Recognition</strong>: Identify emerging attack patterns and group similar campaigns together</p>
+<p>- <strong>Strategic Defense</strong>: Make data-driven decisions about security controls based on observed attacker clusters</p>
+<p>- <strong>Alert Reduction</strong>: Focus on behavioral patterns rather than individual alerts to reduce noise</p>
+<strong>For Enterprise Security:</strong>
+<p>- <strong>Proactive Defense</strong>: Understand attacker methodologies before they impact production systems</p>
+<p>- <strong>Resource Allocation</strong>: Prioritize security investments based on most common attack patterns</p>
+<p>- <strong>Incident Response</strong>: Faster triage through automatic behavioral classification</p>
+<p>- <strong>Threat Hunting</strong>: Identify novel attack patterns that bypass signature-based detection</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Data processing and aggregation of honeypot log entries</p>
+<p>- <strong>scikit-learn</strong>: K-Means clustering for unsupervised behavioral pattern discovery</p>
+<p>- <strong>matplotlib & seaborn</strong>: Cluster visualization and elbow method analysis</p>
+<p>- <strong>sklearn.decomposition</strong>: PCA for dimensional reduction and cluster visualization</p>
+<p>- <strong>sklearn.preprocessing</strong>: StandardScaler for feature normalization in clustering</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: Synthetically Generated Honeypot Logs
+<p>- <strong>Attack Types</strong>: Port scanning, SSH brute-force, web application scanning</p>
+<p>- <strong>Log Entries</strong>: Realistic honeypot connection attempts with source IPs, ports, protocols, and messages</p>
+<p>- <strong>Behavioral Patterns</strong>: Distinct patterns per attack type (many ports vs single port, different error messages)</p>
+<p>- <strong>Scale</strong>: Multiple source IPs with varying numbers of connection attempts per attacker</p>
+<strong>Key Behavioral Features:</strong>
+<p>- Connection volume per source IP</p>
+<p>- Port diversity (unique ports targeted)</p>
+<p>- Protocol-specific failure patterns (SSH auth failures, HTTP 404s)</p>
+<p>- Target port preferences and common attack patterns</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup and Data Generation</h3>
+<pre><code class="language-bash">pip install pandas numpy scikit-learn matplotlib seaborn</code></pre>
+<p>Generate synthetic honeypot logs with realistic attack patterns for behavioral analysis.</p>
+<h3>2. Synthetic Honeypot Log Generation</h3>
+<pre><code class="language-python"># Define different attacker behavior patterns
+<p>behaviors = ['port_scan', 'brute_force_ssh', 'web_scan']</p>
+<p># Port scanners: many connections to different ports</p>
+<p>if behavior == 'port_scan':</p>
+<p>for _ in range(random.randint(80, 200)):</p>
+<p>port = random.randint(1, 65535)</p>
+<p>log_entries.append([ip, port, 'TCP', 'Connection refused'])</p>
+<p># SSH brute-forcers: many connections to port 22</p>
+<p>elif behavior == 'brute_force_ssh':</p>
+<p>for _ in range(random.randint(50, 150)):</p>
+<p>log_entries.append([ip, 22, 'SSH', 'Authentication failed'])</code></pre></p>
+<h3>3. Feature Engineering for Behavioral Profiling</h3>
+<pre><code class="language-python"># Aggregate raw logs by source IP to create behavioral profiles
+<p>attacker_profiles = df.groupby('source_ip').agg(</p>
+<p>total_connections=('dest_port', 'count'),</p>
+<p>unique_ports_targeted=('dest_port', 'nunique'),</p>
+<p>ssh_auth_failures=('message', lambda x: x.str.contains('Authentication failed').sum()),</p>
+<p>http_404_errors=('message', lambda x: x.str.contains('404').sum()),</p>
+<p>common_port=('dest_port', lambda x: x.mode()[0])</p>
+<p>)</code></pre></p>
+<h3>4. Optimal Cluster Number Selection</h3>
+<pre><code class="language-python"># Use elbow method to determine optimal number of clusters
+<p>inertia = []</p>
+<p>k_range = range(1, 10)</p>
+<p>for k in k_range:</p>
+<p>kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)</p>
+<p>kmeans.fit(X_scaled)</p>
+<p>inertia.append(kmeans.inertia_)</code></pre></p>
+<h3>5. K-Means Clustering for Behavioral Grouping</h3>
+<pre><code class="language-python"># Train K-Means with optimal number of clusters
+<p>optimal_k = 3</p>
+<p>kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)</p>
+<p>attacker_profiles['cluster'] = kmeans.fit_predict(X_scaled)</code></pre></p>
+<h3>6. Cluster Analysis and Validation</h3>
+<pre><code class="language-python"># Analyze cluster centroids to understand behavioral patterns
+<p>cluster_analysis = attacker_profiles.groupby('cluster').mean(numeric_only=True)</p>
+<p># Cross-tabulate with ground truth for validation</p>
+<p>pd.crosstab(attacker_profiles['cluster'], attacker_profiles['true_behavior'])</code></pre></p>
+<h2>Success Criteria</h2>
+<strong>Primary Metrics:</strong>
+<p>- <strong>Cluster Separation</strong>: Clear distinction between behavioral patterns in cluster centroids</p>
+<p>- <strong>Ground Truth Alignment</strong>: >80% agreement between clusters and known attack types</p>
+<p>- <strong>Elbow Method Validation</strong>: Clear optimal k selection matching expected number of behaviors</p>
+<strong>Secondary Metrics:</strong>
+<p>- <strong>Feature Interpretability</strong>: Logical cluster centroids reflecting attack behavior patterns</p>
+<p>- <strong>Cluster Stability</strong>: Consistent results across multiple clustering runs</p>
+<p>- <strong>Visualization Quality</strong>: Clear cluster separation in PCA-reduced dimensional space</p>
+<strong>Business Impact:</strong>
+<p>- Deploy in SOC for automated threat categorization</p>
+<p>- Integrate with SIEM systems for behavioral alerting</p>
+<p>- Provide threat intelligence insights for defensive strategy</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Immediate Improvements</h3>
+<p>- <strong>Real Honeypot Integration</strong>: Connect with actual honeypot systems (Cowrie, DionaeaArtifact)</p>
+<p>- <strong>Temporal Analysis</strong>: Incorporate time-based features for campaign tracking</p>
+<p>- <strong>Hierarchical Clustering</strong>: Explore DBSCAN for density-based cluster discovery</p>
+<h3>Advanced Techniques</h3>
+<p>- <strong>Anomaly Detection</strong>: Identify completely novel attack patterns outside known clusters</p>
+<p>- <strong>Ensemble Clustering</strong>: Combine multiple clustering algorithms for robust results</p>
+<p>- <strong>Sequential Analysis</strong>: Track attacker behavior evolution over time</p>
+<h3>Production Deployment</h3>
+<p>- <strong>Real-time Processing</strong>: Stream processing pipeline for live honeypot data</p>
+<p>- <strong>Alert Integration</strong>: Automatic SIEM rule generation based on discovered clusters</p>
+<p>- <strong>Dashboard Development</strong>: Interactive visualization for security analysts</p>
+<h3>Domain Expansion</h3>
+<p>- <strong>Multi-source Integration</strong>: Combine honeypot data with network traffic and endpoint logs</p>
+<p>- <strong>Attribution Analysis</strong>: Cluster attackers by infrastructure and tooling patterns</p>
+<p>- <strong>Campaign Tracking</strong>: Link individual attacks to broader threat actor campaigns</p>
+<p>This project demonstrates practical application of unsupervised learning for cybersecurity intelligence, providing both automated threat categorization and strategic insights for security operations teams.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

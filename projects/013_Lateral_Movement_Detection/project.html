@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 013: Identifying Lateral Movement in a Network - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 013: Identifying Lateral Movement in a Network</h1>
+                <p>Network Security & Movement Analysis</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build an unsupervised anomaly detection model that can identify hosts exhibiting behavior indicative of lateral movement, such as internal port scanning or connecting to an unusually high number of other hosts.</p>
+<h2>Business Value</h2>
+<strong>For Security Operations Centers (SOC):</strong>
+<p>- <strong>Early Breach Detection</strong>: Identify compromised hosts before they cause significant damage</p>
+<p>- <strong>Automated Threat Hunting</strong>: Replace manual analysis with scalable machine learning detection</p>
+<p>- <strong>Behavioral Baselining</strong>: Establish normal network behavior patterns for anomaly detection</p>
+<p>- <strong>Incident Response</strong>: Provide forensic insights into attacker movement patterns</p>
+<strong>For Network Security Teams:</strong>
+<p>- <strong>Zero-Day Protection</strong>: Detect novel attack techniques without signature-based rules</p>
+<p>- <strong>Insider Threat Detection</strong>: Identify malicious or compromised internal users</p>
+<p>- <strong>Compliance Support</strong>: Meet regulatory requirements for advanced persistent threat detection</p>
+<p>- <strong>Risk Assessment</strong>: Quantify and visualize network security posture</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Network flow data processing and host behavior profiling</p>
+<p>- <strong>scikit-learn</strong>: Isolation Forest for unsupervised anomaly detection</p>
+<p>- <strong>matplotlib & seaborn</strong>: Network behavior visualization and anomaly analysis</p>
+<p>- <strong>kaggle</strong>: CIC-IDS2017 dataset containing port scan and lateral movement examples</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: CIC-IDS2017 from Kaggle - Tuesday working hours traffic
+<p>- <strong>Normal Traffic</strong>: Legitimate internal network communications between hosts</p>
+<p>- <strong>Attack Traffic</strong>: Port scans and lateral movement activities from compromised hosts</p>
+<p>- <strong>Host Profiling</strong>: Aggregate statistics per source IP for behavioral analysis</p>
+<p>- <strong>Features</strong>: Unique destination IPs, ports, flow counts, and timing patterns</p>
+<strong>Key Behavioral Indicators:</strong>
+<p>- <strong>Unique Destination IPs</strong>: Scanning behavior targets many hosts</p>
+<p>- <strong>Unique Destination Ports</strong>: Port scanning attempts across services</p>
+<p>- <strong>Total Flow Count</strong>: Volume of network connections initiated</p>
+<p>- <strong>Average Flow Duration</strong>: Connection pattern analysis</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup and Data Loading</h3>
+<pre><code class="language-bash">pip install pandas numpy scikit-learn matplotlib seaborn kaggle</code></pre>
+<p>Download CIC-IDS2017 dataset and load Tuesday traffic containing port scanning activities.</p>
+<h3>2. Host Behavior Profiling</h3>
+<pre><code class="language-python"># Aggregate network flows by source IP to create host profiles
+<p>host_profiles = df.groupby('Source IP').agg({</p>
+<p>'Destination IP': 'nunique',      # Scanning indicator</p>
+<p>'Destination Port': 'nunique',    # Port scan indicator</p>
+<p>'Flow ID': 'count',              # Connection volume</p>
+<p>'Flow Duration': 'mean'          # Timing patterns</p>
+<p>}).reset_index()</code></pre></p>
+<h3>3. Ground Truth Labeling</h3>
+<pre><code class="language-python"># Label hosts based on their traffic mix
+<p>def get_host_label(group):</p>
+<p>if (group != 'BENIGN').any():</p>
+<p>return 'Attack'</p>
+<p>return 'BENIGN'</p>
+<p>host_labels = df.groupby('Source IP')['Label'].apply(get_host_label)</code></pre></p>
+<h3>4. Unsupervised Model Training</h3>
+<pre><code class="language-python"># Train Isolation Forest only on known benign host behavior
+<p>X_train_benign = X[host_profiles['Label'] == 'BENIGN']</p>
+<p>model = IsolationForest(contamination=0.01, random_state=42)</p>
+<p>model.fit(scaler.fit_transform(X_train_benign))</code></pre></p>
+<h3>5. Anomaly Detection and Evaluation</h3>
+<pre><code class="language-python"># Apply trained model to all hosts (benign and malicious)
+<p>predictions = model.predict(scaler.transform(X))</p>
+<p># -1 indicates anomaly (potential lateral movement)</p>
+<p># +1 indicates normal behavior</code></pre></p>
+<h3>6. Forensic Analysis of Detected Anomalies</h3>
+<pre><code class="language-python"># Analyze characteristics of flagged hosts
+<p>detected_anomalies = host_profiles[host_profiles['Prediction'] == -1]</p>
+<p># Focus on hosts with high unique destination counts</code></pre></p>
+<h2>Success Criteria</h2>
+<strong>Primary Metrics:</strong>
+<p>- <strong>Recall for Attack Hosts</strong>: >85% (catch lateral movement attempts)</p>
+<p>- <strong>Precision Balance</strong>: Reasonable false positive rate for analyst review</p>
+<p>- <strong>Unsupervised Performance</strong>: Effective learning from benign data only</p>
+<strong>Secondary Metrics:</strong>
+<p>- <strong>Feature Interpretability</strong>: Clear understanding of anomalous behavior patterns</p>
+<p>- <strong>Scalability</strong>: Processing capability for large network environments</p>
+<p>- <strong>Temporal Stability</strong>: Consistent performance across different time periods</p>
+<strong>Operational Requirements:</strong>
+<p>- Real-time host behavior scoring for continuous monitoring</p>
+<p>- Integration with SIEM platforms for automated alerting</p>
+<p>- Forensic reporting capabilities for incident investigation</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Immediate Improvements</h3>
+<p>- <strong>Temporal Analysis</strong>: Include time-based patterns in host behavior profiles</p>
+<p>- <strong>Network Topology</strong>: Incorporate subnet and VLAN information for context</p>
+<p>- <strong>Protocol Analysis</strong>: Extend beyond TCP/UDP to include application-layer protocols</p>
+<h3>Advanced Techniques</h3>
+<p>- <strong>Graph Neural Networks</strong>: Model network topology and host relationships</p>
+<p>- <strong>Time Series Clustering</strong>: Identify temporal patterns in lateral movement</p>
+<p>- <strong>Multi-Scale Analysis</strong>: Combine individual flow and host-level behavioral analysis</p>
+<h3>Production Deployment</h3>
+<p>- <strong>Stream Processing</strong>: Real-time host behavior profiling and anomaly detection</p>
+<p>- <strong>Threat Intelligence</strong>: Integration with external IOCs and threat feeds</p>
+<p>- <strong>Automated Response</strong>: Quarantine or investigate flagged hosts automatically</p>
+<h3>Specialized Applications</h3>
+<p>- <strong>Insider Threat Programs</strong>: Adapt for detecting malicious employee activities</p>
+<p>- <strong>Cloud Security</strong>: Extend to container and serverless environments</p>
+<p>- <strong>IoT Networks</strong>: Specialized profiling for IoT device behavioral patterns</p>
+<p>- <strong>Critical Infrastructure</strong>: Enhanced monitoring for SCADA and industrial networks</p>
+<p>This project provides essential capabilities for detecting advanced persistent threats that have evaded perimeter defenses, focusing on the critical lateral movement phase where attackers spread through internal networks.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

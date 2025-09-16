@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 011: Network-based Ransomware Detection - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 011: Network-based Ransomware Detection</h1>
+                <p>Security Analytics & Behavioral Detection</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build a machine learning model that can identify network traffic patterns associated with ransomware activity, distinguishing them from normal, benign traffic through advanced pattern recognition and anomaly detection techniques.</p>
+<h2>Business Value</h2>
+<strong>For Network Security Teams:</strong>
+<p>- <strong>Early Detection</strong>: Identify ransomware attacks in progress before file encryption causes irreversible damage</p>
+<p>- <strong>Automated Response</strong>: Enable automated quarantining and incident response workflows</p>
+<p>- <strong>Network Forensics</strong>: Understand unique communication patterns of ransomware for threat intelligence</p>
+<p>- <strong>Cost Avoidance</strong>: Prevent costly ransomware incidents that average $1.85M per attack (IBM Security)</p>
+<strong>For Enterprise IT:</strong>
+<p>- <strong>Proactive Defense</strong>: Shift from reactive to proactive ransomware protection</p>
+<p>- <strong>Compliance Support</strong>: Meet regulatory requirements for advanced threat detection</p>
+<p>- <strong>Business Continuity</strong>: Minimize operational disruption through early warning systems</p>
+<p>- <strong>Risk Mitigation</strong>: Reduce cyber insurance costs through demonstrable security controls</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Data processing and numerical computations</p>
+<p>- <strong>scikit-learn</strong>: RandomForestClassifier with balanced class weights for handling imbalanced datasets</p>
+<p>- <strong>matplotlib & seaborn</strong>: Network traffic pattern visualization and confusion matrix analysis</p>
+<p>- <strong>kaggle</strong>: CIC-IDS2017 dataset access containing real WannaCry ransomware traffic samples</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: CIC-IDS2017 from Kaggle - A comprehensive cybersecurity dataset
+<p>- <strong>Benign Traffic</strong>: Monday working hours normal network activity</p>
+<p>- <strong>Ransomware Traffic</strong>: Friday morning captures including WannaCry attack samples</p>
+<p>- <strong>Features</strong>: 80+ network flow characteristics including timing, packet flags, and flow statistics</p>
+<p>- <strong>Scale</strong>: Hundreds of thousands of network flows with extreme class imbalance (ransomware is rare)</p>
+<strong>Key Features for Detection:</strong>
+<p>- Flow Inter-Arrival Time (IAT) patterns</p>
+<p>- Packet flag distributions (URG, PSH, RST flags)</p>
+<p>- Flow duration and idle time statistics</p>
+<p>- Packet size distributions and byte counts</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup and Data Acquisition</h3>
+<pre><code class="language-bash">pip install pandas numpy scikit-learn matplotlib seaborn kaggle</code></pre>
+<p>Set up Kaggle API credentials and download the CIC-IDS2017 dataset containing both benign and ransomware network traffic samples.</p>
+<h3>2. Data Preprocessing and Class Balance Handling</h3>
+<pre><code class="language-python"># Load benign and ransomware traffic files
+<p>df_benign = pd.read_csv('Monday-WorkingHours.pcap_ISCX.csv')</p>
+<p>df_ransomware = pd.read_csv('Friday-WorkingHours-Morning.pcap_ISCX.csv')</p>
+<p># Handle extreme class imbalance using downsampling</p>
+<p>df_majority_downsampled = df_majority.sample(n=len(df_minority)*5, random_state=42)</code></pre></p>
+<h3>3. Feature Engineering and Data Cleaning</h3>
+<pre><code class="language-python"># Clean column names and handle infinite values
+<p>df.columns = df.columns.str.strip()</p>
+<p>df.replace([np.inf, -np.inf], np.nan, inplace=True)</p>
+<p>df.dropna(inplace=True)</p>
+<p># Binary encoding: Ransomware -> 1, Benign -> 0</p>
+<p>df['Label'] = df['Label'].apply(lambda x: 1 if x == 'Ransomware' else 0)</code></pre></p>
+<h3>4. Model Training with Balanced Classification</h3>
+<pre><code class="language-python"># RandomForest with balanced class weights for imbalanced data
+<p>model = RandomForestClassifier(</p>
+<p>n_estimators=100,</p>
+<p>random_state=42,</p>
+<p>class_weight='balanced',  # Critical for rare event detection</p>
+<p>n_jobs=-1</p>
+<p>)</p>
+<p>model.fit(X_train, y_train)</code></pre></p>
+<h3>5. Security-Focused Evaluation</h3>
+<pre><code class="language-python"># Focus on recall for ransomware detection
+<p>print(classification_report(y_test, y_pred, target_names=['Benign', 'Ransomware']))</p>
+<p># Analyze false negatives (missed attacks) - most critical metric</p>
+<p>cm = confusion_matrix(y_test, y_pred)</p>
+<p>print(f"False Negatives (Missed Ransomware): {cm[1,0]}")</code></pre></p>
+<h3>6. Feature Importance for Network Forensics</h3>
+<pre><code class="language-python"># Identify most predictive network features
+<p>importances = model.feature_importances_</p>
+<p>top_features = X.columns[np.argsort(importances)[-15:]]</code></pre></p>
+<h2>Success Criteria</h2>
+<strong>Primary Metrics:</strong>
+<p>- <strong>Recall for Ransomware Class</strong>: >95% (minimize missed attacks)</p>
+<p>- <strong>Precision Balance</strong>: Maintain reasonable precision to avoid alert fatigue</p>
+<p>- <strong>F1-Score</strong>: >0.85 for overall model effectiveness</p>
+<strong>Secondary Metrics:</strong>
+<p>- <strong>False Negative Rate</strong>: <5% (critical for security applications)</p>
+<p>- <strong>Model Interpretability</strong>: Clear feature importance rankings for forensic analysis</p>
+<p>- <strong>Processing Speed</strong>: Real-time inference capability for network monitoring</p>
+<strong>Business Impact:</strong>
+<p>- Deploy model in network monitoring infrastructure</p>
+<p>- Integrate with SIEM systems for automated alerting</p>
+<p>- Provide forensic insights for incident response teams</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Immediate Improvements</h3>
+<p>- <strong>Multi-class Classification</strong>: Distinguish between different ransomware families</p>
+<p>- <strong>Time Series Analysis</strong>: Incorporate temporal patterns in network flows</p>
+<p>- <strong>Feature Selection</strong>: Apply dimensionality reduction for faster inference</p>
+<h3>Advanced Techniques</h3>
+<p>- <strong>Deep Learning</strong>: LSTM networks for sequential network pattern analysis</p>
+<p>- <strong>Ensemble Methods</strong>: Combine with other anomaly detection approaches</p>
+<p>- <strong>Transfer Learning</strong>: Adapt model to new ransomware variants with minimal retraining</p>
+<h3>Production Deployment</h3>
+<p>- <strong>Real-time Pipeline</strong>: Stream processing integration with network taps</p>
+<p>- <strong>Model Monitoring</strong>: Drift detection and automated retraining workflows</p>
+<p>- <strong>Alert Integration</strong>: SOAR platform connectivity for automated incident response</p>
+<h3>Domain Expansion</h3>
+<p>- <strong>Cross-Protocol Analysis</strong>: Extend to email, web, and DNS traffic patterns</p>
+<p>- <strong>Threat Intelligence</strong>: Integrate with external threat feeds and IOCs</p>
+<p>- <strong>Zero-Day Detection</strong>: Behavioral analysis for unknown ransomware variants</p>
+<p>This project demonstrates practical application of machine learning for critical cybersecurity defense, providing both technical implementation skills and real-world security value for network protection.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

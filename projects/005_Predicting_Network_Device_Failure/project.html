@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 005: Predicting Network Device Failure/Degradation - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 005: Predicting Network Device Failure/Degradation</h1>
+                <p>Classification & Handling Imbalanced Data</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>To build a sophisticated predictive maintenance model that identifies network devices at risk of imminent failure based on operational metrics and telemetry data. This project demonstrates how to handle highly imbalanced datasets where failure events are rare but critical, using advanced machine learning techniques to enable proactive maintenance strategies.</p>
+<h2>Business Value</h2>
+<p>Predictive maintenance for network equipment delivers substantial operational and financial benefits:</p>
+<p>- <strong>Prevent Service Disruptions</strong>: Schedule maintenance before failures occur, maintaining network uptime and service quality</p>
+<p>- <strong>Reduce Emergency Costs</strong>: Eliminate expensive emergency truck rolls and unplanned hardware replacements</p>
+<p>- <strong>Optimize Maintenance Schedules</strong>: Replace reactive maintenance with data-driven proactive maintenance</p>
+<p>- <strong>Improve Customer Satisfaction</strong>: Enhance network reliability and build customer trust through consistent service</p>
+<p>- <strong>Resource Optimization</strong>: Allocate technical resources efficiently based on predicted failure probabilities</p>
+<p>- <strong>Capital Planning</strong>: Make informed decisions about equipment lifecycle and replacement strategies</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Comprehensive data manipulation and numerical computing</p>
+<p>- <strong>lightgbm</strong>: State-of-the-art gradient boosting framework optimized for imbalanced datasets</p>
+<p>- <strong>scikit-learn</strong>: Machine learning algorithms, preprocessing, and evaluation metrics</p>
+<p>- <strong>imbalanced-learn</strong>: Specialized tools for handling class imbalance (SMOTE, undersampling)</p>
+<p>- <strong>matplotlib & seaborn</strong>: Advanced visualization for model interpretation and performance analysis</p>
+<p>- <strong>kaggle</strong>: Access to real-world sensor and failure data</p>
+<h2>Dataset</h2>
+<strong>Primary Dataset</strong>: Backblaze Hard Drive Stats Dataset from Kaggle
+<p>- <strong>Source</strong>: Real-world sensor data from Backblaze's data center operations</p>
+<p>- <strong>Description</strong>: Daily SMART (Self-Monitoring, Analysis and Reporting Technology) metrics from thousands of hard drives</p>
+<p>- <strong>Key Features</strong>:</p>
+<p>- Operational metrics analogous to network device telemetry</p>
+<p>- Binary failure labels indicating device health status</p>
+<p>- Realistic class imbalance (failures are rare events)</p>
+<p>- Time-series sensor readings with missing value patterns</p>
+<strong>Alternative Dataset</strong>: Machine Predictive Maintenance Classification (<a href="https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification" target="_blank">Kaggle Link</a>)
+<p>- <strong>Why suitable</strong>: Contains sensor readings (temperature, speed, torque) with failure labels</p>
+<p>- <strong>Advantages</strong>: Clean dataset with clear feature-target relationships, perfect for learning imbalanced classification</p>
+<h2>Implementation Steps</h2>
+<h3>Step 1: Environment Setup and Dependencies</h3>
+<pre><code class="language-bash"># Create project environment
+<p>mkdir network-device-failure-prediction</p>
+<p>cd network-device-failure-prediction</p>
+<p>python -m venv venv</p>
+<p>source venv/bin/activate</p>
+<p># Install comprehensive ML stack</p>
+<p>pip install pandas numpy scikit-learn imbalanced-learn lightgbm xgboost matplotlib seaborn kaggle jupyterlab</p>
+<p># Launch development environment</p>
+<p>jupyter lab</code></pre></p>
+<h3>Step 2: Data Acquisition and Loading</h3>
+<p>- Configure Kaggle API for dataset access</p>
+<p>- Download Backblaze hard drive statistics dataset</p>
+<p>- Load and inspect data structure and quality</p>
+<p>- Understand the extreme class imbalance challenge</p>
+<h3>Step 3: Exploratory Data Analysis</h3>
+<p>- Analyze failure patterns and rates across devices</p>
+<p>- Examine sensor value distributions for healthy vs failing devices</p>
+<p>- Identify missing data patterns and sensor reliability</p>
+<p>- Visualize temporal trends in device degradation</p>
+<h3>Step 4: Data Preprocessing and Feature Engineering</h3>
+<p>- Handle missing values using domain-appropriate strategies</p>
+<p>- Remove non-predictive identifiers (serial numbers, dates)</p>
+<p>- Engineer temporal features (trends, moving averages)</p>
+<p>- Create composite health indicators from multiple sensors</p>
+<h3>Step 5: Class Imbalance Handling</h3>
+<p>- Calculate precise failure rates and class distribution</p>
+<p>- Apply SMOTE (Synthetic Minority Oversampling Technique) to training data</p>
+<p>- Implement class weighting strategies for gradient boosting</p>
+<p>- Ensure stratified sampling maintains failure representation</p>
+<h3>Step 6: Model Training with LightGBM</h3>
+<p>- Configure LightGBM for imbalanced binary classification</p>
+<p>- Optimize scale_pos_weight parameter for class imbalance</p>
+<p>- Train model with early stopping and cross-validation</p>
+<p>- Monitor for overfitting on minority class</p>
+<h3>Step 7: Model Evaluation for Imbalanced Data</h3>
+<p>- Focus on precision, recall, and F1-score rather than accuracy</p>
+<p>- Generate comprehensive confusion matrix analysis</p>
+<p>- Create precision-recall curves for threshold selection</p>
+<p>- Assess business impact of false positives vs false negatives</p>
+<h3>Step 8: Feature Importance and Interpretation</h3>
+<p>- Extract feature importance scores from trained model</p>
+<p>- Identify critical sensor metrics for failure prediction</p>
+<p>- Create interpretable visualizations for operational teams</p>
+<p>- Map model insights to maintenance decision-making</p>
+<h2>Technical Implementation</h2>
+<h3>Handling Extreme Class Imbalance</h3>
+<p>This project addresses the fundamental challenge in predictive maintenance: failure events are rare (typically <1% of data) but extremely important to detect.</p>
+<strong>Key Techniques</strong>:
+<p>- <strong>SMOTE</strong>: Generate synthetic failure examples to balance training data</p>
+<p>- <strong>Class Weighting</strong>: Penalize false negatives more heavily than false positives</p>
+<p>- <strong>Stratified Sampling</strong>: Ensure failure representation in train/test splits</p>
+<p>- <strong>Threshold Optimization</strong>: Adjust decision threshold for optimal business outcomes</p>
+<h3>LightGBM for Predictive Maintenance</h3>
+<p>- <strong>Speed</strong>: Extremely fast training on large sensor datasets</p>
+<p>- <strong>Memory Efficiency</strong>: Handles high-dimensional telemetry data efficiently</p>
+<p>- <strong>Feature Handling</strong>: Automatically manages missing values and categorical features</p>
+<p>- <strong>Imbalance Support</strong>: Built-in class weighting and focal loss options</p>
+<h2>Success Criteria</h2>
+<p>- <strong>High Recall for Failures</strong>: Detect >90% of actual device failures (minimize false negatives)</p>
+<p>- <strong>Acceptable Precision</strong>: Maintain reasonable false positive rate for operational efficiency</p>
+<p>- <strong>Feature Interpretability</strong>: Clearly identify top predictive sensor metrics</p>
+<p>- <strong>Robust Performance</strong>: Consistent results across different device types and time periods</p>
+<p>- <strong>Business Relevance</strong>: Model insights align with domain expert knowledge</p>
+<p>- <strong>Deployment Readiness</strong>: Model suitable for production monitoring systems</p>
+<h2>Key Performance Metrics</h2>
+<h3>Critical Metrics for Predictive Maintenance</h3>
+<p>- <strong>Recall (Sensitivity)</strong>: Percentage of actual failures correctly identified</p>
+<p>- <strong>Precision</strong>: Accuracy when predicting failures (reduces false alarms)</p>
+<p>- <strong>Precision-Recall AUC</strong>: Overall discriminative performance for imbalanced data</p>
+<p>- <strong>Business Cost</strong>: Weighted combination of missed failures and false alarms</p>
+<h3>Operational Metrics</h3>
+<p>- <strong>Maintenance Window</strong>: Advance warning time before predicted failures</p>
+<p>- <strong>Alert Volume</strong>: Number of maintenance alerts generated per time period</p>
+<p>- <strong>Success Rate</strong>: Percentage of flagged devices that actually fail within prediction window</p>
+<h2>Business Impact Analysis</h2>
+<h3>Cost-Benefit Framework</h3>
+<p>- <strong>Cost of False Negatives</strong>: Service outages, emergency repairs, customer impact</p>
+<p>- <strong>Cost of False Positives</strong>: Unnecessary maintenance, resource allocation, operational disruption</p>
+<p>- <strong>Optimal Threshold</strong>: Balance point that minimizes total business cost</p>
+<h3>Maintenance Strategy Optimization</h3>
+<p>- <strong>Proactive Maintenance</strong>: Schedule based on failure probability thresholds</p>
+<p>- <strong>Resource Planning</strong>: Allocate technical staff and spare parts efficiently</p>
+<p>- <strong>Service Level Management</strong>: Maintain SLA compliance through predictive interventions</p>
+<h2>Advanced Features and Extensions</h2>
+<h3>Model Enhancements</h3>
+<p>- <strong>Ensemble Methods</strong>: Combine multiple algorithms for improved robustness</p>
+<p>- <strong>Time Series Features</strong>: Incorporate temporal patterns and trend analysis</p>
+<p>- <strong>Survival Analysis</strong>: Predict time-to-failure rather than binary outcomes</p>
+<p>- <strong>Multi-class Classification</strong>: Predict specific failure types for targeted maintenance</p>
+<h3>Operational Integration</h3>
+<p>- <strong>Real-time Monitoring</strong>: Stream processing for live device telemetry</p>
+<p>- <strong>Alert Systems</strong>: Automated notifications with confidence scores and recommended actions</p>
+<p>- <strong>Dashboard Development</strong>: Executive and operational dashboards for fleet health</p>
+<p>- <strong>Maintenance Planning</strong>: Integration with work order and inventory management systems</p>
+<h3>Advanced Analytics</h3>
+<p>- <strong>Root Cause Analysis</strong>: Identify sensor patterns leading to specific failure modes</p>
+<p>- <strong>Fleet Analysis</strong>: Compare device health across geographic locations or models</p>
+<p>- <strong>Predictive Scheduling</strong>: Optimize maintenance windows based on business constraints</p>
+<p>- <strong>Failure Mode Classification</strong>: Differentiate between hardware, software, and environmental failures</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">005_Predicting_Network_Device_Failure/
+<p>├── README.md                          # This comprehensive guide</p>
+<p>├── notebook.ipynb                     # Complete implementation with LightGBM</p>
+<p>├── requirements.txt                   # Python dependencies</p>
+<p>├── data/                              # Dataset storage (create locally)</p>
+<p>│   ├── hdd_latest_select_features.csv # Hard drive sensor data</p>
+<p>│   └── predictive_maintenance.csv     # Alternative dataset</p>
+<p>├── models/                            # Trained model artifacts</p>
+<p>│   ├── failure_predictor.pkl         # Serialized model</p>
+<p>│   └── feature_importance.csv        # Feature ranking for operations</p>
+<p>└── visualizations/                   # Generated plots and analysis</p>
+<p>├── confusion_matrix.png          # Model performance visualization</p>
+<p>└── pr_curve.png                  # Precision-recall analysis</code></pre></p>
+<h2>Domain-Specific Insights</h2>
+<h3>Network Device Telemetry Mapping</h3>
+<p>The sensor data from hard drives maps directly to network device monitoring:</p>
+<p>- <strong>Temperature Sensors</strong> → Router/switch temperature monitoring</p>
+<p>- <strong>Performance Counters</strong> → Interface utilization, error rates</p>
+<p>- <strong>Health Indicators</strong> → Memory usage, CPU load, power consumption</p>
+<p>- <strong>Timing Metrics</strong> → Response times, processing delays</p>
+<h3>Operational Recommendations</h3>
+<p>1. <strong>Monitor Critical Sensors</strong>: Focus on top predictive features identified by the model</p>
+<p>2. <strong>Establish Baselines</strong>: Track normal operating ranges for each device type</p>
+<p>3. <strong>Implement Tiered Alerts</strong>: Different response procedures for high/medium/low risk predictions</p>
+<p>4. <strong>Validate Predictions</strong>: Track actual failure rates to continuously improve model accuracy</p>
+<h2>Next Steps and Extensions</h2>
+<h3>Immediate Enhancements</h3>
+<p>- <strong>Time-Series Integration</strong>: Incorporate temporal trends and seasonal patterns</p>
+<p>- <strong>Multi-Device Models</strong>: Train separate models for different device types/vendors</p>
+<p>- <strong>Anomaly Detection</strong>: Identify unusual sensor patterns that may indicate novel failure modes</p>
+<h3>Production Deployment</h3>
+<p>- <strong>Model Serving</strong>: Deploy model as microservice for real-time predictions</p>
+<p>- <strong>Data Pipeline</strong>: Implement automated data ingestion from network monitoring systems</p>
+<p>- <strong>Feedback Loop</strong>: Capture actual failure outcomes to continuously retrain model</p>
+<p>- <strong>A/B Testing</strong>: Compare predictive maintenance effectiveness against reactive approaches</p>
+<h3>Strategic Development</h3>
+<p>- <strong>Digital Twin</strong>: Create comprehensive device health models incorporating multiple data sources</p>
+<p>- <strong>Prescriptive Analytics</strong>: Recommend specific maintenance actions based on predicted failure modes</p>
+<p>- <strong>Supply Chain Integration</strong>: Optimize spare parts inventory based on failure predictions</p>
+<p>- <strong>Vendor Collaboration</strong>: Share anonymized insights with equipment vendors for product improvement</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

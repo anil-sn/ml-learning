@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 026: BGP Anomaly Detection (Route Leaks, Hijacks) - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 026: BGP Anomaly Detection (Route Leaks, Hijacks)</h1>
+                <p>Routing Security & Anomaly Detection</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build an unsupervised anomaly detection model that can identify anomalous BGP update messages, such as those indicative of a route leak or prefix hijack, by analyzing features of the BGP AS-path.</p>
+<h2>Business Value</h2>
+<p>- <strong>Network Security</strong>: Protect against BGP hijacking attacks and route leaks that can disrupt internet connectivity</p>
+<p>- <strong>Early Warning System</strong>: Provide rapid detection of routing anomalies before they cause widespread outages</p>
+<p>- <strong>SLA Protection</strong>: Maintain service availability by detecting and mitigating routing attacks quickly</p>
+<p>- <strong>Compliance</strong>: Meet security requirements for internet service providers and large enterprises</p>
+<h2>Core Libraries</h2>
+<p>- <strong>scikit-learn</strong>: Isolation Forest for anomaly detection, data preprocessing, and model evaluation</p>
+<p>- <strong>pandas</strong>: Dataset manipulation and feature engineering</p>
+<p>- <strong>numpy</strong>: Numerical computations and data array operations</p>
+<p>- <strong>matplotlib/seaborn</strong>: Data visualization and results analysis</p>
+<p>- <strong>kaggle</strong>: API for accessing the BGP Hijacking Detection Dataset</p>
+<h2>Dataset</h2>
+<p>- <strong>Source</strong>: Kaggle - "BGP Hijacking Detection Dataset"</p>
+<p>- <strong>Size</strong>: Real-world BGP update messages with extracted features</p>
+<p>- <strong>Features</strong>: AS-path characteristics including length statistics, edit distances, prefix information</p>
+<p>- <strong>Labels</strong>: Normal vs. anomalous BGP updates (used only for evaluation)</p>
+<p>- <strong>Type</strong>: Time-series network routing data</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Environment Setup</h3>
+<pre><code class="language-bash"># Create virtual environment
+<p>python -m venv bgp_anomaly_env</p>
+<p>source bgp_anomaly_env/bin/activate  # On Windows: bgp_anomaly_env\Scripts\activate</p>
+<p># Install required packages</p>
+<p>pip install pandas numpy scikit-learn matplotlib seaborn kaggle</code></pre></p>
+<h3>2. Data Collection and Preparation</h3>
+<pre><code class="language-python"># Download dataset using Kaggle API
+<p>import kaggle</p>
+<p>kaggle.api.dataset_download_files('dprembath/bgp-hijacking-detection-dataset',</p>
+<p>path='.', unzip=True)</p>
+<p># Load and preprocess data</p>
+<p>import pandas as pd</p>
+<p>df = pd.read_csv('bgp_data.csv')</p>
+<p># Key BGP features for anomaly detection</p>
+<p>feature_cols = [</p>
+<p>'AS_PATH_LEN', 'AS_PATH_AVG_LEN', 'AS_PATH_MAX_LEN',</p>
+<p>'EDIT_DIST_AS_PATH', 'PREFIX_LEN', 'UNIQUE_AS_COUNT'</p>
+<p>]</code></pre></p>
+<h3>3. Feature Engineering</h3>
+<pre><code class="language-python">from sklearn.preprocessing import StandardScaler
+<p># Separate normal traffic for training (unsupervised approach)</p>
+<p>X_normal = df[df['Label'] == 'normal'][feature_cols]</p>
+<p># Scale features for better model performance</p>
+<p>scaler = StandardScaler()</p>
+<p>X_scaled = scaler.fit_transform(X_normal)</code></pre></p>
+<h3>4. Model Training</h3>
+<pre><code class="language-python">from sklearn.ensemble import IsolationForest
+<p># Configure Isolation Forest for BGP anomaly detection</p>
+<p>model = IsolationForest(</p>
+<p>n_estimators=100,</p>
+<p>contamination=0.15,  # Expected anomaly rate</p>
+<p>random_state=42,</p>
+<p>n_jobs=-1</p>
+<p>)</p>
+<p># Train on normal BGP updates only</p>
+<p>model.fit(X_scaled)</code></pre></p>
+<h3>5. Anomaly Detection and Evaluation</h3>
+<pre><code class="language-python">from sklearn.metrics import classification_report, confusion_matrix
+<p># Predict anomalies on full dataset</p>
+<p>X_all_scaled = scaler.transform(df[feature_cols])</p>
+<p>predictions = model.predict(X_all_scaled)</p>
+<p># Evaluate performance</p>
+<p>print(classification_report(y_true, predictions,</p>
+<p>target_names=['Anomaly', 'Normal']))</code></pre></p>
+<h3>6. Results Visualization</h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+<p>import seaborn as sns</p>
+<p># Analyze detected anomalies</p>
+<p>df['prediction'] = predictions</p>
+<p>anomalies = df[df['prediction'] == -1]</p>
+<p># Compare AS-path length distributions</p>
+<p>plt.figure(figsize=(12, 6))</p>
+<p>sns.kdeplot(df[df['prediction'] == 1]['AS_PATH_LEN'],</p>
+<p>label='Normal', fill=True)</p>
+<p>sns.kdeplot(anomalies['AS_PATH_LEN'],</p>
+<p>label='Detected Anomaly', fill=True, color='red')</p>
+<p>plt.title('AS-Path Length Distribution: Normal vs Anomalous BGP Updates')</p>
+<p>plt.show()</code></pre></p>
+<h2>Success Criteria</h2>
+<p>- <strong>High Recall (>90%)</strong>: Successfully detect most BGP anomalies to prevent security breaches</p>
+<p>- <strong>Low False Positive Rate (<5%)</strong>: Minimize false alarms that could overwhelm network operators</p>
+<p>- <strong>Fast Detection</strong>: Process BGP updates in near real-time for rapid threat response</p>
+<p>- <strong>Interpretable Results</strong>: Provide clear insights into what makes BGP updates anomalous</p>
+<h2>Next Steps & Extensions</h2>
+<p>1. <strong>Real-time Integration</strong>: Deploy model with BGP routing daemons for live monitoring</p>
+<p>2. <strong>Multi-vendor Support</strong>: Adapt for different router vendors and BGP implementations</p>
+<p>3. <strong>Automated Response</strong>: Integrate with network automation to auto-block suspicious routes</p>
+<p>4. <strong>Advanced Features</strong>: Include geographical and temporal patterns in anomaly detection</p>
+<p>5. <strong>Ensemble Methods</strong>: Combine multiple anomaly detection algorithms for better accuracy</p>
+<h2>Files Structure</h2>
+<pre><code class="language-bash">026_BGP_Anomaly_Detection/
+<p>├── README.md</p>
+<p>├── bgp_anomaly_detection.ipynb</p>
+<p>├── requirements.txt</p>
+<p>└── data/</p>
+<p>└── (Kaggle dataset files)</code></pre></p>
+<h2>Running the Project</h2>
+<p>1. Set up Kaggle API credentials</p>
+<p>2. Execute the Jupyter notebook step by step</p>
+<p>3. Review anomaly detection results and visualizations</p>
+<p>4. Analyze feature importance for BGP security insights</p>
+<p>This project demonstrates how unsupervised machine learning can enhance network security by detecting routing anomalies that traditional rule-based systems might miss.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

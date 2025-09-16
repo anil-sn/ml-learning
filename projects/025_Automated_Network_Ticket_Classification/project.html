@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project 025: Automated Network Ticket Classification and Prioritization - Anil Kumar SN</title>
+      <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            })();
+        </script>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../../css/styles.css?v=2">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+   </head>
+   <body>
+      <div class="main-container">
+         <aside class="sidebar">
+            <nav class="navbar">
+               <a href="../../index.html">Home</a>
+                <a href="../../html/about.html">About Me</a>
+                <a href="../../html/llm_lingo.html">LLM Lingo</a>
+               <a href="../../html/ml_youtube_courses.html">ML YouTube Courses</a>
+               <a href="../../html/python_notebooks.html">Python Notebooks</a>
+               <a href="../../html/AIML_Research.html">AI/ML Timeline</a>
+               <a href="../../html/blogs.html">Blogs</a>
+               <a href="../../html/Projects.html">Projects</a>
+                <a href="../../html/llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="../../html/ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+         </aside>
+         
+         <main class="main-content">
+            <header class="header">
+                <h1>Project 025: Automated Network Ticket Classification and Prioritization</h1>
+                <p>NLP & Text Classification for Operations</p>
+            </header>
+            
+            <section class="content section">
+                <div class="card">
+                    <div class="project-navigation">
+                        <a href="../../html/Projects.html" class="nav-link">← Back to All Projects</a>
+                        <div class="project-files">
+                            <a href="notebook.ipynb" class="nav-link" download>📓 Download Notebook</a>
+                            <a href="requirements.txt" class="nav-link" download>📋 Requirements.txt</a>
+                        </div>
+                    </div>
+                    
+                    <article class="project-content">
+                        <h2>Objective</h2>
+<p>Build an NLP-powered system that automatically classifies and prioritizes network trouble tickets based on their text description, reducing manual triage effort and improving response times.</p>
+<h2>Business Value</h2>
+<strong>For IT Service Desk:</strong>
+<p>- <strong>Automated Triage</strong>: Eliminate manual ticket classification and routing delays</p>
+<p>- <strong>Response Time Improvement</strong>: Accelerate high-priority issue resolution through intelligent prioritization</p>
+<p>- <strong>Resource Optimization</strong>: Assign specialized technicians to appropriate ticket categories</p>
+<p>- <strong>SLA Compliance</strong>: Meet service level agreements through predictive priority assignment</p>
+<strong>For Network Operations:</strong>
+<p>- <strong>Incident Management</strong>: Streamline network incident response workflows</p>
+<p>- <strong>Knowledge Management</strong>: Extract insights from historical ticket patterns</p>
+<p>- <strong>Capacity Planning</strong>: Predict staffing needs based on ticket volume and complexity</p>
+<p>- <strong>Customer Satisfaction</strong>: Reduce resolution times through efficient ticket handling</p>
+<h2>Core Libraries</h2>
+<p>- <strong>pandas & numpy</strong>: Ticket data processing and text analysis</p>
+<p>- <strong>scikit-learn</strong>: TF-IDF vectorization and Logistic Regression for multi-class classification</p>
+<p>- <strong>matplotlib & seaborn</strong>: Ticket pattern analysis and classification performance visualization</p>
+<p>- <strong>nltk/spacy</strong>: Advanced text preprocessing and feature extraction</p>
+<h2>Dataset</h2>
+<strong>Source</strong>: Synthetically Generated Network Trouble Tickets
+<p>- <strong>Categories</strong>: Connectivity, Performance, Security, Hardware, Configuration issues</p>
+<p>- <strong>Priority Levels</strong>: P1 (Critical), P2 (High), P3 (Medium), P4 (Low)</p>
+<p>- <strong>Ticket Text</strong>: Realistic problem descriptions with technical terminology</p>
+<p>- <strong>Metadata</strong>: Creation time, affected systems, user impact levels</p>
+<strong>Ticket Categories:</strong>
+<p>- <strong>Connectivity</strong>: Network outages, routing issues, link failures</p>
+<p>- <strong>Performance</strong>: Bandwidth problems, latency issues, throughput degradation</p>
+<p>- <strong>Security</strong>: Intrusion alerts, policy violations, access issues</p>
+<p>- <strong>Hardware</strong>: Equipment failures, port problems, power issues</p>
+<p>- <strong>Configuration</strong>: Settings errors, policy misconfigurations, change issues</p>
+<h2>Step-by-Step Guide</h2>
+<h3>1. Synthetic Ticket Dataset Generation</h3>
+<pre><code class="language-python"># Create realistic network trouble tickets
+<p>templates = {</p>
+<p>'Connectivity': {</p>
+<p>'P1': "Total network outage in {location}. All users affected.",</p>
+<p>'P2': "Intermittent connectivity to {system}. Multiple users impacted.",</p>
+<p>'P3': "Single user cannot access {resource}. Local issue suspected.",</p>
+<p>'P4': "Scheduled maintenance required for {equipment}."</p>
+<p>}</p>
+<p>}</code></pre></p>
+<h3>2. Text Preprocessing and Feature Engineering</h3>
+<pre><code class="language-python"># Clean and prepare ticket text for analysis
+<p>def preprocess_ticket_text(text):</p>
+<p>text = text.lower()</p>
+<p>text = re.sub(r'[^a-zA-Z\s]', '', text)</p>
+<p>text = ' '.join(text.split())</p>
+<p>return text</p>
+<p># Apply preprocessing to all tickets</p>
+<p>df['processed_text'] = df['description'].apply(preprocess_ticket_text)</code></pre></p>
+<h3>3. TF-IDF Vectorization</h3>
+<pre><code class="language-python"># Convert text to numerical features
+<p>vectorizer = TfidfVectorizer(</p>
+<p>max_features=1000,</p>
+<p>stop_words='english',</p>
+<p>ngram_range=(1, 2)  # Include bigrams for better context</p>
+<p>)</p>
+<p>X_tfidf = vectorizer.fit_transform(df['processed_text'])</code></pre></p>
+<h3>4. Multi-class Classification Models</h3>
+<pre><code class="language-python"># Separate models for category and priority prediction
+<p>category_model = LogisticRegression(</p>
+<p>multi_class='ovr',</p>
+<p>class_weight='balanced',</p>
+<p>random_state=42</p>
+<p>)</p>
+<p>priority_model = LogisticRegression(</p>
+<p>multi_class='ovr',</p>
+<p>class_weight='balanced',</p>
+<p>random_state=42</p>
+<p>)</code></pre></p>
+<h3>5. Model Training and Evaluation</h3>
+<pre><code class="language-python"># Train both classification models
+<p>category_model.fit(X_train_tfidf, y_train_category)</p>
+<p>priority_model.fit(X_train_tfidf, y_train_priority)</p>
+<p># Evaluate performance</p>
+<p>category_pred = category_model.predict(X_test_tfidf)</p>
+<p>priority_pred = priority_model.predict(X_test_tfidf)</code></pre></p>
+<h3>6. Feature Importance Analysis</h3>
+<pre><code class="language-python"># Identify most important terms for each category
+<p>feature_names = vectorizer.get_feature_names_out()</p>
+<p>for category, coef in zip(categories, category_model.coef_):</p>
+<p>top_features = feature_names[coef.argsort()[-10:]]</p>
+<p>print(f"{category}: {top_features}")</code></pre></p>
+<h2>Success Criteria</h2>
+<strong>Primary Metrics:</strong>
+<p>- <strong>Category Classification Accuracy</strong>: >90% for ticket routing</p>
+<p>- <strong>Priority Classification Accuracy</strong>: >85% for SLA compliance</p>
+<p>- <strong>Macro F1-Score</strong>: >0.85 across all classes for balanced performance</p>
+<strong>Secondary Metrics:</strong>
+<p>- <strong>Processing Speed</strong>: <100ms per ticket for real-time classification</p>
+<p>- <strong>Model Interpretability</strong>: Clear feature weights for business understanding</p>
+<p>- <strong>Confidence Scores</strong>: Probability estimates for manual review thresholds</p>
+<strong>Business Impact:</strong>
+<p>- Reduce manual triage time by 80%</p>
+<p>- Improve P1 incident response time by 50%</p>
+<p>- Increase technician utilization through better routing</p>
+<p>- Achieve 95% SLA compliance through accurate prioritization</p>
+<h2>Next Steps & Extensions</h2>
+<h3>Immediate Improvements</h3>
+<p>- <strong>Active Learning</strong>: Incorporate analyst feedback to improve model accuracy</p>
+<p>- <strong>Multi-label Classification</strong>: Handle tickets with multiple categories</p>
+<p>- <strong>Sentiment Analysis</strong>: Detect customer frustration levels in ticket text</p>
+<h3>Advanced NLP Techniques</h3>
+<p>- <strong>BERT/Transformer Models</strong>: Use pre-trained language models for better understanding</p>
+<p>- <strong>Named Entity Recognition</strong>: Extract network components, locations, and systems</p>
+<p>- <strong>Topic Modeling</strong>: Discover hidden patterns in ticket descriptions</p>
+<p>- <strong>Text Similarity</strong>: Find related tickets for knowledge base suggestions</p>
+<h3>Production Integration</h3>
+<p>- <strong>Real-time API</strong>: Deploy models as REST services for ticket system integration</p>
+<p>- <strong>Confidence Thresholds</strong>: Route uncertain predictions to human reviewers</p>
+<p>- <strong>Model Monitoring</strong>: Track prediction accuracy and retrain as needed</p>
+<p>- <strong>A/B Testing</strong>: Compare automated vs manual triage performance</p>
+<h3>Specialized Features</h3>
+<p>- <strong>Time-aware Models</strong>: Consider time of day, day of week patterns</p>
+<p>- <strong>User Profiling</strong>: Incorporate requester history and expertise levels</p>
+<p>- <strong>System Integration</strong>: Connect with monitoring tools for automated ticket creation</p>
+<p>- <strong>Escalation Logic</strong>: Implement smart escalation based on resolution time predictions</p>
+<h3>Analytics and Reporting</h3>
+<p>- <strong>Trend Analysis</strong>: Identify recurring issues and root causes</p>
+<p>- <strong>Performance Dashboards</strong>: Track triage accuracy and processing metrics</p>
+<p>- <strong>Capacity Forecasting</strong>: Predict ticket volumes and resource requirements</p>
+<p>- <strong>Knowledge Mining</strong>: Extract solutions from resolved tickets for knowledge base</p>
+<p>This project transforms IT service desk operations by applying advanced NLP to automate the most time-consuming aspects of ticket management, enabling faster incident resolution and improved customer satisfaction.</p>
+                    </article>
+                </div>
+            </section>
+         </main>
+      </div>
+      
+      <footer>
+         <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+         <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+      </footer>
+      
+      <button id="backToTopBtn" title="Go to top">↑</button>
+      <script src="../../js/navigation.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+      <script src="../../js/main.js"></script>
+   </body>
+</html>
