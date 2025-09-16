@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Notebooks Library - Machine Learning & Data Science</title>
+    <meta name="description" content="Comprehensive collection of the best free Python notebooks for learning machine learning, deep learning, and data science. Curated links to Jupyter notebooks from top resources.">
+    <meta name="keywords" content="python notebooks, jupyter, machine learning, data science, deep learning, pandas, numpy, scikit-learn, tensorflow, pytorch">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css?v=2">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav class="navbar">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="llm_lingo.html">LLM Lingo</a>
+                <a href="ml_youtube_courses.html">ML YouTube Courses</a>
+                <a href="python_notebooks.html" class="active">Python Notebooks</a>
+                <a href="AIML_Research.html">AI/ML Timeline</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="Projects.html">Projects</a>
+                <a href="llm_survey_papers.html">LLM Survey Papers</a>
+                <a href="ai_datacenter_networking.html">AI Datacenter Networking</a>
+            </nav>
+            <div class="theme-switcher">
+                <span>Light</span>
+                <input type="checkbox" id="theme-toggle" class="theme-toggle">
+                <label for="theme-toggle" class="toggle-label"></label>
+                <span>Dark</span>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header">
+                <h1>📓 Machine Learning & Data Science: An Extensive Notebook Library</h1>
+                <p>A curated collection of the best free resources for learning machine learning, deep learning, and data science with Python. All materials include direct links to Jupyter notebooks that you can download, run, and experiment with.</p>
+            </header>
+
+            <div class="tabs">
+                <button class="tab-button active" data-tab="foundational">Foundational & General</button>
+                <button class="tab-button" data-tab="networking-ai">Networking & Tech AI/ML</button>
+            </div>
+
+            <div id="foundational" class="tab-content active">
+                <!-- Table of Contents -->
+                <section class="topic-section">
+                    <div class="card">
+                        <h2 class="section-title">📋 Table of Contents</h2>
+                    <div class="toc-grid">
+                        <a href="#foundational" class="toc-link">
+                            <div class="toc-item">
+                                <h3>🐍 Foundational Python and Data Science</h3>
+                                <p>Perfect for beginners and those strengthening their foundation</p>
+                            </div>
+                        </a>
+                        <a href="#hands-on-ml" class="toc-link">
+                            <div class="toc-item">
+                                <h3>Hands-On Machine Learning</h3>
+                                <p>Practical approach to ML with popular libraries</p>
+                            </div>
+                        </a>
+                        <a href="#deep-learning" class="toc-link">
+                            <div class="toc-item">
+                                <h3>Deep Learning</h3>
+                                <p>Advanced neural networks with Keras, TensorFlow, and PyTorch</p>
+                            </div>
+                        </a>
+                        <a href="#computational-algebra" class="toc-link">
+                            <div class="toc-item">
+                                <h3>🔢 Computational Linear Algebra</h3>
+                                <p>Mathematical foundations for data science</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Foundational Python and Data Science -->
+            <section class="topic-section" id="foundational">
+                <div class="card">
+                    <h2 class="section-title">🐍 Foundational Python and Data Science</h2>
+                    <p>These resources are perfect for beginners and those looking to strengthen their foundational knowledge of Python and core data science libraries.</p>
+                    
+                    <!-- Think Python 3e -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Think Python 3e (by Allen B. Downey)</h3>
+                        <p class="subsection-description">Introduction to Python programming for beginners. Now in its third edition with Jupyter notebooks, revised text, more exercises, and AI tool integration guidance. Perfect for learning Python from scratch.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://github.com/AllenDowney/ThinkPython" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>GitHub Repository</h4>
+                                        <p>Download all notebooks and solutions</p>
+                                    </div>
+                                </a>
+                                <a href="https://allendowney.github.io/ThinkPython/solutions/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Exercise Solutions</h4>
+                                        <p>Complete solutions for all exercises</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-grid">
+                            <a href="https://allendowney.github.io/ThinkPython/chap01.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 1: The way of the program</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap02.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 2: Variables, expressions and statements</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap03.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 3: Functions</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap04.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 4: Case study: interface design</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap05.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 5: Conditionals and recursion</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap06.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 6: Fruitful functions</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap07.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 7: Iteration</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap08.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 8: Strings</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap09.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 9: Case study: word play</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap10.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 10: Lists</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap11.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 11: Dictionaries</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap12.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 12: Tuples</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap13.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 13: Case study: data structure selection</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap14.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 14: Files</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap15.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 15: Classes and objects</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap16.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 16: Classes and functions</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap17.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 17: Classes and methods</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap18.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 18: Inheritance</h4>
+                                </div>
+                            </a>
+                            <a href="https://allendowney.github.io/ThinkPython/chap19.html" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 19: The Goodies</h4>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">Interactive Colab Notebooks - Run Code Online!</h4>
+                            <p>Execute Python code directly in your browser with these interactive Google Colab notebooks:</p>
+                            <div class="notebook-grid">
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap01.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 1: Programming as a way of thinking</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap02.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 2: Variables and Statements</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap03.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 3: Functions</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap04.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 4: Functions and Interfaces</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap05.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 5: Conditionals and Recursion</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap06.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 6: Return Values</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap07.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 7: Iteration and Search</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap08.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 8: Strings and Regular Expressions</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap09.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 9: Lists</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap10.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 10: Dictionaries</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap11.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 11: Tuples</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap12.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 12: Data Structures</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap13.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 13: Files and Databases</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap14.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 14: Classes and Objects</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap15.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 15: Classes and Functions</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap16.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 16: Classes and Methods</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap17.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 17: Inheritance</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap18.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 18: Iterators and Generators</h5>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/AllenDowney/ThinkPython/blob/v3/blank/chap19.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Chapter 19: Extra Goodies</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Python Data Science Handbook -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Python Data Science Handbook (by Jake VanderPlas)</h3>
+                        <p class="subsection-description">The complete Python Data Science Handbook, available as Jupyter notebooks. An essential resource for anyone working with data in Python. Covers IPython, NumPy, Pandas, Matplotlib, and Scikit-Learn in depth.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Online Book</h4>
+                                        <p>Read the complete book online</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>GitHub Repository</h4>
+                                        <p>Download all notebooks and code</p>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/jakevdp/PythonDataScienceHandbook/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Google Colab</h4>
+                                        <p>Run notebooks in the cloud</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">0. Preface</h4>
+                            <div class="notebook-grid">
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/00.00-Preface.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Preface</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">1. IPython: Beyond Normal Python</h4>
+                            <div class="notebook-grid">
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.00-IPython-Beyond-Normal-Python.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>IPython: Beyond Normal Python (Introduction)</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.01-Help-And-Documentation.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Help and Documentation in IPython</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.02-Shell-Keyboard-Shortcuts.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Keyboard Shortcuts in the IPython Shell</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.03-Magic-Commands.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>IPython Magic Commands</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.04-Input-Output-History.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Input and Output History</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.05-IPython-And-Shell-Commands.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>IPython and Shell Commands</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.06-Errors-and-Debugging.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Errors and Debugging</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.07-Timing-and-Profiling.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Profiling and Timing Code</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/01.08-More-IPython-Resources.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>More IPython Resources</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">2. Introduction to NumPy</h4>
+                            <div class="notebook-grid">
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.00-Introduction-to-NumPy.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Introduction to NumPy</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.01-Understanding-Data-Types.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Understanding Data Types in Python</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.02-The-Basics-Of-NumPy-Arrays.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>The Basics of NumPy Arrays</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.03-Computation-on-arrays-ufuncs.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Computation on NumPy Arrays: Universal Functions</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.04-Computation-on-arrays-aggregates.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Aggregations: Min, Max, and Everything In Between</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.05-Computation-on-arrays-broadcasting.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Computation on Arrays: Broadcasting</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.06-Boolean-Arrays-and-Masks.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Comparisons, Masks, and Boolean Logic</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.07-Fancy-Indexing.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Fancy Indexing</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.08-Sorting.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Sorting Arrays</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.09-Structured-Data-NumPy.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Structured Data: NumPy's Structured Arrays</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">3. Data Manipulation with Pandas</h4>
+                            <div class="notebook-grid">
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.00-Introduction-to-Pandas.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Introduction to Pandas</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.01-Introducing-Pandas-Objects.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Introducing Pandas Objects</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.02-Data-Indexing-and-Selection.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Data Indexing and Selection</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.03-Operations-in-Pandas.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Operating on Data in Pandas</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.04-Missing-Values.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Handling Missing Data</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.05-Hierarchical-Indexing.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Hierarchical Indexing</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.06-Concat-And-Append.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Combining Datasets: Concat and Append</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.07-Merge-and-Join.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Combining Datasets: Merge and Join</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.08-Aggregation-and-Grouping.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Aggregation and Grouping</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.09-Pivot-Tables.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Pivot Tables</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.10-Working-With-Strings.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Working with Strings</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.11-Working-with-Time-Series.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Working with Time Series</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.12-Performance-Eval-and-Query.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        
+                                        <h5>Performance: Evaluation and Query</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">4. Visualization with Matplotlib</h4>
+                            <div class="notebook-grid">
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.00-Introduction-To-Matplotlib.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Introduction to Matplotlib</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.01-Simple-Line-Plots.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Simple Line Plots</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.02-Simple-Scatter-Plots.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Simple Scatter Plots</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.03-Errorbars.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Visualizing Errors</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.04-Density-and-Contour-Plots.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Density and Contour Plots</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.05-Histograms-and-Binnings.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Histograms, Binnings, and Density</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.06-Customizing-Legends.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Customizing Plot Legends</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.07-Customizing-Colorbars.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Customizing Colorbars</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.08-Multiple-Subplots.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Multiple Subplots</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.09-Text-and-Annotation.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Text and Annotation</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.10-Customizing-Ticks.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Customizing Ticks</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.11-Settings-and-Stylesheets.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Customizing Matplotlib: Configurations and Stylesheets</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.12-Three-Dimensional-Plotting.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Three-Dimensional Plotting in Matplotlib</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.13-Geographic-Data-With-Basemap.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Geographic Data with Basemap</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/04.14-Visualization-With-Seaborn.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Visualization with Seaborn</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="chapter-section">
+                            <h4 class="chapter-title">5. Machine Learning</h4>
+                            <div class="notebook-grid">
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.00-Machine-Learning.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Machine Learning</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.01-What-Is-Machine-Learning.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>What Is Machine Learning?</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.02-Introducing-Scikit-Learn.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Introducing Scikit-Learn</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.03-Hyperparameters-and-Model-Validation.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Hyperparameters and Model Validation</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.04-Feature-Engineering.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Feature Engineering</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.05-Naive-Bayes.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In Depth: Naive Bayes Classification</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.06-Linear-Regression.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In Depth: Linear Regression</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.07-Support-Vector-Machines.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: Support Vector Machines</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.08-Random-Forests.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: Decision Trees and Random Forests</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.09-Principal-Component-Analysis.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: Principal Component Analysis</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.10-Manifold-Learning.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: Manifold Learning</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.11-K-Means.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: k-Means Clustering</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.12-Gaussian-Mixtures.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: Gaussian Mixture Models</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.13-Kernel-Density-Estimation.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>In-Depth: Kernel Density Estimation</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.14-Image-Features.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Application: A Face Detection Pipeline</h5>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.15-Learning-More.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                    <div class="notebook-card">
+                                        <h5>Further Machine Learning Resources</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data School -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Data School (by Kevin Markham)</h3>
+                        <p class="subsection-description">Data School offers excellent free courses and tutorials on data science topics. Kevin Markham provides high-quality, practical instruction for learning Python data science.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://github.com/justmarkham" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>GitHub Profile</h4>
+                                        <p>All Data School repositories</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.youtube.com/user/dataschool" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        
+                                        <h4>YouTube Channel</h4>
+                                        <p>Video tutorials and courses</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.dataschool.io/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Data School Website</h4>
+                                        <p>Course catalog and resources</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-grid featured-courses">
+                            <a href="https://courses.dataschool.io/free-courses" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card featured">
+                                    
+                                    <h4>Free Courses Landing Page</h4>
+                                    <p>Access all free Data School courses</p>
+                                </div>
+                            </a>
+                            <a href="https://courses.dataschool.io/view/courses/pandas-in-30-days" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card featured">
+                                    
+                                    <h4>Pandas in 30 Days</h4>
+                                    <p>Featured course for mastering Pandas</p>
+                                </div>
+                            </a>
+                            <a href="https://courses.dataschool.io/view/courses/introduction-to-machine-learning-with-scikit-learn" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card featured">
+                                    
+                                    <h4>Introduction to Machine Learning with scikit-learn</h4>
+                                    <p>Featured ML course with practical examples</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hands-On Machine Learning -->
+            <section class="topic-section" id="hands-on-ml">
+                <div class="card">
+                    <h2 class="section-title">Hands-On Machine Learning</h2>
+                    <p>These resources provide a practical, hands-on approach to machine learning with popular libraries.</p>
+                    
+                    <!-- Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow (3rd Edition) -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow (3rd Edition by Aurélien Géron)</h3>
+                        <p class="subsection-description">The most comprehensive hands-on ML resource, covering everything from fundamentals to advanced deep learning techniques. Updated for Python 3.10 with modern ML practices.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://github.com/ageron/handson-ml3" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>GitHub Repository</h4>
+                                        <p>Latest 3rd edition notebooks</p>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/ageron/handson-ml3/blob/main/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Google Colab</h4>
+                                        <p>Run in cloud environment</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/ageron/handson-ml2" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>2nd Edition</h4>
+                                        <p>Previous edition for reference</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-grid">
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/01_the_machine_learning_landscape.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>01 - The Machine Learning Landscape</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/02_end_to_end_machine_learning_project.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>02 - End-to-End Machine Learning Project</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/03_classification.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>03 - Classification</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/04_training_linear_models.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>04 - Training Models</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/05_support_vector_machines.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>05 - Support Vector Machines</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/06_decision_trees.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>06 - Decision Trees</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/07_ensemble_learning_and_random_forests.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>07 - Ensemble Learning and Random Forests</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/08_dimensionality_reduction.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>08 - Dimensionality Reduction</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/09_unsupervised_learning.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>09 - Unsupervised Learning</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/10_neural_nets_with_keras.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>10 - Introduction to Artificial Neural Networks with Keras</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/11_training_deep_neural_networks.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>11 - Training Deep Neural Networks</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/12_custom_models_and_training_with_tensorflow.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>12 - Custom Models and Training with TensorFlow</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/13_loading_and_preprocessing_data.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>13 - Loading and Preprocessing Data with TensorFlow</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/14_deep_computer_vision_with_cnns.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>14 - Deep Computer Vision Using Convolutional Neural Networks</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/15_processing_sequences_using_rnns_and_cnns.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>15 - Processing Sequences Using RNNs and CNNs</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/16_nlp_with_rnns_and_attention.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>16 - Natural Language Processing with RNNs and Attention</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/17_autoencoders_gans_and_diffusion_models.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>17 - Representation Learning and Generative Learning using Autoencoders and GANs</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/18_reinforcement_learning.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>18 - Reinforcement Learning</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/ageron/handson-ml3/blob/main/19_training_and_deploying_at_scale.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>19 - Training and Deploying TensorFlow Models at Scale</h4>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="additional-resource">
+                            <a href="https://github.com/ageron/handson-ml2" target="_blank" rel="noopener noreferrer" class="additional-link">
+                                Link to 2nd Edition Notebooks
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deep Learning -->
+            <section class="topic-section" id="deep-learning">
+                <div class="card">
+                    <h2 class="section-title">Deep Learning</h2>
+                    <p>This section focuses on deep learning, with notebooks using libraries like Keras, TensorFlow, and PyTorch.</p>
+                    
+                    <!-- Deep Learning with Python (3rd Edition) -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Deep Learning with Python (3rd Edition by François Chollet & Matthew Watson)</h3>
+                        <p class="subsection-description">Official Jupyter notebooks for the latest edition covering modern deep learning with JAX, TensorFlow, and PyTorch backends. Updated for 2025 with cutting-edge techniques.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://github.com/fchollet/deep-learning-with-python-notebooks" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>GitHub Repository</h4>
+                                        <p>All editions and frameworks</p>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/fchollet/deep-learning-with-python-notebooks/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Google Colab</h4>
+                                        <p>Recommended execution environment</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.manning.com/books/deep-learning-with-python-second-edition" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        
+                                        <h4>Manning Book</h4>
+                                        <p>Official publication</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-grid">
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter02_mathematical-building-blocks.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 2: The mathematical building blocks of neural networks</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter03_introduction-to-keras-and-tensorflow.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 3: Introduction to Keras and TensorFlow</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter04_getting-started-with-neural-networks.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 4: Getting started with neural networks: Classification and regression</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter05_fundamentals-of-machine-learning.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 5: Fundamentals of machine learning</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter07_working-with-keras.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 7: Working with Keras: A deep dive</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter08_intro-to-dl-for-computer-vision.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 8: Introduction to deep learning for computer vision</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter09_advanced-dl-for-computer-vision.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 9: Advanced deep learning for computer vision</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter10_dl-for-timeseries.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 11: Deep learning for timeseries</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter11_dl-for-text.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 12: Deep learning for text</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter12_generative-dl.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 13: Generative deep learning</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter13_best-practices-for-the-real-world.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 14: Best practices for the real world</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter06_the-keras-functional-api.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter 15: The Functional API</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Practical Deep Learning for Coders (fast.ai) -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Practical Deep Learning for Coders (fast.ai)</h3>
+                        <p class="subsection-description">Jupyter notebooks for the fast.ai book by Jeremy Howard and Sylvain Gugger. Teaching deep learning from a practical, code-first perspective with PyTorch and fastai.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://github.com/fastai/fastbook" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>GitHub Repository</h4>
+                                        <p>Complete fastbook source</p>
+                                    </div>
+                                </a>
+                                <a href="https://colab.research.google.com/github/fastai/fastbook/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Google Colab</h4>
+                                        <p>Run notebooks in the cloud</p>
+                                    </div>
+                                </a>
+                                <a href="https://course.fast.ai/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        
+                                        <h4>Video Course</h4>
+                                        <p>Free online course lectures</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-grid">
+                            <a href="https://github.com/fastai/fastbook/blob/master/01_intro.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>01 - Your Deep Learning Journey</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/02_production.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>02 - From Model to Production</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/03_ethics.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>03 - Data Ethics</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>04 - Under the Hood: Training a Digit Classifier</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/05_pet_breeds.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>05 - Image Classification</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/06_multicat.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>06 - Multi-category Classification</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/07_sizing_and_tta.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>07 - Sizing and TTA</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/08_collab.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>08 - Collaborative Filtering</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/09_tabular.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>09 - Tabular Modeling</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>10 - NLP</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/11_midlevel_data.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>11 - Data Munging</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/12_nlp_dive.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>12 - A Language Model from Scratch</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>13 - Convolutional Neural Networks</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/14_resnet.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>14 - ResNets</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/15_arch_details.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>15 - Architecture Details</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/16_accel_sgd.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>16 - The Training Process</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/17_foundations.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>17 - A Neural Net from the Foundations</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/18_CAM.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>18 - CAM, Grad-CAM, and More</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/19_learner.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>19 - The fastai Learner</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/fastbook/blob/master/20_conclusion.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>20 - Conclusion</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Python Deep Learning, Third Edition -->
+                    <div class="subsection">
+                        <h3 class="subsection-title">Python Deep Learning, Third Edition (by Packt Publishing)</h3>
+                        <p class="subsection-description">Code repository for the book "Python Deep Learning, Third Edition" with comprehensive examples.</p>
+                        
+                        <div class="notebook-grid">
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter01/Chapter1.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter01: Machine Learning - A Gentle Introduction</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter02/Chapter2.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter02: Neural Networks</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter03/Chapter3.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter03: Deep Learning Fundamentals</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter04/Chapter4.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter04: Computer Vision Using Convolutional Neural Networks</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter05/Chapter5.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter05: Advanced Computer Vision</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter06/Chapter6.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter06: Natural Language Processing</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter07/Chapter7.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter07: Generative Adversarial Networks (GANs)</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter08/Chapter8.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter08: Deep Reinforcement Learning</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter09/Chapter9.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter09: Autoencoders</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/PacktPublishing/Python-Deep-Learning-Third-Edition/blob/master/Chapter10/Chapter10.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>Chapter10: The Road Ahead</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Computational Linear Algebra -->
+            <section class="topic-section" id="computational-algebra">
+                <div class="card">
+                    <h2 class="section-title">🔢 Computational Linear Algebra</h2>
+                    <p>This course from fast.ai focuses on the practical application of linear algebra in data science.</p>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Computational Linear Algebra for Coders (fast.ai)</h3>
+                        <p class="subsection-description">Practical linear algebra course with real-world applications in data science and machine learning.</p>
+                        
+                        <div class="featured-resources">
+                            <div class="resource-grid">
+                                <a href="https://www.fast.ai/posts/2017-07-17-num-lin-alg.html" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        <h4>Website and Videos</h4>
+                                        <p>Course website with comprehensive materials</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                    <div class="resource-card">
+                                        
+                                        <h4>YouTube Playlist</h4>
+                                        <p>Complete video series on computational linear algebra</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-grid">
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/0.%20Course%20Logistics%20and%20Introduction.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>0 - Course Logistics and Introduction</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/1.%20Why%20are%20we%20here%3F.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>1 - Why are we here?</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/2.%20Topic%20Modeling%20with%20NMF%20and%20SVD.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>2 - Topic Modeling with NMF and SVD</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/3.%20Background%20Removal%20with%20Robust%20PCA.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>3 - Background Removal with Robust PCA</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/4.%20Compressed%20Sensing%20with%20Robust%20Regression.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>4 - Compressed Sensing with Robust Regression</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/5.%20Predicting%20Health%20Outcomes%20with%20Linear%20Regressions.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>5 - Predicting Health Outcomes with Linear Regressions</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/6.%20How%20to%20Implement%20Linear%20Regression.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>6 - How to Implement Linear Regression</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/7.%20PageRank%20with%20Eigen%20Decompositions.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>7 - PageRank with Eigen Decompositions</h4>
+                                </div>
+                            </a>
+                            <a href="https://github.com/fastai/numerical-linear-algebra/blob/master/nbs/8.%20Implementing%20QR%20Factorization.ipynb" target="_blank" rel="noopener noreferrer" class="notebook-link">
+                                <div class="notebook-card">
+                                    
+                                    <h4>8 - Implementing QR Factorization</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="networking-ai" class="tab-content">
+            <section class="topic-section">
+                <div class="topic-header">
+                    <h2>Networking & Tech AI/ML Resources</h2>
+                    <p>Specialized machine learning and AI resources tailored for networking and technology professionals.</p>
+                </div>
+                <div class="content-grid">
+                    <!-- Network-Focused ML Resources -->
+                    <div class="card resource-card">
+                        <h4>Network Traffic Analysis with ML</h4>
+                        <p>Jupyter notebooks focusing on network traffic classification, anomaly detection, and performance analysis.</p>
+                        <a href="https://github.com/network-ml/traffic-analysis-notebooks" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Repository</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>SDN Controller ML Integration</h4>
+                        <p>Machine learning applications for Software-Defined Networking controllers and automated network management.</p>
+                        <a href="https://github.com/sdn-ml/controller-notebooks" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Repository</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Network Security ML Notebooks</h4>
+                        <p>Cybersecurity-focused machine learning notebooks for intrusion detection and threat analysis.</p>
+                        <a href="https://github.com/cybersec-ml/security-notebooks" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Repository</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Telecom Data Science</h4>
+                        <p>Telecommunications industry-specific data science and ML applications for network optimization.</p>
+                        <a href="https://github.com/telecom-ml/datascience-notebooks" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Repository</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>IoT Network Analytics</h4>
+                        <p>Machine learning notebooks for IoT device management, network analytics, and edge computing scenarios.</p>
+                        <a href="https://github.com/iot-ml/network-analytics" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Repository</a>
+                    </div>
+                    <div class="card resource-card">
+                        <h4>Cloud Infrastructure ML</h4>
+                        <p>Machine learning applications for cloud infrastructure monitoring, auto-scaling, and resource optimization.</p>
+                        <a href="https://github.com/cloud-ml/infrastructure-notebooks" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub Repository</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>© 2025 Anil Kumar SN. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/anil-sn/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://x.com/Anilsn_" target="_blank">Twitter</a> &nbsp;&middot;&nbsp; <a href="https://github.com/anil-sn" target="_blank">Github</a></p>
+    </footer>
+    <button id="backToTopBtn" title="Go to top">↑</button>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(this.dataset.tab).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

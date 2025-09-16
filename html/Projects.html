@@ -12,8 +12,8 @@
                 }
             })();
         </script>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="../css/styles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../css/styles.css?v=2">
    </head>
    <body>
       <div class="main-container">
@@ -23,12 +23,11 @@
                 <a href="about.html">About Me</a>
                 <a href="llm_lingo.html">LLM Lingo</a>
                <a href="ml_youtube_courses.html">ML YouTube Courses</a>
-               <a href="Environments.html">Environments</a>
+               <a href="python_notebooks.html">Python Notebooks</a>
                <a href="AIML_Research.html">AI/ML Timeline</a>
                <a href="blogs.html">Blogs</a>
                <a href="Projects.html" class="active">Projects</a>
                 <a href="llm_survey_papers.html">LLM Survey Papers</a>
-                <a href="networking_truths.html">Networking Truths</a>
                 <a href="ai_datacenter_networking.html">AI Datacenter Networking</a>
             </nav>
             <div class="theme-switcher">
@@ -128,6 +127,97 @@
                      </tr>
                   </tbody>
                </table>
+            </div>
+         </section>
+
+         <!-- Development Environments Section (moved from Environments.html) -->
+         <section class="content section">
+            <div class="card">
+               <h2>Development Environments</h2>
+               <p>Explore popular development environments for data science and machine learning</p>
+               
+               <p>JupyterLab, Google Colab, and Kaggle are all popular platforms for learning and experimenting with machine learning and AI, but they have distinct differences in interface, capabilities, hardware access, and target use cases.</p>
+               
+               <h3>JupyterLab</h3>
+               <ul>
+                  <li><b>JupyterLab</b> is an open-source, versatile, locally-installed development environment for interactive computing.</li>
+                  <li>It supports multiple documents (notebooks, terminals, file editors) with a flexible layout, and is ideal for advanced workflows and custom extensions.</li>
+                  <li>Users need to install and configure it locally or on a server; hardware limitations depend on the user's machine.</li>
+                  <li>Most suitable for those seeking full control and customization, especially for complex or multi-file projects.</li>
+               </ul>
+               
+               <h3>Google Colab</h3>
+               <ul>
+                  <li><b>Google Colab</b> is a cloud-based, free Jupyter notebook environment provided by Google.</li>
+                  <li>Requires no setup—just a browser and Google account—with seamless integration to Google Drive for sharing and storing notebooks.</li>
+                  <li>Offers free access to GPUs and TPUs for faster model training; paid tiers unlock more powerful hardware and longer session durations.</li>
+                  <li>Best for beginners, educators, and quick prototyping, especially when local hardware is insufficient for deep learning.</li>
+               </ul>
+               
+               <h3>Kaggle</h3>
+               <ul>
+                  <li><b>Kaggle</b> is a cloud-based platform and community for data science and machine learning, operated by Google.</li>
+                  <li>Provides kernels (Jupyter notebooks), free access to powerful GPUs (Tesla T4, P100), and a rich repository of datasets and competitions.</li>
+                  <li>Focused on collaborative learning through competitions and shared code; optimized for data preprocessing and batch processing workflows.</li>
+                  <li>Especially useful for those who want to learn through real-world challenges, access community-outlined solutions, and use diverse public datasets.</li>
+               </ul>
+               
+               <h3>Key Differences Table</h3>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Platform</th>
+                        <th>Interface &amp; Setup</th>
+                        <th>Hardware Access</th>
+                        <th>Collaboration</th>
+                        <th>Use Case Focus</th>
+                        <th>Free Tier Features</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>JupyterLab</td>
+                        <td>Local/multi-document</td>
+                        <td>User's machine</td>
+                        <td>Manual</td>
+                        <td>Custom, advanced workflows</td>
+                        <td>Full local access, no cloud GPUs</td>
+                     </tr>
+                     <tr>
+                        <td>Google Colab</td>
+                        <td>Cloud browser-based</td>
+                        <td>Free GPU/TPU</td>
+                        <td>Real-time</td>
+                        <td>Fast prototyping</td>
+                        <td>Cloud storage, basic GPU, easy sharing</td>
+                     </tr>
+                     <tr>
+                        <td>Kaggle</td>
+                        <td>Cloud notebook</td>
+                        <td>Free GPU/TPU</td>
+                        <td>Competitions/community</td>
+                        <td>Datasets, competitions</td>
+                        <td>Data repository, long sessions, GPU access</td>
+                     </tr>
+                  </tbody>
+               </table>
+               
+               <p>Use Colab for <b>quick cloud-based experiments</b>, Kaggle for <b>learning through competitions and dataset-rich environment</b>, and JupyterLab for <b>customizable local development and advanced machine learning projects</b>.</p>
+               
+               <h3>Further Reading &amp; References</h3>
+               <ul>
+                  <li><a href="https://docs.kanaries.net/topics/Python/jupyterlab-vs-notebook" target="_blank">JupyterLab vs Notebook (Kanaries Docs)</a></li>
+                  <li><a href="https://www.linkedin.com/pulse/gpu-acceleration-showdown-kaggle-vs-google-colab-machine-jha-vlvpe" target="_blank">GPU Acceleration Showdown: Kaggle vs Google Colab (LinkedIn)</a></li>
+                  <li><a href="https://jonascleveland.com/kaggle-vs-google-colab/" target="_blank">Kaggle vs Google Colab (Jonas Cleveland Blog)</a></li>
+                  <li><a href="https://domino.ai/data-science-dictionary/jupyter-notebook" target="_blank">Jupyter Notebook Definition (Domino Data Science Dictionary)</a></li>
+                  <li><a href="https://deepnote.com/compare/jupyter-vs-jupyterlab" target="_blank">Jupyter vs JupyterLab (Deepnote)</a></li>
+                  <li><a href="https://bostoninstituteofanalytics.org/blog/comparing-jupyter-vscode-and-google-colab-for-data-science-workflows/" target="_blank">Comparing Jupyter, VSCode, and Google Colab (Boston Institute of Analytics)</a></li>
+                  <li><a href="https://www.kaggle.com" target="_blank">Kaggle Main Site</a></li>
+                  <li><a href="https://stackoverflow.com/questions/50982686/what-is-the-difference-between-jupyter-notebook-and-jupyterlab" target="_blank">Difference between Jupyter Notebook and JupyterLab (Stack Overflow)</a></li>
+                  <li><a href="https://lakefs.io/blog/jupyter-notebook-10-alternatives-2023/" target="_blank">Jupyter Notebook: 10 Alternatives (lakeFS Blog)</a></li>
+                  <li><a href="https://deepnote.com/compare/jupyterlab-vs-kaggle" target="_blank">JupyterLab vs Kaggle (Deepnote)</a></li>
+                  <li><a href="https://www.kaggle.com/code/aldemuro/comparing-ml-algorithms-train-accuracy-90" target="_blank">Comparing ML Algorithms: Train Accuracy 90% (Kaggle Notebook)</a></li>
+               </ul>
             </div>
          </section>
          </main>
