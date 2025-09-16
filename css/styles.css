@@ -1403,10 +1403,17 @@ body.dark-mode .filter-btn.active {
     border-color: var(--accent-2);
 }
 
-body.dark-mode .navbar a.active {
-    background-color: var(--accent-1);
-    color: var(--card-bg-color);
-    border-color: var(--accent-1);
+/* Dark mode styling for navbar */
+html.dark-mode .navbar a:hover {
+    background-color: var(--border-color);
+    color: var(--primary-text-color);
+    border-color: var(--secondary-text-color);
+}
+
+html.dark-mode .navbar a.active {
+    background-color: var(--secondary-text-color);
+    color: var(--bg-color);
+    border-color: var(--secondary-text-color);
 }
 
 /* ==========================================================================
@@ -3488,6 +3495,465 @@ code {
     }
     
     .step-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================================
+   Selection Styles - Optimized for both light and dark modes
+   ========================================================================== */
+
+/* Light mode selection styles */
+::selection {
+    background-color: rgba(65, 90, 119, 0.3); /* Semi-transparent accent-1 */
+    color: var(--primary-text-color);
+}
+
+::-moz-selection {
+    background-color: rgba(65, 90, 119, 0.3);
+    color: var(--primary-text-color);
+}
+
+/* Dark mode selection styles */
+.dark-mode ::selection {
+    background-color: rgba(119, 141, 169, 0.4); /* Semi-transparent accent-2 */
+    color: var(--card-bg-color);
+}
+
+.dark-mode ::-moz-selection {
+    background-color: rgba(119, 141, 169, 0.4);
+    color: var(--card-bg-color);
+}
+
+/* Card and link selection - adaptive to theme */
+.notebook-card::selection,
+.notebook-card *::selection,
+.resource-card::selection,
+.resource-card *::selection,
+.toc-item::selection,
+.toc-item *::selection {
+    background-color: rgba(65, 90, 119, 0.25) !important;
+    color: var(--primary-text-color) !important;
+}
+
+.notebook-card::-moz-selection,
+.notebook-card *::-moz-selection,
+.resource-card::-moz-selection,
+.resource-card *::-moz-selection,
+.toc-item::-moz-selection,
+.toc-item *::-moz-selection {
+    background-color: rgba(65, 90, 119, 0.25) !important;
+    color: var(--primary-text-color) !important;
+}
+
+/* Dark mode card selections */
+.dark-mode .notebook-card::selection,
+.dark-mode .notebook-card *::selection,
+.dark-mode .resource-card::selection,
+.dark-mode .resource-card *::selection,
+.dark-mode .toc-item::selection,
+.dark-mode .toc-item *::selection {
+    background-color: rgba(119, 141, 169, 0.35) !important;
+    color: var(--card-bg-color) !important;
+}
+
+.dark-mode .notebook-card::-moz-selection,
+.dark-mode .notebook-card *::-moz-selection,
+.dark-mode .resource-card::-moz-selection,
+.dark-mode .resource-card *::-moz-selection,
+.dark-mode .toc-item::-moz-selection,
+.dark-mode .toc-item *::-moz-selection {
+    background-color: rgba(119, 141, 169, 0.35) !important;
+    color: var(--card-bg-color) !important;
+}
+
+/* ==========================================================================
+   Python Notebooks Page Styles
+   ========================================================================== */
+
+/* Table of Contents Grid */
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.toc-link {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
+
+.toc-item {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.toc-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-1);
+}
+
+.toc-item h3 {
+    color: var(--accent-1);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.toc-item p {
+    color: var(--secondary-text-color);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Subsection Styling */
+.subsection {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.subsection-title {
+    color: var(--accent-1);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.subsection-description {
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Chapter Section Styling */
+.chapter-section {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-lg);
+    background: var(--bg-color);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--accent-1);
+}
+
+.chapter-title {
+    color: var(--primary-text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Notebook Grid */
+.notebook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.notebook-link {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
+
+.notebook-card {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.notebook-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-1);
+}
+
+.notebook-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.notebook-card h4,
+.notebook-card h5 {
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Featured Courses */
+.featured-courses {
+    margin-top: var(--spacing-lg);
+}
+
+.notebook-card.featured {
+    background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+    color: var(--card-bg-color);
+    border-color: var(--accent-1);
+    flex-direction: column;
+    text-align: center;
+    min-height: 160px;
+    justify-content: center;
+}
+
+.notebook-card.featured h4 {
+    color: var(--card-bg-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.notebook-card.featured p {
+    color: var(--card-bg-color);
+    opacity: 0.9;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.notebook-card.featured:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Featured Resources */
+.featured-resources {
+    margin: var(--spacing-lg) 0;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.resource-link {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
+
+.resource-card {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-1);
+}
+
+.resource-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.resource-card h4 {
+    color: var(--accent-1);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.resource-card p {
+    color: var(--secondary-text-color);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Additional Resources */
+.additional-resource {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.additional-link {
+    display: inline-block;
+    background: var(--accent-1) !important;
+    color: var(--card-bg-color) !important;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--accent-1);
+}
+
+.additional-link:hover {
+    background: var(--accent-2) !important;
+    border-color: var(--accent-2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Dark mode styling for additional-link */
+html.dark-mode .additional-link {
+    background: var(--border-color) !important;
+    color: var(--primary-text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+html.dark-mode .additional-link:hover {
+    background: var(--secondary-text-color) !important;
+    color: var(--bg-color) !important;
+    border-color: var(--secondary-text-color) !important;
+}
+
+/* Dark mode styling for resource-link */
+html.dark-mode .resource-link {
+    background-color: var(--secondary-text-color);
+    color: var(--bg-color);
+}
+
+html.dark-mode .resource-link:hover {
+    background-color: var(--primary-text-color);
+    color: var(--bg-color);
+}
+
+/* Dark mode styling for tab buttons */
+html.dark-mode .tab-button {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    border-color: var(--border-color);
+}
+
+html.dark-mode .tab-button:hover {
+    background-color: var(--border-color);
+    color: var(--primary-text-color);
+    border-color: var(--secondary-text-color);
+}
+
+html.dark-mode .tab-button.active {
+    background-color: var(--secondary-text-color);
+    color: var(--bg-color);
+    border-color: var(--secondary-text-color);
+}
+
+/* Mobile Responsiveness for Notebooks Page */
+@media (max-width: 768px) {
+    .toc-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .notebook-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .resource-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .subsection {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg) -var(--spacing-md);
+        border-radius: 0;
+    }
+    
+    .chapter-section {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) -var(--spacing-md);
+        border-radius: 0;
+        border-left: 3px solid var(--accent-1);
+    }
+    
+    .notebook-card {
+        padding: var(--spacing-md);
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .notebook-card.featured {
+        min-height: 120px;
+    }
+    
+    .resource-card {
+        min-height: 100px;
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .subsection-title {
+        font-size: 1.2rem;
+    }
+    
+    .chapter-title {
+        font-size: 1.1rem;
+    }
+    
+    .notebook-card h4,
+    .notebook-card h5 {
+        font-size: 0.9rem;
+    }
+    
+    .notebook-icon {
+        font-size: 1.2rem;
+    }
+    
+    .resource-icon {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .resource-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .resource-card p {
+        font-size: 0.9rem;
+    }
+    
+    .additional-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+    
+    .toc-item {
+        padding: var(--spacing-lg);
+    }
+    
+    .toc-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .toc-item p {
         font-size: 0.9rem;
     }
 }
